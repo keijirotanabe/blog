@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Win32DiskImagerの使い方 | blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します
+ダウンロードダウンロード先https://ja.osdn.net/projects/sfnet_win32diskimager/
+
+※ FireFoxでうまくダウンロードできませんでした
+
+Chromeではうまくいきました
+
+インストールダウンロードしたWin32DiskImager-0.9.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win32DiskImagerの使い方">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/10/win32-disk-imager-170211/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します
+ダウンロードダウンロード先https://ja.osdn.net/projects/sfnet_win32diskimager/
+
+※ FireFoxでうまくダウンロードできませんでした
+
+Chromeではうまくいきました
+
+インストールダウンロードしたWin32DiskImager-0.9.">
+<meta property="og:image" content="https://lh3.googleusercontent.com/zr55wGcIDgA9H6Y3TuVLtiB1CMhYjekzobRMx7ecUI7g26Sk9Jfh70Acgka_6cMNm01vU7U9z_l1JebuFfor4iYz6oKMxyaitvR8pEwNKEuOTc2dxt34vQMDsDl1QEPwb1jdkzxFfQNZGgQvLjcZmmUwm98Ug8WZDbMPpKdJBvVsdck4cepZqUZdXUIVjwGmUp4c6e4QLQHtZXUPRC5BwfLgYSGCwy1qTrnZTqqP7p-LjHuovXTvrw-PgGHTczdWwmrU0TvqEZZO24bkyU4obJOTPI6kUCRbX4gvtTeWM7UwJSELCjn_ZQTzIrKe8Ux1OLM7UMtToFFQ8ojt_b_NuXMrb-vpqTctZHX9wWkCaRh32y8LbzqVySs_XjI6mHTSOxcHu_G0_pbXAfZ-gYHNcn8o6aPbTn9br8sATK7vhzoMh4k_jv9HnYFtWQ350yTPEp-LLn317KaV7G9sCtCDSD7hKftzSm95570cJpBYyqQXkMiO787zCCT2TKu6ssHJUsNG7X_bVARnFc1UJPCG3ivAeycJrh03do1sbkNWoX3YR2DMgz1iqzu3CAEnVGCmHfzC7CRXxehdO99qYK1rZMBOmr_iymQsHdyVtpt9oXsGIRdqrF65=w1239-h828-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/lxBtaVYnxggbr5Op8BwnOqX11yK6sK47MhxIX2VVEOi8UnlvsMJXM4vidhlt8eLQtrXthTeZmx0AIKb9nbjPv73L2iKIyPUwC9wx6ICvkzpMKC4CEqWo1-WJg7kJ-FlPiVKD9ruTjslQtnfcvSG1HU0bQje8zu-g2iIAxcW7A3atwXDFVJIQ1PgXeZglWv0eDTIORFteAy8vyM-_Z5N2w4n9UceJkn1A1WTweb_ThcJO4YCVYLyKYxFvPCJU1ARGiXfp9gZfQ50yj93Et-aub4dKwvEkcNH-YpyAY01r4_HoMFQjN2ivI38hH2vyPYkVsXnqnyd0mAYRLI_Yrzi924YKwa9JgcqC8PvJrLnKLQEMYL0H1oCgx8eIOuCKDfvfHptA1T-FbS1fI9D6wJ9VzcFE9ewk7miYHONMd0XyuUxhXh6AyL1XBSpZ4Kipm3u1dqye4RJnG-jVc1KgKhyH68w-JS2Q5AUx_2DNop-zAGgIztlIQXlYNI18ZivGrPAUucSLq8HkYqRg7b2dicCPf-EHzvJl58E6dWZJ1AruYFVfBsrRILgKm1bCKlJ3daysjFdPrvbIpQABOJFdiTjrPIXr6mwL8oVlCQ7GerKah1YJI5z9DITH=w1328-h778-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/mznEF-MBUD6536WmAS6pAAEF3RpVe8PV8nWLOrfjKWOaW0nWfiBLiTuSoC4fIND12NiqON4icpYtqTH-V--q3MwEX0aXkrCNOaHIn-590RjwGdc0tN6QF-6ZNUQrmLXPwv8ONJEcw2mDbLZ5TkcfzXPyoWPZdxT1ABwsJs4ljG1OUa8tpf88RvYT7n6cKDcIrVQJOCkMHwW-9LjfOo5B4QYVhlHFVGjmOLuAPeIC-WzrT43uQy4VGMxu4XV2bbWTAw4ZeaKFtKWgp-Ji5Wf8Vu-imGqlD3VPlmnlxUZw0UG7jWr5aA83Inb7Sjf4u5kbQlhPY2y_n7Izx8ptUV_4ZEipbDG8gkj5pQKZ0kWtMzCH-pz4LbwLYeQZRTk4dcM18zPPS46mB4GHzlwSl52Lv36YacaQ_YS3sL69dZNg43Bxym0gAGR1sxzL4LPe9q3TQcwO4qfqL0sOUJ8PRFESKMaiHIr1kTRuTf4xBRvFAG8uBUR0DDu64IOvQC8GZJTlzFNC_zSUPSPWZU0DKStOBiLvBqB5fPavodoXEveDYAXbuKmYJhWfbOa2HVam8yhPC9QhxTqfSs62DrLHo7-aSy_D3yDR3V36SG45Cg8hPBiSPEaTy6E_=w1084-h620-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/sgTPN7ogWo0mMZig0mPeES6PRs7EnahT5Uok3JHYQaGDI6CUHHYjbWhuFaxClFx2oev2hrvtiFt3EFj9XcMKgnEVWOmgVzcQwLCM0J2waQFgyhV3T-VY9GG3AgKENycHaMOZCk8wG7A8qvuLNRwhIlth8HmCi_damFWcKRtGId3gqQyrXOcT9yGAj39Cfi-Mz2P9AQpv8Y-d1ItJWrvXoU0sUcFdXdlcmxDqfMtnxydocsUJHJmgzU_rrxQQ9GJuPWS1Buw7liwFz9aX_C4ZjVZOMpe6Q4XKJUfbMpqmKFKQ5za7GzsdYySo6EoDjvt5lBCSuEsbdnL7j77Kae0shKONpIsQwTiEGQRfhVUauypM7fUT1WRPELZhAFOjrlaErJuuUV93D_yuxLePODUMLQW9QjopX3S1GUwEYWaQ9KGCNvdKLnVGvjvylIIAHRl42_2nsAb8yOrG-QXukAg4HGIiQdsfC1bC8SwRW_ElkXk8wSMv9s1L6KeKBhc4abJWq4DY7HY3Aqyt8HaVErmd8dVOgZEEFSBnDVHY3bB0GCx7zq-vdGbxcIwXzCzRC7VvMiwPsdP1VDDfaOX6CbEAlQ13c7jur1CADtJ5efjAgoN84j5HmQyE=w880-h465-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/VE0_FayaX1t5Affsq24DQFTLrtMEGLpNo8uNc-gevQWUTwAxUdINUzVdfbaIYdjDOZkf2gxQBAYFx1_5MSWPssX6gt5DejYRVCnJYpuGs9RtjFMZTuRgJ3LVFm1Jy8HGXq0-KRHgZs6rQJ70rz9ZN1nRKZgoBMAawssUABopUTye6-dMafakJ2cGEFBecIok76t86SZs7MhvsPC4upmX4mYxPBeIWrAGDCwPNsBjiVdfQeKzv3yg_Otp2QeHkM8qcgenRdmi27fE7I31YHh9vAxNc3RrgjGhhXpCWKB2MHgeJohftTAy4k-sXFUBRopcsU-Y63zGeT0RCNwGNG6H320avfnP459BhOjuJ5q8jd4C6w68LaYNPHHkk8piCmbUWUFWAXBXiLwTmW9v94lyS3OjFNASPIWISZcrqkGx1uz9ILDW1YzpaEmaxWxZk-LqN8pqwT269bBH_xtF8fpwJyf5PKwwkkM_bI7yzz7mw_tPBsj9rcBb3ZpGaPUBbbpRiY0QqQlBgZL2AIzDWIwEq1WtT0DcEY6nDrgvFqvDG3nD0_Z_NLS4YsyFJ-UadBeuVOrexZVbUwEmgKJF8yljrOGiIyNv13xz0sCqXjpF-xMbRxMhllaD=w582-h476-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/LcTw65eBdzBstzE4DoVkgmvu10C1FxM-IVJ1Tu7Zy1RDh88Name-kgmtsCj4d0DHEC_C4WSq56ranSPNAGTptQJLyJNUl2K9nX-HsMp6WwBvtlie8rMqQyMRgVQ_PCYfKEK_tdMNLIfkR6BQ-tdSXsKcVsEvkpBOjon6Zwv7byG88lWfx3lKhg78RNTgzLSrPJSC8_9ebZImoir2RISAD1g1D3c7GBlf4YRl1cE9012qwQ-ZVxSdsR5O7ZDzTZ0vHd9X2KD7ekWCxsPkdhFtJ1_mBeAGYpPJo9ztykgg4PvoQNtkEUlMOzSkcE_mWEHb_O7eeXbxzH_3s4t6p5Lvpvnq_NfLcHN1uQjY5C6vqncgS_FCEFZsyslgMVyVGDqXQdyx-GuJJdvnfbDKi1fmSB2eOgrHcZAsHk4UP3_QNOYXd1OaNR4Vb9lf3MuZlM6DsFhhSBRHtchiYBH3_IdUbj2vZ2AVqIEu2dmTq2A__bGxqMrqPyssRy_Kq33PgHS0NbhgolydwSq2Xd7fk3ZdAOlsNkFP4JRzezn6X0I6RxvipUwQU3q1cR9CaT1Uo3SMNcVdDggJIRo6_yt_GBQA1XXXyPxsaDVUmvchvbqsF3CGXsBG7YsL=w582-h476-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/lS0jwSA5BcD84N2uUD1ojdZisF6ZWGpAPvkjqBFOGSRkjBytmkd6LOVczi6oOvL3Ag4xN_iltUs_900yUJwQeaFfTZ2W2_SnD05TukG_qDZRsUshrRsrzyRw2xpqPzJcDk9bq1QoSKXMs7r2DGWJMlsO9cTS79eHxOwDYIJQtoavbaBRYFGbyP48BU1h9yed2xzTJKSil9M_gjM6JE-khReMhUmNx7ePNGgheLDxLmUnCdj2J7GAIXAORvx8xLv9x2MaLHyfjsuljkpIbbcmGroEhvmLod8kBYgzNRYMT_sr-wjTz4AInX2kJr00-ER8WYh7eiiOIoJ6wtHk0Uxj4HsMseVyJ0aPBPCDvvoIQbyW27GtbkQUBEl3w4onQgiIuwaOLCFAzIkxdGtvcpxjcrzgtBLIJYuelzLC0HQWjYbb6Bo7jtn_TaB6zb335aki1sgI0BOoTQoW6COPov4DTAVnfzCc2panKz4cpHtQW4_XtUDOpbme3i664oeDkEpftgBnuHzY5Hxu_PGFhaIEQSJgwACtLDIT0C2uayXZS8uQCU0AtviwH1v7NOn-T0R5damDdrOHgO4v3Nz2JmOHUOwwtNpfzWoHgJB9_rwYtAbiYUVw-n5z=w582-h476-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/oO1zBtwu5lSlIiAZsMTmrOidOrarKXbKe-N5ydbdYBOJZon1DZzKq6fORRIfSr28PMIzObD25L25Mza63Wy8gcbRwcTK5mc5D6vqp54kB4BlsrUR2Qtu5SsppN7gdJ2yg5nyb4Vv48PruE9WLzUuzz9biPbC56MKc69jx9lv40CQvKHfL0o95dCi5vQccJpsVge7ukocu70kJvwOv3jg3i7UP_cfI6NR-DaU23vodU-cDnI7UcG21v0Gl-rV-GdYENcHUdghXTjmhh7IiTMa5PgtG8iSIFkyhJ14_VF4W1hn944COqxTerGOiePHwptvEsZo20BeBq2kV3SMmN0NC8u8y91Dm_7SNKBOsyJdBgYoYci7NPQJGJDUhDUKA8emFxhVz_4cnwmqQkVM3da0oGJ_DI6H812rbmAWQ78RZcHm2oSqNf7LwMUJsk1YKNYXk0R2cf2IVXgOXeO44RLEOGTS_82nqif3N84Tr08NHlWg3iqGUfHAkDDrU5xesdggvKG7igwvdSSiDwB5NE-3VPYlBl6snxobNwKa0HDDO-TDdpge2-BmcY6GvT7kzIyaaFrxBrVASdHeqgndmQHoiVGr9dkbsmuRhpCZQ-P4xzA8UoUdXRRL=w582-h476-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/kTiCvYWnCh7Ot_p4IWwvdypASOd2fE-aKHuY9aZ-1eHzd37djAaUYCJgVOOyQBkHdxFy0FsvcIaM-VsTMoA--gIjDdi0BIVtuQrjB_KsQ5ycCSXSPuqDdX90SiyAjqDLV6OhBiWEaBOHz2sDvI_zw582tuz9CmEUFI1T6kr3hwGX1m4kx53zhqK2hn78GhNda-_R8lTMpMeohVLkxjMFI3ME5T8CMfd8TI7ltMSUEWfLJb0E4SA9BVEhou--vcm_0yQbfsYflggEnhgx3PRF1MoXUOoG62pbZOjbYc9JcyskZLPnX7gcwRVwVxZK_Ot7zW4cL1nMpQ5VYczGs0UCVhkqZXmLByv-iPTEHE9b0HqRcQ2IR6yk0HFb657nm7DAItai_GwYElsY9yjvIJ8yRw9nocaMhYzi-DRgB3loC9AP6UoSK97Qb9K7Sbu9uRiFDOD9oqCxtAJyR4DI91uAUv7qNzZh7CTDa4Ey0sXlUrvUKSC-rEDZpE-FMMxPzrKZoymWXPr9K0e6VSLPdEgJsgUNxRmylRfeaPJLK1x8uUcUVhCJBNG-xOwONri50gM9shgpYCovJ4S16pN8iiS0h0xmIX9vhXrs0G6KxgQt4OCAhk0AhMM1=w582-h476-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Zrw6kR1LAdOCP1CffMPkRq0w7KTOOxnkV2UE65lovjZjXhJCUemSBNEYjOzJ8HjOW_7wsHgIJ5VmPf-YWyQr4godwi146Z9C9tYzjhTpCpzuImTVnxKdoCLzWX60yryqqm51qbXxiU41oNZgQcf0OzQa7JrDbCpMcWH39_A_UU9-M_niChCI1fb54zjfIbFWMRhhNx1uSVMpiy-Vcu5TKiLgvCERkfDdoc5zB9o-ySiQ-drY1jLllNsl00nggbiVTncg4oRK6sNTTMuNvxFPy744ABLHTYSBfQAuFHIpynbKiUcuq0c9xaAp8CeJMgDqKZjM7vKneOQXmSt0mqSpB6DFBmV0vUE2Ke7h5KLpySvKh7RVgjetQtqSwGNVn7-KzBnsBw5xBOM2cYEcHfG8y7FXmFgKl2DbsicQQ1OFJrc6gjJqkfToADdPJbjEj1ZIr0MqZtrc6k-8eFbMJu1y6Q_Vd7GNgje_70lVM6k_QfkAroHm5HfOlPNHjdw8iKiyatY6SBLLHYPc3K_UetwG_TVibUa8V-Tot7PGTZOL9o1cxn5PQeW-xwj0C48MsBP1cAmqeejvw0ThctzSRoTSs8RgHsjjHY_pialeEIGgF_IOtWHiLSpp=w582-h476-no">
+<meta property="og:image" content="https://photos.google.com/album/AF1QipOPLyZYMkg4ZiCxh-3YVWuDZ2mL0bOAw32o86XG/photo/AF1QipMXdmy5-KnG48NWuZlCIzG-p13nYX8t2Gw6AKIn">
+<meta property="og:image" content="https://lh3.googleusercontent.com/5qNgqCmks2GdgJUwp6Wzzf7YIeIGONbWsIUrVle5lzdcysP7kdgl8hVZofoYzetUyfWFz2Gsn6Er0QWFgg89jCI6qKUIrX1vHojPpu9NI0UCgdQ1q3tlUQ7qjZtYtoCDhRO-bsl1ZHKh2eQxte9QG0vyntsh_u_go-d6fUlnX14hIcaMj6UXu-oYXBvC60qB-vJ8yomiR5UztVA0j1w8KxiRN46sVy-RgsPhQ6etlhHxeeiJ9JPHJuUKJ3SLPnihgjjqJ3sfSyHcVF0d2SH6hlySIvmjBQu4HkRFCVvT-6wyqqezGVdUrD7kmP-71dBOIvP3Bd7rpfHbfMnyyAonriLn-ThtSYkcKZCh7bQRKi6LtrgHLcNyOsILNpQLVIyYEo1onEKxtguqvWAeNawLLedzq3YGiwiCxktcRIR2We_ojmZ3RVjrJEuHECJMWWn5xOO4ZlVLlayyhYRWIXcdeaWPuXK56lWrMNLLgayYcAyri4HHNN7cjIkIWwq5LtQEJnRT2-cNg3B8v5BtY5YL3_fgDpJ_7cSGJHBA9ymtJBiw4T-QntBGgcVm4jzg_zYxrjgpcOP_YxRQZZXC0ST9zWQrZ-FdUu95Fw6C2AVtrvs2vxwdt1sw=w809-h411-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/yKD_4-POXZiIE7tmr8EkU2T1DUzfKM-78FwJK8aSwPv9LwRtwb_oSdvZsR3RDsCx5agvsg0VdyMQxOIfvXx_7PSkiv3SanZth5-NGAM-kiCylnAQg3xT09nlw6vqsDMO3M182_wtiVhSK7MgPPX2VZOvTLCfELEh73gYfsoKMmCQVq99jGzbTx5cuYHgdkomCYwpM66AAvTcyqL2FvUqktvkNLBhLdRNjMh-a1w1zUqzMzglFi1AIJCBDNSJ23_ktrDIOzdKPInQ6I_sJU4yVHoaO8ckm-0ma4OxenrjYciI1IrOCG-m6wfS3czHd8AZZgjZCwByJ8-3iFT_qsZ4hahTjjrtQZXkhi9yMTgSCmCy0wKSPmAnuLqqPJF6DBkkotKeZwtEx7Q0LkGIrw-kqSapwQsSE2y9gWp6eubO8cY-1iWJlmjuyPq-t-P_1WhcWcr9dKGRVjHGsidg84wq2gStex7rW0WMZxaMBl81tRF8xvulO53lGO3uD9XXvhP-bBh8s1WaUfPBEGk2RM46E6xFO2hHb5kuEhpOWgWDI5Et71dMr9RC4ADPVp6TGo_5XK5SiPJwRJYbARLXxeSfeYQsyXsf40UoWNa6SK-IsGAX2DILcvt4=w460-h214-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/njp7o38__4A8LkDIGtg7JGH0XFK3iK9sxdPbUcC3UWSuhhIMzAdDNLuDQJa8KqAexwYwwRXN09okkx931SgITDuX5rwRFvtLyEZ8amjHrTwgImyWmvQ3dJ-xttOMKAIsvrnlrftFeWrInlE7kBe_3Ygz23_B9ufmxWW9Dw2YgrCRiA35pYzD-j-TLcQRrWNyskOUFq0bGngGQ_4_gvztYL_-exAFjCKPbf6cbHbj3XAr_XjfQVy20zuH5rRzXScfW_PxfgVQ4MqBks3p_QxV_csVpV2AcGFpd9s8pGjAGmwyxSZ2nTggGHl7SFjMUDF4xYU9Qk9yITIOjaePUBmd3eSPIJlUL76ytyeoqRa4hvkmgTi57Bp5OfzU3svMbHURCD3unrDeSG10FzkHfNroJ7x5_oGbUb7EOlqC22yh1KJhxAW-HJ3zZ9n3iUo1MUFf5wwDrEM28G11QTTQDTLK5mpEQASS5aGBJZl0r_hKdJbHaWCLnU1utOypgpTiXBnX3eOxTnU5CaDNV7hLrGS6NaZ41OUKgwNzXCD9yg064em14P8RteWZGLXcIjtAzjGY72TyAOh1Z6c-kS32xjQ1QGh5pkrhmtYLQSA9e5ZKtPXiaVYhtox_=w460-h214-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/AwcTloQCshFzEecmBR4Dg4V03yoM-OvuvCkz2_QR_31c_W4R1OWn8eXXyIqAWL1tlDjQ7103-0m6zh3AK1g0cXUzEsGt3hsA5EuxCulLn7fqRgM2u-LyiC5CSyYDHvEOt4DdrKns49xGXG34CKHm6ZtBagv_7VlukeEyDlUuLd1ySPJYrXZd7vLxTSxWR3a7dJzfnX5lc6Kqkfhn70i5Ict6wlSnFAxQM4pFiMzAdGi2cy7RsQPi_RbOsBEFUC4adHFG4nzP1tplBPXHSi3UThZB5NC17ely-MXOG8x01iXDaN77boWK9s9NDMWbguul5IbZL1-INVenzBdORQ2B60Ne1R_HqK_NN1sQefd4ZmhykQOPcG-VWmwqBeTTHONVvOVqQAyVRxvlEUta5QC233aIoUgpQ8soiYKkpDsppMfugPJ1ct1Nnb9oQsDl31vTLKgfOCztq6QAXAiMSX25T2XkwG1M6Q9cu1Q9LC7IyJ3Vwl2JiFeA1M8tsmomNlTe8FwIpO4HxszUtXaU7MnozO_YAsFOCQ6yurqy8b86kNOHDaQngfrIyMT0vpzcOeN1VIBaBlcd-vRANKiTVG4xVg7tAI81tUGjHPONHH2BOz_eb6_yvLis=w882-h469-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/i6YKrq6i5iKbQbsMR_VmjKKp99P8SlQL9_dhNKR10FRIU1U-LLPi1G_W1tZtdVWZJp57HlzhqMPkK0BbODHLZWy3wSSh_Q9_osK6ieTkuKz5hLCNgzdDHjx3FKYRunEaxbfDtyorU7B-7h_xRH9EYQ2UNvmD5cLh7w_KIB4ln3jONzP3Sr1EAWy5W89m70GsOMjDg4W8Aw7b58QmcnjqNNZ3m0sfYWOFG7-chv95odvOs8Kalj4qTq7aPR7_QxHNrMEwONDt1f95YnMI2SOEqA05iso2stesid8VHKVEkUedNu9frgIxdePNKEjoZc4iAC5Qycav-9O6Ep0momEVT8uRwiJixKiF9vVl7YP2XeWG0mwbBL2q8qxDs_PDgxi1U_ND-sPgst99_rvlZARBZbeywIFp9zueKNA_887tJ1XbuB2epdwwmvkhlHokbw-3zWmNsy0RdQEIcSJcmn88ybp3xw4hWvUk3Hi1sUSJLmC7CRfh2RL70wz6AOkJ5_Uso7lvhhn3zJiIZPyAYnfZKSVMYv_IpVVhZHq59cORMKJN9FG0EPU_b-rOeGHcsvBSa93Qo7p8S7Y55LoJ9A2oxE-FzMuMQKjcnZJoNUa_mCgoKWzdqurW=w460-h214-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/u4ZzKS3YWd6DY6fPF0PItSdCBC-5reCVe5UL19NQEmVefN0UD_syAvFzwTr_WW8_QLNuxDYaEI4DKY9y1B0vzxsSfkEJ9jfLWFcOEAeg29IjzP9MOZAxZCKINWBwSPjerMmUXNRqq5CluU6VHlNU4jArJe9uJ8BYMJwNYAJo1dTezRV_lGrIe3Lx2sqHRWOtHGtNiv6GFtss-Vl8cJ-F9Y7d8GPmdZcQhfCUWy9Nk8B5C7UNt2me8VapSTdasHcUuZAxORx_XJVzSCFht6rfUSomCj5ak_gIuxHJxqbqGM84h5qmxL0x1VDBEs_zFtlyZyEUXXylF2a8scfwWqSG7i_j-qQ9hMjYS6_hyfNt6t_iCtSAGVjju80LuQe7Qd8g_6eKJEveYNcKToLvGRltU-LVKYuZY14aNcarONutzptNxOlfk_OcjCOCZ1vpDun2KbYf1UTsZx-_jwVp2pH9zpUY2Z1HPGdpeSnPHbZhKEOAdZOO1E8Dy1aWjErPoYiTC9AVaK2hHX9sfteKQ2ACtcj-gZb6E_SGIybtRHzWKEXJfgsYWpLEaKQyM42YXiXDFZz4AmCKPNWHQSTd6j7efgF0WqluHOkJJ8n9m_PDdY7R3d9bLydi=w341-h85-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/BekUdTNr5igyQeFtgslzQm-R2qt8SZlrLN7mEkF_Ju7LeJMR5GVvEh6m7aHDPoRfOOAW37RtBhlxhaEqR0hFpqYK0i1Hx6-UZb0khFkjsosZMBSBbweotFKy9noEywiy6xaGLEmhXiEm0XX2zxsevh6QW4B2I40tLBElf4KhkV5FGVArE1ryN35_mbt3UVHIOTzs7A60lTHOxfMuLIsR4QXkIzXjm7I7Bx3FlnfO56RVVF6zkPr3SrcitMEjz1-ZP3dzKffM4sggMKI-y17DoElpV5Ec4A_QMoh02G2bYo5uTTMh3OMZkerCe1WUkNJK4dAJpkG5rXCr5qrR34g2RJ70sl9FkKTeSFB20pR0foRY6OZNu-cBJg3YZ0zkMLcnkuJ_Oq8Qbdv3MmqCBZDC8qWfJ7DHOVdJpQ0dIPKAK5UEfzUq13XuC-3cEP_khA7AJTBILaqe-QwGQK9mQnYITKdJBwnYwRqTCyKmWCHgSNYm2cdhY8g9_ZDBgGTiEqCrooAJ42wADfhZdgKK0pQrtqPGSpBNHLUXT9MKbVRYIufK-5zsGoSCSGH9zIuR2QFbRGm3qL-zablr0rTo3mi_uqeKrndgU3_blRnCX3x5H-aABGO75YfO=w460-h214-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/QGy46bXMT8s_G3ycD2_vSdqwzBsR7uYaIUpuurv9Z7SCXM8uovdqaing8gCXGrVbz843KKbbvJ3eQPw8GcmMP9mWHDYx2Lx6cm0j0uGOb9cvBUCJn0C5qio3QHupDTaQW58oxAXTDpwXzBW9PJpi--4n4QFmRXJ0oYQqXzd7UNWQnBbZx9HTM4DUmzAP-pYBCWCjPlQK-VOkpzpPoCrRd1Lh0djq0LN_aiYpAVnGoZEFME6ms0rGpTSIqzDmYn9SI_gUJJZIf-5wk02_kEwo3ZFAaLa6mykD_r1uvX_NGcVkc99LLove-RMIrmSi-rJ8DCbURVJXEr7c8Gtpi-l4AmMqtthxCzs0PoZ3ZMkgRKTMfAMipiWbOYoPLPG6L62yzUbfIIHJj1MfO7N-WqccmvxONOSbx0y1HlLCERWughdkDyNhLcr6kVD2ieyvQ0zN2SrboRP6HTerwY_iXzjunXP_RO3efFsXyn05B3dkWdh38e-IGDeu5T4OXuuia20XHJIzMVq_RdjqlFnvWbiYMLzMvG4kE-dCZuHQbwejfkybGTiGn6VhvqX_MwTa5xBnIL3LVoNEKB8lRBnt7Mc8WuBtAXqgnx2x2OyLeNpwZbwps4BX54OJ=w460-h214-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Sveswd2ry1-4pwlcJzOzcVSpb8IVCYdWY-X6IgMO4AmHGdfcGeKEVS4YJMV-C01W8CkIxhd8htn-pi9l4icGbCdBUfpijqs_lLjyNu2vY3F5JCJ5OnnmonljmRO_AxHFMa18cbN-62h2Y3teNdZSjshi0nwaqluHdUfFBIbZI7H7q7WOT2nwAD0xptH-kEUy7MezBRiAj025Shvk_ehEQv6SImhpp9HOkcZQTAQDYHeMVmv4pPqxSJKaQo1i7NFnn89DVie1wSIWRNRupwGrVWgpKc0zfXY3J-_vuC5aX-MBDJprJwugIIKvLDENIK1067ftbGhT3DJVw-bZSwz3XvMA5Z1eFSD_OqXiY4v1KfGI1iPwue3SEAyxU2FF-vmP2WjEQy3X-AP8scU0r4ip4H6EXXC7NJq9otNyQLBMfDyij20wXXXk_V0r_KwZ9sd0mxqTNW_sbP6gvzxOjWKKkdRi71ZbBcZ4LD-TaZYmkcZ8kL9MBluHxrYCcJAGgSI0cgVTdARacSW-7Bt2822WMAfvzD2-CTMey3PDAsunoPXbbGJv7Ck6DHP9NdV2IdYNLP29UnTQXKlquztE2qW9RrDqiOjpVoNrVrVibHth1jswQrssbONd=w426-h171-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/6gHs-fklstfQqtrGju8ZcGsNGuEyjv4lRmnvTZtw2SOAEZlOnFJKPjDW4D5ulNihwFGg4MFWWpWA5R1eZM75aYzD-o9t-Ql8vMM7JN0yrHe4OQ_2R4TCLHqCfQp386bbt7uUwaSjPDE4T1wby16faW1NuJDWnagErTVJeh7Fwfojp2tShlEgRZeel-sfKVsmXfgARFjoynE87_zrLSHN56Oge51ZhPu2mshI3s0NbUBfkYy-20S7HWZ7kMoaCLIODShGWu48V-3AAWe89Qd_x7chm7dbaglKbGNun2iTk-iZ_zuvh6lMEbA7VHou8pjRUQ87lWizOUIS4JqOu5XNB42_Z0nQJASxAlSDAQTz0nRxzwn9exSpIL_BCWjGAnWn2K_HMKMuvXcKaO6ZNVhh_Z_Uo0qCSajJSd58fw4-GpeeLR2mJWw0n9DHsm6VP8Vbo1a-hzxgBxbkHrpkCspnUKC1KkYUz44QAZxTOPmLpq9cnNQvSy_J4zWyYOHyfBJjpUBncp-MRkFb8qgdVaG6X7XxDUF7CVHPRcLffnG5TeGTxoEFqzUSsb1D3QHL31tRL-dlJBj7wG0kKvIcGBmBCpVtvd5zoJhIrEcU0W-D7RnBkoSZBQCF=w460-h214-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/KQXr9er4F6-PFbGEClGV0BLyPxVfIZ385WcNeTREUsi3-hDcWGhmKky5N1Es805ZmVPCO9QhTWSZl_42faup9Yy66URf4l7NPVzob0ssH-E9UeP_9WsKdnxg50wQGPdqxGMIYc9mMEtKno23wW5LfPh7CkoBcbiefllUscfHbI-AS5I1FduwkHAO32PyI8IFXFIyZnIYIcI3GBKZxCsWknpnqtuX19ehdFhVLLcksuLlwdFRmRwX7PJcefrkWJ7w-O9Nd2-qu8CKv7MAkTCY44e52gm9hqeIsBQSyKp6NQuCwg6thJlMrc_VtLImaV01sQhRQtFr8CgAAeu6p7Ag6YAuHVZgOXhjuhgziygcbPI3S-fZlimClk_QNcFZzwHvcvp9RDlMgfNlaK4LkwfjwoPEhXqb201zQeg-hzwWmF5IvJrIunL-WM4LLstuoMtU_iRJastSXACatJNGGeCYFL2k9z7JnriypKsJlkO_1XeNAdvlvAGmoaLu5VheSTBV7gWS6FtBh-27sJX5FE4-nsHEZu0HMGQr_STlwfkYqku7pPu7tDu45lqBjhQLFn62pUIlVucTnHUS94TP0Xw06Tz8yC8h--3ZGN3SfFzGkyxZSsoOOlbO=w199-h144-no">
+<meta property="og:updated_time" content="2017-02-16T02:26:40.132Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Win32DiskImagerの使い方">
+<meta name="twitter:description" content="SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します
+ダウンロードダウンロード先https://ja.osdn.net/projects/sfnet_win32diskimager/
+
+※ FireFoxでうまくダウンロードできませんでした
+
+Chromeではうまくいきました
+
+インストールダウンロードしたWin32DiskImager-0.9.">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/zr55wGcIDgA9H6Y3TuVLtiB1CMhYjekzobRMx7ecUI7g26Sk9Jfh70Acgka_6cMNm01vU7U9z_l1JebuFfor4iYz6oKMxyaitvR8pEwNKEuOTc2dxt34vQMDsDl1QEPwb1jdkzxFfQNZGgQvLjcZmmUwm98Ug8WZDbMPpKdJBvVsdck4cepZqUZdXUIVjwGmUp4c6e4QLQHtZXUPRC5BwfLgYSGCwy1qTrnZTqqP7p-LjHuovXTvrw-PgGHTczdWwmrU0TvqEZZO24bkyU4obJOTPI6kUCRbX4gvtTeWM7UwJSELCjn_ZQTzIrKe8Ux1OLM7UMtToFFQ8ojt_b_NuXMrb-vpqTctZHX9wWkCaRh32y8LbzqVySs_XjI6mHTSOxcHu_G0_pbXAfZ-gYHNcn8o6aPbTn9br8sATK7vhzoMh4k_jv9HnYFtWQ350yTPEp-LLn317KaV7G9sCtCDSD7hKftzSm95570cJpBYyqQXkMiO787zCCT2TKu6ssHJUsNG7X_bVARnFc1UJPCG3ivAeycJrh03do1sbkNWoX3YR2DMgz1iqzu3CAEnVGCmHfzC7CRXxehdO99qYK1rZMBOmr_iymQsHdyVtpt9oXsGIRdqrF65=w1239-h828-no">
+<link rel="publisher" href="u/0/106972576385014381494">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+    
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91386689-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    <!--google analytics-->
+    <script src="/blog/tracking.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/blog/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/blog/.">Home</a>
+                
+                    <a class="main-nav-link" href="/blog/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/blog/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '投稿',
+            PAGES: 'Pages',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/blog/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/blog/css/images/avatar.jpg" />
+            <h2 id="name">田邊慶次朗</h2>
+            <h3 id="title">忘れないようにメモします</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Gifu, Japan</span>
+            <a id="follow" target="_blank" href="https://github.com/keijirotanabe">フォローする</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>投稿</span>
+            </div>
+            <div class="article-info-block">
+                19
+                <span>タグ</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/keijirotanabe" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-win32-disk-imager-170211" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Win32DiskImagerの使い方
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/10/win32-disk-imager-170211/">
+            <time datetime="2017-02-10T19:56:35.000Z" itemprop="datePublished">2017-02-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/補足/">補足</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a>, <a class="tag-link" href="/blog/tags/補足/">補足</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します</p>
+<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><p>ダウンロード先<br><a href="https://ja.osdn.net/projects/sfnet_win32diskimager/" target="_blank" rel="external">https://ja.osdn.net/projects/sfnet_win32diskimager/</a></p>
+<p><img src="https://lh3.googleusercontent.com/zr55wGcIDgA9H6Y3TuVLtiB1CMhYjekzobRMx7ecUI7g26Sk9Jfh70Acgka_6cMNm01vU7U9z_l1JebuFfor4iYz6oKMxyaitvR8pEwNKEuOTc2dxt34vQMDsDl1QEPwb1jdkzxFfQNZGgQvLjcZmmUwm98Ug8WZDbMPpKdJBvVsdck4cepZqUZdXUIVjwGmUp4c6e4QLQHtZXUPRC5BwfLgYSGCwy1qTrnZTqqP7p-LjHuovXTvrw-PgGHTczdWwmrU0TvqEZZO24bkyU4obJOTPI6kUCRbX4gvtTeWM7UwJSELCjn_ZQTzIrKe8Ux1OLM7UMtToFFQ8ojt_b_NuXMrb-vpqTctZHX9wWkCaRh32y8LbzqVySs_XjI6mHTSOxcHu_G0_pbXAfZ-gYHNcn8o6aPbTn9br8sATK7vhzoMh4k_jv9HnYFtWQ350yTPEp-LLn317KaV7G9sCtCDSD7hKftzSm95570cJpBYyqQXkMiO787zCCT2TKu6ssHJUsNG7X_bVARnFc1UJPCG3ivAeycJrh03do1sbkNWoX3YR2DMgz1iqzu3CAEnVGCmHfzC7CRXxehdO99qYK1rZMBOmr_iymQsHdyVtpt9oXsGIRdqrF65=w1239-h828-no" alt=""></p>
+<p>※ FireFoxでうまくダウンロードできませんでした</p>
+<p><img src="https://lh3.googleusercontent.com/lxBtaVYnxggbr5Op8BwnOqX11yK6sK47MhxIX2VVEOi8UnlvsMJXM4vidhlt8eLQtrXthTeZmx0AIKb9nbjPv73L2iKIyPUwC9wx6ICvkzpMKC4CEqWo1-WJg7kJ-FlPiVKD9ruTjslQtnfcvSG1HU0bQje8zu-g2iIAxcW7A3atwXDFVJIQ1PgXeZglWv0eDTIORFteAy8vyM-_Z5N2w4n9UceJkn1A1WTweb_ThcJO4YCVYLyKYxFvPCJU1ARGiXfp9gZfQ50yj93Et-aub4dKwvEkcNH-YpyAY01r4_HoMFQjN2ivI38hH2vyPYkVsXnqnyd0mAYRLI_Yrzi924YKwa9JgcqC8PvJrLnKLQEMYL0H1oCgx8eIOuCKDfvfHptA1T-FbS1fI9D6wJ9VzcFE9ewk7miYHONMd0XyuUxhXh6AyL1XBSpZ4Kipm3u1dqye4RJnG-jVc1KgKhyH68w-JS2Q5AUx_2DNop-zAGgIztlIQXlYNI18ZivGrPAUucSLq8HkYqRg7b2dicCPf-EHzvJl58E6dWZJ1AruYFVfBsrRILgKm1bCKlJ3daysjFdPrvbIpQABOJFdiTjrPIXr6mwL8oVlCQ7GerKah1YJI5z9DITH=w1328-h778-no" alt=""></p>
+<p>Chromeではうまくいきました</p>
+<p><img src="https://lh3.googleusercontent.com/mznEF-MBUD6536WmAS6pAAEF3RpVe8PV8nWLOrfjKWOaW0nWfiBLiTuSoC4fIND12NiqON4icpYtqTH-V--q3MwEX0aXkrCNOaHIn-590RjwGdc0tN6QF-6ZNUQrmLXPwv8ONJEcw2mDbLZ5TkcfzXPyoWPZdxT1ABwsJs4ljG1OUa8tpf88RvYT7n6cKDcIrVQJOCkMHwW-9LjfOo5B4QYVhlHFVGjmOLuAPeIC-WzrT43uQy4VGMxu4XV2bbWTAw4ZeaKFtKWgp-Ji5Wf8Vu-imGqlD3VPlmnlxUZw0UG7jWr5aA83Inb7Sjf4u5kbQlhPY2y_n7Izx8ptUV_4ZEipbDG8gkj5pQKZ0kWtMzCH-pz4LbwLYeQZRTk4dcM18zPPS46mB4GHzlwSl52Lv36YacaQ_YS3sL69dZNg43Bxym0gAGR1sxzL4LPe9q3TQcwO4qfqL0sOUJ8PRFESKMaiHIr1kTRuTf4xBRvFAG8uBUR0DDu64IOvQC8GZJTlzFNC_zSUPSPWZU0DKStOBiLvBqB5fPavodoXEveDYAXbuKmYJhWfbOa2HVam8yhPC9QhxTqfSs62DrLHo7-aSy_D3yDR3V36SG45Cg8hPBiSPEaTy6E_=w1084-h620-no" alt=""></p>
+<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p>ダウンロードした<code>Win32DiskImager-0.9.5-install.exe</code>を実行します</p>
+<p><img src="https://lh3.googleusercontent.com/sgTPN7ogWo0mMZig0mPeES6PRs7EnahT5Uok3JHYQaGDI6CUHHYjbWhuFaxClFx2oev2hrvtiFt3EFj9XcMKgnEVWOmgVzcQwLCM0J2waQFgyhV3T-VY9GG3AgKENycHaMOZCk8wG7A8qvuLNRwhIlth8HmCi_damFWcKRtGId3gqQyrXOcT9yGAj39Cfi-Mz2P9AQpv8Y-d1ItJWrvXoU0sUcFdXdlcmxDqfMtnxydocsUJHJmgzU_rrxQQ9GJuPWS1Buw7liwFz9aX_C4ZjVZOMpe6Q4XKJUfbMpqmKFKQ5za7GzsdYySo6EoDjvt5lBCSuEsbdnL7j77Kae0shKONpIsQwTiEGQRfhVUauypM7fUT1WRPELZhAFOjrlaErJuuUV93D_yuxLePODUMLQW9QjopX3S1GUwEYWaQ9KGCNvdKLnVGvjvylIIAHRl42_2nsAb8yOrG-QXukAg4HGIiQdsfC1bC8SwRW_ElkXk8wSMv9s1L6KeKBhc4abJWq4DY7HY3Aqyt8HaVErmd8dVOgZEEFSBnDVHY3bB0GCx7zq-vdGbxcIwXzCzRC7VvMiwPsdP1VDDfaOX6CbEAlQ13c7jur1CADtJ5efjAgoN84j5HmQyE=w880-h465-no" alt=""></p>
+<p>以下の流れでインストール</p>
+<p><img src="https://lh3.googleusercontent.com/VE0_FayaX1t5Affsq24DQFTLrtMEGLpNo8uNc-gevQWUTwAxUdINUzVdfbaIYdjDOZkf2gxQBAYFx1_5MSWPssX6gt5DejYRVCnJYpuGs9RtjFMZTuRgJ3LVFm1Jy8HGXq0-KRHgZs6rQJ70rz9ZN1nRKZgoBMAawssUABopUTye6-dMafakJ2cGEFBecIok76t86SZs7MhvsPC4upmX4mYxPBeIWrAGDCwPNsBjiVdfQeKzv3yg_Otp2QeHkM8qcgenRdmi27fE7I31YHh9vAxNc3RrgjGhhXpCWKB2MHgeJohftTAy4k-sXFUBRopcsU-Y63zGeT0RCNwGNG6H320avfnP459BhOjuJ5q8jd4C6w68LaYNPHHkk8piCmbUWUFWAXBXiLwTmW9v94lyS3OjFNASPIWISZcrqkGx1uz9ILDW1YzpaEmaxWxZk-LqN8pqwT269bBH_xtF8fpwJyf5PKwwkkM_bI7yzz7mw_tPBsj9rcBb3ZpGaPUBbbpRiY0QqQlBgZL2AIzDWIwEq1WtT0DcEY6nDrgvFqvDG3nD0_Z_NLS4YsyFJ-UadBeuVOrexZVbUwEmgKJF8yljrOGiIyNv13xz0sCqXjpF-xMbRxMhllaD=w582-h476-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/LcTw65eBdzBstzE4DoVkgmvu10C1FxM-IVJ1Tu7Zy1RDh88Name-kgmtsCj4d0DHEC_C4WSq56ranSPNAGTptQJLyJNUl2K9nX-HsMp6WwBvtlie8rMqQyMRgVQ_PCYfKEK_tdMNLIfkR6BQ-tdSXsKcVsEvkpBOjon6Zwv7byG88lWfx3lKhg78RNTgzLSrPJSC8_9ebZImoir2RISAD1g1D3c7GBlf4YRl1cE9012qwQ-ZVxSdsR5O7ZDzTZ0vHd9X2KD7ekWCxsPkdhFtJ1_mBeAGYpPJo9ztykgg4PvoQNtkEUlMOzSkcE_mWEHb_O7eeXbxzH_3s4t6p5Lvpvnq_NfLcHN1uQjY5C6vqncgS_FCEFZsyslgMVyVGDqXQdyx-GuJJdvnfbDKi1fmSB2eOgrHcZAsHk4UP3_QNOYXd1OaNR4Vb9lf3MuZlM6DsFhhSBRHtchiYBH3_IdUbj2vZ2AVqIEu2dmTq2A__bGxqMrqPyssRy_Kq33PgHS0NbhgolydwSq2Xd7fk3ZdAOlsNkFP4JRzezn6X0I6RxvipUwQU3q1cR9CaT1Uo3SMNcVdDggJIRo6_yt_GBQA1XXXyPxsaDVUmvchvbqsF3CGXsBG7YsL=w582-h476-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/lS0jwSA5BcD84N2uUD1ojdZisF6ZWGpAPvkjqBFOGSRkjBytmkd6LOVczi6oOvL3Ag4xN_iltUs_900yUJwQeaFfTZ2W2_SnD05TukG_qDZRsUshrRsrzyRw2xpqPzJcDk9bq1QoSKXMs7r2DGWJMlsO9cTS79eHxOwDYIJQtoavbaBRYFGbyP48BU1h9yed2xzTJKSil9M_gjM6JE-khReMhUmNx7ePNGgheLDxLmUnCdj2J7GAIXAORvx8xLv9x2MaLHyfjsuljkpIbbcmGroEhvmLod8kBYgzNRYMT_sr-wjTz4AInX2kJr00-ER8WYh7eiiOIoJ6wtHk0Uxj4HsMseVyJ0aPBPCDvvoIQbyW27GtbkQUBEl3w4onQgiIuwaOLCFAzIkxdGtvcpxjcrzgtBLIJYuelzLC0HQWjYbb6Bo7jtn_TaB6zb335aki1sgI0BOoTQoW6COPov4DTAVnfzCc2panKz4cpHtQW4_XtUDOpbme3i664oeDkEpftgBnuHzY5Hxu_PGFhaIEQSJgwACtLDIT0C2uayXZS8uQCU0AtviwH1v7NOn-T0R5damDdrOHgO4v3Nz2JmOHUOwwtNpfzWoHgJB9_rwYtAbiYUVw-n5z=w582-h476-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/oO1zBtwu5lSlIiAZsMTmrOidOrarKXbKe-N5ydbdYBOJZon1DZzKq6fORRIfSr28PMIzObD25L25Mza63Wy8gcbRwcTK5mc5D6vqp54kB4BlsrUR2Qtu5SsppN7gdJ2yg5nyb4Vv48PruE9WLzUuzz9biPbC56MKc69jx9lv40CQvKHfL0o95dCi5vQccJpsVge7ukocu70kJvwOv3jg3i7UP_cfI6NR-DaU23vodU-cDnI7UcG21v0Gl-rV-GdYENcHUdghXTjmhh7IiTMa5PgtG8iSIFkyhJ14_VF4W1hn944COqxTerGOiePHwptvEsZo20BeBq2kV3SMmN0NC8u8y91Dm_7SNKBOsyJdBgYoYci7NPQJGJDUhDUKA8emFxhVz_4cnwmqQkVM3da0oGJ_DI6H812rbmAWQ78RZcHm2oSqNf7LwMUJsk1YKNYXk0R2cf2IVXgOXeO44RLEOGTS_82nqif3N84Tr08NHlWg3iqGUfHAkDDrU5xesdggvKG7igwvdSSiDwB5NE-3VPYlBl6snxobNwKa0HDDO-TDdpge2-BmcY6GvT7kzIyaaFrxBrVASdHeqgndmQHoiVGr9dkbsmuRhpCZQ-P4xzA8UoUdXRRL=w582-h476-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/kTiCvYWnCh7Ot_p4IWwvdypASOd2fE-aKHuY9aZ-1eHzd37djAaUYCJgVOOyQBkHdxFy0FsvcIaM-VsTMoA--gIjDdi0BIVtuQrjB_KsQ5ycCSXSPuqDdX90SiyAjqDLV6OhBiWEaBOHz2sDvI_zw582tuz9CmEUFI1T6kr3hwGX1m4kx53zhqK2hn78GhNda-_R8lTMpMeohVLkxjMFI3ME5T8CMfd8TI7ltMSUEWfLJb0E4SA9BVEhou--vcm_0yQbfsYflggEnhgx3PRF1MoXUOoG62pbZOjbYc9JcyskZLPnX7gcwRVwVxZK_Ot7zW4cL1nMpQ5VYczGs0UCVhkqZXmLByv-iPTEHE9b0HqRcQ2IR6yk0HFb657nm7DAItai_GwYElsY9yjvIJ8yRw9nocaMhYzi-DRgB3loC9AP6UoSK97Qb9K7Sbu9uRiFDOD9oqCxtAJyR4DI91uAUv7qNzZh7CTDa4Ey0sXlUrvUKSC-rEDZpE-FMMxPzrKZoymWXPr9K0e6VSLPdEgJsgUNxRmylRfeaPJLK1x8uUcUVhCJBNG-xOwONri50gM9shgpYCovJ4S16pN8iiS0h0xmIX9vhXrs0G6KxgQt4OCAhk0AhMM1=w582-h476-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/Zrw6kR1LAdOCP1CffMPkRq0w7KTOOxnkV2UE65lovjZjXhJCUemSBNEYjOzJ8HjOW_7wsHgIJ5VmPf-YWyQr4godwi146Z9C9tYzjhTpCpzuImTVnxKdoCLzWX60yryqqm51qbXxiU41oNZgQcf0OzQa7JrDbCpMcWH39_A_UU9-M_niChCI1fb54zjfIbFWMRhhNx1uSVMpiy-Vcu5TKiLgvCERkfDdoc5zB9o-ySiQ-drY1jLllNsl00nggbiVTncg4oRK6sNTTMuNvxFPy744ABLHTYSBfQAuFHIpynbKiUcuq0c9xaAp8CeJMgDqKZjM7vKneOQXmSt0mqSpB6DFBmV0vUE2Ke7h5KLpySvKh7RVgjetQtqSwGNVn7-KzBnsBw5xBOM2cYEcHfG8y7FXmFgKl2DbsicQQ1OFJrc6gjJqkfToADdPJbjEj1ZIr0MqZtrc6k-8eFbMJu1y6Q_Vd7GNgje_70lVM6k_QfkAroHm5HfOlPNHjdw8iKiyatY6SBLLHYPc3K_UetwG_TVibUa8V-Tot7PGTZOL9o1cxn5PQeW-xwj0C48MsBP1cAmqeejvw0ThctzSRoTSs8RgHsjjHY_pialeEIGgF_IOtWHiLSpp=w582-h476-no" alt=""></p>
+<p><img src="https://photos.google.com/album/AF1QipOPLyZYMkg4ZiCxh-3YVWuDZ2mL0bOAw32o86XG/photo/AF1QipMXdmy5-KnG48NWuZlCIzG-p13nYX8t2Gw6AKIn" alt=""></p>
+<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><h2 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h2><p>管理者として実行<br>何か聞かれたら「はい」を選択</p>
+<p><img src="https://lh3.googleusercontent.com/5qNgqCmks2GdgJUwp6Wzzf7YIeIGONbWsIUrVle5lzdcysP7kdgl8hVZofoYzetUyfWFz2Gsn6Er0QWFgg89jCI6qKUIrX1vHojPpu9NI0UCgdQ1q3tlUQ7qjZtYtoCDhRO-bsl1ZHKh2eQxte9QG0vyntsh_u_go-d6fUlnX14hIcaMj6UXu-oYXBvC60qB-vJ8yomiR5UztVA0j1w8KxiRN46sVy-RgsPhQ6etlhHxeeiJ9JPHJuUKJ3SLPnihgjjqJ3sfSyHcVF0d2SH6hlySIvmjBQu4HkRFCVvT-6wyqqezGVdUrD7kmP-71dBOIvP3Bd7rpfHbfMnyyAonriLn-ThtSYkcKZCh7bQRKi6LtrgHLcNyOsILNpQLVIyYEo1onEKxtguqvWAeNawLLedzq3YGiwiCxktcRIR2We_ojmZ3RVjrJEuHECJMWWn5xOO4ZlVLlayyhYRWIXcdeaWPuXK56lWrMNLLgayYcAyri4HHNN7cjIkIWwq5LtQEJnRT2-cNg3B8v5BtY5YL3_fgDpJ_7cSGJHBA9ymtJBiw4T-QntBGgcVm4jzg_zYxrjgpcOP_YxRQZZXC0ST9zWQrZ-FdUu95Fw6C2AVtrvs2vxwdt1sw=w809-h411-no" alt=""></p>
+<p>起動画面</p>
+<p><img src="https://lh3.googleusercontent.com/yKD_4-POXZiIE7tmr8EkU2T1DUzfKM-78FwJK8aSwPv9LwRtwb_oSdvZsR3RDsCx5agvsg0VdyMQxOIfvXx_7PSkiv3SanZth5-NGAM-kiCylnAQg3xT09nlw6vqsDMO3M182_wtiVhSK7MgPPX2VZOvTLCfELEh73gYfsoKMmCQVq99jGzbTx5cuYHgdkomCYwpM66AAvTcyqL2FvUqktvkNLBhLdRNjMh-a1w1zUqzMzglFi1AIJCBDNSJ23_ktrDIOzdKPInQ6I_sJU4yVHoaO8ckm-0ma4OxenrjYciI1IrOCG-m6wfS3czHd8AZZgjZCwByJ8-3iFT_qsZ4hahTjjrtQZXkhi9yMTgSCmCy0wKSPmAnuLqqPJF6DBkkotKeZwtEx7Q0LkGIrw-kqSapwQsSE2y9gWp6eubO8cY-1iWJlmjuyPq-t-P_1WhcWcr9dKGRVjHGsidg84wq2gStex7rW0WMZxaMBl81tRF8xvulO53lGO3uD9XXvhP-bBh8s1WaUfPBEGk2RM46E6xFO2hHb5kuEhpOWgWDI5Et71dMr9RC4ADPVp6TGo_5XK5SiPJwRJYbARLXxeSfeYQsyXsf40UoWNa6SK-IsGAX2DILcvt4=w460-h214-no" alt=""></p>
+<h2 id="ファイルを選択"><a href="#ファイルを選択" class="headerlink" title="ファイルを選択"></a>ファイルを選択</h2><p>書き込みたいファイルを選択します<br>※ここでは<code>2017-01-11-raspbian-jessie.img</code>を選択</p>
+<p>ファイルのマークを選択</p>
+<p><img src="https://lh3.googleusercontent.com/njp7o38__4A8LkDIGtg7JGH0XFK3iK9sxdPbUcC3UWSuhhIMzAdDNLuDQJa8KqAexwYwwRXN09okkx931SgITDuX5rwRFvtLyEZ8amjHrTwgImyWmvQ3dJ-xttOMKAIsvrnlrftFeWrInlE7kBe_3Ygz23_B9ufmxWW9Dw2YgrCRiA35pYzD-j-TLcQRrWNyskOUFq0bGngGQ_4_gvztYL_-exAFjCKPbf6cbHbj3XAr_XjfQVy20zuH5rRzXScfW_PxfgVQ4MqBks3p_QxV_csVpV2AcGFpd9s8pGjAGmwyxSZ2nTggGHl7SFjMUDF4xYU9Qk9yITIOjaePUBmd3eSPIJlUL76ytyeoqRa4hvkmgTi57Bp5OfzU3svMbHURCD3unrDeSG10FzkHfNroJ7x5_oGbUb7EOlqC22yh1KJhxAW-HJ3zZ9n3iUo1MUFf5wwDrEM28G11QTTQDTLK5mpEQASS5aGBJZl0r_hKdJbHaWCLnU1utOypgpTiXBnX3eOxTnU5CaDNV7hLrGS6NaZ41OUKgwNzXCD9yg064em14P8RteWZGLXcIjtAzjGY72TyAOh1Z6c-kS32xjQ1QGh5pkrhmtYLQSA9e5ZKtPXiaVYhtox_=w460-h214-no" alt=""></p>
+<p>ファイルを開く</p>
+<p><img src="https://lh3.googleusercontent.com/AwcTloQCshFzEecmBR4Dg4V03yoM-OvuvCkz2_QR_31c_W4R1OWn8eXXyIqAWL1tlDjQ7103-0m6zh3AK1g0cXUzEsGt3hsA5EuxCulLn7fqRgM2u-LyiC5CSyYDHvEOt4DdrKns49xGXG34CKHm6ZtBagv_7VlukeEyDlUuLd1ySPJYrXZd7vLxTSxWR3a7dJzfnX5lc6Kqkfhn70i5Ict6wlSnFAxQM4pFiMzAdGi2cy7RsQPi_RbOsBEFUC4adHFG4nzP1tplBPXHSi3UThZB5NC17ely-MXOG8x01iXDaN77boWK9s9NDMWbguul5IbZL1-INVenzBdORQ2B60Ne1R_HqK_NN1sQefd4ZmhykQOPcG-VWmwqBeTTHONVvOVqQAyVRxvlEUta5QC233aIoUgpQ8soiYKkpDsppMfugPJ1ct1Nnb9oQsDl31vTLKgfOCztq6QAXAiMSX25T2XkwG1M6Q9cu1Q9LC7IyJ3Vwl2JiFeA1M8tsmomNlTe8FwIpO4HxszUtXaU7MnozO_YAsFOCQ6yurqy8b86kNOHDaQngfrIyMT0vpzcOeN1VIBaBlcd-vRANKiTVG4xVg7tAI81tUGjHPONHH2BOz_eb6_yvLis=w882-h469-no" alt=""></p>
+<p>選択できた</p>
+<p><img src="https://lh3.googleusercontent.com/i6YKrq6i5iKbQbsMR_VmjKKp99P8SlQL9_dhNKR10FRIU1U-LLPi1G_W1tZtdVWZJp57HlzhqMPkK0BbODHLZWy3wSSh_Q9_osK6ieTkuKz5hLCNgzdDHjx3FKYRunEaxbfDtyorU7B-7h_xRH9EYQ2UNvmD5cLh7w_KIB4ln3jONzP3Sr1EAWy5W89m70GsOMjDg4W8Aw7b58QmcnjqNNZ3m0sfYWOFG7-chv95odvOs8Kalj4qTq7aPR7_QxHNrMEwONDt1f95YnMI2SOEqA05iso2stesid8VHKVEkUedNu9frgIxdePNKEjoZc4iAC5Qycav-9O6Ep0momEVT8uRwiJixKiF9vVl7YP2XeWG0mwbBL2q8qxDs_PDgxi1U_ND-sPgst99_rvlZARBZbeywIFp9zueKNA_887tJ1XbuB2epdwwmvkhlHokbw-3zWmNsy0RdQEIcSJcmn88ybp3xw4hWvUk3Hi1sUSJLmC7CRfh2RL70wz6AOkJ5_Uso7lvhhn3zJiIZPyAYnfZKSVMYv_IpVVhZHq59cORMKJN9FG0EPU_b-rOeGHcsvBSa93Qo7p8S7Y55LoJ9A2oxE-FzMuMQKjcnZJoNUa_mCgoKWzdqurW=w460-h214-no" alt=""></p>
+<h2 id="書き込み先を選択"><a href="#書き込み先を選択" class="headerlink" title="書き込み先を選択"></a>書き込み先を選択</h2><p>書き込み先のSDカードまたは、USBメモリーを選択します</p>
+<p>(F:)に書き込みたいので、[F]を選択</p>
+<p><img src="https://lh3.googleusercontent.com/u4ZzKS3YWd6DY6fPF0PItSdCBC-5reCVe5UL19NQEmVefN0UD_syAvFzwTr_WW8_QLNuxDYaEI4DKY9y1B0vzxsSfkEJ9jfLWFcOEAeg29IjzP9MOZAxZCKINWBwSPjerMmUXNRqq5CluU6VHlNU4jArJe9uJ8BYMJwNYAJo1dTezRV_lGrIe3Lx2sqHRWOtHGtNiv6GFtss-Vl8cJ-F9Y7d8GPmdZcQhfCUWy9Nk8B5C7UNt2me8VapSTdasHcUuZAxORx_XJVzSCFht6rfUSomCj5ak_gIuxHJxqbqGM84h5qmxL0x1VDBEs_zFtlyZyEUXXylF2a8scfwWqSG7i_j-qQ9hMjYS6_hyfNt6t_iCtSAGVjju80LuQe7Qd8g_6eKJEveYNcKToLvGRltU-LVKYuZY14aNcarONutzptNxOlfk_OcjCOCZ1vpDun2KbYf1UTsZx-_jwVp2pH9zpUY2Z1HPGdpeSnPHbZhKEOAdZOO1E8Dy1aWjErPoYiTC9AVaK2hHX9sfteKQ2ACtcj-gZb6E_SGIybtRHzWKEXJfgsYWpLEaKQyM42YXiXDFZz4AmCKPNWHQSTd6j7efgF0WqluHOkJJ8n9m_PDdY7R3d9bLydi=w341-h85-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/BekUdTNr5igyQeFtgslzQm-R2qt8SZlrLN7mEkF_Ju7LeJMR5GVvEh6m7aHDPoRfOOAW37RtBhlxhaEqR0hFpqYK0i1Hx6-UZb0khFkjsosZMBSBbweotFKy9noEywiy6xaGLEmhXiEm0XX2zxsevh6QW4B2I40tLBElf4KhkV5FGVArE1ryN35_mbt3UVHIOTzs7A60lTHOxfMuLIsR4QXkIzXjm7I7Bx3FlnfO56RVVF6zkPr3SrcitMEjz1-ZP3dzKffM4sggMKI-y17DoElpV5Ec4A_QMoh02G2bYo5uTTMh3OMZkerCe1WUkNJK4dAJpkG5rXCr5qrR34g2RJ70sl9FkKTeSFB20pR0foRY6OZNu-cBJg3YZ0zkMLcnkuJ_Oq8Qbdv3MmqCBZDC8qWfJ7DHOVdJpQ0dIPKAK5UEfzUq13XuC-3cEP_khA7AJTBILaqe-QwGQK9mQnYITKdJBwnYwRqTCyKmWCHgSNYm2cdhY8g9_ZDBgGTiEqCrooAJ42wADfhZdgKK0pQrtqPGSpBNHLUXT9MKbVRYIufK-5zsGoSCSGH9zIuR2QFbRGm3qL-zablr0rTo3mi_uqeKrndgU3_blRnCX3x5H-aABGO75YfO=w460-h214-no" alt=""></p>
+<p>※大抵、初めから選択されています</p>
+<h2 id="書き込み開始"><a href="#書き込み開始" class="headerlink" title="書き込み開始"></a>書き込み開始</h2><p>「Write」を選択</p>
+<p><img src="https://lh3.googleusercontent.com/QGy46bXMT8s_G3ycD2_vSdqwzBsR7uYaIUpuurv9Z7SCXM8uovdqaing8gCXGrVbz843KKbbvJ3eQPw8GcmMP9mWHDYx2Lx6cm0j0uGOb9cvBUCJn0C5qio3QHupDTaQW58oxAXTDpwXzBW9PJpi--4n4QFmRXJ0oYQqXzd7UNWQnBbZx9HTM4DUmzAP-pYBCWCjPlQK-VOkpzpPoCrRd1Lh0djq0LN_aiYpAVnGoZEFME6ms0rGpTSIqzDmYn9SI_gUJJZIf-5wk02_kEwo3ZFAaLa6mykD_r1uvX_NGcVkc99LLove-RMIrmSi-rJ8DCbURVJXEr7c8Gtpi-l4AmMqtthxCzs0PoZ3ZMkgRKTMfAMipiWbOYoPLPG6L62yzUbfIIHJj1MfO7N-WqccmvxONOSbx0y1HlLCERWughdkDyNhLcr6kVD2ieyvQ0zN2SrboRP6HTerwY_iXzjunXP_RO3efFsXyn05B3dkWdh38e-IGDeu5T4OXuuia20XHJIzMVq_RdjqlFnvWbiYMLzMvG4kE-dCZuHQbwejfkybGTiGn6VhvqX_MwTa5xBnIL3LVoNEKB8lRBnt7Mc8WuBtAXqgnx2x2OyLeNpwZbwps4BX54OJ=w460-h214-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/Sveswd2ry1-4pwlcJzOzcVSpb8IVCYdWY-X6IgMO4AmHGdfcGeKEVS4YJMV-C01W8CkIxhd8htn-pi9l4icGbCdBUfpijqs_lLjyNu2vY3F5JCJ5OnnmonljmRO_AxHFMa18cbN-62h2Y3teNdZSjshi0nwaqluHdUfFBIbZI7H7q7WOT2nwAD0xptH-kEUy7MezBRiAj025Shvk_ehEQv6SImhpp9HOkcZQTAQDYHeMVmv4pPqxSJKaQo1i7NFnn89DVie1wSIWRNRupwGrVWgpKc0zfXY3J-_vuC5aX-MBDJprJwugIIKvLDENIK1067ftbGhT3DJVw-bZSwz3XvMA5Z1eFSD_OqXiY4v1KfGI1iPwue3SEAyxU2FF-vmP2WjEQy3X-AP8scU0r4ip4H6EXXC7NJq9otNyQLBMfDyij20wXXXk_V0r_KwZ9sd0mxqTNW_sbP6gvzxOjWKKkdRi71ZbBcZ4LD-TaZYmkcZ8kL9MBluHxrYCcJAGgSI0cgVTdARacSW-7Bt2822WMAfvzD2-CTMey3PDAsunoPXbbGJv7Ck6DHP9NdV2IdYNLP29UnTQXKlquztE2qW9RrDqiOjpVoNrVrVibHth1jswQrssbONd=w426-h171-no" alt=""></p>
+<p>書き込み中<br>終わるまで待ちます</p>
+<p><img src="https://lh3.googleusercontent.com/6gHs-fklstfQqtrGju8ZcGsNGuEyjv4lRmnvTZtw2SOAEZlOnFJKPjDW4D5ulNihwFGg4MFWWpWA5R1eZM75aYzD-o9t-Ql8vMM7JN0yrHe4OQ_2R4TCLHqCfQp386bbt7uUwaSjPDE4T1wby16faW1NuJDWnagErTVJeh7Fwfojp2tShlEgRZeel-sfKVsmXfgARFjoynE87_zrLSHN56Oge51ZhPu2mshI3s0NbUBfkYy-20S7HWZ7kMoaCLIODShGWu48V-3AAWe89Qd_x7chm7dbaglKbGNun2iTk-iZ_zuvh6lMEbA7VHou8pjRUQ87lWizOUIS4JqOu5XNB42_Z0nQJASxAlSDAQTz0nRxzwn9exSpIL_BCWjGAnWn2K_HMKMuvXcKaO6ZNVhh_Z_Uo0qCSajJSd58fw4-GpeeLR2mJWw0n9DHsm6VP8Vbo1a-hzxgBxbkHrpkCspnUKC1KkYUz44QAZxTOPmLpq9cnNQvSy_J4zWyYOHyfBJjpUBncp-MRkFb8qgdVaG6X7XxDUF7CVHPRcLffnG5TeGTxoEFqzUSsb1D3QHL31tRL-dlJBj7wG0kKvIcGBmBCpVtvd5zoJhIrEcU0W-D7RnBkoSZBQCF=w460-h214-no" alt=""></p>
+<p>終わりました</p>
+<p><img src="https://lh3.googleusercontent.com/KQXr9er4F6-PFbGEClGV0BLyPxVfIZ385WcNeTREUsi3-hDcWGhmKky5N1Es805ZmVPCO9QhTWSZl_42faup9Yy66URf4l7NPVzob0ssH-E9UeP_9WsKdnxg50wQGPdqxGMIYc9mMEtKno23wW5LfPh7CkoBcbiefllUscfHbI-AS5I1FduwkHAO32PyI8IFXFIyZnIYIcI3GBKZxCsWknpnqtuX19ehdFhVLLcksuLlwdFRmRwX7PJcefrkWJ7w-O9Nd2-qu8CKv7MAkTCY44e52gm9hqeIsBQSyKp6NQuCwg6thJlMrc_VtLImaV01sQhRQtFr8CgAAeu6p7Ag6YAuHVZgOXhjuhgziygcbPI3S-fZlimClk_QNcFZzwHvcvp9RDlMgfNlaK4LkwfjwoPEhXqb201zQeg-hzwWmF5IvJrIunL-WM4LLstuoMtU_iRJastSXACatJNGGeCYFL2k9z7JnriypKsJlkO_1XeNAdvlvAGmoaLu5VheSTBV7gWS6FtBh-27sJX5FE4-nsHEZu0HMGQr_STlwfkYqku7pPu7tDu45lqBjhQLFn62pUIlVucTnHUS94TP0Xw06Tz8yC8h--3ZGN3SfFzGkyxZSsoOOlbO=w199-h144-no" alt=""></p>
+<p>使い方は以上です</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/" data-id="ciz7v1gbz001h3a6274z6xk4b" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
+                
+                    Raspberry Pi 3をリモートデスクトップで操作
+                
+            </div>
+        </a>
+    
+    
+        <a href="/blog/2017/02/10/sd-formatter-4-170210/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">SDカードフォーマッターの使い方</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最近の記事</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.148Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-search-add-170216/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-search-add-170216/" class="title">Hexoのテーマicarusでサイト内検索を追加する</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T19:01:51.000Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="title">HexoにDisqusでコメント機能を追加する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T13:03:55.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/14/hexo-toc-install-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/14/hexo-toc-install-170215/" class="title">HEXOで目次を自動で作成してくれるhexo-tocをインストール</a></p>
+                            <p class="item-date"><time datetime="2017-02-14T18:59:49.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ESP8266/">ESP8266</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Font/">Font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Hexo/">Hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/fritzing/">fritzing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/">プログラミング</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/補足/">補足</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグクラウド</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Arduino/" style="font-size: 16px;">Arduino</a> <a href="/blog/tags/Cloud9/" style="font-size: 10px;">Cloud9</a> <a href="/blog/tags/Disqus/" style="font-size: 10px;">Disqus</a> <a href="/blog/tags/ESP-WROOM-02/" style="font-size: 16px;">ESP-WROOM-02</a> <a href="/blog/tags/ESP8266/" style="font-size: 18px;">ESP8266</a> <a href="/blog/tags/Font/" style="font-size: 10px;">Font</a> <a href="/blog/tags/GutHub/" style="font-size: 10px;">GutHub</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/blog/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/blog/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/blog/tags/Raspberry-Pi-3/" style="font-size: 12px;">Raspberry Pi 3</a> <a href="/blog/tags/RictyDiminished/" style="font-size: 10px;">RictyDiminished</a> <a href="/blog/tags/SDカードフォーマッター/" style="font-size: 10px;">SDカードフォーマッター</a> <a href="/blog/tags/WiFi/" style="font-size: 10px;">WiFi</a> <a href="/blog/tags/Win32DiskImager/" style="font-size: 10px;">Win32DiskImager</a> <a href="/blog/tags/fritzing/" style="font-size: 10px;">fritzing</a> <a href="/blog/tags/メモ/" style="font-size: 10px;">メモ</a> <a href="/blog/tags/補足/" style="font-size: 14px;">補足</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグ</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Arduino/">Arduino</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud9/">Cloud9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Disqus/">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP8266/">ESP8266</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Font/">Font</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GutHub/">GutHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RictyDiminished/">RictyDiminished</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SDカードフォーマッター/">SDカードフォーマッター</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/WiFi/">WiFi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fritzing/">fritzing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/メモ/">メモ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/補足/">補足</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">アーカイブ</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">2月 2017</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 田邊 慶次朗<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/';
+        
+        this.page.identifier = 'win32-disk-imager-170211';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'blog-8jwah39ddi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

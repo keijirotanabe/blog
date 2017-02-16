@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Node.jsのインストール方法 | blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Node.jsのインストール方法
+目次
+公式サイトhttps://nodejs.org/ja/
+Node.jsとは特徴
+サーバー側で動作するJavaScript  通常、JavaScriptはウェブブラウザの中で実行されるが、Node.jsはサーバサイドで動作するJavaScriptの一種
+ノンブロッキングI/O  送受信の完了を待たないで、他の処理を開始する通信方法
+シングルスレッド   並行処">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.jsのインストール方法">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/09/node-js-install-step-170210/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Node.jsのインストール方法
+目次
+公式サイトhttps://nodejs.org/ja/
+Node.jsとは特徴
+サーバー側で動作するJavaScript  通常、JavaScriptはウェブブラウザの中で実行されるが、Node.jsはサーバサイドで動作するJavaScriptの一種
+ノンブロッキングI/O  送受信の完了を待たないで、他の処理を開始する通信方法
+シングルスレッド   並行処">
+<meta property="og:image" content="https://lh3.googleusercontent.com/vw9KvssVpVB4MD7U-dLNwQIX9g4bDlsKC6xh7N0ndrkMGecY05-heKK9MnTm61xt_JYHXLFTZl6o9PBRxyGN9puYqmVTyyLICDAoJwfctOREdoFFh4QlndMVRWPb6DvduNCPVFmU1_Ftwtc5Gj_SdHSq4Duh6PkBHimO3i4F_qCy8I4HoyaPx6WmWPZofcgM0FG2jkSh0hBD_SlL5uDapxDtipb7vuKRjBBT2r3SmZ7u4n19GJg-2Os-tpPnFxPUsO6Klv256A7FwONZTBKa49HVc_gtqcPORYQobfComqeQ504VFtqbIaCKnq9JM3jf6dO6hbkoIcu3ISrvM2A2nITrqakoYb83NtY0ndlW1405qZQnGrmsraTCWvZt4NILnhFu1WBdyQ12bI3mrjDyIhqedXpZKBByxNnKe3oFHOJJB3VL4iMva_H2YVAGx5NyjqDeWpfiNiZk0WzKRKJWLDDAmSFOvtafqL1epl04ZCVS-wm-elZxmyP7keqxa7AHM1GWSMRSYR6IBipfyV9Xjy219Vt8OUCV1CiVPgSfR1CD2sQGDCi1i7nCdUZn0mbaOyvYR52dsti_IyA6KGwnQ8nakwu-xxYmLnbBGLiZqPSrbURiSdAZ=w784-h487-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/rLYJ_QkJj7AnSE1__ZjiYSp-rxihO_xlJmyZ8DWpvO20rdVsAJTXqGU5QRuSKHkxJy0hg_J217oh9QQsiYgOGzckjfXnyiQsTJWfTs9lyhmjFjiHFqy7ZAEAs3hd5n4FXOJzixyn-X8S9jA4IQTls-F7ELGyKdmGNCAZT-gqhgwZySJshcOgKoZ5wvStOVY0cL3kVxKmWrhWsc8EQPkYjfZsmI488kNS1fwkJMmjihdxF8KFjkUH0YRg0_yUFGaw7pGP1MVQ_1uWTIE2WVMUg3zXO61CAIaFTs68eCB6ifk8t4BUjlJi9BNL5ahbFASJ7-ZbVyMpMGlFt-AyG3C1QCA5INgCI8AnMbB-LOsc_y9gXWMAOqGw3lpLcyDDFVsHt7WS0T45T4o5f5hRpjSym85O1Knvy-tDsXGXUrfMehoNOzR2IM3pzsUMaHA5qK0eaRMdxea0q9pKEVGDA9tQwb-kO78Xs1eeuaWtVGgG62gP9nFHqU2rAcyHeOdMdXn_pk7bm-M-w_tVhakA73HRlYcT285fLNeZCBjcFawn4HvVmwdE_KXChB2bzlVeVeILOL0ztOtJ8wxIOE7CYlyFvbcS-b3p_6u4FvbXFe-gNK0o7RIztUkx=w885-h448-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/6DkkG0aQgG_ZczbMkUCbAtRB3bh5n_U_NZTJUGjWSIKW8xhG3oUn1Y4dwvsqqFFmzJAOdnRUBufb6_Fom7HSJDIf-BCfwvJ7jrZ7vXt3M_Na9_Sgjp2XVd-or1x1hd-F715ZNZzCHXWkibIit6LLeYiMA6tDthwfTJPZTdrHFCV_G_VoynxfaYZvOYfinSCAlidJd7ysg7nInTvfimvpPQYZJVgcX5cAjSjTkvFHNW4AmOzb7yD02vcB6UlmngsZpeYoFZplVtBZe2010_WTWGraERVZ0_S8ToU_aAjpUcDqSksagS7vvr5k_2f89QV2NvjsyOAbVgFITz0Li-sQLi-rnt-Il8Ke_nSQXGbH066Im3oYEjwr8JbiWt2-AIn-IVFScBvIMmUWwjyiWNYwp7lpAuWREJP0A-3-W_OnloqNvPL1hCCefIwO_MuQCpLK9EnmJ5lTd4kNen-bTcN2uL3U3RH-ObH-gFJAGIdxTQACcgqHBa8JmSpk6znsm7wHKyrjgeHyqKm4X8v05loW_51aLlXYNGaflUOR4JuhXlUPh4bMr31R845zBtTyNT480oTOE52Z03pBLP9WeYdVgHTgL31zKldCMIl2hJAR3Ce_ig7hXnSH=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/jnQAk4VBbfC6Rx4Hsz60-gGrrBLqR_3JTMGIRCWq91rGv9z93PJU9rKLxUrt-Oqm7Ja7rRApDGq_20-5bASusWHwVDkP6RcbykbqTglPgSMJM1rLSRikIXBvgzd2pZvIORHiVfMownBGHz3HN2znLT2ZRMnkxjd1naPy-Bbq1N5AA3KHHQGilcuCPGkAazFQ0GC6iZSYtM2qpzXrzzyCyN0_OEb62PKI3pzvsht-AFyuR0DauKERv_G4iEAHcwRjMXncBCDVC2kB7aCM4tqx3Z41KyNsPx-bzFP6Or9qDkcV7yxE1YVRnDm3Ed6w7uZ32bXsiEyW1jZU7NauaGbgGyXn2ZQ-qFKFXr_cgDDlSFJNYNqx8nOh_u8VS46FTqe6ZUMgfCodFj5ayoq23Gfw00spgErHiWmlEJs4rRlaEPHR1X3dvcRDilQPd-Q0zD6yyG1UG1RQQzZiGVXGWq3kIGUKbqdNPYFnzJW9W52_otlLuiTfyGwwm8-L0nNE9DmtVMjHWha0srhDT_PfCSjHb0It8k9xvNMSVUPM5-kUuOjs7r_gDcodMwXjvpUu7fZLKCyAO2b25nqQfiac_1ZrEk8Ho_Nb38Bie-ZJVHVoLKSgQQHNUu6l=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/YPTbozRIaf3bD2EqLDKYtG5WFQq23g6LCBCrSrtwZsHg3-hYmEKmGsI3Zs4aJTGaXrpKoSim4X6bMT8dSl6IA4wKVv9VnIICgrHNCE88XVijqMBz4KgraW9czG_W0HmsIxoaZnzvJNeoIRKFveOEHeHpeqa07wif-GPBgsxQD88YybMcy6UxxP9uE2peUN7flLuxX1xigiXs7lMecawAZLycltQaXxt7Hl-AUJhDRH1sdVaZVZEaI0kRbtewu2WJElPqh5zgxRjfB3bYUc-gYWyr1J39jVlYxU1q9n2pTEH92cxerLEnFU6GJauKoBUR-8rgArhrNGs9Gav6TjDPrzUC50NNnFep23aD1gk-HtmTUEOCPKgfgemjUliW0IF1Vp2oeVVbKR_1WtWDTV3o7Px7V5Rt4KpbMTwgFRzGZpHyxKzqKOZsorETV3ZL0q7kYEZ4MUz8RM9fgHG2j1bxA9JSw10fzw0UJQa72fLDwhZgvCU7nj1KqVAqHtYrbatI6Jb4RVl0j4QEfBm8Y2WnxNqmI3Jkoc2dQUwb4FfIo5IVJN3-RlvoXMml2-aS8usU3D-UaCwzGr8bpr0IFpa1wtsF5OLlgYcqEYrC6BtU7U0_2TK2oza-=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/ChNv4BYxVuSNnhW9e-Z1x3DxHpTo3yNGRCaQJInmUlbWvRbPzwaUJKseFRFb4rORTfu8OiFjVDxQ39jHQKL3wwlzlsDNs1wEGRYEBblxtXRXavhqt83kN2vLkEcO5g8h4wIU7_8j1STA3l7zcwH7rH2aUxcm7jlwGRBa0OsTwsuQm-5XqBkxk5WAtt1u0aD452nRbsOl5EaiUzwzeJMRQfwSpvvZnxPet-fDx5rtKxCPPUn3KncVw5ARIbpbKhTyWiV071rNyiuCOgcChuK8fxXqbWafseq50Rlki-YyS8XNbbxhm5fL_04lx7DEjlUJoZxYCkRtDxKgenKPM6B1NdXsJJ8pjMfcsbo9VMhsINh-MFeCq0t-zSrMw_YndIR6rLJWy_M-MeKmsOj1jXjzFW4FQDQrMY9HqHEAZekZsnZPoH34zUvGIF0ScxiA1O2eOBQV0P3Te1DbVAp_ZGkEHVlebDvuj235CIlS2h-gozeIXV5rtjY3KegHgk7Tq8oFA-LmjY63eG750s_I1sdV0KJ8hNtyhPTl3YEhRkFzQlvuEhXUAgsa41nok2F96JqimrQDWz-_qPNsRc7X_5dugr4OK3PxgndNxKrqr0p41utrjrys01rN=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/cItXWVS8GESax771fmt9TWn34rnY1Q5xpVGh9s58zKYEajkVZBAo84XrQNhA9BE5ZPQ86lrD7orEtysRtGIc5tZNTqb2zM3H2JvRkjXqVpTbYYNL1gG772RcrfdabHwXAq6zb0L2NDJcOdjqQQbw5LTOrgvmqr4aJcBW09ctoCfwG7jhvSqWdd7-NiO_HNHrYyk8as0AaPABmDiUewKvCH5tqrkSxm4gjpgkPWCATkhJp61zH35SLuoP9s3TMKB-muMMvVOFWB4rOvshwUoR1lbfJ0KdObXCLJjWv-dm2a26j7GQVINXlO2-amD1kH0DRFOtUuOffNbkYw992vQ7D2yysjUkyljNulTkYXvR2TJqxUwPNNhndTQd0LJg8nMLKbWZpwCuW_qUm2cdgWC46ivKGngYfnEq0rbt3PRRF02EYfcwcT1centHdPvtZVAk1rBUO8m6oftFtThJ1oE-5aWgUwzdKvJM2Wy2E_imcNiHt8igP8I1zMj-aS4YDQnPfuzbA-vFBlrtjvQ-0VbNnp8dWa3mXrojNkLla8Ma-4yj12INk1nbe0OCtErvdpqPnTV66CErUxLq79Ctvoy-8PC0padBlwKBqz3JNvR5JA9UlabYwf8x=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/jWEIIPU1kIwAyllb-cRsXB-zLBdq8-XlyCtoRxWA8onfga8vGSla9acPXgtpyJdbs4jHC_PInUFRX9bEVQ-9s8i57H6vxbndJjBbx-rypdkXHTcma8PE33fYic1GjtwmdSJqPmwANeOwjh94YuYTRBBwojZDjv6GrN9Dki0f_NdDW4qFCTUSL-8an8XIcec6y4oeFw-Z1QalsFL--DWT4AhTA1Jh3do8qffC1haNtXwkfJyNxWW8lZ_bEh2-Wp12Ukz2maASaR5zf5ZIj6ird3OHi3nN40QYyK9VJnLjWVFPo2xkGoKK9K1o4PHIJmKnInTuLFuKc-fyv3RQdzW9Q0o_Bm_bn9YW_8StQhNCJ0o7FSzIzi92gZ__b9e0LkNsS5-JjcAJeWv9jSYfjlrV_Lfx6VBrr9NOxGqrVaS-zJuivA4_GN3M8oQmcsWSl8buYOrb42GhIXnrR2U2zQLIdOcEWIfKXdr4CzmemKQ2Bzro47MX0-8IlZlt8UrW1qqhYAW4XTfWY63DRA0AgKssLF4wKpD7PS3b0-qAUcMkZtfaidcM6vs38XfTNDQ0oGmjIOJqaXFhGigo7PPX9jWQE60HYhxeL_0FbXaIxW7TaGVUsje1pn1D=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/XVR0VdCdTJ3oJG2GoJ3MBfLiZ_RGrmtygmQhbOv3a8l9QtWjC36up0YwtX-SJg59Hyc3MQhNZLffRuju6_U3N54hyAmYTs2fcU6E0XruYGCWRIxhu9PgUJuQk7slGMSaIQFstuHDJL5-Gjrv7XZ3Z9xLDop7kY5IwQf7-iKUcc3OuJJCNTUJethO1DCwDFFO3GAgBxcnkJfTIM8ksW2XYWX1mlNFTt5neiTVXaL_KnV0yEX6dmBXq3oe4JylJ_L_85c2AoQ8YWdpYEBZEScXhsDr8u_f0yku9uYyVXg81wK2DT-w4GO4Lwiq90OXVgQYm2FjAdk2dePLQgkfpQCphM1jLjwW0sgffcL62Ep64Nipm3VgCHiw9ENia6DIx1JzMWyq8MKI6ckST6es46t5sRQrSyya21tc9t047eSEBSSkigkRu_lhYmwMB6IwPsR-2X7bJUc-mumE9K7Dv4jWppKGZYenOY-4F17xvFqh1QV-7X5-RRL8K7soSIUx3_KNaboC89uJDQcWtPIxKQP-BiAJy_vQXSXFyevw8xj7wpKayxhbleJMSh1XM0EwoO7t0qoAbPEHthNHZhIzh00Y88zBb7nV_ixiFrOYYxHi1ppt3HhyY9-9=w495-h387-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-tiNU5lTIK7cr1Xhoi5QYrAJ1JA5bVfC4PxKgV07EMOrXFwnCV1yWXdV0v4KGc53fcY2Gu5qYZz50roWNLq-sXHLqDDY3VmtkAmnN94IXv36sAtp9GvM9RwMFrufZ_tQuGnURpF3BuPsb3YOlP1JjvfE1P6SWYC9EY9yq-QVUgUJ3Kwy6pocqAw4umqj5xLO9azxrxsU8Au92Be4vMVKgmBDlz7IwczCwXoMAs_wAcjsdYGUrA6Q3RsoPxOlii6T_H1QAulgauXU44w8QC7peWzZYU7NugMvb4b70Bv7v6ocIYDtW1k8AXjv3-eTlPRAvgYResEZJu7gyRvqnKGsVBXoZCEBHH5X6Fazd6_hgQsHU2Syh1iF_c8HswTS0YMnH3v1UabvYpbd-2_hXIUaajJpVeztIsmXNF094pPHFUUZj8138PO8u59cqYUd3WXboZIsl3f6MaC-aisztTEm_8zyzr0XqVpSQVasOQ02vdEWArx4Ult4d_6aKar097-f5_5d7hcFxKiRn6fHoSBPRhP7rRt4g9M7SQFxZxDlqMoWNgW_IvbyHArjRFqDyCZrocCN0rxZav-tmeeM_8hDgDQ-eYQU1t7xJ-TXtr4-lXYX3tr-9h9J=w597-h345-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/yGmXi2MwVSUtA018XQQKDaNhvEXgrWReGO9SvL817FB1xC5iD1eQ4GoBAWNh-AgN25Yra79brKrTsWX65G8YqIyZtXt8n2XDl10T0Ag_aMTUaFUPXt6CIjOiIX9SFB3r3qYoPGLTpSALys3uICN0M3xEZaUYWRunwrc8FOqDnCtS-tIC0R5sAgxA89-KpZaP5VjbX0lLya5OrFcM2PjRgcVE8Ho6dUKxpp6Y62i8ilLHtQPTxlFMXxbkMpyJJdppq9e_rdD6q--fwehxntzN7LakDviAwcRsmn1YRrmwTmblFHOwgxoBAZMJ5SXJz_zAAZsZQQKkb_KkN8FoJcvsAQsvWN71v96q1etN_nR4GA8McuIi5YWiyJ-E-jclugxUfLiuczK76LYjhbgOovuUj1t4ylSQrGsoexw9_wkwdLzUd3-5s4DZjfl6NsTr4T8tO0lrBI1aAPBVUX58o9yYCkJ96EXZ99Gzw_xNEJ2Ehm1IwDowXZBOt5E16ZsQGI1bs_IETgiY3Lb47LJgNeMkeo2WMPJ2YC9jxm08Qzd-FcnmMj3HLOLRq1iLQpa5VTum1ztm27QHWXrc179a-oy3pfejkhl4PivRm6OprzSjfN84lshc0SxH=w493-h156-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/DGKKan8aUnRYg2q-63PBMnnQ71oE6TudSAtGu7nhmIFl5qzfwXK4CN_JGOlLXQmbml8049j4DheG3XAKyrV22V7sK6YDmZgi90dhZpIIf9CRr_um-O7eFxlpb2s7IUsWh-JGuLC1i2n8U0S55HfdhxfHpG6qUt9A1J1KdU-3xQCKzJP9svYTJ2LRDfXbjBO5xkGczR-QODZu4Lpg0kH5m8K00sKzf4j51y7nwIw6zNBj5Mr1J6KSWwzQNL0Zl-aBOo9ja8EEx-vrB0bRGoCy0luX2w3Sz5jrOo7ItiMQ_jMlq5l8lac_lA6RvmgouHz_Hqdl1x9ykv_aNLUCbSlH4oNRuh31jefvPyu8J4qOpZEfZUfPTXOjaYadd4FpMBZCHHBbyCDyCJQl1IKoi7NSQXdYsEKmipr_EbQ1GywqE_1XO0D-o1bgDAqSEk9EWqi3JoRs4mE5tM5U9jEQtTlPwpnyypd6UbE8cBDsmWhpY0c30XBGmLNYLadFwLMqFQfo4nS8o3kb3OuvVytHs5NhQA0FXbE84sfmj69TONQmwlD-FYc5PFnPhRX1U9wOA36FSEfm0ix_C7WkDIg28F-ZXDC9FmYGgIkp66PtxoiioZGi9qS1qI97=w493-h392-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/5PmW98a2srvlHLgBqnmAYskUFtIsOAS8yKWkgQoOfQn9ols59QiGOelune-vHIeKPQYS1NkWWm8o0-2yDMQJrJnl2iSPQcZ1ZbPb_jfNUpEcGAfjVEHJAEMbQZEH9GHVRj_D854CBss8J5EQfKgc5HJufw4tIHaN0L8N5yzvhTAD7MIOyISxYykCknYcwCeWWbARmckovrPGNwPFxidw-jS-lEbvt7BpMUkVnJr7VY_0e1IVYjd5jSy5pkNWJOfkW_snxtQXEdr2ZNwCV-J27DGi2YLbMd7BwN_Dq1dgRVVUM7IJXGtO8qIYerzBzG1ExDL_DuJpaS_n0QlxqyiGBk9LbRcExNK_HkGILFDLkIbYcnuzy9pp_L6QsOrJt7Yu6rBsZUWOtL5JT1NKbeK6oU36WEHCMcJHRSHljiS6O6oAI9p3Cu-_fTnkKDyP2iCXaJt2a_jo5BPVa2xb5BUpvKcU40DH89iWB1w4jlj6KuO9w1Hofi8lke2Dw3Z8R6zmfMQnq-BLT84c6-pKp44bU0hpb_vfJmjqlg9BYoAgXlRAMen-GSlCRx7qW1H7u_QH3pVQP52Z2XSh6L6zAMpXpAQmth4OfGMSAt7RKolMS1mqUrO2aNeJ=w503-h279-no">
+<meta property="og:updated_time" content="2017-02-16T02:26:39.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.jsのインストール方法">
+<meta name="twitter:description" content="Node.jsのインストール方法
+目次
+公式サイトhttps://nodejs.org/ja/
+Node.jsとは特徴
+サーバー側で動作するJavaScript  通常、JavaScriptはウェブブラウザの中で実行されるが、Node.jsはサーバサイドで動作するJavaScriptの一種
+ノンブロッキングI/O  送受信の完了を待たないで、他の処理を開始する通信方法
+シングルスレッド   並行処">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/vw9KvssVpVB4MD7U-dLNwQIX9g4bDlsKC6xh7N0ndrkMGecY05-heKK9MnTm61xt_JYHXLFTZl6o9PBRxyGN9puYqmVTyyLICDAoJwfctOREdoFFh4QlndMVRWPb6DvduNCPVFmU1_Ftwtc5Gj_SdHSq4Duh6PkBHimO3i4F_qCy8I4HoyaPx6WmWPZofcgM0FG2jkSh0hBD_SlL5uDapxDtipb7vuKRjBBT2r3SmZ7u4n19GJg-2Os-tpPnFxPUsO6Klv256A7FwONZTBKa49HVc_gtqcPORYQobfComqeQ504VFtqbIaCKnq9JM3jf6dO6hbkoIcu3ISrvM2A2nITrqakoYb83NtY0ndlW1405qZQnGrmsraTCWvZt4NILnhFu1WBdyQ12bI3mrjDyIhqedXpZKBByxNnKe3oFHOJJB3VL4iMva_H2YVAGx5NyjqDeWpfiNiZk0WzKRKJWLDDAmSFOvtafqL1epl04ZCVS-wm-elZxmyP7keqxa7AHM1GWSMRSYR6IBipfyV9Xjy219Vt8OUCV1CiVPgSfR1CD2sQGDCi1i7nCdUZn0mbaOyvYR52dsti_IyA6KGwnQ8nakwu-xxYmLnbBGLiZqPSrbURiSdAZ=w784-h487-no">
+<link rel="publisher" href="u/0/106972576385014381494">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+    
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91386689-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    <!--google analytics-->
+    <script src="/blog/tracking.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/blog/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/blog/.">Home</a>
+                
+                    <a class="main-nav-link" href="/blog/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/blog/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '投稿',
+            PAGES: 'Pages',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/blog/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/blog/css/images/avatar.jpg" />
+            <h2 id="name">田邊慶次朗</h2>
+            <h3 id="title">忘れないようにメモします</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Gifu, Japan</span>
+            <a id="follow" target="_blank" href="https://github.com/keijirotanabe">フォローする</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>投稿</span>
+            </div>
+            <div class="article-info-block">
+                19
+                <span>タグ</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/keijirotanabe" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-node-js-install-step-170210" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Node.jsのインストール方法
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/09/node-js-install-step-170210/">
+            <time datetime="2017-02-09T19:54:23.000Z" itemprop="datePublished">2017-02-10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/プログラミング/">プログラミング</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Node-js/">Node.js</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Node.jsのインストール方法</p>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
+<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://nodejs.org/ja/" target="_blank" rel="external">https://nodejs.org/ja/</a></p>
+<h1 id="Node-jsとは"><a href="#Node-jsとは" class="headerlink" title="Node.jsとは"></a>Node.jsとは</h1><h2 id="特徴"><a href="#特徴" class="headerlink" title="特徴"></a>特徴</h2><ul>
+<li><h4 id="サーバー側で動作するJavaScript"><a href="#サーバー側で動作するJavaScript" class="headerlink" title="サーバー側で動作するJavaScript"></a>サーバー側で動作するJavaScript</h4>  通常、JavaScriptはウェブブラウザの中で実行されるが、Node.jsはサーバサイドで動作するJavaScriptの一種</li>
+<li><h4 id="ノンブロッキングI-O"><a href="#ノンブロッキングI-O" class="headerlink" title="ノンブロッキングI/O"></a><a href="http://e-words.jp/w/%E3%83%8E%E3%83%B3%E3%83%96%E3%83%AD%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E9%80%9A%E4%BF%A1.html" target="_blank" rel="external">ノンブロッキングI/O</a></h4>  送受信の完了を待たないで、他の処理を開始する通信方法</li>
+<li><h4 id="シングルスレッド"><a href="#シングルスレッド" class="headerlink" title="シングルスレッド "></a><a href="http://e-words.jp/w/%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89.html" target="_blank" rel="external">シングルスレッド </a></h4>  並行処理などを行わずにすべての演算を逐次に処理していくこと</li>
+<li><h4 id="イベントドリブン"><a href="#イベントドリブン" class="headerlink" title="イベントドリブン "></a><a href="http://e-words.jp/w/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%89%E3%83%AA%E3%83%96%E3%83%B3.html" target="_blank" rel="external">イベントドリブン </a></h4>  ユーザや他のプログラムが実行した操作（イベント）に対応して処理を行う、プログラムの実行形式<br>  ユーザが操作を行っていないときはプログラムは何もせず待機している</li>
+</ul>
+<h3 id="メリット"><a href="#メリット" class="headerlink" title="メリット"></a>メリット</h3><ul>
+<li>早くてリアルタイムに強い</li>
+<li>多数のアクセスに強い</li>
+</ul>
+<h1 id="インストール手順"><a href="#インストール手順" class="headerlink" title="インストール手順"></a>インストール手順</h1><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>推奨版の6.9.5をインストールしていきます</p>
+<h3 id="ダウンロードページ"><a href="#ダウンロードページ" class="headerlink" title="ダウンロードページ"></a>ダウンロードページ</h3><p>64bit版<br><a href="https://nodejs.org/ja/" target="_blank" rel="external">ダウンロード Windows (x64)</a><br><img src="https://lh3.googleusercontent.com/vw9KvssVpVB4MD7U-dLNwQIX9g4bDlsKC6xh7N0ndrkMGecY05-heKK9MnTm61xt_JYHXLFTZl6o9PBRxyGN9puYqmVTyyLICDAoJwfctOREdoFFh4QlndMVRWPb6DvduNCPVFmU1_Ftwtc5Gj_SdHSq4Duh6PkBHimO3i4F_qCy8I4HoyaPx6WmWPZofcgM0FG2jkSh0hBD_SlL5uDapxDtipb7vuKRjBBT2r3SmZ7u4n19GJg-2Os-tpPnFxPUsO6Klv256A7FwONZTBKa49HVc_gtqcPORYQobfComqeQ504VFtqbIaCKnq9JM3jf6dO6hbkoIcu3ISrvM2A2nITrqakoYb83NtY0ndlW1405qZQnGrmsraTCWvZt4NILnhFu1WBdyQ12bI3mrjDyIhqedXpZKBByxNnKe3oFHOJJB3VL4iMva_H2YVAGx5NyjqDeWpfiNiZk0WzKRKJWLDDAmSFOvtafqL1epl04ZCVS-wm-elZxmyP7keqxa7AHM1GWSMRSYR6IBipfyV9Xjy219Vt8OUCV1CiVPgSfR1CD2sQGDCi1i7nCdUZn0mbaOyvYR52dsti_IyA6KGwnQ8nakwu-xxYmLnbBGLiZqPSrbURiSdAZ=w784-h487-no" alt=""></p>
+<p>32bit版はこちら<br><a href="https://nodejs.org/ja/download/" target="_blank" rel="external">ダウンロード Windows (x32)</a><br><img src="https://lh3.googleusercontent.com/rLYJ_QkJj7AnSE1__ZjiYSp-rxihO_xlJmyZ8DWpvO20rdVsAJTXqGU5QRuSKHkxJy0hg_J217oh9QQsiYgOGzckjfXnyiQsTJWfTs9lyhmjFjiHFqy7ZAEAs3hd5n4FXOJzixyn-X8S9jA4IQTls-F7ELGyKdmGNCAZT-gqhgwZySJshcOgKoZ5wvStOVY0cL3kVxKmWrhWsc8EQPkYjfZsmI488kNS1fwkJMmjihdxF8KFjkUH0YRg0_yUFGaw7pGP1MVQ_1uWTIE2WVMUg3zXO61CAIaFTs68eCB6ifk8t4BUjlJi9BNL5ahbFASJ7-ZbVyMpMGlFt-AyG3C1QCA5INgCI8AnMbB-LOsc_y9gXWMAOqGw3lpLcyDDFVsHt7WS0T45T4o5f5hRpjSym85O1Knvy-tDsXGXUrfMehoNOzR2IM3pzsUMaHA5qK0eaRMdxea0q9pKEVGDA9tQwb-kO78Xs1eeuaWtVGgG62gP9nFHqU2rAcyHeOdMdXn_pk7bm-M-w_tVhakA73HRlYcT285fLNeZCBjcFawn4HvVmwdE_KXChB2bzlVeVeILOL0ztOtJ8wxIOE7CYlyFvbcS-b3p_6u4FvbXFe-gNK0o7RIztUkx=w885-h448-no" alt=""></p>
+<h3 id="インストール手順-1"><a href="#インストール手順-1" class="headerlink" title="インストール手順"></a>インストール手順</h3><p><img src="https://lh3.googleusercontent.com/6DkkG0aQgG_ZczbMkUCbAtRB3bh5n_U_NZTJUGjWSIKW8xhG3oUn1Y4dwvsqqFFmzJAOdnRUBufb6_Fom7HSJDIf-BCfwvJ7jrZ7vXt3M_Na9_Sgjp2XVd-or1x1hd-F715ZNZzCHXWkibIit6LLeYiMA6tDthwfTJPZTdrHFCV_G_VoynxfaYZvOYfinSCAlidJd7ysg7nInTvfimvpPQYZJVgcX5cAjSjTkvFHNW4AmOzb7yD02vcB6UlmngsZpeYoFZplVtBZe2010_WTWGraERVZ0_S8ToU_aAjpUcDqSksagS7vvr5k_2f89QV2NvjsyOAbVgFITz0Li-sQLi-rnt-Il8Ke_nSQXGbH066Im3oYEjwr8JbiWt2-AIn-IVFScBvIMmUWwjyiWNYwp7lpAuWREJP0A-3-W_OnloqNvPL1hCCefIwO_MuQCpLK9EnmJ5lTd4kNen-bTcN2uL3U3RH-ObH-gFJAGIdxTQACcgqHBa8JmSpk6znsm7wHKyrjgeHyqKm4X8v05loW_51aLlXYNGaflUOR4JuhXlUPh4bMr31R845zBtTyNT480oTOE52Z03pBLP9WeYdVgHTgL31zKldCMIl2hJAR3Ce_ig7hXnSH=w495-h387-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/jnQAk4VBbfC6Rx4Hsz60-gGrrBLqR_3JTMGIRCWq91rGv9z93PJU9rKLxUrt-Oqm7Ja7rRApDGq_20-5bASusWHwVDkP6RcbykbqTglPgSMJM1rLSRikIXBvgzd2pZvIORHiVfMownBGHz3HN2znLT2ZRMnkxjd1naPy-Bbq1N5AA3KHHQGilcuCPGkAazFQ0GC6iZSYtM2qpzXrzzyCyN0_OEb62PKI3pzvsht-AFyuR0DauKERv_G4iEAHcwRjMXncBCDVC2kB7aCM4tqx3Z41KyNsPx-bzFP6Or9qDkcV7yxE1YVRnDm3Ed6w7uZ32bXsiEyW1jZU7NauaGbgGyXn2ZQ-qFKFXr_cgDDlSFJNYNqx8nOh_u8VS46FTqe6ZUMgfCodFj5ayoq23Gfw00spgErHiWmlEJs4rRlaEPHR1X3dvcRDilQPd-Q0zD6yyG1UG1RQQzZiGVXGWq3kIGUKbqdNPYFnzJW9W52_otlLuiTfyGwwm8-L0nNE9DmtVMjHWha0srhDT_PfCSjHb0It8k9xvNMSVUPM5-kUuOjs7r_gDcodMwXjvpUu7fZLKCyAO2b25nqQfiac_1ZrEk8Ho_Nb38Bie-ZJVHVoLKSgQQHNUu6l=w495-h387-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/YPTbozRIaf3bD2EqLDKYtG5WFQq23g6LCBCrSrtwZsHg3-hYmEKmGsI3Zs4aJTGaXrpKoSim4X6bMT8dSl6IA4wKVv9VnIICgrHNCE88XVijqMBz4KgraW9czG_W0HmsIxoaZnzvJNeoIRKFveOEHeHpeqa07wif-GPBgsxQD88YybMcy6UxxP9uE2peUN7flLuxX1xigiXs7lMecawAZLycltQaXxt7Hl-AUJhDRH1sdVaZVZEaI0kRbtewu2WJElPqh5zgxRjfB3bYUc-gYWyr1J39jVlYxU1q9n2pTEH92cxerLEnFU6GJauKoBUR-8rgArhrNGs9Gav6TjDPrzUC50NNnFep23aD1gk-HtmTUEOCPKgfgemjUliW0IF1Vp2oeVVbKR_1WtWDTV3o7Px7V5Rt4KpbMTwgFRzGZpHyxKzqKOZsorETV3ZL0q7kYEZ4MUz8RM9fgHG2j1bxA9JSw10fzw0UJQa72fLDwhZgvCU7nj1KqVAqHtYrbatI6Jb4RVl0j4QEfBm8Y2WnxNqmI3Jkoc2dQUwb4FfIo5IVJN3-RlvoXMml2-aS8usU3D-UaCwzGr8bpr0IFpa1wtsF5OLlgYcqEYrC6BtU7U0_2TK2oza-=w495-h387-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/ChNv4BYxVuSNnhW9e-Z1x3DxHpTo3yNGRCaQJInmUlbWvRbPzwaUJKseFRFb4rORTfu8OiFjVDxQ39jHQKL3wwlzlsDNs1wEGRYEBblxtXRXavhqt83kN2vLkEcO5g8h4wIU7_8j1STA3l7zcwH7rH2aUxcm7jlwGRBa0OsTwsuQm-5XqBkxk5WAtt1u0aD452nRbsOl5EaiUzwzeJMRQfwSpvvZnxPet-fDx5rtKxCPPUn3KncVw5ARIbpbKhTyWiV071rNyiuCOgcChuK8fxXqbWafseq50Rlki-YyS8XNbbxhm5fL_04lx7DEjlUJoZxYCkRtDxKgenKPM6B1NdXsJJ8pjMfcsbo9VMhsINh-MFeCq0t-zSrMw_YndIR6rLJWy_M-MeKmsOj1jXjzFW4FQDQrMY9HqHEAZekZsnZPoH34zUvGIF0ScxiA1O2eOBQV0P3Te1DbVAp_ZGkEHVlebDvuj235CIlS2h-gozeIXV5rtjY3KegHgk7Tq8oFA-LmjY63eG750s_I1sdV0KJ8hNtyhPTl3YEhRkFzQlvuEhXUAgsa41nok2F96JqimrQDWz-_qPNsRc7X_5dugr4OK3PxgndNxKrqr0p41utrjrys01rN=w495-h387-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/cItXWVS8GESax771fmt9TWn34rnY1Q5xpVGh9s58zKYEajkVZBAo84XrQNhA9BE5ZPQ86lrD7orEtysRtGIc5tZNTqb2zM3H2JvRkjXqVpTbYYNL1gG772RcrfdabHwXAq6zb0L2NDJcOdjqQQbw5LTOrgvmqr4aJcBW09ctoCfwG7jhvSqWdd7-NiO_HNHrYyk8as0AaPABmDiUewKvCH5tqrkSxm4gjpgkPWCATkhJp61zH35SLuoP9s3TMKB-muMMvVOFWB4rOvshwUoR1lbfJ0KdObXCLJjWv-dm2a26j7GQVINXlO2-amD1kH0DRFOtUuOffNbkYw992vQ7D2yysjUkyljNulTkYXvR2TJqxUwPNNhndTQd0LJg8nMLKbWZpwCuW_qUm2cdgWC46ivKGngYfnEq0rbt3PRRF02EYfcwcT1centHdPvtZVAk1rBUO8m6oftFtThJ1oE-5aWgUwzdKvJM2Wy2E_imcNiHt8igP8I1zMj-aS4YDQnPfuzbA-vFBlrtjvQ-0VbNnp8dWa3mXrojNkLla8Ma-4yj12INk1nbe0OCtErvdpqPnTV66CErUxLq79Ctvoy-8PC0padBlwKBqz3JNvR5JA9UlabYwf8x=w495-h387-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/jWEIIPU1kIwAyllb-cRsXB-zLBdq8-XlyCtoRxWA8onfga8vGSla9acPXgtpyJdbs4jHC_PInUFRX9bEVQ-9s8i57H6vxbndJjBbx-rypdkXHTcma8PE33fYic1GjtwmdSJqPmwANeOwjh94YuYTRBBwojZDjv6GrN9Dki0f_NdDW4qFCTUSL-8an8XIcec6y4oeFw-Z1QalsFL--DWT4AhTA1Jh3do8qffC1haNtXwkfJyNxWW8lZ_bEh2-Wp12Ukz2maASaR5zf5ZIj6ird3OHi3nN40QYyK9VJnLjWVFPo2xkGoKK9K1o4PHIJmKnInTuLFuKc-fyv3RQdzW9Q0o_Bm_bn9YW_8StQhNCJ0o7FSzIzi92gZ__b9e0LkNsS5-JjcAJeWv9jSYfjlrV_Lfx6VBrr9NOxGqrVaS-zJuivA4_GN3M8oQmcsWSl8buYOrb42GhIXnrR2U2zQLIdOcEWIfKXdr4CzmemKQ2Bzro47MX0-8IlZlt8UrW1qqhYAW4XTfWY63DRA0AgKssLF4wKpD7PS3b0-qAUcMkZtfaidcM6vs38XfTNDQ0oGmjIOJqaXFhGigo7PPX9jWQE60HYhxeL_0FbXaIxW7TaGVUsje1pn1D=w495-h387-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/XVR0VdCdTJ3oJG2GoJ3MBfLiZ_RGrmtygmQhbOv3a8l9QtWjC36up0YwtX-SJg59Hyc3MQhNZLffRuju6_U3N54hyAmYTs2fcU6E0XruYGCWRIxhu9PgUJuQk7slGMSaIQFstuHDJL5-Gjrv7XZ3Z9xLDop7kY5IwQf7-iKUcc3OuJJCNTUJethO1DCwDFFO3GAgBxcnkJfTIM8ksW2XYWX1mlNFTt5neiTVXaL_KnV0yEX6dmBXq3oe4JylJ_L_85c2AoQ8YWdpYEBZEScXhsDr8u_f0yku9uYyVXg81wK2DT-w4GO4Lwiq90OXVgQYm2FjAdk2dePLQgkfpQCphM1jLjwW0sgffcL62Ep64Nipm3VgCHiw9ENia6DIx1JzMWyq8MKI6ckST6es46t5sRQrSyya21tc9t047eSEBSSkigkRu_lhYmwMB6IwPsR-2X7bJUc-mumE9K7Dv4jWppKGZYenOY-4F17xvFqh1QV-7X5-RRL8K7soSIUx3_KNaboC89uJDQcWtPIxKQP-BiAJy_vQXSXFyevw8xj7wpKayxhbleJMSh1XM0EwoO7t0qoAbPEHthNHZhIzh00Y88zBb7nV_ixiFrOYYxHi1ppt3HhyY9-9=w495-h387-no" alt=""></p>
+<h3 id="インストールされたか確認"><a href="#インストールされたか確認" class="headerlink" title="インストールされたか確認"></a>インストールされたか確認</h3><p>コマンドプロンプトを起動<br><a href="#コマンドプロンプトの起動">起動方法</a></p>
+<p><code>node -v</code>と<code>npm -v</code>でインストールされたバージョンを確認</p>
+<p><img src="https://lh3.googleusercontent.com/-tiNU5lTIK7cr1Xhoi5QYrAJ1JA5bVfC4PxKgV07EMOrXFwnCV1yWXdV0v4KGc53fcY2Gu5qYZz50roWNLq-sXHLqDDY3VmtkAmnN94IXv36sAtp9GvM9RwMFrufZ_tQuGnURpF3BuPsb3YOlP1JjvfE1P6SWYC9EY9yq-QVUgUJ3Kwy6pocqAw4umqj5xLO9azxrxsU8Au92Be4vMVKgmBDlz7IwczCwXoMAs_wAcjsdYGUrA6Q3RsoPxOlii6T_H1QAulgauXU44w8QC7peWzZYU7NugMvb4b70Bv7v6ocIYDtW1k8AXjv3-eTlPRAvgYResEZJu7gyRvqnKGsVBXoZCEBHH5X6Fazd6_hgQsHU2Syh1iF_c8HswTS0YMnH3v1UabvYpbd-2_hXIUaajJpVeztIsmXNF094pPHFUUZj8138PO8u59cqYUd3WXboZIsl3f6MaC-aisztTEm_8zyzr0XqVpSQVasOQ02vdEWArx4Ult4d_6aKar097-f5_5d7hcFxKiRn6fHoSBPRhP7rRt4g9M7SQFxZxDlqMoWNgW_IvbyHArjRFqDyCZrocCN0rxZav-tmeeM_8hDgDQ-eYQU1t7xJ-TXtr4-lXYX3tr-9h9J=w597-h345-no" alt=""></p>
+<h1 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h1><h2 id="コマンドプロンプトの起動"><a href="#コマンドプロンプトの起動" class="headerlink" title="コマンドプロンプトの起動"></a>コマンドプロンプトの起動</h2><ul>
+<li><p>その１<br>  <img src="https://lh3.googleusercontent.com/yGmXi2MwVSUtA018XQQKDaNhvEXgrWReGO9SvL817FB1xC5iD1eQ4GoBAWNh-AgN25Yra79brKrTsWX65G8YqIyZtXt8n2XDl10T0Ag_aMTUaFUPXt6CIjOiIX9SFB3r3qYoPGLTpSALys3uICN0M3xEZaUYWRunwrc8FOqDnCtS-tIC0R5sAgxA89-KpZaP5VjbX0lLya5OrFcM2PjRgcVE8Ho6dUKxpp6Y62i8ilLHtQPTxlFMXxbkMpyJJdppq9e_rdD6q--fwehxntzN7LakDviAwcRsmn1YRrmwTmblFHOwgxoBAZMJ5SXJz_zAAZsZQQKkb_KkN8FoJcvsAQsvWN71v96q1etN_nR4GA8McuIi5YWiyJ-E-jclugxUfLiuczK76LYjhbgOovuUj1t4ylSQrGsoexw9_wkwdLzUd3-5s4DZjfl6NsTr4T8tO0lrBI1aAPBVUX58o9yYCkJ96EXZ99Gzw_xNEJ2Ehm1IwDowXZBOt5E16ZsQGI1bs_IETgiY3Lb47LJgNeMkeo2WMPJ2YC9jxm08Qzd-FcnmMj3HLOLRq1iLQpa5VTum1ztm27QHWXrc179a-oy3pfejkhl4PivRm6OprzSjfN84lshc0SxH=w493-h156-no" alt=""><br>  <img src="https://lh3.googleusercontent.com/DGKKan8aUnRYg2q-63PBMnnQ71oE6TudSAtGu7nhmIFl5qzfwXK4CN_JGOlLXQmbml8049j4DheG3XAKyrV22V7sK6YDmZgi90dhZpIIf9CRr_um-O7eFxlpb2s7IUsWh-JGuLC1i2n8U0S55HfdhxfHpG6qUt9A1J1KdU-3xQCKzJP9svYTJ2LRDfXbjBO5xkGczR-QODZu4Lpg0kH5m8K00sKzf4j51y7nwIw6zNBj5Mr1J6KSWwzQNL0Zl-aBOo9ja8EEx-vrB0bRGoCy0luX2w3Sz5jrOo7ItiMQ_jMlq5l8lac_lA6RvmgouHz_Hqdl1x9ykv_aNLUCbSlH4oNRuh31jefvPyu8J4qOpZEfZUfPTXOjaYadd4FpMBZCHHBbyCDyCJQl1IKoi7NSQXdYsEKmipr_EbQ1GywqE_1XO0D-o1bgDAqSEk9EWqi3JoRs4mE5tM5U9jEQtTlPwpnyypd6UbE8cBDsmWhpY0c30XBGmLNYLadFwLMqFQfo4nS8o3kb3OuvVytHs5NhQA0FXbE84sfmj69TONQmwlD-FYc5PFnPhRX1U9wOA36FSEfm0ix_C7WkDIg28F-ZXDC9FmYGgIkp66PtxoiioZGi9qS1qI97=w493-h392-no" alt=""></p>
+</li>
+<li><p>その２<br>  <code>「Windowsキー」+「R」</code>→ 「ファイル名を指定して実行」<br>  <img src="https://lh3.googleusercontent.com/5PmW98a2srvlHLgBqnmAYskUFtIsOAS8yKWkgQoOfQn9ols59QiGOelune-vHIeKPQYS1NkWWm8o0-2yDMQJrJnl2iSPQcZ1ZbPb_jfNUpEcGAfjVEHJAEMbQZEH9GHVRj_D854CBss8J5EQfKgc5HJufw4tIHaN0L8N5yzvhTAD7MIOyISxYykCknYcwCeWWbARmckovrPGNwPFxidw-jS-lEbvt7BpMUkVnJr7VY_0e1IVYjd5jSy5pkNWJOfkW_snxtQXEdr2ZNwCV-J27DGi2YLbMd7BwN_Dq1dgRVVUM7IJXGtO8qIYerzBzG1ExDL_DuJpaS_n0QlxqyiGBk9LbRcExNK_HkGILFDLkIbYcnuzy9pp_L6QsOrJt7Yu6rBsZUWOtL5JT1NKbeK6oU36WEHCMcJHRSHljiS6O6oAI9p3Cu-_fTnkKDyP2iCXaJt2a_jo5BPVa2xb5BUpvKcU40DH89iWB1w4jlj6KuO9w1Hofi8lke2Dw3Z8R6zmfMQnq-BLT84c6-pKp44bU0hpb_vfJmjqlg9BYoAgXlRAMen-GSlCRx7qW1H7u_QH3pVQP52Z2XSh6L6zAMpXpAQmth4OfGMSAt7RKolMS1mqUrO2aNeJ=w503-h279-no" alt=""></p>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/" data-id="ciz7v1gbu00163a62ojp8zlhl" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/2017/02/09/node-js-how-to-170210/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
+                
+                    Node.jsでHTTPサーバーを立てるまでの解説
+                
+            </div>
+        </a>
+    
+    
+        <a href="/blog/2017/02/08/fritzing-install-170208/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">回路図が書けるFritzingをインストール</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最近の記事</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.148Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-search-add-170216/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-search-add-170216/" class="title">Hexoのテーマicarusでサイト内検索を追加する</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T19:01:51.000Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="title">HexoにDisqusでコメント機能を追加する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T13:03:55.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/14/hexo-toc-install-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/14/hexo-toc-install-170215/" class="title">HEXOで目次を自動で作成してくれるhexo-tocをインストール</a></p>
+                            <p class="item-date"><time datetime="2017-02-14T18:59:49.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ESP8266/">ESP8266</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Font/">Font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Hexo/">Hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/fritzing/">fritzing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/">プログラミング</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/補足/">補足</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグクラウド</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Arduino/" style="font-size: 16px;">Arduino</a> <a href="/blog/tags/Cloud9/" style="font-size: 10px;">Cloud9</a> <a href="/blog/tags/Disqus/" style="font-size: 10px;">Disqus</a> <a href="/blog/tags/ESP-WROOM-02/" style="font-size: 16px;">ESP-WROOM-02</a> <a href="/blog/tags/ESP8266/" style="font-size: 18px;">ESP8266</a> <a href="/blog/tags/Font/" style="font-size: 10px;">Font</a> <a href="/blog/tags/GutHub/" style="font-size: 10px;">GutHub</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/blog/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/blog/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/blog/tags/Raspberry-Pi-3/" style="font-size: 12px;">Raspberry Pi 3</a> <a href="/blog/tags/RictyDiminished/" style="font-size: 10px;">RictyDiminished</a> <a href="/blog/tags/SDカードフォーマッター/" style="font-size: 10px;">SDカードフォーマッター</a> <a href="/blog/tags/WiFi/" style="font-size: 10px;">WiFi</a> <a href="/blog/tags/Win32DiskImager/" style="font-size: 10px;">Win32DiskImager</a> <a href="/blog/tags/fritzing/" style="font-size: 10px;">fritzing</a> <a href="/blog/tags/メモ/" style="font-size: 10px;">メモ</a> <a href="/blog/tags/補足/" style="font-size: 14px;">補足</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグ</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Arduino/">Arduino</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud9/">Cloud9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Disqus/">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP8266/">ESP8266</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Font/">Font</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GutHub/">GutHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RictyDiminished/">RictyDiminished</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SDカードフォーマッター/">SDカードフォーマッター</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/WiFi/">WiFi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fritzing/">fritzing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/メモ/">メモ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/補足/">補足</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">アーカイブ</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">2月 2017</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 田邊 慶次朗<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/';
+        
+        this.page.identifier = 'node-js-install-step-170210';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'blog-8jwah39ddi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

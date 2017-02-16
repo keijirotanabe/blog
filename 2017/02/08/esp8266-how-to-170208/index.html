@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="utf-8">
+    
+    <title>ESP8266をArduinoとして使う | blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="ESP8266(ESP-WROOM-02)をArduinoとして使う方法Arduino core for ESP8266 の基本的な使い方
+目次
+はじめに
+配線と起動モード
+
+
+機能解説
+デジタル IO
+デジタル出力
+デジタル入力
+
+
+アナログ出力
+アナログ入力
+タイミングと遅延
+シリアル通信
+
+
+GPIO pin まとめ
+参考
+
+はじめに
+Arduino core for ESP8266 | r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP8266をArduinoとして使う">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/08/esp8266-how-to-170208/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="ESP8266(ESP-WROOM-02)をArduinoとして使う方法Arduino core for ESP8266 の基本的な使い方
+目次
+はじめに
+配線と起動モード
+
+
+機能解説
+デジタル IO
+デジタル出力
+デジタル入力
+
+
+アナログ出力
+アナログ入力
+タイミングと遅延
+シリアル通信
+
+
+GPIO pin まとめ
+参考
+
+はじめに
+Arduino core for ESP8266 | r">
+<meta property="og:image" content="https://lh3.googleusercontent.com/IFQEh4GsESTKXB39kMSBtvtmDziFC3otBRdYFC3TMGX-2SyIJ08WrOwScir5NTWqN5QoEtqImkizd9uncm3D7wHu2j375asllqWqqsosxYW9jg86qikjq5qh86x_2zVfYUbSkzITQxGpIjUbOJzA2cYBnPuPg7yql4351IBfribo7BDdidaTgtF9HboEdS7lTUo05jfTU4yFGXwDAyC9qIx-1Dxiz4dwP9VvVqdLSdqNJPyKZzyKVzkm3Y4NHh43R58Pxrz1Qxcus1z5ew8oWnA-eSUSR3JP1x06DwSLEI9iNmG_zRTBXmppsqfwXaBhkV3bBUJJ7FHQoWq_vWbAwXd_CWPJVqwXef9l2U3LGAFynn9qG3UMDVoFzB9GpVItKhlSn_rnU_iY7Wod4tilOxSwaSraEElSPY5D47eQS12FI39XrAKP9pICcSNMq8-QIYvaWYXLGiy_yz2bkgkbaIAOQDVQ_m5eawR3B6IMYVRiAcGVBT-gjvoPYHpptaOsBB2DdfKr0Obop_-aoCX9xCLX2_3PPpBEBgk1FIDyFYzj0GGMiNrMqHF_lpsA_NXEH7Njs9LfuiHUv8o_zvabzgwioOAcW8FBlCp0O7pacQhqzL9GGKZD=w1204-h677-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/9kx-jaL_YB5kILprxOWEz_eVlxOazuGq7Utvj-LFyIrP3H9pdmnJr9cg7xBT7VZ7j3nzcM6g6a8xrVo86ZSxUgR6INc4szhqUDnTb23xQ_8eZjzDdzaXPKjbrmFS8D_wKoW0FjZsbP2zaMszG7Yc0fBk7mf_4N87hh4VBx92Cg_84UiWqFgZ8hUAzl-dE3PFQ6Ssjtlom5rBhe6XIg7Wd6eirDmZfetYJCysoSq7I3SGKBRA2RaqDtyjqiHGSJ7t5yhwid-nbIxS3rUAHo5635lykXGsatAdCHAxikIXTu7P6b_6dj3OHIZZKb5pMXlK08hOy2mV4YbPqYLjyryLWUSqNaSakUPQKB3e9Q3bpkv9nZaphpniH1QAEBopGKECanPKa5_puco_8MQLBbVWdvhMyC5pz2qX6b-Y6DJInnmQbs9T85UpKbPcG1BbVgW1h99A0VwDNbKPWdSGcfRyE7ceuNQ-Wl5GqWqlkrzEtUMq06b1ClEjYg93Zdd2KzYJxkdxIVBy2A-GuyfqQEVr0N4z9VMsSVt3DVJHFwkbUrwCdhtFdOl7SNlJlgZjJpAE7nES2t-d_z-C693ylJ4ZhUwaJqJyTNQZRY8YDSqkEsgvP33V=w1204-h677-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-2Qo74VEriPFL1gC4ToUDhnweJv9WWhjJUMwKL-Fc-r-3idtjEf4Y0k2Fw56W0GFTXP7FxWOc0Elw6f92ctXe6HqITqbP5yMM7RAxXaCQV6D7L1pu1_K4No3AC6dYgHzTfsBrQSpZiwuJantp5g9lE9zsKflmpLGoR-kM3FHCqQrZBlhre5NQ3EW0bitolykuuY8KRX_kuwT2msdZ3KMatgdwsKjBnWy7WN4OsJH0KfaLIl828hL_eUPEk6w1UtlOpREVU6CfGknphSRYQiC_Wu--8I0yIh55VLmHFv_iHXJecY0A27jU0ZYmbylPvnvDIu5yDTQaN7ixFsmXRmLpQboeUMCzciPP5JJPOydRIJ8kPVfgAD6-NLhvtx1aPVsTn9NKIJepKPvuDyAaJaTGYTcvkjcweqZWZ8duGpE0jWJX0sx3RK2emUifkAF-cchyclM1mncvrsai3ylJBUXDa0FAF3NbEkRf5CUfELAg0R9KM1AeSS4ONtM_0HBONIxrBR2ff5SetnmHhV0rBt7cn9uDLRiLP8DxzccHi8m-6VYEa7Uq1XYuEGjZOClClJaszFhCEkuXFEkkvEEc0A2-YX3gjrtdctFwL4sodYhdStlKOkI=w1204-h677-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/L1iqhVF6IK8K7dvxBXZ9cD-YDCJbE0bjnD2d3gQNearGCw9VYTNJQG1MkO2EH0oH0mvtTEo7rBtqQGhH0QnnrJGX7YK3Rnqkct-KURTUr1cP1P5-QyyXutNk2NiUY5XS8MrHQhIMCPsO2gULMIISluO3aTOaUV78lnf9_ML36xHM4AV3Frr89O85gJ0kIYc_pOD9TelgyXuAUJ7O06-pxUULtBhBJuk5N8_-bHBuTKVeq_RDyNqCdWTcevUA0jqqvPUoT1bj-pqy5cckIzFCQtQxBtNeW6aysZa7TPu9ulCEWLiNKdm_iWv0zcuVUdVSsYftmqIaB-q83CXIWH5EpdO7Nt6PRBmPDpMGYf6ShwvM2-2KoLCLNgrX4hICQv7-WMpaKnqTCMculNOxgFJYGgKW4D8ms4W277SfwdFsHswqD94k3oHMxQRgkd_Nj87kZMIvD9XHitVZryRUSzSxT3y5afFykA8a6zOD5Xoo1EBJ5b0oYdoxsfQkw6yxc0VaLhlsaKyxPbdFRpPLxXPVqJAzbQt3ie87kdI-aoEi0EJ7bfYAqye3dbDNDu-ZGC0zi1Gj8ZLgAUWOOCCP-mIl7-pGSXZ10DC71BEVRLnMCcOrYMrEie2V=w1204-h677-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/g0uBiXeglm-FC-Fpaj3e6k3UGl-v-cnPpMO61esy8LSk8IoJALhEjfyskDsf-E4bikJaqpWry8z70503k37Z8YhJ03FUkrS8DPqDhBjqaTYXvCh0ZauxkC7SUZVBYjXdaV1zxNrX4aD6zM_YjKwUZS8z7zGuoYEEPy8tP5svxFfmQ9YN4smYPVJvAkiEzNnMATlg49JyQ3xIQB8B4Y_vEcqo_xPZC_JI8e_EQJ4E5-aN5SpE3AMaJ7qx3XxOsSr-S4LhzBqK2zuNuBeamXs0K8WVMiIaSoZkb91vDeMjffJ6VdCDpr22UxjAzb2wQvxfY9HsfS57k0F7f5HtnUdyBimu-ITnXhN1s0rq2FwKyKo58fcxG3QfE7dKcFPGQty-b7J35-bLkROZJAl3UB5_J_7ofY9G1kXgRLoGBaXx4utRvGX1UzOpT9Tcqj4ypzgqf6AEcZuPBlSSO6eQzvAMckT8v7f1bs-s_FrU_SywIBJDay0BJwmTexQ3QHIMAPnoTvo3kyNpCaLMJLOhZY_GGdOvxktIIygLl1BUXql1wKUzNLtWuFIDocbOdSskAux7yUup6f9gp3c7JwgMkPr8GQSDiICLfNFN7ZL4DkykSsydneR1PJJG=w1204-h677-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/tyeIcFD9gJsrw1APDMsaRpvI4LlY0rUePbrZjJpmalHBTzXVDoSZcHE7bt0uPr4zB7NpB6xow706z99CXneutSyhvXQKrDjINtQHnJEmo_UrNb2G0vW4lWmpcBa3hjdOkWazE4vlCRrcr6aL9g4CAcfGmxnr54egvYbq5GL7kRk3X2El0e94cpWvAjAagNs34AVT6qGg_0M2LoOghC8kyJZQqbp3hEOZMB_vDdK6zrvcKazOzLYTHgkbGiR_FNLDFo6zStP3BIifULWqWwsrxmdKye0RpqwmQVWHAHQ48p8ssFiTylCWc7NfA_S6YdBsFu7qw7nbRzNPH5PhTgUDm886WDeaRqEJOacaGh-3i6-51JxqlKnTNPl5JZuj0jr24f6VNLp4PFeeBhh6nJOmH3fOHvLiQNrPyQ-zRmHyCQNcxd33l--fs2vZiGv7swxvi4HirrMwIGTsiJ_8yeyUZDZhgVrcz2QPK4xqYkXVklCMGqgpA8ytOQISUb4u5FFx42s_8aziVv9xDg8H31BHbhpONJPMDvX0i4u3hrURN7Uj33uv7gEv2mHKDvSV34fz0iEUDtZM9HMgH3WxDK48eQnK8QzGj11u9lDSNMf0AnyWJIuBDMOK=w756-h496-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/g5_hx4nuqGuu_PgakrMmSZnjLCOen4xg9dZCmQVaUBpP3qMtJ1MOWgLNll7-SiwFPej9JEVILtPWfKEB1KtKkJ90jBs9RocI9wisazBd4VcNEA_pbmxhxbGkfMyPC6iTUqxzKDgF3oS82RrjXyq7PRLIqwRxDkofDIN9ggfS7gRo-_nwgAgx41r_PCa0uRR1Js3pyaHXGbRj1PlWlYElQ8gguxydOqEzOomdCi4xUi8P4P9Bg-N7LLx8wTnSvdW6FFHtWk0t6Fgqt6hQvBGHtHHtUK2b3zC-Xm1UMsmXCGbIJJbTrVOFk0HKisJyCAV5fFV6U14McfUNvfRskF4rMhGbzMNQeKAWQHhR9BZDni025tcVVvEQupmVtjKloVXd8TYcyLBG9sZKwlsxAMGW6kO8uChGWR733VUVETU_Hw4ADLexF9fclBwkuLXZVYbzVAsxyJrCptnuvKNyecOT8IxJq3oJ34xzSMRwTA16lMWS_gClWbWfw1mnDrCcBTMNbFxo-aZyOv1I3oNV2ntaDXEshmbAXNrvAav9rhr99JvUwG5vaqITgi1ZmiWneDfSjccdLyYll25Nml7mn5sa7jW-RpMAkP7zyYJAunCMRX5U4I1GzCdw=w793-h842-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/40mAixW4eHxhRYseFnuqazc4m5Ax5cr0uvuaZ4afua7-9AS_1QjcfJs-XsEd9GdSUt8fOE0saCa74sXM_TZD8qHEUNFpWJlk-IyfXKwmCKeUlAmpTr9q_epBBuYshQlhDuXqZL0k9ZcntVv6tX-CA32uUZxO-j3I3Eges6YhUjSeld0D5Ew3mv6GldwoJQPgt7g664S6fRFO95t0Gso64vTTF1ynXtGsyf1lsOk4v8yhkGlvbCkF3YGhz3M2sp8J61xbKFPkGkzvk4JygN2WuwGRKyu7XgFcrEk5pIMXXTFiTaKfBTAhbRfKS_BxruzZaZSSb2rFttUAvA6-n6LkDzCO-hJUuXzrNuML6OlHvd4PspOJzTNyEYf7NWPgGLTnW7MlAFiv5zf48XJuqMjyX49fBOCz51a-OmwH14tMQyDUVteR937ZfwyYm4NtVbOI6V5L1xKSRbGVfQh15SqTpJ9cjNoe-SGfBIwfOqgfijNSwRbMDThKk3fcmPwRfmtBE9coeolDzug101FTX1yxjNjnImSbxPRkZZQpODQBge7-Z4Ay60zhTnkrPYnto7MxgvHEQnvOaB3ym3OunRhBkEp96atLTW5ENIvB2NifofMOVHocIvb-=w936-h577-no">
+<meta property="og:updated_time" content="2017-02-16T02:26:38.104Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESP8266をArduinoとして使う">
+<meta name="twitter:description" content="ESP8266(ESP-WROOM-02)をArduinoとして使う方法Arduino core for ESP8266 の基本的な使い方
+目次
+はじめに
+配線と起動モード
+
+
+機能解説
+デジタル IO
+デジタル出力
+デジタル入力
+
+
+アナログ出力
+アナログ入力
+タイミングと遅延
+シリアル通信
+
+
+GPIO pin まとめ
+参考
+
+はじめに
+Arduino core for ESP8266 | r">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/IFQEh4GsESTKXB39kMSBtvtmDziFC3otBRdYFC3TMGX-2SyIJ08WrOwScir5NTWqN5QoEtqImkizd9uncm3D7wHu2j375asllqWqqsosxYW9jg86qikjq5qh86x_2zVfYUbSkzITQxGpIjUbOJzA2cYBnPuPg7yql4351IBfribo7BDdidaTgtF9HboEdS7lTUo05jfTU4yFGXwDAyC9qIx-1Dxiz4dwP9VvVqdLSdqNJPyKZzyKVzkm3Y4NHh43R58Pxrz1Qxcus1z5ew8oWnA-eSUSR3JP1x06DwSLEI9iNmG_zRTBXmppsqfwXaBhkV3bBUJJ7FHQoWq_vWbAwXd_CWPJVqwXef9l2U3LGAFynn9qG3UMDVoFzB9GpVItKhlSn_rnU_iY7Wod4tilOxSwaSraEElSPY5D47eQS12FI39XrAKP9pICcSNMq8-QIYvaWYXLGiy_yz2bkgkbaIAOQDVQ_m5eawR3B6IMYVRiAcGVBT-gjvoPYHpptaOsBB2DdfKr0Obop_-aoCX9xCLX2_3PPpBEBgk1FIDyFYzj0GGMiNrMqHF_lpsA_NXEH7Njs9LfuiHUv8o_zvabzgwioOAcW8FBlCp0O7pacQhqzL9GGKZD=w1204-h677-no">
+<link rel="publisher" href="u/0/106972576385014381494">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+    
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91386689-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    <!--google analytics-->
+    <script src="/blog/tracking.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/blog/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/blog/.">Home</a>
+                
+                    <a class="main-nav-link" href="/blog/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/blog/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '投稿',
+            PAGES: 'Pages',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/blog/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/blog/css/images/avatar.jpg" />
+            <h2 id="name">田邊慶次朗</h2>
+            <h3 id="title">忘れないようにメモします</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Gifu, Japan</span>
+            <a id="follow" target="_blank" href="https://github.com/keijirotanabe">フォローする</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>投稿</span>
+            </div>
+            <div class="article-info-block">
+                19
+                <span>タグ</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/keijirotanabe" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-esp8266-how-to-170208" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            ESP8266をArduinoとして使う
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/08/esp8266-how-to-170208/">
+            <time datetime="2017-02-08T03:42:39.000Z" itemprop="datePublished">2017-02-08</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/ESP8266/">ESP8266</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Arduino/">Arduino</a>, <a class="tag-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a>, <a class="tag-link" href="/blog/tags/ESP8266/">ESP8266</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>ESP8266(ESP-WROOM-02)をArduinoとして使う方法<br>Arduino core for ESP8266 の基本的な使い方</p>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
+<li><a href="#はじめに">はじめに</a><ul>
+<li><a href="#配線と起動モード">配線と起動モード</a></li>
+</ul>
+</li>
+<li><a href="#機能解説">機能解説</a><ul>
+<li><a href="#デジタル-IO">デジタル IO</a><ul>
+<li><a href="#デジタル出力">デジタル出力</a></li>
+<li><a href="#デジタル入力">デジタル入力</a></li>
+</ul>
+</li>
+<li><a href="#アナログ出力">アナログ出力</a></li>
+<li><a href="#アナログ入力">アナログ入力</a></li>
+<li><a href="#タイミングと遅延">タイミングと遅延</a></li>
+<li><a href="#シリアル通信">シリアル通信</a></li>
+</ul>
+</li>
+<li><a href="#GPIO-pin-まとめ">GPIO pin まとめ</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><ul>
+<li><p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>を参照しています</p>
+</li>
+<li><p><a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
+</li>
+</ul>
+<h2 id="配線と起動モード"><a href="#配線と起動モード" class="headerlink" title="配線と起動モード"></a>配線と起動モード</h2><ul>
+<li><h4 id="実行モード-Flash-Boot-Mode"><a href="#実行モード-Flash-Boot-Mode" class="headerlink" title="実行モード(Flash Boot Mode)"></a>実行モード(Flash Boot Mode)</h4>  書き込んだプログラムで起動します</li>
+<li><h4 id="書き込みモード-UART-Download-Mode"><a href="#書き込みモード-UART-Download-Mode" class="headerlink" title="書き込みモード(UART Download Mode)"></a>書き込みモード(UART Download Mode)</h4>  プログラムが書き込めるようになります</li>
+</ul>
+<p>IO0 pinを<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード<br>になります</p>
+<table>
+<thead>
+<tr>
+<th>GPIO</th>
+<th>pinの名前</th>
+<th>実行モード</th>
+<th>書き込みモード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPIO0</td>
+<td>IO0</td>
+<td>HIGH</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>GPIO2</td>
+<td>IO2</td>
+<td>HIGH</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>GPIO15</td>
+<td>IO15</td>
+<td>LOW</td>
+<td>LOW</td>
+</tr>
+</tbody>
+</table>
+<h1 id="機能解説"><a href="#機能解説" class="headerlink" title="機能解説"></a>機能解説</h1><h2 id="デジタル-IO"><a href="#デジタル-IO" class="headerlink" title="デジタル IO"></a>デジタル IO</h2><ul>
+<li>GPIO 0〜15 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLUP</code><br>  ※ただし、GPIO 6〜11はGPIOとして使用不可(↓参照)</li>
+<li>GPIO 16 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLDOWN_16</code></li>
+<li>ピン割り込みの使用 → GPIO 0〜15 <code>attachInterrupt</code>、<code>detachInterrupt</code>関数</li>
+</ul>
+<blockquote>
+<p>デジタルピン0〜15は、INPUT、OUTPUT、INPUT_PULLUPのいずれかです。ピン16はINPUT、OUTPUT、INPUT_PULLDOWN_16のいずれかです。起動時に、ピンはINPUTとして設定されます。</p>
+<p>デジタルピン6-11は、ほとんどのモジュール上のフラッシュメモリチップを接続するために使用されているため、この図には示されていません。 IOとしてこれらのピンを使用しようとすると、プログラムがクラッシュする可能性があります。</p>
+<p>ピン割り込みは、attachInterrupt、detachInterrupt関数でサポートされています。割り込みは、GPIO16を除く任意のGPIOピンに接続できます。</p>
+</blockquote>
+<h3 id="デジタル出力"><a href="#デジタル出力" class="headerlink" title="デジタル出力"></a>デジタル出力</h3><p>IO13のLEDを点滅</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  digitalWrite(LED, HIGH);</div><div class="line">  delay(<span class="number">1000</span>);</div><div class="line">  digitalWrite(LED, LOW);</div><div class="line">  delay(<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/IFQEh4GsESTKXB39kMSBtvtmDziFC3otBRdYFC3TMGX-2SyIJ08WrOwScir5NTWqN5QoEtqImkizd9uncm3D7wHu2j375asllqWqqsosxYW9jg86qikjq5qh86x_2zVfYUbSkzITQxGpIjUbOJzA2cYBnPuPg7yql4351IBfribo7BDdidaTgtF9HboEdS7lTUo05jfTU4yFGXwDAyC9qIx-1Dxiz4dwP9VvVqdLSdqNJPyKZzyKVzkm3Y4NHh43R58Pxrz1Qxcus1z5ew8oWnA-eSUSR3JP1x06DwSLEI9iNmG_zRTBXmppsqfwXaBhkV3bBUJJ7FHQoWq_vWbAwXd_CWPJVqwXef9l2U3LGAFynn9qG3UMDVoFzB9GpVItKhlSn_rnU_iY7Wod4tilOxSwaSraEElSPY5D47eQS12FI39XrAKP9pICcSNMq8-QIYvaWYXLGiy_yz2bkgkbaIAOQDVQ_m5eawR3B6IMYVRiAcGVBT-gjvoPYHpptaOsBB2DdfKr0Obop_-aoCX9xCLX2_3PPpBEBgk1FIDyFYzj0GGMiNrMqHF_lpsA_NXEH7Njs9LfuiHUv8o_zvabzgwioOAcW8FBlCp0O7pacQhqzL9GGKZD=w1204-h677-no" alt=""></p>
+<h3 id="デジタル入力"><a href="#デジタル入力" class="headerlink" title="デジタル入力"></a>デジタル入力</h3><p>IO2のスイッチを押している間、IO13のLEDが点灯</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SWITCH 2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">  pinMode(SWITCH, INPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (digitalRead(SWITCH) == LOW) &#123;</div><div class="line">    digitalWrite(LED, HIGH);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    digitalWrite(LED, LOW);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/9kx-jaL_YB5kILprxOWEz_eVlxOazuGq7Utvj-LFyIrP3H9pdmnJr9cg7xBT7VZ7j3nzcM6g6a8xrVo86ZSxUgR6INc4szhqUDnTb23xQ_8eZjzDdzaXPKjbrmFS8D_wKoW0FjZsbP2zaMszG7Yc0fBk7mf_4N87hh4VBx92Cg_84UiWqFgZ8hUAzl-dE3PFQ6Ssjtlom5rBhe6XIg7Wd6eirDmZfetYJCysoSq7I3SGKBRA2RaqDtyjqiHGSJ7t5yhwid-nbIxS3rUAHo5635lykXGsatAdCHAxikIXTu7P6b_6dj3OHIZZKb5pMXlK08hOy2mV4YbPqYLjyryLWUSqNaSakUPQKB3e9Q3bpkv9nZaphpniH1QAEBopGKECanPKa5_puco_8MQLBbVWdvhMyC5pz2qX6b-Y6DJInnmQbs9T85UpKbPcG1BbVgW1h99A0VwDNbKPWdSGcfRyE7ceuNQ-Wl5GqWqlkrzEtUMq06b1ClEjYg93Zdd2KzYJxkdxIVBy2A-GuyfqQEVr0N4z9VMsSVt3DVJHFwkbUrwCdhtFdOl7SNlJlgZjJpAE7nES2t-d_z-C693ylJ4ZhUwaJqJyTNQZRY8YDSqkEsgvP33V=w1204-h677-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/-2Qo74VEriPFL1gC4ToUDhnweJv9WWhjJUMwKL-Fc-r-3idtjEf4Y0k2Fw56W0GFTXP7FxWOc0Elw6f92ctXe6HqITqbP5yMM7RAxXaCQV6D7L1pu1_K4No3AC6dYgHzTfsBrQSpZiwuJantp5g9lE9zsKflmpLGoR-kM3FHCqQrZBlhre5NQ3EW0bitolykuuY8KRX_kuwT2msdZ3KMatgdwsKjBnWy7WN4OsJH0KfaLIl828hL_eUPEk6w1UtlOpREVU6CfGknphSRYQiC_Wu--8I0yIh55VLmHFv_iHXJecY0A27jU0ZYmbylPvnvDIu5yDTQaN7ixFsmXRmLpQboeUMCzciPP5JJPOydRIJ8kPVfgAD6-NLhvtx1aPVsTn9NKIJepKPvuDyAaJaTGYTcvkjcweqZWZ8duGpE0jWJX0sx3RK2emUifkAF-cchyclM1mncvrsai3ylJBUXDa0FAF3NbEkRf5CUfELAg0R9KM1AeSS4ONtM_0HBONIxrBR2ff5SetnmHhV0rBt7cn9uDLRiLP8DxzccHi8m-6VYEa7Uq1XYuEGjZOClClJaszFhCEkuXFEkkvEEc0A2-YX3gjrtdctFwL4sodYhdStlKOkI=w1204-h677-no" alt=""></p>
+<h2 id="アナログ出力"><a href="#アナログ出力" class="headerlink" title="アナログ出力"></a>アナログ出力</h2><ul>
+<li>GPIO 0〜16で使用可 (※GPIO 6〜11を除く)</li>
+<li><code>analogWrite(pin, value)</code>でON<br>  value → <code>0～1023</code></li>
+<li><code>analogWrite(pin, 0)</code>でOFF</li>
+</ul>
+<blockquote>
+<p>analogWrite（pin、value）指定されたピンでソフトウェアPWMをイネーブルにします。 PWMはピン0〜16で使用できます。ピンのPWMをディセーブルにするには、analogWrite（pin、0）を呼び出します。 値は0からPWMRANGEまでの範囲で指定できます。デフォルトは1023です。</p>
+</blockquote>
+<p>IO13のLEDが徐々に明るくなるサンプルコード</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;  i &lt; <span class="number">1023</span>;  i++)  &#123;</div><div class="line">    analogWrite(LED, i);</div><div class="line">    delay(<span class="number">3</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/L1iqhVF6IK8K7dvxBXZ9cD-YDCJbE0bjnD2d3gQNearGCw9VYTNJQG1MkO2EH0oH0mvtTEo7rBtqQGhH0QnnrJGX7YK3Rnqkct-KURTUr1cP1P5-QyyXutNk2NiUY5XS8MrHQhIMCPsO2gULMIISluO3aTOaUV78lnf9_ML36xHM4AV3Frr89O85gJ0kIYc_pOD9TelgyXuAUJ7O06-pxUULtBhBJuk5N8_-bHBuTKVeq_RDyNqCdWTcevUA0jqqvPUoT1bj-pqy5cckIzFCQtQxBtNeW6aysZa7TPu9ulCEWLiNKdm_iWv0zcuVUdVSsYftmqIaB-q83CXIWH5EpdO7Nt6PRBmPDpMGYf6ShwvM2-2KoLCLNgrX4hICQv7-WMpaKnqTCMculNOxgFJYGgKW4D8ms4W277SfwdFsHswqD94k3oHMxQRgkd_Nj87kZMIvD9XHitVZryRUSzSxT3y5afFykA8a6zOD5Xoo1EBJ5b0oYdoxsfQkw6yxc0VaLhlsaKyxPbdFRpPLxXPVqJAzbQt3ie87kdI-aoEi0EJ7bfYAqye3dbDNDu-ZGC0zi1Gj8ZLgAUWOOCCP-mIl7-pGSXZ10DC71BEVRLnMCcOrYMrEie2V=w1204-h677-no" alt=""></p>
+<h2 id="アナログ入力"><a href="#アナログ入力" class="headerlink" title="アナログ入力"></a>アナログ入力</h2><p><code>analogRead(A0)</code>で読み取り</p>
+<p>※<code>ADC_MODE(ADC_VCC);</code>を関数の外に定義で、電源電圧の読み取り</p>
+<ul>
+<li>入力電圧範囲は0〜1.0V</li>
+</ul>
+<blockquote>
+<p>　ADCピンに印加される外部電圧を読み取るには、analogRead（A0）を使用します。 入力電圧範囲は0〜1.0Vです。</p>
+</blockquote>
+<p>TOUT(A0)のAD変換値を読み取る</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> value;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  Serial.begin(<span class="number">115200</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  value = analogRead(A0);</div><div class="line">  Serial.println(value);</div><div class="line">  delay(<span class="number">100</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>0～1023が得られるはずですが、<br>以下のようにつなげて読み取った所、<code>6～1024</code>という値が得られました</p>
+<p><img src="https://lh3.googleusercontent.com/g0uBiXeglm-FC-Fpaj3e6k3UGl-v-cnPpMO61esy8LSk8IoJALhEjfyskDsf-E4bikJaqpWry8z70503k37Z8YhJ03FUkrS8DPqDhBjqaTYXvCh0ZauxkC7SUZVBYjXdaV1zxNrX4aD6zM_YjKwUZS8z7zGuoYEEPy8tP5svxFfmQ9YN4smYPVJvAkiEzNnMATlg49JyQ3xIQB8B4Y_vEcqo_xPZC_JI8e_EQJ4E5-aN5SpE3AMaJ7qx3XxOsSr-S4LhzBqK2zuNuBeamXs0K8WVMiIaSoZkb91vDeMjffJ6VdCDpr22UxjAzb2wQvxfY9HsfS57k0F7f5HtnUdyBimu-ITnXhN1s0rq2FwKyKo58fcxG3QfE7dKcFPGQty-b7J35-bLkROZJAl3UB5_J_7ofY9G1kXgRLoGBaXx4utRvGX1UzOpT9Tcqj4ypzgqf6AEcZuPBlSSO6eQzvAMckT8v7f1bs-s_FrU_SywIBJDay0BJwmTexQ3QHIMAPnoTvo3kyNpCaLMJLOhZY_GGdOvxktIIygLl1BUXql1wKUzNLtWuFIDocbOdSskAux7yUup6f9gp3c7JwgMkPr8GQSDiICLfNFN7ZL4DkykSsydneR1PJJG=w1204-h677-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/tyeIcFD9gJsrw1APDMsaRpvI4LlY0rUePbrZjJpmalHBTzXVDoSZcHE7bt0uPr4zB7NpB6xow706z99CXneutSyhvXQKrDjINtQHnJEmo_UrNb2G0vW4lWmpcBa3hjdOkWazE4vlCRrcr6aL9g4CAcfGmxnr54egvYbq5GL7kRk3X2El0e94cpWvAjAagNs34AVT6qGg_0M2LoOghC8kyJZQqbp3hEOZMB_vDdK6zrvcKazOzLYTHgkbGiR_FNLDFo6zStP3BIifULWqWwsrxmdKye0RpqwmQVWHAHQ48p8ssFiTylCWc7NfA_S6YdBsFu7qw7nbRzNPH5PhTgUDm886WDeaRqEJOacaGh-3i6-51JxqlKnTNPl5JZuj0jr24f6VNLp4PFeeBhh6nJOmH3fOHvLiQNrPyQ-zRmHyCQNcxd33l--fs2vZiGv7swxvi4HirrMwIGTsiJ_8yeyUZDZhgVrcz2QPK4xqYkXVklCMGqgpA8ytOQISUb4u5FFx42s_8aziVv9xDg8H31BHbhpONJPMDvX0i4u3hrURN7Uj33uv7gEv2mHKDvSV34fz0iEUDtZM9HMgH3WxDK48eQnK8QzGj11u9lDSNMf0AnyWJIuBDMOK=w756-h496-no" alt=""></p>
+<h2 id="タイミングと遅延"><a href="#タイミングと遅延" class="headerlink" title="タイミングと遅延"></a>タイミングと遅延</h2><ul>
+<li><h4 id="リセット後の経過時間取得"><a href="#リセット後の経過時間取得" class="headerlink" title="リセット後の経過時間取得"></a>リセット後の経過時間取得</h4><ul>
+<li>ミリ秒 → <code>millis()</code></li>
+<li>マイクロ秒 → <code>micros()</code></li>
+</ul>
+</li>
+<li><h4 id="遅延"><a href="#遅延" class="headerlink" title="遅延"></a>遅延</h4><ul>
+<li>ミリ秒 → <code>delay()</code></li>
+<li>マイクロ秒 → <code>delayMicroseconds()</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>millis()およびmicros()は、それぞれリセット後に経過したミリ秒数およびマイクロ秒数を返します。</p>
+<p>delay(ms)は、指定したミリ秒間スケッチを一時停止し、WiFiおよびTCP / IPタスクを実行できるようにします。 delayMicroseconds(us)は、指定されたマイクロ秒数で一時停止します。</p>
+</blockquote>
+<h2 id="シリアル通信"><a href="#シリアル通信" class="headerlink" title="シリアル通信"></a>シリアル通信</h2><ul>
+<li><code>Serial.begin()</code>をsetup関数に定義</li>
+<li><code>Serial.swap()</code>で使用するピンの組み合わせを変更<br>  GPIO1(TX) &amp; GPIO3(RX) ↔ GPIO15(TX) &amp; GPIO13(RX)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">選択</th>
+<th style="text-align:left">TX</th>
+<th style="text-align:left">RX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">default</td>
+<td style="text-align:left">GPIO1(TXD)</td>
+<td style="text-align:left">GPIO3(RXD)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Serial.swap()</code>で変更</td>
+<td style="text-align:left">GPIO15(IO15)</td>
+<td style="text-align:left">GPIO13(IO13)</td>
+</tr>
+</tbody>
+</table>
+<p>※GPIO(pin Name)</p>
+<blockquote>
+<p>シリアルはUART 0を使用し、GPIO 1（TX）ピンとGPIO 3（RX）ピンにマッピングされます。 Serial.beginの後にSerial.swap（）を呼び出すことで、SerialはGPIO 15（TX）とGPIO 13（RX）を再マッピングできます。スワップを再度呼び出すと、UART 0がGPIO 1とGPIO 3にマップされます。</p>
+</blockquote>
+<h1 id="GPIO-pin-まとめ"><a href="#GPIO-pin-まとめ" class="headerlink" title="GPIO pin まとめ"></a>GPIO pin まとめ</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">GPIO</th>
+<th style="text-align:center">pinの名前</th>
+<th style="text-align:center">デジタル出力</th>
+<th style="text-align:center">デジタル入力</th>
+<th style="text-align:center">アナログ出力</th>
+<th style="text-align:center">アナログ入力</th>
+<th style="text-align:center">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">GPIO0</td>
+<td style="text-align:center">IO0</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">起動時に使用</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO1</td>
+<td style="text-align:center">TXD</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">書き込みに使用</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO2</td>
+<td style="text-align:center">IO2</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">起動時に使用</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO3</td>
+<td style="text-align:center">RXD</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">書き込みに使用</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO4</td>
+<td style="text-align:center">IO4</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO5</td>
+<td style="text-align:center">IO5</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO12</td>
+<td style="text-align:center">IO12</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO13</td>
+<td style="text-align:center">IO13</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO14</td>
+<td style="text-align:center">IO14</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO15</td>
+<td style="text-align:center">IO15</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">起動時に使用</td>
+</tr>
+<tr>
+<td style="text-align:center">GPIO16</td>
+<td style="text-align:center">IO16</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">〇　※1</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">A0</td>
+<td style="text-align:center">TOUT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">〇</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>※1 割り込みは不可</p>
+<p><a href="http://espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf" target="_blank" rel="external">ESP-WROOM-02 | データシート</a></p>
+<p><img src="https://lh3.googleusercontent.com/g5_hx4nuqGuu_PgakrMmSZnjLCOen4xg9dZCmQVaUBpP3qMtJ1MOWgLNll7-SiwFPej9JEVILtPWfKEB1KtKkJ90jBs9RocI9wisazBd4VcNEA_pbmxhxbGkfMyPC6iTUqxzKDgF3oS82RrjXyq7PRLIqwRxDkofDIN9ggfS7gRo-_nwgAgx41r_PCa0uRR1Js3pyaHXGbRj1PlWlYElQ8gguxydOqEzOomdCi4xUi8P4P9Bg-N7LLx8wTnSvdW6FFHtWk0t6Fgqt6hQvBGHtHHtUK2b3zC-Xm1UMsmXCGbIJJbTrVOFk0HKisJyCAV5fFV6U14McfUNvfRskF4rMhGbzMNQeKAWQHhR9BZDni025tcVVvEQupmVtjKloVXd8TYcyLBG9sZKwlsxAMGW6kO8uChGWR733VUVETU_Hw4ADLexF9fclBwkuLXZVYbzVAsxyJrCptnuvKNyecOT8IxJq3oJ34xzSMRwTA16lMWS_gClWbWfw1mnDrCcBTMNbFxo-aZyOv1I3oNV2ntaDXEshmbAXNrvAav9rhr99JvUwG5vaqITgi1ZmiWneDfSjccdLyYll25Nml7mn5sa7jW-RpMAkP7zyYJAunCMRX5U4I1GzCdw=w793-h842-no" alt=""></p>
+<p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>の図</p>
+<p><img src="https://lh3.googleusercontent.com/40mAixW4eHxhRYseFnuqazc4m5Ax5cr0uvuaZ4afua7-9AS_1QjcfJs-XsEd9GdSUt8fOE0saCa74sXM_TZD8qHEUNFpWJlk-IyfXKwmCKeUlAmpTr9q_epBBuYshQlhDuXqZL0k9ZcntVv6tX-CA32uUZxO-j3I3Eges6YhUjSeld0D5Ew3mv6GldwoJQPgt7g664S6fRFO95t0Gso64vTTF1ynXtGsyf1lsOk4v8yhkGlvbCkF3YGhz3M2sp8J61xbKFPkGkzvk4JygN2WuwGRKyu7XgFcrEk5pIMXXTFiTaKfBTAhbRfKS_BxruzZaZSSb2rFttUAvA6-n6LkDzCO-hJUuXzrNuML6OlHvd4PspOJzTNyEYf7NWPgGLTnW7MlAFiv5zf48XJuqMjyX49fBOCz51a-OmwH14tMQyDUVteR937ZfwyYm4NtVbOI6V5L1xKSRbGVfQh15SqTpJ9cjNoe-SGfBIwfOqgfijNSwRbMDThKk3fcmPwRfmtBE9coeolDzug101FTX1yxjNjnImSbxPRkZZQpODQBge7-Z4Ay60zhTnkrPYnto7MxgvHEQnvOaB3ym3OunRhBkEp96atLTW5ENIvB2NifofMOVHocIvb-=w936-h577-no" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf" target="_blank" rel="external">ESP-WROOM-02 | データシート</a><br><a href="https://github.com/esp8266/Arduino#documentation" target="_blank" rel="external">Arduino core for ESP8266 | Documentation</a><br><a href="http://qiita.com/umi_kappa/items/ac3d37db44a2dcfe71fd" target="_blank" rel="external">ESP-WROOM-02 Arduino互換ボードのGPIOはこうやって使う</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/" data-id="ciz7v1gb1000b3a62lzluqwee" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/2017/02/08/fritzing-install-170208/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
+                
+                    回路図が書けるFritzingをインストール
+                
+            </div>
+        </a>
+    
+    
+        <a href="/blog/2017/02/07/esp8266-Arduino-170207/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">ESP8266にArduinoスケッチを書き込む</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最近の記事</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.148Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-search-add-170216/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-search-add-170216/" class="title">Hexoのテーマicarusでサイト内検索を追加する</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T19:01:51.000Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="title">HexoにDisqusでコメント機能を追加する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T13:03:55.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/14/hexo-toc-install-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/14/hexo-toc-install-170215/" class="title">HEXOで目次を自動で作成してくれるhexo-tocをインストール</a></p>
+                            <p class="item-date"><time datetime="2017-02-14T18:59:49.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ESP8266/">ESP8266</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Font/">Font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Hexo/">Hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/fritzing/">fritzing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/">プログラミング</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/補足/">補足</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグクラウド</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Arduino/" style="font-size: 16px;">Arduino</a> <a href="/blog/tags/Cloud9/" style="font-size: 10px;">Cloud9</a> <a href="/blog/tags/Disqus/" style="font-size: 10px;">Disqus</a> <a href="/blog/tags/ESP-WROOM-02/" style="font-size: 16px;">ESP-WROOM-02</a> <a href="/blog/tags/ESP8266/" style="font-size: 18px;">ESP8266</a> <a href="/blog/tags/Font/" style="font-size: 10px;">Font</a> <a href="/blog/tags/GutHub/" style="font-size: 10px;">GutHub</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/blog/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/blog/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/blog/tags/Raspberry-Pi-3/" style="font-size: 12px;">Raspberry Pi 3</a> <a href="/blog/tags/RictyDiminished/" style="font-size: 10px;">RictyDiminished</a> <a href="/blog/tags/SDカードフォーマッター/" style="font-size: 10px;">SDカードフォーマッター</a> <a href="/blog/tags/WiFi/" style="font-size: 10px;">WiFi</a> <a href="/blog/tags/Win32DiskImager/" style="font-size: 10px;">Win32DiskImager</a> <a href="/blog/tags/fritzing/" style="font-size: 10px;">fritzing</a> <a href="/blog/tags/メモ/" style="font-size: 10px;">メモ</a> <a href="/blog/tags/補足/" style="font-size: 14px;">補足</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグ</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Arduino/">Arduino</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud9/">Cloud9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Disqus/">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP8266/">ESP8266</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Font/">Font</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GutHub/">GutHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RictyDiminished/">RictyDiminished</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SDカードフォーマッター/">SDカードフォーマッター</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/WiFi/">WiFi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fritzing/">fritzing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/メモ/">メモ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/補足/">補足</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">アーカイブ</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">2月 2017</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 田邊 慶次朗<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/';
+        
+        this.page.identifier = 'esp8266-how-to-170208';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'blog-8jwah39ddi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

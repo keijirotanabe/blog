@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="utf-8">
+    
+    <title>HEXOで使えるMarkDown記法 | blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Hexoで記事を書くときの記法まとめ
+目次
+見出し
+リンク
+斜体、強調
+リスト
+テーブル
+画像
+コード・ブロック
+インライン・コード
+Block Quote
+参考
+
+見出しh1の見出しh2の見出しh3の見出しh4の見出しh5の見出しh6の見出し123456# h1の見出し## h2の見出し### h3の見出し#### h4の見出し##### h5の見出し###### h6の見出し
+h1 と h2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXOで使えるMarkDown記法">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/04/markdown/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Hexoで記事を書くときの記法まとめ
+目次
+見出し
+リンク
+斜体、強調
+リスト
+テーブル
+画像
+コード・ブロック
+インライン・コード
+Block Quote
+参考
+
+見出しh1の見出しh2の見出しh3の見出しh4の見出しh5の見出しh6の見出し123456# h1の見出し## h2の見出し### h3の見出し#### h4の見出し##### h5の見出し###### h6の見出し
+h1 と h2">
+<meta property="og:image" content="https://lh3.googleusercontent.com/cW67I7JnR5qK_0d5PpnZrUjtKMDmngACeK2miSINisJB1Ma0SXzfTQadXOA4Z47vmGkmT7o7KZ9afrT5ccpBG07VpA_OZfSqnhZ-csDO-Tn3b23WkUDxeAkhiUxvGVl_seualFbNPVgOSCSrwdwgYsBS3nHRYWjAlA23TF9oHvAMQtEkNXRRscGqGX4PkQyF-VQeWjPV4pu775rVl3pW0crVx_MK818y3niAKDdk317-mO9uwDjOHbQEJ-z9CiU4LTFZ3q7AY9LJtoKoeMxFMQbR9WKq0XPhhFMtwjjRF1JKMSCRJfkDgK-MmtFedQ-EsJUDHuI5QtgyYT7OtqQ4IAsgx5YQNuyPGQ7oW1E4Bb-bJ6oo8M2JMPh5qAFn6zNMSqvvRR3xQBp7IGnCY8H2nTNyqmtIepVdjft8vCaeJcp8p9F5gvwsrS8m6tGZDcpEzUDwQdj8mUThAWl3CHKsISVGAGqw3CaPyQgB910HeHyDIbCiw7jVBUnnVjfk5IP485ma4ZSuxJdnYTothNKMGBBoqr1fJmQIcRQstaS3kPCRnzy0PsKvVygFTmJ1NnLUd82qL-djXqygcwToJZtRHK1T-anw7vsWavK-FUTw8N5lO_8iUWHW=w260-h193-no">
+<meta property="og:updated_time" content="2017-02-16T02:26:39.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HEXOで使えるMarkDown記法">
+<meta name="twitter:description" content="Hexoで記事を書くときの記法まとめ
+目次
+見出し
+リンク
+斜体、強調
+リスト
+テーブル
+画像
+コード・ブロック
+インライン・コード
+Block Quote
+参考
+
+見出しh1の見出しh2の見出しh3の見出しh4の見出しh5の見出しh6の見出し123456# h1の見出し## h2の見出し### h3の見出し#### h4の見出し##### h5の見出し###### h6の見出し
+h1 と h2">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/cW67I7JnR5qK_0d5PpnZrUjtKMDmngACeK2miSINisJB1Ma0SXzfTQadXOA4Z47vmGkmT7o7KZ9afrT5ccpBG07VpA_OZfSqnhZ-csDO-Tn3b23WkUDxeAkhiUxvGVl_seualFbNPVgOSCSrwdwgYsBS3nHRYWjAlA23TF9oHvAMQtEkNXRRscGqGX4PkQyF-VQeWjPV4pu775rVl3pW0crVx_MK818y3niAKDdk317-mO9uwDjOHbQEJ-z9CiU4LTFZ3q7AY9LJtoKoeMxFMQbR9WKq0XPhhFMtwjjRF1JKMSCRJfkDgK-MmtFedQ-EsJUDHuI5QtgyYT7OtqQ4IAsgx5YQNuyPGQ7oW1E4Bb-bJ6oo8M2JMPh5qAFn6zNMSqvvRR3xQBp7IGnCY8H2nTNyqmtIepVdjft8vCaeJcp8p9F5gvwsrS8m6tGZDcpEzUDwQdj8mUThAWl3CHKsISVGAGqw3CaPyQgB910HeHyDIbCiw7jVBUnnVjfk5IP485ma4ZSuxJdnYTothNKMGBBoqr1fJmQIcRQstaS3kPCRnzy0PsKvVygFTmJ1NnLUd82qL-djXqygcwToJZtRHK1T-anw7vsWavK-FUTw8N5lO_8iUWHW=w260-h193-no">
+<link rel="publisher" href="u/0/106972576385014381494">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+    
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91386689-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    <!--google analytics-->
+    <script src="/blog/tracking.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/blog/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/blog/.">Home</a>
+                
+                    <a class="main-nav-link" href="/blog/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/blog/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '投稿',
+            PAGES: 'Pages',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/blog/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/blog/css/images/avatar.jpg" />
+            <h2 id="name">田邊慶次朗</h2>
+            <h3 id="title">忘れないようにメモします</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Gifu, Japan</span>
+            <a id="follow" target="_blank" href="https://github.com/keijirotanabe">フォローする</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>投稿</span>
+            </div>
+            <div class="article-info-block">
+                19
+                <span>タグ</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/keijirotanabe" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            HEXOで使えるMarkDown記法
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/04/markdown/">
+            <time datetime="2017-02-04T12:03:00.000Z" itemprop="datePublished">2017-02-04</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Hexo/">Hexo</a>, <a class="tag-link" href="/blog/tags/MarkDown/">MarkDown</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Hexoで記事を書くときの記法まとめ</p>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
+<li><a href="#見出し">見出し</a></li>
+<li><a href="#リンク">リンク</a></li>
+<li><a href="#斜体、強調">斜体、強調</a></li>
+<li><a href="#リスト">リスト</a></li>
+<li><a href="#テーブル">テーブル</a></li>
+<li><a href="#画像">画像</a></li>
+<li><a href="#コード・ブロック">コード・ブロック</a></li>
+<li><a href="#インライン・コード">インライン・コード</a></li>
+<li><a href="#Block-Quote">Block Quote</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+<h1 id="見出し"><a href="#見出し" class="headerlink" title="見出し"></a>見出し</h1><h1 id="h1の見出し"><a href="#h1の見出し" class="headerlink" title="h1の見出し"></a>h1の見出し</h1><h2 id="h2の見出し"><a href="#h2の見出し" class="headerlink" title="h2の見出し"></a>h2の見出し</h2><h3 id="h3の見出し"><a href="#h3の見出し" class="headerlink" title="h3の見出し"></a>h3の見出し</h3><h4 id="h4の見出し"><a href="#h4の見出し" class="headerlink" title="h4の見出し"></a>h4の見出し</h4><h5 id="h5の見出し"><a href="#h5の見出し" class="headerlink" title="h5の見出し"></a>h5の見出し</h5><h6 id="h6の見出し"><a href="#h6の見出し" class="headerlink" title="h6の見出し"></a>h6の見出し</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1の見出し</div><div class="line">## h2の見出し</div><div class="line">### h3の見出し</div><div class="line">#### h4の見出し</div><div class="line">##### h5の見出し</div><div class="line">###### h6の見出し</div></pre></td></tr></table></figure>
+<p>h1 と h2 は以下のやり方も使える</p>
+<h1 id="h1の見出し-1"><a href="#h1の見出し-1" class="headerlink" title="h1の見出し"></a>h1の見出し</h1><h2 id="h2の見出し-1"><a href="#h2の見出し-1" class="headerlink" title="h2の見出し"></a>h2の見出し</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">h1の見出し</div><div class="line">=========</div><div class="line">h2の見出し</div><div class="line">---------</div></pre></td></tr></table></figure>
+<h1 id="リンク"><a href="#リンク" class="headerlink" title="リンク"></a>リンク</h1><p><a href="http://google.com" target="_blank" rel="external">Google</a><br><a href="/blog/tags/HEXO/">サイト内リンク</a><br><a href="/blog/2017/02/16/hello-world/" title="Hello World">Hello World</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[Google](http://google.com)</div><div class="line">[サイト内リンク](/blog/tags/HEXO/)</div><div class="line">&#123;% post_link hello-world %&#125;</div></pre></td></tr></table></figure>
+<h1 id="斜体、強調"><a href="#斜体、強調" class="headerlink" title="斜体、強調"></a>斜体、強調</h1><p><em>斜体</em><br><strong>強調</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*斜体*</div><div class="line">**強調**</div></pre></td></tr></table></figure>
+<h1 id="リスト"><a href="#リスト" class="headerlink" title="リスト"></a>リスト</h1><h3 id="ul-リスト"><a href="#ul-リスト" class="headerlink" title="ul リスト"></a>ul リスト</h3><ul>
+<li>list<br>  説明１。説明１。説明１。説明１。説明１。説明１。</li>
+<li>list<br>  説明２。説明２。説明２。説明２。説明２。</li>
+<li>list</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- list</div><div class="line">    説明１。説明１。説明１。説明１。説明１。説明１。</div><div class="line">- list</div><div class="line">    説明２。説明２。説明２。説明２。説明２。</div><div class="line">- list</div></pre></td></tr></table></figure>
+<h3 id="ol-リスト（番号付き）"><a href="#ol-リスト（番号付き）" class="headerlink" title="ol リスト（番号付き）"></a>ol リスト（番号付き）</h3><ol>
+<li>リスト１</li>
+<li>リスト２</li>
+<li>リスト３</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. リスト１</div><div class="line">2. リスト２</div><div class="line">3. リスト３</div></pre></td></tr></table></figure>
+<h1 id="テーブル"><a href="#テーブル" class="headerlink" title="テーブル"></a>テーブル</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">left</th>
+<th style="text-align:center">center</th>
+<th style="text-align:right">right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">aaa</td>
+<td style="text-align:center">bbb</td>
+<td style="text-align:right">ccc</td>
+</tr>
+<tr>
+<td style="text-align:left">aaa</td>
+<td style="text-align:center">bbb</td>
+<td style="text-align:right">ccc</td>
+</tr>
+<tr>
+<td style="text-align:left">aaa</td>
+<td style="text-align:center">bbb</td>
+<td style="text-align:right">ccc</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|left    | center |   right| </div><div class="line">|:-------|:------:|-------:|</div><div class="line">|aaa     |bbb     |ccc     |</div><div class="line">|aaa     |bbb     |ccc     |</div><div class="line">|aaa     |bbb     |ccc     |</div></pre></td></tr></table></figure>
+<h1 id="画像"><a href="#画像" class="headerlink" title="画像"></a>画像</h1><h3 id="Googleフォトから"><a href="#Googleフォトから" class="headerlink" title="Googleフォトから"></a>Googleフォトから</h3><p><img src="https://lh3.googleusercontent.com/cW67I7JnR5qK_0d5PpnZrUjtKMDmngACeK2miSINisJB1Ma0SXzfTQadXOA4Z47vmGkmT7o7KZ9afrT5ccpBG07VpA_OZfSqnhZ-csDO-Tn3b23WkUDxeAkhiUxvGVl_seualFbNPVgOSCSrwdwgYsBS3nHRYWjAlA23TF9oHvAMQtEkNXRRscGqGX4PkQyF-VQeWjPV4pu775rVl3pW0crVx_MK818y3niAKDdk317-mO9uwDjOHbQEJ-z9CiU4LTFZ3q7AY9LJtoKoeMxFMQbR9WKq0XPhhFMtwjjRF1JKMSCRJfkDgK-MmtFedQ-EsJUDHuI5QtgyYT7OtqQ4IAsgx5YQNuyPGQ7oW1E4Bb-bJ6oo8M2JMPh5qAFn6zNMSqvvRR3xQBp7IGnCY8H2nTNyqmtIepVdjft8vCaeJcp8p9F5gvwsrS8m6tGZDcpEzUDwQdj8mUThAWl3CHKsISVGAGqw3CaPyQgB910HeHyDIbCiw7jVBUnnVjfk5IP485ma4ZSuxJdnYTothNKMGBBoqr1fJmQIcRQstaS3kPCRnzy0PsKvVygFTmJ1NnLUd82qL-djXqygcwToJZtRHK1T-anw7vsWavK-FUTw8N5lO_8iUWHW=w260-h193-no" alt="sample.jpg" title="sample.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![sample.jpg](https://lh3.googleusercontent.com/cW67I7JnR5qK_0d5PpnZrUjtKMDmngACeK2miSINisJB1Ma0SXzfTQadXOA4Z47vmGkmT7o7KZ9afrT5ccpBG07VpA_OZfSqnhZ-csDO-Tn3b23WkUDxeAkhiUxvGVl_seualFbNPVgOSCSrwdwgYsBS3nHRYWjAlA23TF9oHvAMQtEkNXRRscGqGX4PkQyF-VQeWjPV4pu775rVl3pW0crVx_MK818y3niAKDdk317-mO9uwDjOHbQEJ-z9CiU4LTFZ3q7AY9LJtoKoeMxFMQbR9WKq0XPhhFMtwjjRF1JKMSCRJfkDgK-MmtFedQ-EsJUDHuI5QtgyYT7OtqQ4IAsgx5YQNuyPGQ7oW1E4Bb-bJ6oo8M2JMPh5qAFn6zNMSqvvRR3xQBp7IGnCY8H2nTNyqmtIepVdjft8vCaeJcp8p9F5gvwsrS8m6tGZDcpEzUDwQdj8mUThAWl3CHKsISVGAGqw3CaPyQgB910HeHyDIbCiw7jVBUnnVjfk5IP485ma4ZSuxJdnYTothNKMGBBoqr1fJmQIcRQstaS3kPCRnzy0PsKvVygFTmJ1NnLUd82qL-djXqygcwToJZtRHK1T-anw7vsWavK-FUTw8N5lO_8iUWHW=w260-h193-no &quot;sample.jpg&quot;)</div></pre></td></tr></table></figure>
+<h3 id="HEXO内から"><a href="#HEXO内から" class="headerlink" title="HEXO内から"></a>HEXO内から</h3>
+<p>以下のように、同じ名前のフォルダを作り、その下に画像ファイルを置く</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_post ----+--- sample.md</div><div class="line">          |</div><div class="line">          +--+ sample</div><div class="line">             |</div><div class="line">             +--- sample.jpg</div></pre></td></tr></table></figure>
+<p>sample.md から以下のように呼び出す<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img sample.jpg %&#125;</div></pre></td></tr></table></figure></p>
+<p>また、_config.yml の次の値をtrueに書き換え（デフォルト値はfalse）することで hexo new したときに自動でファイルが作られる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">post_asset_folder: true</div></pre></td></tr></table></figure>
+<h1 id="コード・ブロック"><a href="#コード・ブロック" class="headerlink" title="コード・ブロック"></a>コード・ブロック</h1><h3 id="を使うやり方"><a href="#を使うやり方" class="headerlink" title="```を使うやり方"></a>```を使うやり方</h3><figure class="highlight javascript"><figcaption><span>script.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World!'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>``` javascript script.js<br>function hello() {<br>    console.log(‘Hello World!’);<br>}<br>```<br></code></p>
+<h3 id="を使うやり方-1"><a href="#を使うやり方-1" class="headerlink" title="を使うやり方"></a>{% codeblock %}を使うやり方</h3><figure class="highlight javascript"><figcaption><span>script.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World!'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;% codeblock script.js lang:javascript %&#125;</div><div class="line">function hello() &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;</div><div class="line">&#123;% endcodeblock %&#125;</div></pre></td></tr></table></figure>
+<h1 id="インライン・コード"><a href="#インライン・コード" class="headerlink" title="インライン・コード"></a>インライン・コード</h1><p>これは<code>インラインコード</code>です。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">これは`インラインコード`です。</div></pre></td></tr></table></figure>
+<h2 id="Block-Quote"><a href="#Block-Quote" class="headerlink" title="Block Quote"></a>Block Quote</h2><h3 id="MarkDown-での書き方"><a href="#MarkDown-での書き方" class="headerlink" title="MarkDown での書き方"></a>MarkDown での書き方</h3><blockquote>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</div></pre></td></tr></table></figure>
+<h3 id="での書き方"><a href="#での書き方" class="headerlink" title=" での書き方"></a>{% blockquote %} での書き方</h3><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% blockquote %&#125;</div><div class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</div><div class="line">&#123;% endblockquote %&#125;</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">DARING FIREBALL | Markdown: Syntax</a><br><a href="https://hexo.io/docs/tag-plugins.html" target="_blank" rel="external">HEXO公式 | Tag Plugins</a><br><a href="https://tea3.github.io/p/hexo-markdown-notation/" target="_blank" rel="external">markdownの記法まとめ・hexoで記事を書く方法</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/" data-id="ciz7v1gbk000w3a62ei7n1faa" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/2017/02/06/esp8266の初期化-170207/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
+                
+                    ArduinoのESP8266をATコマンドが使えるように戻す
+                
+            </div>
+        </a>
+    
+    
+        <a href="/blog/2017/02/04/固定ページのつくり方（メモ）/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">固定ページのつくり方（メモ）</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最近の記事</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.148Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-search-add-170216/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-search-add-170216/" class="title">Hexoのテーマicarusでサイト内検索を追加する</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T19:01:51.000Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="title">HexoにDisqusでコメント機能を追加する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T13:03:55.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/14/hexo-toc-install-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/14/hexo-toc-install-170215/" class="title">HEXOで目次を自動で作成してくれるhexo-tocをインストール</a></p>
+                            <p class="item-date"><time datetime="2017-02-14T18:59:49.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ESP8266/">ESP8266</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Font/">Font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Hexo/">Hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/fritzing/">fritzing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/">プログラミング</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/補足/">補足</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグクラウド</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Arduino/" style="font-size: 16px;">Arduino</a> <a href="/blog/tags/Cloud9/" style="font-size: 10px;">Cloud9</a> <a href="/blog/tags/Disqus/" style="font-size: 10px;">Disqus</a> <a href="/blog/tags/ESP-WROOM-02/" style="font-size: 16px;">ESP-WROOM-02</a> <a href="/blog/tags/ESP8266/" style="font-size: 18px;">ESP8266</a> <a href="/blog/tags/Font/" style="font-size: 10px;">Font</a> <a href="/blog/tags/GutHub/" style="font-size: 10px;">GutHub</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/blog/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/blog/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/blog/tags/Raspberry-Pi-3/" style="font-size: 12px;">Raspberry Pi 3</a> <a href="/blog/tags/RictyDiminished/" style="font-size: 10px;">RictyDiminished</a> <a href="/blog/tags/SDカードフォーマッター/" style="font-size: 10px;">SDカードフォーマッター</a> <a href="/blog/tags/WiFi/" style="font-size: 10px;">WiFi</a> <a href="/blog/tags/Win32DiskImager/" style="font-size: 10px;">Win32DiskImager</a> <a href="/blog/tags/fritzing/" style="font-size: 10px;">fritzing</a> <a href="/blog/tags/メモ/" style="font-size: 10px;">メモ</a> <a href="/blog/tags/補足/" style="font-size: 14px;">補足</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグ</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Arduino/">Arduino</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud9/">Cloud9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Disqus/">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP8266/">ESP8266</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Font/">Font</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GutHub/">GutHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RictyDiminished/">RictyDiminished</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SDカードフォーマッター/">SDカードフォーマッター</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/WiFi/">WiFi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fritzing/">fritzing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/メモ/">メモ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/補足/">補足</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">アーカイブ</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">2月 2017</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 田邊 慶次朗<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/';
+        
+        this.page.identifier = 'markdown';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'blog-8jwah39ddi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

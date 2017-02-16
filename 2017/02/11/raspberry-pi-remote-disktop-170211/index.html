@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Raspberry Pi 3をリモートデスクトップで操作 | blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Raspberry Piにxrdpをインストールして、Windowsのリモートデスクトップ機能から操作できるようにする
+環境
+Windows10 Home 64bit
+Raspberry Pi 3 Model B (Element14)
+Raspbian Jessie with PIXEL
+Tera Term バージョン 4.9.2
+
+インストールtightvncserverのインストールxrdp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Pi 3をリモートデスクトップで操作">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-remote-disktop-170211/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="Raspberry Piにxrdpをインストールして、Windowsのリモートデスクトップ機能から操作できるようにする
+環境
+Windows10 Home 64bit
+Raspberry Pi 3 Model B (Element14)
+Raspbian Jessie with PIXEL
+Tera Term バージョン 4.9.2
+
+インストールtightvncserverのインストールxrdp">
+<meta property="og:image" content="https://lh3.googleusercontent.com/61XC6LolLqVlAWt6PWjpnMDgc4iMwa4Q9zuxaE_g6DBteWl6VAyW-dZuPGC8-0tGZSvflaRzeaHuSeRH2Wh0iT5DRNaBWtjjn6_5Ug-8BEDRkVqYnbcG39Di-VswYnZA2Yr1dGC9gg6wTscZJfnbrd81B13jzbVGdJo1YO-YBQRQwFxs7ylu9nKimN6Sr7b96rnxW0ssYxDbYT05QW4lmCerDWYDV81bXjs5E-qfvGxUe95_MNJUgg5VDWKzpmx68J1nEHVIqSgGpqNSGWIf0-BdEqLk3XAazh6KAdxk8GemF5nNjPuTxJbTvsOXb7V0RwtJtuzLuSOPLJfDMODm2kDvZgCBG_7botSYcryi_ysKH0PpTfWEVWjNkFScJavCKfRtZWAVD9J1PSF13rd1SLehtK4yJB-9ztV-dUHGDEb-TH0pd1tKEV_RORSvqAKGI67hFjR-h2kcLPZZzg1oLHk7xTxGZkd3OyRzwUQl3kEJ8b821OHD54g2cuiaSm5-DcyeiDSFISD5Fbg_uKFbJfQ7cyiKrIFTMLUJd0OioFy9-hgVPdIxYMjJizOEs1Ik2pEK7oaY-uf4DTo0NxM6DUOF-Zsjil9kPjsWZ2DIsEi4I3bjFAC4=w742-h314-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Bj2M1JCImty0rqiFLwxqCTzx2KgPU4qZ-7cegWbQNRYk2gVLhWzAxNc-vznqKo8FbWZlkAnAjxvKxY834CDBQiwFbO3ppq3TPb_OuHl29CT3HRwjtvblO7lqIJWX0CV8Y19GlIBZRUnU84brWkTO9zLbEFDZlWrqv2OtMM5SPzfs0njCj-amDHJG-DLMv4PEyq9GW7MYs0HfyD3ARHKlXKw99hYqOyFMZfgeilwP11Z-r2FHBfynpe4-me1RjWVpoJNcWr6ArwtvDBkHMJdaEblW_sK6kdxTWV4azb2AU4ePhHcrNXGQRysmiutigyk5zu-jJxgG4resnIWrWOUiJmoViFQWO2QmnXOWX8CfZUoafP0vt2wgks4FWNjK19GYnF8BQuPYo1sGRQX89AacKQ-5fYifXUyAeE2TjxQv63UPgQws9E8wgTHl_L12NWpb1eFj0fd41nWfQEVxCkScF-Ay_sXETC4ugtOh6jnuK1KX1wLNCyuXApCG4O00ZVCeAmjGLZ6HQfOvwmXrcyc_UXNKeEwM94dVWT4K_ckKyHES-LU3k4ylVcTrwT3_t6bfHD13AIdm-mV-NHAKJ1Gp77H2U75EmMYJPzu5HVboDAVOYjoU=w557-h236-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/fb4cDVigWU8RUqI5kaqBdymD87yOZnKLZ2hU1zFvgLizar85X9rtPd1suApESa0brnScoWks_tybbftkB_sAjnw8H5WyXG03Q4un7BdVqbwaY1RA-bTuTdy7Ii71g3EXF0An2NMIDTLN35rcwVR3cytnzpHeT8gih0mSNCbBIM1haKjWB-rT5OhiJ471E0XaLHOaynP7Nwn09f4OnXIUNk_q_BISjUb6nobvnnEZzq8YWpdKklw5KFp6QQ0K8JQwlhD4uW4Lf2z-jbDDaKKU-D8SubLr-XYNx5sKQN0pquWe2Fq_IZQySR9F8aOKx6skSa7r-PZG45K2n3kRJhffYanKOKTVAgA23huzqFJXPTe3RhFyPg6z9wymgGpQbo9F42GZt6AVSZlhlXAGiVf7H8wV_U46lW1JFvW7L5gcYRYQwzSKFcAwTBF1ATfbfmrCknCdaIfke8QRXDk1MV83TT2acevNBTTnfeZjSok64OzYK4k0VId1iLwyqzCs9Iede4Qt2IGaBXXt98CcZvMI3X4vt4p9SIPeXIv0qodVZrLWIs5pwAKSImmB47Ql2HRzdm9tczXw8kHldqbPBw3KMPlkuY--COAxYef9q-GKt2K5TFsix83e=w742-h314-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/EvRCdp8Iyv5mz_zuOjZYLOoICz1lq8rZgxjQBRBCBhxV-kNxXKWiqSeORsoGuDDwysRbf2riYoYjkAYCcQRYHgFyHJhchucBb_ySvbQ-f-3pyN2q74EqrEqCMQEFc75MvuYCuSbzF_-I63MAU43UKvIujqDDe2eu14hCWOu0ep4Ia13JvFw6ZA7s-Sh9JA4pkKWTaGxOOPwri6hZvItZJ0gpTpb1vcG9zxE0FxuCVsCkcwLLELcYVHiaUIHZIc5I1_z1SpWr8HibpCcneUbAlY4yjM8HPRJixLWfPeIUj-dpZCNCG5WSOFBj7auP36eryWABOuOcr9swulprGixrkJUWBgfWY4vsZxbtUdgiCxocOZuIra_mfFgfZI_cp1VbzS2eomhz4bnqBuYM89EiNwEJWw6Df-xZewPzkaQF8OrCmJOBqcsu7rkEGS5j3zOmev39autuiBOGS84e5kVgA4opiUDZ1qXr5WEFxbtT8hQmiegQGGHfUiGX5AM9PBboPUbILlvNfPHwJv2G5uptUty7zwZqnkUjcDLqwUy2EXq1SYLgv1tGLyXDluvCUismgci3dj12EyN8tbX0vjaH_GgqhokX9ADavG6_QOuwYuG-RDmqc29Q=w792-h337-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/fBpPqbMRCn47EYXyEloWlU4I0Kz0_w7D4g4FcGdkJ4Ey8H21FNaRIkpvyJCHN9uEtJrDjWooZ-IjpzhAATr9gQTWISvT93x6G4BlpC9t3PF41OBLloTtaegq78TnfOOr3JhUk7cDUsv0ofKc_SU8xEHzL9G6oDis3HyaRaC0smb91I-FZTMCJcwpeJ6WPT7solp_xWJuVHgjFIo-KSCJXp9SdjjEnMP2pMnwqrNFOQjfkn_bAsIpGXx3iWl5Lr9tpULg5EAuTAb5gVEBK0DDthUzWoImk7XKn3r6qZMVx-IawDG69zO0xlQl0hJiodkzgRawa_tIdK3-KY_9cMhivg2rO3JSVlSRsZC3zL1q1ydkZLWKC7ez0LBCge-UQNlJLGSDqljULUFG0C6dav1ZmEh32MAZ60Ktx589gKSfrCOOr37FDVFjTR76ntDST5iHSf_YV0XnyS2sulG_s5Miapwcft7OJL7xO_5jT-lffTHaH4KqRhupu-Tf027MG-EnU6Ai6biTc0sVI-bJKePPsKVpi1vqI7hIAxhW8y4MuBORLFCStv2l7z2FiFfbVnKZwD9hzFu1RsD3fV9HJ1DbgKNXmYLm9J6tAoh2wGMczVP8fG4Y73HK=w792-h337-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/KcY7OMMwWXmbarmtomOQD0iOxCEomQqwddQZW5oSOcydEzGjv6uXCfNjpRjnQ8Id7IRKs7JvO4ktJdjEjJu_nq8vFXs3_9KsVUvLZEo_3iNzzrQGl3ISDzsoWRVluBpfo0U1QylgNtiG8m4uG_UEWH5UojqCB90LJ-h_W4FokGBb81YELYZ_VecHLgnEgGx-GsXeylJyoLy1Qp56vOkaWNe2spHvLfQ3KL5YsTPrkYhA4aQy4urijD-X2eCI9UFNv-7E2XiDBKGO-bm1iQuW08H4RiC4lnASpSTWyWGMqbaXa0iHBleDGM_0KoUMIkpVQLY5pQufdH3cK0IY9yC5o9Jwzj0DIduCkYk7S0HxuV7iyax0ulGUfBE1Lu_56RgrzCwcA95kDgNQIEVwFiqrPS7fLOL64HXu9zqIBq5M4oWNx5SituGGyGfvmnEQR-yV2IYA1UO0TIBkgp21g9lKj3FR2ljfOQ13p3VItik7kKZEROqf8uGXbf41h49ChnGMHPaXj3ybp99pSbIBpCQrKkgc6CHxYx59zJeaJ47UvPTP3YoP30NreafUbiJc6ausdkotABAWsJQzh7iFg-1DdQ0DW6TRVf9J3B5rHJscvwv4ksGys7Ib=w812-h742-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/NOaqWTqRYAQWiOQkN_bDXMmQ2vYPa0qxLu14qfF6yKs7RxzLExNG5tVNJORxtkuZnu3bvfbx1laYrHkmUUJhJ1kGMLHayAsxk6rQbh_JnMBiVFv49GqGdc_W5Dmp71BKrBeFfLvrtT1xsw2FSKrtdkj0grjaoUYssZU4_LvgSyhuVsux47C5C1iQCCcjmEWo9N5MVGxlYZ_V0ANBsqrtpHUaI2waqyaVfWrdXry1Knb2fTMwNpJLe1pmKUy4M7gZ_Aw2T92G7R_fmLvGNMxy3C88grvdk8X8QW8Z8-lgQWvjMdeMVj0bCqEwj2FWONXJ943htS7_-PriBb8UJ6T9Rqxrt_8DXKshqbzxbK4UXU-05-mojZQgVmEVlA4igNbnB3BFg8fgJIhv6KCX4spBozAtLMN1TX7BGQ-z82hA4jY2W7ANxHEtytZwQw7CBaZ0xa7gz_vH6vgF1TQxVz3RJhaTJ-WV-p4bdVXPFv7r0APJkOTirVGTjT-cYtjjYMVnLQx62XMR1l37Pyp_0FIdfnT-09JJyxDr_iecFwaJHLnHu1tNBuNZ0wUBZpYcTxXWaLGG7-aYtV7vVo08D3C4XPSpui7XjLBVGPWf-27mOQfef7oRa9K-=w558-h855-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/tX-DgAN8CfcaAE8X4saNYVK3LzFlmSDtMxoOkXXFyMdFoYmpaZTMYhghWVaX5T3vFFcYxOj44kQj9SR6bHg9ghf8yq5RPp8DZ2wsLF9ThZJVfUcthkorVsngqd3TNksymnISH3BIFNs6hm9cbEhqMLZWsOcSqy3xRkdKIfqx8SWhk4yripNPx7vJ9AZHfaKPfbuT-JMlQ9-rbfFv54NmLLG00YDX4wHMGdaHjrGI6D_u9f90M5ngDerx7MFiFvl5OzIPwLBcYLR4heXRg0kHvjEF62g-rpvODQkXXALHa-rpRvoV9bKZJmR__tWHx3cxrINSg32g00pk_rPu7UJ9EKXKGOqTh9rTgoJ6hfJSbmWyEZWjUT-uZMiS2Wto3qNm8n_9mfmJa8Mp4P3w-9s3IxBApZ98SLphQvt-iv0If9eEs1jukLsjT5jxvsvU42o01tV1D8rlKY6CHHEmhQbUaxPZ2eQK2odphw2fVeo8rUlBjMfri-A0y_Km78jNgUW-cj7UGwc3gGI4Zg4RdldVcjoyEWuF91k3dEMWq06aNg5K5YoWeMPGA1bFZfr9xUAKxRwU7JojQdd8sIpCtx3hm4YpRONX8_-zNkgegwBeSyHX_JTl=w542-h389-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/yrrp5SAqY71KUH5orZuzVImklDUB_I8n-AodQufmhRq92C-AzWT5fB_iPQTk6X6ytgoweOhYGUb0jrpuj6EktG6CedpNrVktW9p_yInrBSJzszu9p9Qp6pdEpcRHNfGWGf7M5m9EsShm6XD7lSVWvPUGfT8UYsRVRX5dwFyHg7FlJYyKkXj3KbMZRzaPBGemIuAIoS0Tk7_y044HBTJfcTw4Q4e0cpEQJVEngoRTGRwBLWHefwTL82i5J2zy8vSLUWsQAL4QF8qpYBsY9wJI6_3sGFnaed2AsRpgQb9HmV_10OpU9cEFR8V414xikYbDCXcGxHMuiEIuiMKIZC9omHo7IdJh4OdyfWTKjHfq1ZGyRE7neYb3k4cKqiCvjiVPcseKjJpmic7zh76WPdhZbqsZa5gsSCAuRrqMpurnGmBYTGpsTYpbrLRjWfWtfRYV95WqkhzxBMqNv20bnaSN8PBOYawtJ1npB4esMf0xtT70x54ATS1A1yq_rMXwKwBDYbrdJAPgHBTOrAX_RX2weV_nLjRa8sYAfqw4K4dejnDieFHt5VW8fQqMwFc9mM8AYFXYQ9TNdj1NzSBWNQy_NBNeo3gPWysvvNugMfKWtRFEN_uDwJEY=w542-h389-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/gf5IETq70yrW61LB9sTws46jXh3oiRRyYpVrNWMFGvea_wDg6GJ_8fnGcxGsOBGAyQN6kStCm-dRi0scph1HukNFNTp5y3_hpCia0YaYWFR5NztK7MeYLKTuuDVJQrPwWCxbNhgKUq4T7clMedEB3w1qY7DaLphGOosda-uL6DI4K0YmkYRP3wFxrpr6h2CymX73u7UxJKwu5hDnajtPIZspulsU5n_7kr0fi95c1_mlbwuivaoUJHNf1rNh1PnqUGEXgE9F-PXR4yDIuOHJbDmh86EkTwhtywYe0Hr9Nbx3MLsaoAKotBHuPfoDtmKFu_J2Zguw50cwYKr-ygn3D1sv2Sqn7AtehAH5wvxmR350Zh60ltIJMnmzfwTTVtulBU_s-95iv_aNx3ustiFd4vefTogAFXfcznykoWcdAHWvVY3AKx9PeNJzO-BbJ1sQu-czOKrL0L9NJheoxL4cTifZ9AmRWN4mpaaNWgJiT7bggMZmkCOQrYStcnhODU24q4y3bUAbJBXSmLu-zypccZ252lSsB3WxaaRxLIkA5JVXGtLYenitL_QlfZDjJbEdpUU97f0Yi8rFVw7dnsrxIsOG33fEL3u0lx1rLULVFu0eMixOkPgf=w1520-h855-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/qF3wfS0hBhVLe6NKy66wNdaCHXptJ9mFONJmIfbnVj0ncGzEzbh4Vv6hfICsHltuQoKARnGk2IT-ckM4Hxx5q8XBOoiQr4dcq724YSXq0cHsSIcOSXBVGok0P-QeSektADS6fYU5i6oxeKnMYI9ay7QhEHX_crzoNxvClwe4VD14RMsWIC_XuR2rggrW2YC1AL_Kbc78PzHofGERqp2EGRGwPxqIcxHRohyHCHn5M4y9JsvoVARhN9PLNpS2DOUezu0JkIcZKiS76OWHq5QSHpYCrY5RM_ItBeIISZsvvPJaXwrG57RSeyzM8tN3QpsxBtpgkoQB6RfSmxt8sdBuKXiMq8GiaCn9Jz7L67ha5WYOMFz4Q47z-J6Hb1STqVMeMLfkedB3sggVB7Zx5JwEM1YvBEvysO8ApYo7PDLL7bJ1sPpPW5hXT4X14t2SsKpdM4Us5-9qPz2IQidc6mrChYQLQqBKDX7Xt3-ylrte2VK-MbkLffxuPbFw0ulVo7rxDBP4esxPTJAOY51OxXoIql0qU3yKhwYxOivPcYyE1wDpFSHdMRtBqr0VRxjfTNLDv_iFQPlTYq84il9KSBOlnUNNtiYgG9ALqewCl71A77DVhvRNANKE=w400-h200-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/_5iPW6rN47w-IWi0TZw3_UaxWjqLeg7c5vEwvFeGGHcvu39FQonFSFXdSj52r5D3_xmu0vcchGAM4xzSuKZNnQ-WEqx5qqGCaMYJQX_qWkGuhC9uoB33K1NdKu-L3L1LuwYtc7bYaXFRxQQD-E9e2XLFlZrg6dKwWRYFMBMVa6uLjfJYYa_K5A61aQVAPX8ePBMyGzAtZt3AJcUjJIRxj2x9srsqKPBl4y-jG093szf1cXThWq7qeMNK3Ir2toIxYRbqdLCGKytMBiKZyIIszGUbnZRd_eqvxv1OstmcRQaaqsrTEGThol09-oeK2MrHejNN7NS3NnVvhC_5gfbBUcSkzbB_kvY2n1Ux3fCSuopOm5lYGArKgnLZq3KjqJVXH5ENyOKRgg0fBeCenA7UrzeEXS5AZ2h6R5cK8LYgszY-BDXcwmCpTkNx4HWkKt91R4TefHHuJ_JQTMdnTIdO5pdFwFiftAdDxQ_KVTJsHRYiiu17A1GzDMUe91A6WnNK9DWfwSWJ0q0FAjwSoYwoSEIqlQ170_xFw0VkOZZCFyLeYK6w0qNta_p6GUJJjPnb95DFh-GnriqwwiEt30WtMDsecjx73At8KpyrGHEo7MEDlH0NIChj=w1520-h855-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/Huu_SueDAuox3JkMIsy6Y9-jraIn5_kMI6ZfA6iz-fQ0DaW6VsSy6rVHRP554HsIhtgJbs1NuifjIsSsqRRQuOD3EeFfMob1f1Y0PZ-TsV8KHo0G1nD5ZHKyN4QcrpmX32-0YHu1Rt9DaYyvN1Gzt9olEtkEQFaN55Jh4QphYGX33DF0m_d9Xizst8ShWSIeoMbrfozLpZq4i9zdUGiaxf7ATF3a5upGeS37rpS9XUpcQx_Hx5DxbJxHrTLFQ6B_49OjyehwlpP9A0e9-LgH7UdiYkEn64OcRd9z7nEbKdzK9977JTcuekxv7AjADlGJPGxLP1j5lQS4CYDOqPx-H9Jbzuxufa2tjAA08b7zcTZ9zLk9zYeEhjHISXToicK4xTGpHaxDPbMYi0HFMTtLOinH9Ey3zoS4P5Rq0ndwbsWqwIJDTiusN7gyT1qdc7YiWjBUc5kzaMla1Lzqi1fEulN30hHxyhIJh3nbs9AKaaSIKk1Z09kC8mviXAUt1Hng9or9GgidNOCII_RertzWQnQMyyxn8XL0QRzPdCLgDk0ohOXrzSUxhPvm66JPFyvY2v6ARrnVWgx5kc-OmcnMbNR4u6KCMlgUxozpy5RijcGyp9GBbuvC=w1520-h855-no">
+<meta property="og:updated_time" content="2017-02-16T02:26:39.756Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raspberry Pi 3をリモートデスクトップで操作">
+<meta name="twitter:description" content="Raspberry Piにxrdpをインストールして、Windowsのリモートデスクトップ機能から操作できるようにする
+環境
+Windows10 Home 64bit
+Raspberry Pi 3 Model B (Element14)
+Raspbian Jessie with PIXEL
+Tera Term バージョン 4.9.2
+
+インストールtightvncserverのインストールxrdp">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/61XC6LolLqVlAWt6PWjpnMDgc4iMwa4Q9zuxaE_g6DBteWl6VAyW-dZuPGC8-0tGZSvflaRzeaHuSeRH2Wh0iT5DRNaBWtjjn6_5Ug-8BEDRkVqYnbcG39Di-VswYnZA2Yr1dGC9gg6wTscZJfnbrd81B13jzbVGdJo1YO-YBQRQwFxs7ylu9nKimN6Sr7b96rnxW0ssYxDbYT05QW4lmCerDWYDV81bXjs5E-qfvGxUe95_MNJUgg5VDWKzpmx68J1nEHVIqSgGpqNSGWIf0-BdEqLk3XAazh6KAdxk8GemF5nNjPuTxJbTvsOXb7V0RwtJtuzLuSOPLJfDMODm2kDvZgCBG_7botSYcryi_ysKH0PpTfWEVWjNkFScJavCKfRtZWAVD9J1PSF13rd1SLehtK4yJB-9ztV-dUHGDEb-TH0pd1tKEV_RORSvqAKGI67hFjR-h2kcLPZZzg1oLHk7xTxGZkd3OyRzwUQl3kEJ8b821OHD54g2cuiaSm5-DcyeiDSFISD5Fbg_uKFbJfQ7cyiKrIFTMLUJd0OioFy9-hgVPdIxYMjJizOEs1Ik2pEK7oaY-uf4DTo0NxM6DUOF-Zsjil9kPjsWZ2DIsEi4I3bjFAC4=w742-h314-no">
+<link rel="publisher" href="u/0/106972576385014381494">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+    
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91386689-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    <!--google analytics-->
+    <script src="/blog/tracking.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/blog/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/blog/.">Home</a>
+                
+                    <a class="main-nav-link" href="/blog/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/blog/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '投稿',
+            PAGES: 'Pages',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/blog/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/blog/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/blog/css/images/avatar.jpg" />
+            <h2 id="name">田邊慶次朗</h2>
+            <h3 id="title">忘れないようにメモします</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Gifu, Japan</span>
+            <a id="follow" target="_blank" href="https://github.com/keijirotanabe">フォローする</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                21
+                <span>投稿</span>
+            </div>
+            <div class="article-info-block">
+                19
+                <span>タグ</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/keijirotanabe" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-raspberry-pi-remote-disktop-170211" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Raspberry Pi 3をリモートデスクトップで操作
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/">
+            <time datetime="2017-02-11T00:52:02.000Z" itemprop="datePublished">2017-02-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a>, <a class="tag-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Raspberry Piにxrdpをインストールして、Windowsのリモートデスクトップ機能から操作できるようにする</p>
+<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<li>Windows10 Home 64bit</li>
+<li><a href="http://amzn.to/2kkapVB" target="_blank" rel="external">Raspberry Pi 3 Model B (Element14)</a></li>
+<li><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">Raspbian Jessie with PIXEL</a></li>
+<li><a href="https://ja.osdn.net/projects/ttssh2/" target="_blank" rel="external">Tera Term バージョン 4.9.2</a></li>
+</ul>
+<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><h2 id="tightvncserverのインストール"><a href="#tightvncserverのインストール" class="headerlink" title="tightvncserverのインストール"></a>tightvncserverのインストール</h2><p><code>xrdp</code>というパッケージをインストールしますが、先に<code>tightvncserver</code>をインストールする必要があります</p>
+<p>以下のコマンドでインストール</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/61XC6LolLqVlAWt6PWjpnMDgc4iMwa4Q9zuxaE_g6DBteWl6VAyW-dZuPGC8-0tGZSvflaRzeaHuSeRH2Wh0iT5DRNaBWtjjn6_5Ug-8BEDRkVqYnbcG39Di-VswYnZA2Yr1dGC9gg6wTscZJfnbrd81B13jzbVGdJo1YO-YBQRQwFxs7ylu9nKimN6Sr7b96rnxW0ssYxDbYT05QW4lmCerDWYDV81bXjs5E-qfvGxUe95_MNJUgg5VDWKzpmx68J1nEHVIqSgGpqNSGWIf0-BdEqLk3XAazh6KAdxk8GemF5nNjPuTxJbTvsOXb7V0RwtJtuzLuSOPLJfDMODm2kDvZgCBG_7botSYcryi_ysKH0PpTfWEVWjNkFScJavCKfRtZWAVD9J1PSF13rd1SLehtK4yJB-9ztV-dUHGDEb-TH0pd1tKEV_RORSvqAKGI67hFjR-h2kcLPZZzg1oLHk7xTxGZkd3OyRzwUQl3kEJ8b821OHD54g2cuiaSm5-DcyeiDSFISD5Fbg_uKFbJfQ7cyiKrIFTMLUJd0OioFy9-hgVPdIxYMjJizOEs1Ik2pEK7oaY-uf4DTo0NxM6DUOF-Zsjil9kPjsWZ2DIsEi4I3bjFAC4=w742-h314-no" alt=""></p>
+<p>途中で聞かれたら「y」を入力して「Enter」</p>
+<p><img src="https://lh3.googleusercontent.com/Bj2M1JCImty0rqiFLwxqCTzx2KgPU4qZ-7cegWbQNRYk2gVLhWzAxNc-vznqKo8FbWZlkAnAjxvKxY834CDBQiwFbO3ppq3TPb_OuHl29CT3HRwjtvblO7lqIJWX0CV8Y19GlIBZRUnU84brWkTO9zLbEFDZlWrqv2OtMM5SPzfs0njCj-amDHJG-DLMv4PEyq9GW7MYs0HfyD3ARHKlXKw99hYqOyFMZfgeilwP11Z-r2FHBfynpe4-me1RjWVpoJNcWr6ArwtvDBkHMJdaEblW_sK6kdxTWV4azb2AU4ePhHcrNXGQRysmiutigyk5zu-jJxgG4resnIWrWOUiJmoViFQWO2QmnXOWX8CfZUoafP0vt2wgks4FWNjK19GYnF8BQuPYo1sGRQX89AacKQ-5fYifXUyAeE2TjxQv63UPgQws9E8wgTHl_L12NWpb1eFj0fd41nWfQEVxCkScF-Ay_sXETC4ugtOh6jnuK1KX1wLNCyuXApCG4O00ZVCeAmjGLZ6HQfOvwmXrcyc_UXNKeEwM94dVWT4K_ckKyHES-LU3k4ylVcTrwT3_t6bfHD13AIdm-mV-NHAKJ1Gp77H2U75EmMYJPzu5HVboDAVOYjoU=w557-h236-no" alt=""></p>
+<h2 id="xrdpのインストール"><a href="#xrdpのインストール" class="headerlink" title="xrdpのインストール"></a>xrdpのインストール</h2><p>以下のコマンドでインストール</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/fb4cDVigWU8RUqI5kaqBdymD87yOZnKLZ2hU1zFvgLizar85X9rtPd1suApESa0brnScoWks_tybbftkB_sAjnw8H5WyXG03Q4un7BdVqbwaY1RA-bTuTdy7Ii71g3EXF0An2NMIDTLN35rcwVR3cytnzpHeT8gih0mSNCbBIM1haKjWB-rT5OhiJ471E0XaLHOaynP7Nwn09f4OnXIUNk_q_BISjUb6nobvnnEZzq8YWpdKklw5KFp6QQ0K8JQwlhD4uW4Lf2z-jbDDaKKU-D8SubLr-XYNx5sKQN0pquWe2Fq_IZQySR9F8aOKx6skSa7r-PZG45K2n3kRJhffYanKOKTVAgA23huzqFJXPTe3RhFyPg6z9wymgGpQbo9F42GZt6AVSZlhlXAGiVf7H8wV_U46lW1JFvW7L5gcYRYQwzSKFcAwTBF1ATfbfmrCknCdaIfke8QRXDk1MV83TT2acevNBTTnfeZjSok64OzYK4k0VId1iLwyqzCs9Iede4Qt2IGaBXXt98CcZvMI3X4vt4p9SIPeXIv0qodVZrLWIs5pwAKSImmB47Ql2HRzdm9tczXw8kHldqbPBw3KMPlkuY--COAxYef9q-GKt2K5TFsix83e=w742-h314-no" alt=""></p>
+<p>途中で聞かれたら「y」を入力して「Enter」</p>
+<p><img src="https://lh3.googleusercontent.com/EvRCdp8Iyv5mz_zuOjZYLOoICz1lq8rZgxjQBRBCBhxV-kNxXKWiqSeORsoGuDDwysRbf2riYoYjkAYCcQRYHgFyHJhchucBb_ySvbQ-f-3pyN2q74EqrEqCMQEFc75MvuYCuSbzF_-I63MAU43UKvIujqDDe2eu14hCWOu0ep4Ia13JvFw6ZA7s-Sh9JA4pkKWTaGxOOPwri6hZvItZJ0gpTpb1vcG9zxE0FxuCVsCkcwLLELcYVHiaUIHZIc5I1_z1SpWr8HibpCcneUbAlY4yjM8HPRJixLWfPeIUj-dpZCNCG5WSOFBj7auP36eryWABOuOcr9swulprGixrkJUWBgfWY4vsZxbtUdgiCxocOZuIra_mfFgfZI_cp1VbzS2eomhz4bnqBuYM89EiNwEJWw6Df-xZewPzkaQF8OrCmJOBqcsu7rkEGS5j3zOmev39autuiBOGS84e5kVgA4opiUDZ1qXr5WEFxbtT8hQmiegQGGHfUiGX5AM9PBboPUbILlvNfPHwJv2G5uptUty7zwZqnkUjcDLqwUy2EXq1SYLgv1tGLyXDluvCUismgci3dj12EyN8tbX0vjaH_GgqhokX9ADavG6_QOuwYuG-RDmqc29Q=w792-h337-no" alt=""></p>
+<p>終了したら、再起動します</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo reboot</div></pre></td></tr></table></figure>
+<p><img src="https://lh3.googleusercontent.com/fBpPqbMRCn47EYXyEloWlU4I0Kz0_w7D4g4FcGdkJ4Ey8H21FNaRIkpvyJCHN9uEtJrDjWooZ-IjpzhAATr9gQTWISvT93x6G4BlpC9t3PF41OBLloTtaegq78TnfOOr3JhUk7cDUsv0ofKc_SU8xEHzL9G6oDis3HyaRaC0smb91I-FZTMCJcwpeJ6WPT7solp_xWJuVHgjFIo-KSCJXp9SdjjEnMP2pMnwqrNFOQjfkn_bAsIpGXx3iWl5Lr9tpULg5EAuTAb5gVEBK0DDthUzWoImk7XKn3r6qZMVx-IawDG69zO0xlQl0hJiodkzgRawa_tIdK3-KY_9cMhivg2rO3JSVlSRsZC3zL1q1ydkZLWKC7ez0LBCge-UQNlJLGSDqljULUFG0C6dav1ZmEh32MAZ60Ktx589gKSfrCOOr37FDVFjTR76ntDST5iHSf_YV0XnyS2sulG_s5Miapwcft7OJL7xO_5jT-lffTHaH4KqRhupu-Tf027MG-EnU6Ai6biTc0sVI-bJKePPsKVpi1vqI7hIAxhW8y4MuBORLFCStv2l7z2FiFfbVnKZwD9hzFu1RsD3fV9HJ1DbgKNXmYLm9J6tAoh2wGMczVP8fG4Y73HK=w792-h337-no" alt=""></p>
+<h1 id="IPアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
+<p>ここでは<code>192.168.11.15</code>を使用します<br>※各自、異なります</p>
+<p><img src="https://lh3.googleusercontent.com/KcY7OMMwWXmbarmtomOQD0iOxCEomQqwddQZW5oSOcydEzGjv6uXCfNjpRjnQ8Id7IRKs7JvO4ktJdjEjJu_nq8vFXs3_9KsVUvLZEo_3iNzzrQGl3ISDzsoWRVluBpfo0U1QylgNtiG8m4uG_UEWH5UojqCB90LJ-h_W4FokGBb81YELYZ_VecHLgnEgGx-GsXeylJyoLy1Qp56vOkaWNe2spHvLfQ3KL5YsTPrkYhA4aQy4urijD-X2eCI9UFNv-7E2XiDBKGO-bm1iQuW08H4RiC4lnASpSTWyWGMqbaXa0iHBleDGM_0KoUMIkpVQLY5pQufdH3cK0IY9yC5o9Jwzj0DIduCkYk7S0HxuV7iyax0ulGUfBE1Lu_56RgrzCwcA95kDgNQIEVwFiqrPS7fLOL64HXu9zqIBq5M4oWNx5SituGGyGfvmnEQR-yV2IYA1UO0TIBkgp21g9lKj3FR2ljfOQ13p3VItik7kKZEROqf8uGXbf41h49ChnGMHPaXj3ybp99pSbIBpCQrKkgc6CHxYx59zJeaJ47UvPTP3YoP30NreafUbiJc6ausdkotABAWsJQzh7iFg-1DdQ0DW6TRVf9J3B5rHJscvwv4ksGys7Ib=w812-h742-no" alt=""></p>
+<h1 id="リモートデスクトップの起動"><a href="#リモートデスクトップの起動" class="headerlink" title="リモートデスクトップの起動"></a>リモートデスクトップの起動</h1><p>リモートデスクトップを起動させます</p>
+<p>「リモートデスクトップ」で検索して起動します</p>
+<p><img src="https://lh3.googleusercontent.com/NOaqWTqRYAQWiOQkN_bDXMmQ2vYPa0qxLu14qfF6yKs7RxzLExNG5tVNJORxtkuZnu3bvfbx1laYrHkmUUJhJ1kGMLHayAsxk6rQbh_JnMBiVFv49GqGdc_W5Dmp71BKrBeFfLvrtT1xsw2FSKrtdkj0grjaoUYssZU4_LvgSyhuVsux47C5C1iQCCcjmEWo9N5MVGxlYZ_V0ANBsqrtpHUaI2waqyaVfWrdXry1Knb2fTMwNpJLe1pmKUy4M7gZ_Aw2T92G7R_fmLvGNMxy3C88grvdk8X8QW8Z8-lgQWvjMdeMVj0bCqEwj2FWONXJ943htS7_-PriBb8UJ6T9Rqxrt_8DXKshqbzxbK4UXU-05-mojZQgVmEVlA4igNbnB3BFg8fgJIhv6KCX4spBozAtLMN1TX7BGQ-z82hA4jY2W7ANxHEtytZwQw7CBaZ0xa7gz_vH6vgF1TQxVz3RJhaTJ-WV-p4bdVXPFv7r0APJkOTirVGTjT-cYtjjYMVnLQx62XMR1l37Pyp_0FIdfnT-09JJyxDr_iecFwaJHLnHu1tNBuNZ0wUBZpYcTxXWaLGG7-aYtV7vVo08D3C4XPSpui7XjLBVGPWf-27mOQfef7oRa9K-=w558-h855-no" alt=""></p>
+<p>先ほど調べたIPアドレス(<code>192.168.11.15</code>)へ接続します</p>
+<p><img src="https://lh3.googleusercontent.com/tX-DgAN8CfcaAE8X4saNYVK3LzFlmSDtMxoOkXXFyMdFoYmpaZTMYhghWVaX5T3vFFcYxOj44kQj9SR6bHg9ghf8yq5RPp8DZ2wsLF9ThZJVfUcthkorVsngqd3TNksymnISH3BIFNs6hm9cbEhqMLZWsOcSqy3xRkdKIfqx8SWhk4yripNPx7vJ9AZHfaKPfbuT-JMlQ9-rbfFv54NmLLG00YDX4wHMGdaHjrGI6D_u9f90M5ngDerx7MFiFvl5OzIPwLBcYLR4heXRg0kHvjEF62g-rpvODQkXXALHa-rpRvoV9bKZJmR__tWHx3cxrINSg32g00pk_rPu7UJ9EKXKGOqTh9rTgoJ6hfJSbmWyEZWjUT-uZMiS2Wto3qNm8n_9mfmJa8Mp4P3w-9s3IxBApZ98SLphQvt-iv0If9eEs1jukLsjT5jxvsvU42o01tV1D8rlKY6CHHEmhQbUaxPZ2eQK2odphw2fVeo8rUlBjMfri-A0y_Km78jNgUW-cj7UGwc3gGI4Zg4RdldVcjoyEWuF91k3dEMWq06aNg5K5YoWeMPGA1bFZfr9xUAKxRwU7JojQdd8sIpCtx3hm4YpRONX8_-zNkgegwBeSyHX_JTl=w542-h389-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/yrrp5SAqY71KUH5orZuzVImklDUB_I8n-AodQufmhRq92C-AzWT5fB_iPQTk6X6ytgoweOhYGUb0jrpuj6EktG6CedpNrVktW9p_yInrBSJzszu9p9Qp6pdEpcRHNfGWGf7M5m9EsShm6XD7lSVWvPUGfT8UYsRVRX5dwFyHg7FlJYyKkXj3KbMZRzaPBGemIuAIoS0Tk7_y044HBTJfcTw4Q4e0cpEQJVEngoRTGRwBLWHefwTL82i5J2zy8vSLUWsQAL4QF8qpYBsY9wJI6_3sGFnaed2AsRpgQb9HmV_10OpU9cEFR8V414xikYbDCXcGxHMuiEIuiMKIZC9omHo7IdJh4OdyfWTKjHfq1ZGyRE7neYb3k4cKqiCvjiVPcseKjJpmic7zh76WPdhZbqsZa5gsSCAuRrqMpurnGmBYTGpsTYpbrLRjWfWtfRYV95WqkhzxBMqNv20bnaSN8PBOYawtJ1npB4esMf0xtT70x54ATS1A1yq_rMXwKwBDYbrdJAPgHBTOrAX_RX2weV_nLjRa8sYAfqw4K4dejnDieFHt5VW8fQqMwFc9mM8AYFXYQ9TNdj1NzSBWNQy_NBNeo3gPWysvvNugMfKWtRFEN_uDwJEY=w542-h389-no" alt=""></p>
+<p>ユーザー名とパスワードを入力して「OK」</p>
+<p>なお、デフォルトの設定は</p>
+<table>
+<thead>
+<tr>
+<th>ユーザー名</th>
+<th>パスワード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pi</code></td>
+<td><code>raspberry</code></td>
+</tr>
+</tbody>
+</table>
+<p>になっています</p>
+<p><img src="https://lh3.googleusercontent.com/gf5IETq70yrW61LB9sTws46jXh3oiRRyYpVrNWMFGvea_wDg6GJ_8fnGcxGsOBGAyQN6kStCm-dRi0scph1HukNFNTp5y3_hpCia0YaYWFR5NztK7MeYLKTuuDVJQrPwWCxbNhgKUq4T7clMedEB3w1qY7DaLphGOosda-uL6DI4K0YmkYRP3wFxrpr6h2CymX73u7UxJKwu5hDnajtPIZspulsU5n_7kr0fi95c1_mlbwuivaoUJHNf1rNh1PnqUGEXgE9F-PXR4yDIuOHJbDmh86EkTwhtywYe0Hr9Nbx3MLsaoAKotBHuPfoDtmKFu_J2Zguw50cwYKr-ygn3D1sv2Sqn7AtehAH5wvxmR350Zh60ltIJMnmzfwTTVtulBU_s-95iv_aNx3ustiFd4vefTogAFXfcznykoWcdAHWvVY3AKx9PeNJzO-BbJ1sQu-czOKrL0L9NJheoxL4cTifZ9AmRWN4mpaaNWgJiT7bggMZmkCOQrYStcnhODU24q4y3bUAbJBXSmLu-zypccZ252lSsB3WxaaRxLIkA5JVXGtLYenitL_QlfZDjJbEdpUU97f0Yi8rFVw7dnsrxIsOG33fEL3u0lx1rLULVFu0eMixOkPgf=w1520-h855-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/qF3wfS0hBhVLe6NKy66wNdaCHXptJ9mFONJmIfbnVj0ncGzEzbh4Vv6hfICsHltuQoKARnGk2IT-ckM4Hxx5q8XBOoiQr4dcq724YSXq0cHsSIcOSXBVGok0P-QeSektADS6fYU5i6oxeKnMYI9ay7QhEHX_crzoNxvClwe4VD14RMsWIC_XuR2rggrW2YC1AL_Kbc78PzHofGERqp2EGRGwPxqIcxHRohyHCHn5M4y9JsvoVARhN9PLNpS2DOUezu0JkIcZKiS76OWHq5QSHpYCrY5RM_ItBeIISZsvvPJaXwrG57RSeyzM8tN3QpsxBtpgkoQB6RfSmxt8sdBuKXiMq8GiaCn9Jz7L67ha5WYOMFz4Q47z-J6Hb1STqVMeMLfkedB3sggVB7Zx5JwEM1YvBEvysO8ApYo7PDLL7bJ1sPpPW5hXT4X14t2SsKpdM4Us5-9qPz2IQidc6mrChYQLQqBKDX7Xt3-ylrte2VK-MbkLffxuPbFw0ulVo7rxDBP4esxPTJAOY51OxXoIql0qU3yKhwYxOivPcYyE1wDpFSHdMRtBqr0VRxjfTNLDv_iFQPlTYq84il9KSBOlnUNNtiYgG9ALqewCl71A77DVhvRNANKE=w400-h200-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/_5iPW6rN47w-IWi0TZw3_UaxWjqLeg7c5vEwvFeGGHcvu39FQonFSFXdSj52r5D3_xmu0vcchGAM4xzSuKZNnQ-WEqx5qqGCaMYJQX_qWkGuhC9uoB33K1NdKu-L3L1LuwYtc7bYaXFRxQQD-E9e2XLFlZrg6dKwWRYFMBMVa6uLjfJYYa_K5A61aQVAPX8ePBMyGzAtZt3AJcUjJIRxj2x9srsqKPBl4y-jG093szf1cXThWq7qeMNK3Ir2toIxYRbqdLCGKytMBiKZyIIszGUbnZRd_eqvxv1OstmcRQaaqsrTEGThol09-oeK2MrHejNN7NS3NnVvhC_5gfbBUcSkzbB_kvY2n1Ux3fCSuopOm5lYGArKgnLZq3KjqJVXH5ENyOKRgg0fBeCenA7UrzeEXS5AZ2h6R5cK8LYgszY-BDXcwmCpTkNx4HWkKt91R4TefHHuJ_JQTMdnTIdO5pdFwFiftAdDxQ_KVTJsHRYiiu17A1GzDMUe91A6WnNK9DWfwSWJ0q0FAjwSoYwoSEIqlQ170_xFw0VkOZZCFyLeYK6w0qNta_p6GUJJjPnb95DFh-GnriqwwiEt30WtMDsecjx73At8KpyrGHEo7MEDlH0NIChj=w1520-h855-no" alt=""></p>
+<p>以下の画面が表示されます</p>
+<p><img src="https://lh3.googleusercontent.com/Huu_SueDAuox3JkMIsy6Y9-jraIn5_kMI6ZfA6iz-fQ0DaW6VsSy6rVHRP554HsIhtgJbs1NuifjIsSsqRRQuOD3EeFfMob1f1Y0PZ-TsV8KHo0G1nD5ZHKyN4QcrpmX32-0YHu1Rt9DaYyvN1Gzt9olEtkEQFaN55Jh4QphYGX33DF0m_d9Xizst8ShWSIeoMbrfozLpZq4i9zdUGiaxf7ATF3a5upGeS37rpS9XUpcQx_Hx5DxbJxHrTLFQ6B_49OjyehwlpP9A0e9-LgH7UdiYkEn64OcRd9z7nEbKdzK9977JTcuekxv7AjADlGJPGxLP1j5lQS4CYDOqPx-H9Jbzuxufa2tjAA08b7zcTZ9zLk9zYeEhjHISXToicK4xTGpHaxDPbMYi0HFMTtLOinH9Ey3zoS4P5Rq0ndwbsWqwIJDTiusN7gyT1qdc7YiWjBUc5kzaMla1Lzqi1fEulN30hHxyhIJh3nbs9AKaaSIKk1Z09kC8mviXAUt1Hng9or9GgidNOCII_RertzWQnQMyyxn8XL0QRzPdCLgDk0ohOXrzSUxhPvm66JPFyvY2v6ARrnVWgx5kc-OmcnMbNR4u6KCMlgUxozpy5RijcGyp9GBbuvC=w1520-h855-no" alt=""></p>
+<p>以上です</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" data-id="ciz7v1gbw00193a6268z2rop1" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/2017/02/11/start-up-command-prompt-170211/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
+                
+                    コマンドプロンプトの起動方法
+                
+            </div>
+        </a>
+    
+    
+        <a href="/blog/2017/02/10/win32-disk-imager-170211/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">Win32DiskImagerの使い方</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最近の記事</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/Cloud9とHECOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.148Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-search-add-170216/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-search-add-170216/" class="title">Hexoのテーマicarusでサイト内検索を追加する</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T19:01:51.000Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" class="title">HexoにDisqusでコメント機能を追加する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-15T13:03:55.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/14/hexo-toc-install-170215/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/14/hexo-toc-install-170215/" class="title">HEXOで目次を自動で作成してくれるhexo-tocをインストール</a></p>
+                            <p class="item-date"><time datetime="2017-02-14T18:59:49.000Z" itemprop="datePublished">2017-02-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ESP8266/">ESP8266</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Font/">Font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Hexo/">Hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/fritzing/">fritzing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/">プログラミング</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/補足/">補足</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグクラウド</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Arduino/" style="font-size: 16px;">Arduino</a> <a href="/blog/tags/Cloud9/" style="font-size: 10px;">Cloud9</a> <a href="/blog/tags/Disqus/" style="font-size: 10px;">Disqus</a> <a href="/blog/tags/ESP-WROOM-02/" style="font-size: 16px;">ESP-WROOM-02</a> <a href="/blog/tags/ESP8266/" style="font-size: 18px;">ESP8266</a> <a href="/blog/tags/Font/" style="font-size: 10px;">Font</a> <a href="/blog/tags/GutHub/" style="font-size: 10px;">GutHub</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/blog/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/blog/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/blog/tags/Raspberry-Pi-3/" style="font-size: 12px;">Raspberry Pi 3</a> <a href="/blog/tags/RictyDiminished/" style="font-size: 10px;">RictyDiminished</a> <a href="/blog/tags/SDカードフォーマッター/" style="font-size: 10px;">SDカードフォーマッター</a> <a href="/blog/tags/WiFi/" style="font-size: 10px;">WiFi</a> <a href="/blog/tags/Win32DiskImager/" style="font-size: 10px;">Win32DiskImager</a> <a href="/blog/tags/fritzing/" style="font-size: 10px;">fritzing</a> <a href="/blog/tags/メモ/" style="font-size: 10px;">メモ</a> <a href="/blog/tags/補足/" style="font-size: 14px;">補足</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグ</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Arduino/">Arduino</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud9/">Cloud9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Disqus/">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP8266/">ESP8266</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Font/">Font</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GutHub/">GutHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RictyDiminished/">RictyDiminished</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SDカードフォーマッター/">SDカードフォーマッター</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/WiFi/">WiFi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fritzing/">fritzing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/メモ/">メモ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/補足/">補足</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">アーカイブ</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">2月 2017</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 田邊 慶次朗<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/';
+        
+        this.page.identifier = 'raspberry-pi-remote-disktop-170211';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'blog-8jwah39ddi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -191,6 +191,210 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">
+            <time datetime="2017-02-17T15:13:36.273Z" itemprop="datePublished">2017-02-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Cloud9/">Cloud9</a>, <a class="tag-link" href="/blog/tags/GutHub/">GutHub</a>, <a class="tag-link" href="/blog/tags/Hexo/">Hexo</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Cloud9にHexoをインストールし作成したブログをGitHub Pagesに公開するやり方をメモ</p>
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><ul>
+<li>Clude9とGitHubの登録</li>
+<li>Clude9でblogを作成</li>
+<li>GitHubにリポジトリを作成</li>
+<li>SSHの設定</li>
+<li>GitHub Pages にデプロイする</li>
+</ul>
+<h2 id="clude9とgithubの登録"><a href="#Clude9とGitHubの登録" class="headerlink" title="Clude9とGitHubの登録"></a>Clude9とGitHubの登録</h2><p><a href="https://github.com/" target="_blank" rel="external">GitHub</a></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1qI4Rq_0GTsfPTsOaXRfQJYA1XPRlmdhBbQ" alt=""></p>
+<p><a href="https://c9.io/" target="_blank" rel="external">Cloud9</a></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1C9nw64zvruq--nyFzx-JyYpA1YJuQBg6aQ" alt=""></p>
+<h2 id="clude9でblogを作成"><a href="#Clude9でblogを作成" class="headerlink" title="Clude9でblogを作成"></a>Clude9でblogを作成</h2><h3 id="作業用プロジェクトの作成手順"><a href="#作業用プロジェクトの作成手順" class="headerlink" title="作業用プロジェクトの作成手順"></a>作業用プロジェクトの作成手順</h3><ol>
+<li>create a new workspace</li>
+<li>Workspace name: blog_work</li>
+<li>Choose a template -&gt; Node.js</li>
+<li>Create workspace</li>
+</ol>
+<p>blog_workという名前のプロジェクトができます。</p>
+<p>初めにあるファイルはすべて削除します。</p>
+<p>以下でnodeとnpmのバージョンを確認<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~/workspace $ node -v</div><div class="line">v4.6.1</div><div class="line">~/workspace $ npm -v</div><div class="line">2.15.9</div></pre></td></tr></table></figure></p>
+<h3 id="hexoのインストール"><a href="#Hexoのインストール" class="headerlink" title="Hexoのインストール"></a>Hexoのインストール</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo公式サイト</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace $ npm install hexo-cli -g</div><div class="line">~/workspace $ hexo init blog</div><div class="line">~/workspace $ cd blog</div><div class="line">~/workspace/blog $ npm install</div><div class="line">~/workspace/blog $ hexo server -p 8080</div></pre></td></tr></table></figure>
+<p>ターミナルから <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a>　-&gt; Open </p>
+<h3 id="sshの設定"><a href="#SSHの設定" class="headerlink" title="SSHの設定"></a>SSHの設定</h3><h5 id="clude9の場合"><a href="#Clude9の場合" class="headerlink" title="Clude9の場合"></a>Clude9の場合</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>で公開鍵が出力されるので、コピーする</p>
+<h5 id="clude9以外の場合"><a href="#Clude9以外の場合" class="headerlink" title="Clude9以外の場合"></a>Clude9以外の場合</h5><p>.sshディレクトリの作成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ mkdir ~/.ssh</div></pre></td></tr></table></figure>
+<p>鍵を生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ ssh-keygen -t rsa</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):</div><div class="line">Enter passphrase (empty for no passphrase):</div><div class="line">Enter same passphrase again:</div></pre></td></tr></table></figure></p>
+<p>何か聞かれるので3回エンター</p>
+<p>鍵の中身をクリップボードへコピー<br>xselのインストール</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ sudo apt-get install xsel</div></pre></td></tr></table></figure>
+<p>クリップボードへコピーするコマンド</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ cat ./id_rsa.pub | xsel --clipboard --input</div><div class="line"></div><div class="line"># Mac or Windows</div><div class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub  (Mac)</div><div class="line">$ clip &lt; ~/.ssh/id_rsa.pub    (Windows)</div></pre></td></tr></table></figure>
+<h3 id="公開鍵をgithubに登録"><a href="#公開鍵をGitHubに登録" class="headerlink" title="公開鍵をGitHubに登録"></a>公開鍵をGitHubに登録</h3><p><a href="https://github.com/settings/ssh" target="_blank" rel="external">公開鍵をGitHubに登録</a>で公開鍵を設定。</p>
+<ol>
+<li>New SSH key</li>
+<li>Titlte : cloud9-ssh-rsa</li>
+<li>Key : 鍵の中身をコピペ (Ctrl + V)</li>
+<li>Add SSH key</li>
+</ol>
+<p>接続確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ ssh -T git@github.com</div><div class="line">Hi &lt;アカウント名&gt; You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
+<p>と返れば成功</p>
+<h2 id="githubにリポジトリを作成"><a href="#GitHubにリポジトリを作成" class="headerlink" title="GitHubにリポジトリを作成"></a>GitHubにリポジトリを作成</h2><h5 id="手順"><a href="#手順-1" class="headerlink" title="手順"></a>手順</h5><ol>
+<li>Start a project</li>
+<li>Repository name: blog</li>
+<li>Create repository</li>
+</ol>
+<p>SSH文字列をコピー</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:keijirotanabe/blog.git</div></pre></td></tr></table></figure>
+<p>こういうやつ</p>
+<h2 id="github-pages-にデプロイする"><a href="#GitHub-Pages-にデプロイする" class="headerlink" title="GitHub Pages にデプロイする"></a>GitHub Pages にデプロイする</h2><p> GitHub Pages へデプロイするには ‘hexo-deployer-git’ という Hexo のプラグインをインストールする必要があるので、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>でインストール</p>
+<h3 id="gitの設定"><a href="#gitの設定" class="headerlink" title="gitの設定"></a>gitの設定</h3><p>バージョン確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --version</div><div class="line">git version 2.10.2</div></pre></td></tr></table></figure>
+<p>インストールされてなければ以下で、インストール</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git-core</div></pre></td></tr></table></figure>
+<p>名前とメールアドレスの設定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Keijiro Tanabe&quot;</div><div class="line">$ git config --global user.email &quot;ayt7gysnyx@gmail.com&quot;</div></pre></td></tr></table></figure>
+<p>設定できたか確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git config -l</div><div class="line">user.name=Keijiro Tanabe</div><div class="line">user.email=ayt7gysnyx@gmail.com</div><div class="line">core.editor=nano</div><div class="line">core.whitespace=off</div><div class="line">core.excludesfile=~/.gitignore</div><div class="line">advice.statusuoption=false</div><div class="line">color.ui=true</div><div class="line">push.default=current</div></pre></td></tr></table></figure>
+<h3 id="_configyml-の編集"><a href="#config-yml-の編集" class="headerlink" title="_config.yml の編集"></a>_config.yml の編集</h3><p><a href="https://hexo.io/docs/deployment.html#Git" target="_blank" rel="external">Deployment | Hexo</a>を参考に<code>_config.yml</code>ファイルを編集していく</p>
+<p>url: <a href="https://[アカウント名].github.io/blog/" target="_blank" rel="external">https://[アカウント名].github.io/blog/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">url: https://keijirotanabe.github.io/blog/</div><div class="line">root: /blog/</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:　git</div><div class="line">  repo: git@github.com:keijirotanabe/blog.git　(さっきコピーしたやつ)</div><div class="line">  branch: gh-pages</div></pre></td></tr></table></figure>
+<h3 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ hexo deploy -g</div></pre></td></tr></table></figure>
+<p><a href="https://keijirotanabe.github.io/blog/">https://keijirotanabe.github.io/blog/</a><br><a href="https://[アカウント名].github.io/blog/" target="_blank" rel="external">https://[アカウント名].github.io/blog/</a></p>
+<p>といったurlにアクセス</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://am1tanaka.hatenablog.com/entry/2017/01/23/011105" target="_blank" rel="external">HexoのインストールとGitHub Pageへデプロイ</a><br><a href="http://qiita.com/shizuma/items/2b2f873a0034839e47ce" target="_blank" rel="external">gitHubでssh接続する手順~公開鍵・秘密鍵の生成から~</a></p>
+<h5 id="メモ"><a href="#メモ" class="headerlink" title="メモ"></a>メモ</h5><ul>
+<li>Cloud9背景黒<br>Preferences -&gt; THEMES -&gt; Classic Theme</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" data-id="ciz9sosob0002o962qiqc9jqx" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-google-photo-not-show-170217" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -312,207 +516,6 @@ ga('send', 'pageview');
             
     
         <a href="https://keijirotanabe.github.io/blog/blog/2017/02/17/google-photo-not-show-170217/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/google-photo-not-show-170217/">コメント</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">
-            <time datetime="2017-02-16T06:08:05.956Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/Cloud9/">Cloud9</a>, <a class="tag-link" href="/blog/tags/GutHub/">GutHub</a>, <a class="tag-link" href="/blog/tags/Hexo/">Hexo</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Cloud9にHexoをインストールし作成したブログをGitHub Pagesに公開するやり方をメモ</p>
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><ul>
-<li>Clude9とGitHubの登録</li>
-<li>Clude9でblogを作成</li>
-<li>GitHubにリポジトリを作成</li>
-<li>SSHの設定</li>
-<li>GitHub Pages にデプロイする</li>
-</ul>
-<h2 id="clude9とgithubの登録"><a href="#Clude9とGitHubの登録" class="headerlink" title="Clude9とGitHubの登録"></a>Clude9とGitHubの登録</h2><p><a href="https://github.com/" target="_blank" rel="external">GitHub</a><br><a href="https://c9.io/" target="_blank" rel="external">Cloud9</a></p>
-<h2 id="clude9でblogを作成"><a href="#Clude9でblogを作成" class="headerlink" title="Clude9でblogを作成"></a>Clude9でblogを作成</h2><h3 id="作業用プロジェクトの作成手順"><a href="#作業用プロジェクトの作成手順" class="headerlink" title="作業用プロジェクトの作成手順"></a>作業用プロジェクトの作成手順</h3><ol>
-<li>create a new workspace</li>
-<li>Workspace name: blog_work</li>
-<li>Choose a template -&gt; Node.js</li>
-<li>Create workspace</li>
-</ol>
-<p>blog_workという名前のプロジェクトができます。</p>
-<p>初めにあるファイルはすべて削除します。</p>
-<p>以下でnodeとnpmのバージョンを確認<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~/workspace $ node -v</div><div class="line">v4.6.1</div><div class="line">~/workspace $ npm -v</div><div class="line">2.15.9</div></pre></td></tr></table></figure></p>
-<h3 id="hexoのインストール"><a href="#Hexoのインストール" class="headerlink" title="Hexoのインストール"></a>Hexoのインストール</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo公式サイト</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace $ npm install hexo-cli -g</div><div class="line">~/workspace $ hexo init blog</div><div class="line">~/workspace $ cd blog</div><div class="line">~/workspace/blog $ npm install</div><div class="line">~/workspace/blog $ hexo server -p 8080</div></pre></td></tr></table></figure>
-<p>ターミナルから <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a>　-&gt; Open </p>
-<h3 id="sshの設定"><a href="#SSHの設定" class="headerlink" title="SSHの設定"></a>SSHの設定</h3><h5 id="clude9の場合"><a href="#Clude9の場合" class="headerlink" title="Clude9の場合"></a>Clude9の場合</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>で公開鍵が出力されるので、コピーする</p>
-<h5 id="clude9以外の場合"><a href="#Clude9以外の場合" class="headerlink" title="Clude9以外の場合"></a>Clude9以外の場合</h5><p>.sshディレクトリの作成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ mkdir ~/.ssh</div></pre></td></tr></table></figure>
-<p>鍵を生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ ssh-keygen -t rsa</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):</div><div class="line">Enter passphrase (empty for no passphrase):</div><div class="line">Enter same passphrase again:</div></pre></td></tr></table></figure></p>
-<p>何か聞かれるので3回エンター</p>
-<p>鍵の中身をクリップボードへコピー<br>xselのインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ sudo apt-get install xsel</div></pre></td></tr></table></figure>
-<p>クリップボードへコピーするコマンド</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ cat ./id_rsa.pub | xsel --clipboard --input</div><div class="line"></div><div class="line"># Mac or Windows</div><div class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub  (Mac)</div><div class="line">$ clip &lt; ~/.ssh/id_rsa.pub    (Windows)</div></pre></td></tr></table></figure>
-<h3 id="公開鍵をgithubに登録"><a href="#公開鍵をGitHubに登録" class="headerlink" title="公開鍵をGitHubに登録"></a>公開鍵をGitHubに登録</h3><p><a href="https://github.com/settings/ssh" target="_blank" rel="external">公開鍵をGitHubに登録</a>で公開鍵を設定。</p>
-<ol>
-<li>New SSH key</li>
-<li>Titlte : cloud9-ssh-rsa</li>
-<li>Key : 鍵の中身をコピペ (Ctrl + V)</li>
-<li>Add SSH key</li>
-</ol>
-<p>接続確認</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ ssh -T git@github.com</div><div class="line">Hi &lt;アカウント名&gt; You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
-<p>と返れば成功</p>
-<h2 id="githubにリポジトリを作成"><a href="#GitHubにリポジトリを作成" class="headerlink" title="GitHubにリポジトリを作成"></a>GitHubにリポジトリを作成</h2><h5 id="手順"><a href="#手順-1" class="headerlink" title="手順"></a>手順</h5><ol>
-<li>Start a project</li>
-<li>Repository name: blog</li>
-<li>Create repository</li>
-</ol>
-<p>SSH文字列をコピー</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:keijirotanabe/blog.git</div></pre></td></tr></table></figure>
-<p>こういうやつ</p>
-<h2 id="github-pages-にデプロイする"><a href="#GitHub-Pages-にデプロイする" class="headerlink" title="GitHub Pages にデプロイする"></a>GitHub Pages にデプロイする</h2><p> GitHub Pages へデプロイするには ‘hexo-deployer-git’ という Hexo のプラグインをインストールする必要があるので、</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>でインストール</p>
-<h3 id="gitの設定"><a href="#gitの設定" class="headerlink" title="gitの設定"></a>gitの設定</h3><p>バージョン確認</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --version</div><div class="line">git version 2.10.2</div></pre></td></tr></table></figure>
-<p>インストールされてなければ以下で、インストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git-core</div></pre></td></tr></table></figure>
-<p>名前とメールアドレスの設定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Keijiro Tanabe&quot;</div><div class="line">$ git config --global user.email &quot;ayt7gysnyx@gmail.com&quot;</div></pre></td></tr></table></figure>
-<p>設定できたか確認</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git config -l</div><div class="line">user.name=Keijiro Tanabe</div><div class="line">user.email=ayt7gysnyx@gmail.com</div><div class="line">core.editor=nano</div><div class="line">core.whitespace=off</div><div class="line">core.excludesfile=~/.gitignore</div><div class="line">advice.statusuoption=false</div><div class="line">color.ui=true</div><div class="line">push.default=current</div></pre></td></tr></table></figure>
-<h3 id="_configyml-の編集"><a href="#config-yml-の編集" class="headerlink" title="_config.yml の編集"></a>_config.yml の編集</h3><p><a href="https://hexo.io/docs/deployment.html#Git" target="_blank" rel="external">Deployment | Hexo</a>を参考に<code>_config.yml</code>ファイルを編集していく</p>
-<p>url: <a href="https://[アカウント名].github.io/blog/" target="_blank" rel="external">https://[アカウント名].github.io/blog/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">url: https://keijirotanabe.github.io/blog/</div><div class="line">root: /blog/</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:　git</div><div class="line">  repo: git@github.com:keijirotanabe/blog.git　(さっきコピーしたやつ)</div><div class="line">  branch: gh-pages</div></pre></td></tr></table></figure>
-<h3 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ hexo deploy -g</div></pre></td></tr></table></figure>
-<p><a href="https://keijirotanabe.github.io/blog/">https://keijirotanabe.github.io/blog/</a><br><a href="https://[アカウント名].github.io/blog/" target="_blank" rel="external">https://[アカウント名].github.io/blog/</a></p>
-<p>といったurlにアクセス</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://am1tanaka.hatenablog.com/entry/2017/01/23/011105" target="_blank" rel="external">HexoのインストールとGitHub Pageへデプロイ</a><br><a href="http://qiita.com/shizuma/items/2b2f873a0034839e47ce" target="_blank" rel="external">gitHubでssh接続する手順~公開鍵・秘密鍵の生成から~</a></p>
-<h5 id="メモ"><a href="#メモ" class="headerlink" title="メモ"></a>メモ</h5><ul>
-<li>Cloud9背景黒<br>Preferences -&gt; THEMES -&gt; Classic Theme</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" data-id="ciz9sosob0002o962qiqc9jqx" class="article-share-link"><i class="fa fa-share"></i>共有</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">コメント</a>
     
 
         </footer>
@@ -2048,6 +2051,25 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-17T15:13:36.273Z" itemprop="datePublished">2017-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/blog/2017/02/17/google-photo-not-show-170217/" class="thumbnail">
     
     
@@ -2061,25 +2083,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T06:08:05.956Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 

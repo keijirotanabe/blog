@@ -145,7 +145,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/15/hexo-search-add-170216/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/15/hexo-search-add-170216/</id>
     <published>2017-02-15T19:01:51.000Z</published>
-    <updated>2017-02-17T10:48:28.696Z</updated>
+    <updated>2017-02-17T10:49:21.700Z</updated>
     
     <content type="html"><![CDATA[<p>Hexoのテーマicarusでサイト内検索を追加するのにつまづいたのでメモ</p>
 <h1 id="_configymlの設定"><a href="#config-ymlの設定" class="headerlink" title="_config.ymlの設定"></a>_config.ymlの設定</h1><p>themes &gt; icarus &gt; _config.yml を編集</p>
@@ -157,10 +157,10 @@
 <p>これで、追加されるはず、、、</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s -p 8080 --draft</div></pre></td></tr></table></figure>
 <p>が、サーバーを起動したらエラーが発生</p>
-<p><img src="https://drive.google.com/open?id=1t6sPhfi5FS_1S4RRDqETvD_xZKLTaMToMA" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1t6sPhfi5FS_1S4RRDqETvD_xZKLTaMToMA" alt=""></p>
 <h1 id="解決策"><a href="#解決策" class="headerlink" title="解決策"></a>解決策</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -S hexo-generator-json-content@1 --save</div></pre></td></tr></table></figure>
 <p>とし、サーバーを起動</p>
-<p><img src="https://drive.google.com/open?id=19j1bRjuvcde1neN4nhaEWZL4DhL3ZxUukg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=19j1bRjuvcde1neN4nhaEWZL4DhL3ZxUukg" alt=""></p>
 <p>これで起動しました</p>
 <p>サイト内検索もうまく追加されました</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1YH_mttOCgwKheERyWoikf4ftiKIk5NA6HA" alt=""></p>

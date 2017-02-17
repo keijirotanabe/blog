@@ -521,7 +521,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-3-starting-step-170210/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-3-starting-step-170210/</id>
     <published>2017-02-11T01:49:17.000Z</published>
-    <updated>2017-02-17T02:18:21.864Z</updated>
+    <updated>2017-02-17T05:12:12.073Z</updated>
     
     <content type="html"><![CDATA[<p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説</p>
 <h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
@@ -581,7 +581,7 @@
 <h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します</p>
 <p>ダウンロード先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
 <p>詳しくは<a href="/blog/2017/02/10/sd-formatter-4-170210/" title="SDカードフォーマッターの使い方">SDカードフォーマッターの使い方</a></p>
-<p><img src="https://lh3.googleusercontent.com/554I65kz28w02dLbSUP8__-2b4cTYGZXGd8uFV99AmNc7szk_BMqMBEGL8R6XC38r_oTbZLAc4smnxVkK5070xo3oT57UQe7YKUY7fwGWbHNaX5erejImdzduRCt3BWPmlG6ZrLO_HLlcZjfOoywg49XZKRxOWbSBb0yK1F7vHKvT1y2ycqr_-Uvi-uACUTXN2GizUg5e3YekJkdBM0AnlmTT2rkScraIT3iAyeUvuDH2n4JGDgcSvPBngxAd9dUxkz17WF_fL7sN79gLK4FFpTFOwHMQDB2a_ZXK27sVLuvjrOdv53KUsm9RjjJtZIVozZ78bok7Hkj0ZdDb7a1-UHencfaWYKh5RPDwyXA91hmDsopF00FvF9Aqce4XEGK8k9paLW8lAt3XgG4VEreXD6t03RJnueX48OFRcyRaxD-UlKsW4WDe6tPJ_VMnM9cqeXNywsAUiTqUjYIZQzXXrIrTNsEJYIGmqu3s6ilbSwhtgW5AJgE830BHR3xKg2kru7scdfhdBcV8fbozHPpUGmP3XLt4TKuLhjeFiR7AfdepRS7YV7tOAyQNbWbJ997wNgTHi-NLJz0wTWMmTJJE3_f9Jh-z4AjUNzU1UXhGfIhcTGTPVoR=w522-h394-no" alt=""></p>
+<p><img src="https://goo.gl/photos/dNFkfabhTsPq4uQc6" alt=""></p>
 <h2 id="raspbianの用意"><a href="#「Raspbian」の用意" class="headerlink" title="「Raspbian」の用意"></a>「Raspbian」の用意</h2><p>ダウンロード先<br><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/raspbian/</a></p>
 <p><a href="https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" target="_blank" rel="external">GUI</a>版と<a href="https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" target="_blank" rel="external">CUI</a>版がありますが、今回はGUI版をダウンロードします</p>
 <p><img src="https://lh3.googleusercontent.com/5KCcWMxsU3R-hX5MfzhNIdODn-5j-YHlua6km6dwMhEDn6LyG17quejoyEFeDu9sYbjXErhHBxAIiM01wHDwgIq0QJUVMatspCHW790YC4C8WOlR3A-PDYm-3XoYQpIJb-w293vVXpwH6gVXXHKtwzKKWbYTqxiM9KheqBC8bNEHMiTfXhA7Kx1CKLDuWv7sHmXgIcG7FI2Ky3q5BWCfCw7nA3mvRqEjiCgciJgj8Mk2FpXBO0heo7Qp8R_8nh4TB8HInDZbbY1cx5Poy37mrIm_jxjhhhh9CPQHLiNkOKgWgbOIA-7wuNKogHQBT_7xCWjSF8rSLKX32TniUhKpBPaidYMRPZbimbmj_Nkiyu98bjlAG4ICQWyXESymY59HzTZCF10mMGhPrbvuT0QgbOYQ5I_2OOZ4F0So1dkTRDhoaRGhq0v0jR2KHbv7pPsXSfaZj9pQf5g3IXhZuyIGl0vSc5eJj1DLhp2i9DwjK95XgoptCSqrO7PtAOWdEb2wzRPtXqG_L7kDNfyEcdTfi-y-WBVjs-0H5E9PDAT3dcEoyNRbIw5hCmvlp5OCkVbUI1tZqneVm8obEb7sDvjkN7gDzlGsZXFA7i2ndOvrnX7YtK0nkuPd=w1537-h967-no" alt=""></p>

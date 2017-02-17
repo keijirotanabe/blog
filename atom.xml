@@ -1646,7 +1646,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/06/esp8266-at-reset-170207/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/06/esp8266-at-reset-170207/</id>
     <published>2017-02-06T17:28:52.000Z</published>
-    <updated>2017-02-17T02:51:03.386Z</updated>
+    <updated>2017-02-17T13:11:51.191Z</updated>
     
     <content type="html"><![CDATA[<p>WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。<br>ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。</p>
 <h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><p><strong>書き込む中身</strong><br><a href="http://www.espressif.com/en/support/download/sdks-demos" target="_blank" rel="external">ファームウェア</a>から<br><a href="http://www.espressif.com/sites/default/files/sdks/esp8266_nonos_sdk_v2.0.0_16_08_10.zip" target="_blank" rel="external">ESP8266 NONOS SDK V2.0.0 20160810</a>をダウンロードします</p>
@@ -1663,8 +1663,8 @@
 <p><strong>Flash Download Tools を起動します</strong></p>
 <p><code>ESPFlashDownloadTool_v3.4.4.exe</code>を起動</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">flash_download_tools_v3.4.4</div><div class="line">    |</div><div class="line">    +--- FLASH_DOWNLOAD_TOOLS_V3.4.4</div><div class="line">            |</div><div class="line">            +--- ESPFlashDownloadTool_v3.4.4.exe</div></pre></td></tr></table></figure>
-<p><code>ESP8266 DownloadTool</code>を選択<br><img src="https://lh3.googleusercontent.com/v1vX6PjUOjKS03DBq8o82b--uiN2pET_JlAlshELLglYOt5HYYKYRD_Bu7hdJP9YEA8nJj0QCIb2AS62m6fDWomcagkU6bUq7kHJWo0amgR5dzwj4LSPRiQstHSHmn39sht0042COFlWvmcDPn8ZDVALxEw6rLRhEMYjCepdrJ_QYa5aibw-dYPf07iiAJSXeYoSdZkUD-OCJia7O4Mz8yA2O7Au6xoof2vSJDGepRCvmkXYYqsqqfpfI8ZOyse3ZQ5X47p631nMy1RZ_nCsv-CxAbzj4YLenKQzJjCynJMAwWF9QK5JI4QKPUNCEKnKZuB632st8jHbpiZ2AzZpDS8ajW268NscyYh53WK_1JE8Nr6BSbKkGW3ISKjwfnbRpU6HOYSWOYsyEJo780kkEKfZR3Sp18rMnLKe5IuUCboOTBpelNaxE1G_DaKwqRYET83PlOkp7YI4tbp2BbrzmniUFo0-0PPoQiTbw4JOMk4m1BEUze3GcP3PH39d3y_IglrtcGjyEfn2oKSHVXovWMnjFw7i_rcJeUtgCrX4YLPgWWmplX6JMqX_Cw9LsYE1-YCkz2ICbgOhCGPauRb2G7VZP9K6LeuhYwzFlxicHOx31DoVrUsb=w286-h493-no" alt=""></p>
-<p>起動画面<br><img src="https://lh3.googleusercontent.com/Q31VKbPLWXdyHcYOU4A-wVPSb--a0MiEJjusvfNxHK0bT5wQCXltVnUL0iOf-jO3c9hJpwmcy3IyLiULBO62X4fjfUc7znTg9OYH98nga5OUkTKakHXINTdteja0bHVzWirmQvQ_TQ-QUglemm2--Hak88RGdTOFnrUx4B4-70EmuhEcjm_8YWCZ67rSHt4qVxLR4R6-vi0NPNOfcIemDqd8Dn_zrjEITN3U0aKOvSGunOx-hFKjISYaTaTeuHOlRlnbqNbuWveo11B-Y92bGp7Bn4syvTcCs62BJWcoW1PTJ_dsNLKABITWoW2-IdlJF1WXJ9LL3gHwHTUO3aNxs7fDC2z6nIjCCkxAKWuN1SXBxws6cWAF3bTtFKlTpvKM2ghuxjbu0J9bwYaXGf_G1HlHrhxqzit19NckHzf2Xsa_f4RZF9MVXYvzjnlH7T9by0msz1PieNlgvGOHqgLbxXl4EF8sgtqej5qsFwGQVyml0-Usg6D9Mv6IgZlDR459ontsFVHX_1bKB7iXdYe2uwPAFWX4UGvMI-VF_dgBFj7-qUVWOEs5eTrJYeArMYe8CKCmLAM30oXaZFyip5vgf759o5a-YTqXX8RMowZ3i0E--paqjyLV=w426-h678-no" alt=""></p>
+<p><code>ESP8266 DownloadTool</code>を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1ZR2YW45jrXRIZKzsZ5TMFvK7wpFjomxpKg" alt=""></p>
+<p>起動画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1o7CB7-pifJxs_ly8K7cShUFJ0mKxdBL6_A" alt=""></p>
 <p><a href="http://www.espressif.com/en/support/download/documents" target="_blank" rel="external">ドキュメント</a>の中から<br><a href="http://www.espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf" target="_blank" rel="external">ESP8266 AT Instruction Set</a>を参考にします</p>
 <p>前述したファイルを以下のアドレスに書き込みます</p>
 <table>
@@ -1702,7 +1702,7 @@
 </tbody>
 </table>
 <p>以下の箇所を選択してください</p>
-<p><img src="https://lh3.googleusercontent.com/CqnblEzVGjaIvYNoqPOP7YLft7Xgaj3-fDCIaKlRzPG66xhWL-VuoU0lkr8UpEGMlAcry8xJsez7d6jtMYgevti5jr8R0DwZExmNzYQ08MW-FeWM8hGBeeTA-YM9undOnzUHpCyyyazpvXWGSbVc7aXd9rcD6-WgX1EdSNOJEV0xquJJA5vvwh4bHohimj_A0rmpFhLSRQsABnXvWX3uqYzuaXrEW3oFfvqxM6TAg__puFBs7Nd1d5VGhI3fUoF-pQsUKQv85fzS0OJ3-m_AHFQnynDN-mLZU86dO5NoE3niCutHJyVogubjctnXeQQl9PSD3NksfhsjijAq2bcSJoVKw0vxaARwa2S1jt9-dYfOEDPbLmsz5MseDavEPNELk5PaAfSbkubKTf57dQNDmPF5P7adwzf6OnDpmSIfM5QrV11SrWlLHstR594WPzpFS70wBi_4DvK-cq6KGxlV4ydXX8eyhiR8BPlf22yoj9_TX15OYONkckwZWmmlFYyCaWGJW6jqJWk0mnXFWZ1VitVM_ftYqxUw0sNlL6kPhL423GAepbhu1UIscDccY6BjdOzaA7wsEZutSS7FlRfnaRVhXleoUGnQVXmq9M5L1IL-G6KFa91f=w426-h678-no" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1oWAtWkNHt0pwV7YTljdkcHL53DCL3jijGQ" alt=""></p>
 <ul>
 <li>CrystalFreq: 26M</li>
 <li>SPI SPEED: 40Mhz</li>
@@ -1718,13 +1718,14 @@
 <p>IO0がHIGHの状態でリセットされるとファームウェアの実行モードで起動しますが、IO0がLOWの状態でリセットされるとファームウェアの書き込みモードで起動します。</p>
 </blockquote>
 <h2 id="書き込む"><a href="#書き込む" class="headerlink" title="書き込む"></a>書き込む</h2><p><code>START</code>を押します</p>
-<p><img src="https://lh3.googleusercontent.com/FK971Hx1-oYMq9RH_JBwbDL8c-dLGN5BVMmgSdQkEWPaEWLtT4PJso_TKrxoZD0pTQM0p5b9dW2mLRmIJLJxb_-IvrDOFvyKKUiWOSVN6fbp5bwzg1-FkezQpgnuZNFrWQ_YYIoDcvIP4RIT3z_iB_JaHC_WJghmf9J0OAL_KL80TDpyr0JutITKsYLifVqUg44iT5co8N4egcLVPqbQXmM-FA6VPhc_YFBQwOUWOjZCYZ0FeurIpFo4FtFEEwfPBE5byXzAyXYa8vU5I_QmRMjxOJIQ9-vss5nXvI8kAN6DUolHhPnAcHecBu3ynLmfjYcShUQPsCIPt8tyTSzCyr2YkiaKaztDeBOIMkekexavb2SpSgb1KkP0M02cjSUA5cgWj1g0OIsX7Bfn6H-3APc0CJtvFDR9yTqLQiltWKOUMvnEMUan9Nf8pZuNxLhzNPLDqhkdIT5hQtcp7kIXNDyDvvDTUGObKckwByFUzwRZZk1HWm4R9t6iFVuk2SnuK4KWA2PpHaZwgELoiLyJGQraQswk6xKcdLiGzecQQ7QOIudSQ-zFBeJjdyYEj8CV3qLddJ-KSox0k5cHUQdM55_ggUNMSpNQoyQgDIHx3I6aTk4heRuh=w426-h678-no" alt=""></p>
+<p><img src="https://drive.google.com/ouc?export=view&amp;?id=1s9J3X3ea8E6aS8zjYjBfwDl0AxtqLAc4Ng" alt=""></p>
 <p>完了</p>
-<p><img src="https://lh3.googleusercontent.com/JWRLzRMi23xIJRO0bi5vclgG5OxCbM7ypEd31VQ6_uqROTzVXed5tN9OkxkX5bCw0bhrO3ODg4hhjKaAnkk4NENGQDlK3j93uD7BY1uWK29xzLdjPUydtFrNhvl-ooF8rs9TPaIVeT0Yu-HKfOp2RmIge7IHh_gekNV0tECv6KnKWCkIc47TreG4J0MgTL1dCz6HQbsPZAOImKXzV3vHjLLca11r8jXsLhj2AMFxpZFd1LfwH5a_vUiP6kEif9Dx0Tx0OxckTjng_xVdx7MG1vLus8ALBhAeK5svUrVZayX_vzeMhNDm5bjNFOr8BvRvcZIJAxl0oKqh-5GqFQhtFqW2GiR4usaueS40BntXmOqHaKpVkkaN2MXXh3GTHjIoq7qDp2IOgGOb_u3yVpq-8FmTWifM51L3Hc9kB89etCAcchIbjwer6TOySTSuQScWfst-JRwYZTr0lB5M4o8GUB2eC-xOuKXuxhW4CyOAwVqUvLZXndEDQb3ivLZs5pwwLv_0K1LG7AS6LqRDxxPN5ZweAAGcSXNejti7XkxRp2fRODYyzFEmblo0CJYkwVc0tazcO7XcsnlTtLg5TcIgfq4dDzVgcnl_T4grSupHzXXfUu1u6Ii9=w426-h678-no" alt=""></p>
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>以下のように変更<br><img src="https://lh3.googleusercontent.com/j9TRx5NBOW_qI6AuVf1dHhr4r2jW59sKVMv1Q_wRBENDnIeHcaWUuw-RogO88jEk6D6-qHC6WxOeKP1NaWJgpH7MivhFWIUnNh0vylSzIBsmSY27Oj_6nc5A_2x2O7S89Mp6ySY9ORc-TOzCZe6E_xPEVvyFv4_qZbe9obimvy2fB72WIr2XK89IUwrtKFVStHrq0osGGBjPjbCDBpQq2Y54jbHlZlegY-WFLS2zHsWo4vxgdCkL88XBiJVts0B7SwiZ5YzyVYJnLGDhI9h8aJ1MtuCeZRPtVR-smy6RcwIskn6hLm4JPlUyo6pX71EiWLaVp79g4zvxLCJ-oX77VOi5jIKjmJNQFcAfgdbmSOGHlxsHgApJPTAwaixhBW1RMr0YlW4q32Feteh-ZNa_K-FvlNr4wHPod1kHqmM1EbLQUqLDnf6xJRZ6DMZVJb9L903Wm7VAurEs1pr4a-EanAllrqaI5tNXYhGoNarw2A-EL47whpWEZgu-tEkd64QHGu_XSUggFbNUkIBAAmMVZHaaCAGL-nRFnEYo25-ph2Fv0qou5_561uDOQ3QC7NBtoBuRUkFzANetgz5AKftpnsmDvKB8F3ydMsH2Uv8Ejc2OhBWDjB7M=w659-h486-no" alt=""><br><img src="https://lh3.googleusercontent.com/3hrmqkqA5Ep9UZ8J1F4MzPolRXAtpXeQK0SRoyErrvCDlmiceqE4zN52cCMJBabMTmeUhl2kVfMOd66HMj3euEEBuTJdDS98NO4DQ2dDp5y9Hs4ERfdUtCNN3KShGWjif67pywETYiYlBOU89q2sf7MPHTYjJQLEALs9sONfpMgo2FTkEJ-MHcQ-wyZcXYK0IQ6aMypqVv3gU8V_yVrFw5V-_HM_puwu9iGNPZzX6AT1H7sAQ45Y9grrrJPBg90iLKWGGy38OR4M_i7vWveuNsKejQfR-yOywJaqq1Yxa-bqE-eNZeINEU-6wEYqwVhO1ZHqoyc4K2PKPP5LR_FykofV0BqUWF4a69mXcKs04reBSgqMmw6BFi5bpeahL-mQ0kPSCbKU5qgI_I0L6ms6-1PiBRUTE1tX-ayAlaj8DVMHuyYeVv9K0srWFsL4sGhKlo6u56M2t_1pZYUkzaOnLmVJuv6VUmSnV23lhVFKuKfLSN8LDYzzPN5BZmmrBRrNEMOr-FaqnQB4AEZ3dwD5kbxP8ZJNMREzTYHzoWmdgPo8w8W_zpTxvymzSqhaczP1P1OfeFRKj61XtA9fgKIAdMvpa7yxONAPLVCd725S-FsZlTUrQAXZ=w659-h486-no" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1flBnSZtUpe2S6EPbdi6ACNQYuL5xjnPWBg" alt=""></p>
+<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>以下のように変更<br><img src="https://drive.google.com/uc?export=view&amp;id=1gcWS3g67ANvGgXpXzktl2cQlTLSi9lJJwg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1dLpKi_stsNFa61lef56XOoW7YR4m2xCp_g" alt=""></p>
 <p><strong>実行モードで起動するために、IO0がHIGHの状態でリセットします</strong></p>
 <p><code>redy</code>と帰ってきたら<code>AT</code>と入力してEnterを押して下さい</p>
-<p><img src="https://lh3.googleusercontent.com/o5QrqBTczLJkLR6S8tpCCOg_tDe4_hxn6HNNMUk7pFjye4yI460iusFDtd_baZ0u7QB6UhL3umstQrZo2xTjyQB6h6oyzgPzkPobUSZebO4TYai3xOd4RU-P-D3JfqQZA7djIqK66nUBVFsgvxlwi9LWvoU1Zw0fv1qQUh4jqiW5B0w6dC37-SwLqW-QquTKfxHzksMHHiIh8MfA3eiI-bmMxKQJN0TUzFrlP1ls-3aYeoURknQO778vAKazDsCiEAXeVyo9ZH9iSnOlyVVRbwI0cRPYevKDgtbCxn0oqNpWf5kIPmRIQIVNcTmOBrd95qyILvHUHx6CzkqRkF1kIVSYUaOHpL11gSbuwc0fF4SHCmsTI2R7eBBvcnjaDQST8de9g8tEz8OUskvZB54xjoLxvv6oamT5kxRs6FdMFKwYypb6_1QsqZ92sw74uqq28RbQfUs_EQCFIIbIRSaISAGWA3bak09YnHJge93crc_JJJ1wiWuhheKgHoazpOtj3AlyVI7P-vc_zdRzO8hcK9Bcwh2nG0__cknub3I0_w9p1QVi1cUFXygc2eP2wssvVToetiQniVW3adiRA_cj2dSov2SiALXVLg_WYtF4I-4pIHHhgAQk=w659-h486-no" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1FMurZk5iV7NsQhGXh4ivFK0sHRT4VOHsGQ" alt=""></p>
 <p><code>OK</code>が帰ればATコマンドが使えるようになります</p>
 ]]></content>
     

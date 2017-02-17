@@ -549,7 +549,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-3-starting-step-170210/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-3-starting-step-170210/</id>
     <published>2017-02-11T01:49:17.000Z</published>
-    <updated>2017-02-17T14:31:54.451Z</updated>
+    <updated>2017-02-17T14:51:43.014Z</updated>
     
     <content type="html"><![CDATA[<p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説</p>
 <h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
@@ -633,7 +633,7 @@
 <p><code>Interfaces &gt; SSH: Enabled &gt; OK</code></p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1l4UxAIftx905yjlwk6P_G8c8xn1los1dBA" alt=""></p>
 <h3 id="ipアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h3><p>ターミナルを起動します</p>
-<p><img src="https://drive.google.com/open?id=181_m267p5vAkcAPf9QmLvUMcwG0GwtQA4g" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=181_m267p5vAkcAPf9QmLvUMcwG0GwtQA4g" alt=""></p>
 <p>以下のコマンドを入力</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1PPKP2FqC7SzspYaisdq4irHV-kKmq6jXfA" alt=""></p>

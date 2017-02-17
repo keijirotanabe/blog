@@ -3,33 +3,81 @@
 <head>
     <meta charset="utf-8">
     
-    <title>ArduinoのESP8266をATコマンドが使えるように戻す | blog</title>
+    <title>Arduino IDEのインストール | blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。
-必要なもの書き込む中身ファームウェアからESP8266 NONOS SDK V2.0.0 20160810をダウンロードします
-書き込みに使うツールFlash Download">
+    <meta name="description" content="Arduino IDEをインストールする手順
+目次
+公式サイト
+ダウンロード
+インストール
+設定
+環境設定
+起動時のウィンドウサイズを変更
+フォント変更
+
+
+
+環境Windows10 Home 64ビット
+公式サイトhttps://www.arduino.cc/
+ダウンロードArduino IDE ダウンロードページhttps://www.arduino.cc/en/Main/Softwareバー">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArduinoのESP8266をATコマンドが使えるように戻す">
-<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/06/esp8266-at-reset-170207/index.html">
+<meta property="og:title" content="Arduino IDEのインストール">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/07/Arduino-install-step-070207/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。
-必要なもの書き込む中身ファームウェアからESP8266 NONOS SDK V2.0.0 20160810をダウンロードします
-書き込みに使うツールFlash Download">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1ZR2YW45jrXRIZKzsZ5TMFvK7wpFjomxpKg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1o7CB7-pifJxs_ly8K7cShUFJ0mKxdBL6_A">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1oWAtWkNHt0pwV7YTljdkcHL53DCL3jijGQ">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1s9J3X3ea8E6aS8zjYjBfwDl0AxtqLAc4Ng">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1flBnSZtUpe2S6EPbdi6ACNQYuL5xjnPWBg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1gcWS3g67ANvGgXpXzktl2cQlTLSi9lJJwg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1dLpKi_stsNFa61lef56XOoW7YR4m2xCp_g">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1FMurZk5iV7NsQhGXh4ivFK0sHRT4VOHsGQ">
-<meta property="og:updated_time" content="2017-02-17T13:15:08.111Z">
+<meta property="og:description" content="Arduino IDEをインストールする手順
+目次
+公式サイト
+ダウンロード
+インストール
+設定
+環境設定
+起動時のウィンドウサイズを変更
+フォント変更
+
+
+
+環境Windows10 Home 64ビット
+公式サイトhttps://www.arduino.cc/
+ダウンロードArduino IDE ダウンロードページhttps://www.arduino.cc/en/Main/Softwareバー">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1HDeJmPbGo90hVrCSeWOf2OyJSdHb8l5L5g">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1KR--988onctRpv2x_-8EpdWa4uwZfQOeFQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1j7nWpk3IcOaOUW7a0bc6W14fklIgcz-fEw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=18HmI-1JMUDL_Iow84NJ6D7VIZl1VQ1DAaQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1K3h_BwG-_d-6k0oDpd3TOgwYpGA68ATQ0g">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1QHPfJpxjYVD8GND2ZXZQ3txf-hfwGlpg4Q">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=13lS80uJVfuvREdk9VVGPuQx8L3yCHd_D4w">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1RgTJNangGRDYmK4JfrAbG3eY95jccUgt5A">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1c8gzDNTiahKjRxr3JHWrhGPUxmiBW8XWow">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1XGo4JUeU5j3H_L8CaOuqhhbanVp_ATYBeA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1TQBEuEm83fWT7s8VYYvgTb8BpKECPDmXDA">
+<meta property="og:image" content="https://drive.google.com/ouc?export=view&?id=1BZOJ3t49-u0zuaNOmgTAtD4P4IBc1fx45Q">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1cEhH4bMEwmMXpROMoekJKMdmF-2A4FnVqw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1CXAz08fDPgsBxWrwOW7W-6PjQsmWqFqOdQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1PvdUsSTnucgV7jGBcjgjNBbFM4QJHBZxGQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1vPZ0qx-kThtILZYV9AbKtXJ_67paCbYtKw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1KsKtwaeSaqd0nYe9j4tdd5d5SVJSPwefKQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1g5apo5F1Ka0DM05sSuuwgIKX87t6SQUMBQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1BLP1QuMhDdUBXAhjhz-mGuIWyI7XCijrAw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1uTWzu4jVKeM1_Dz0S4Z6T1zgp8_KDgemRA">
+<meta property="og:updated_time" content="2017-02-17T13:30:51.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArduinoのESP8266をATコマンドが使えるように戻す">
-<meta name="twitter:description" content="WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。
-必要なもの書き込む中身ファームウェアからESP8266 NONOS SDK V2.0.0 20160810をダウンロードします
-書き込みに使うツールFlash Download">
-<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1ZR2YW45jrXRIZKzsZ5TMFvK7wpFjomxpKg">
+<meta name="twitter:title" content="Arduino IDEのインストール">
+<meta name="twitter:description" content="Arduino IDEをインストールする手順
+目次
+公式サイト
+ダウンロード
+インストール
+設定
+環境設定
+起動時のウィンドウサイズを変更
+フォント変更
+
+
+
+環境Windows10 Home 64ビット
+公式サイトhttps://www.arduino.cc/
+ダウンロードArduino IDE ダウンロードページhttps://www.arduino.cc/en/Main/Softwareバー">
+<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1HDeJmPbGo90hVrCSeWOf2OyJSdHb8l5L5g">
 <link rel="publisher" href="u/0/106972576385014381494">
     
 
@@ -206,7 +254,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-esp8266-at-reset-170207" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Arduino-install-step-070207" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -214,7 +262,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            ArduinoのESP8266をATコマンドが使えるように戻す
+            Arduino IDEのインストール
         </h1>
     
 
@@ -223,8 +271,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/02/06/esp8266-at-reset-170207/">
-            <time datetime="2017-02-06T17:28:52.000Z" itemprop="datePublished">2017-02-07</time>
+        <a href="/blog/2017/02/07/Arduino-install-step-070207/">
+            <time datetime="2017-02-07T01:15:29.000Z" itemprop="datePublished">2017-02-07</time>
         </a>
     </div>
 
@@ -232,13 +280,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/ESP8266/">ESP8266</a>
+        <a class="article-category-link" href="/blog/categories/Arduino/">Arduino</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a>, <a class="tag-link" href="/blog/tags/ESP8266/">ESP8266</a>, <a class="tag-link" href="/blog/tags/WiFi/">WiFi</a>
+        <a class="tag-link" href="/blog/tags/Arduino/">Arduino</a>, <a class="tag-link" href="/blog/tags/ESP8266/">ESP8266</a>
     </div>
 
                     </div>
@@ -249,90 +297,75 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-                <div id="toc" class="toc-article">
-                <strong class="toc-title">目次</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#必要なもの"><span class="toc-number">1.</span> <span class="toc-text">必要なもの</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#手順"><span class="toc-number">2.</span> <span class="toc-text">手順</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#書き込む"><span class="toc-number">2.1.</span> <span class="toc-text">書き込む</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#確認"><span class="toc-number">2.2.</span> <span class="toc-text">確認</span></a></li></ol></li></ol>
-                </div>
-            
-            <p>WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。<br>ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。</p>
-<h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><p><strong>書き込む中身</strong><br><a href="http://www.espressif.com/en/support/download/sdks-demos" target="_blank" rel="external">ファームウェア</a>から<br><a href="http://www.espressif.com/sites/default/files/sdks/esp8266_nonos_sdk_v2.0.0_16_08_10.zip" target="_blank" rel="external">ESP8266 NONOS SDK V2.0.0 20160810</a>をダウンロードします</p>
-<p><strong>書き込みに使うツール</strong><br><a href="http://www.espressif.com/en/support/download/other-tools" target="_blank" rel="external">Flash Download Tools</a>の中から<br>Windows環境は<br><a href="http://www.espressif.com/sites/default/files/tools/flash_download_tools_v3.4.4.zip" target="_blank" rel="external">Flash Download Tools V3.4.4 (ESP8266 &amp; ESP32)</a>をダウンロードします</p>
-<p><strong>書き込み先(ESP8266)</strong><br>この記事では<a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><p><code>ESP8266 NONOS SDK V2.0.0 20160810</code>を解凍し、以下のファイルを使用します</p>
-<ul>
-<li><code>blank.bin</code></li>
-<li><code>esp_init_data_default.bin</code></li>
-<li><code>boot_v1.6.bin</code></li>
-<li><code>user1.2048.new.5.bin</code></li>
+            <p>Arduino IDEをインストールする手順</p>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
+<li><a href="#公式サイト">公式サイト</a></li>
+<li><a href="#ダウンロード">ダウンロード</a></li>
+<li><a href="#インストール">インストール</a></li>
+<li><a href="#設定">設定</a><ul>
+<li><a href="#環境設定">環境設定</a></li>
+<li><a href="#起動時のウィンドウサイズを変更">起動時のウィンドウサイズを変更</a></li>
+<li><a href="#フォント変更">フォント変更</a></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">esp8266_nonos_sdk_v2.0.0_16_08_10</div><div class="line">    |</div><div class="line">    +-- ESP8266_NONOS_SDK</div><div class="line">          |</div><div class="line">          +-- bin</div><div class="line">               |</div><div class="line">               +-- blank.bin</div><div class="line">               |</div><div class="line">               +-- boot_v1.6.bin</div><div class="line">               |</div><div class="line">               +-- esp_init_data_default.bin</div><div class="line">               |</div><div class="line">               +-- at</div><div class="line">                    |</div><div class="line">                    +-- 1024+1024</div><div class="line">                          |</div><div class="line">                          +-- user1.2048.new.5.bin</div></pre></td></tr></table></figure>
-<p><strong>Flash Download Tools を起動します</strong></p>
-<p><code>ESPFlashDownloadTool_v3.4.4.exe</code>を起動</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">flash_download_tools_v3.4.4</div><div class="line">    |</div><div class="line">    +--- FLASH_DOWNLOAD_TOOLS_V3.4.4</div><div class="line">            |</div><div class="line">            +--- ESPFlashDownloadTool_v3.4.4.exe</div></pre></td></tr></table></figure>
-<p><code>ESP8266 DownloadTool</code>を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1ZR2YW45jrXRIZKzsZ5TMFvK7wpFjomxpKg" alt=""></p>
-<p>起動画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1o7CB7-pifJxs_ly8K7cShUFJ0mKxdBL6_A" alt=""></p>
-<p><a href="http://www.espressif.com/en/support/download/documents" target="_blank" rel="external">ドキュメント</a>の中から<br><a href="http://www.espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf" target="_blank" rel="external">ESP8266 AT Instruction Set</a>を参考にします</p>
-<p>前述したファイルを以下のアドレスに書き込みます</p>
-<table>
-<thead>
-<tr>
-<th>ファイル名</th>
-<th style="text-align:left">アドレス</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>blank.bin</td>
-<td style="text-align:left">0x3FB000</td>
-</tr>
-<tr>
-<td>esp_init_data_default.bin</td>
-<td style="text-align:left">0x3FC000</td>
-</tr>
-<tr>
-<td>blank.bin</td>
-<td style="text-align:left">0xFE000</td>
-</tr>
-<tr>
-<td>blank.bin</td>
-<td style="text-align:left">0x3FE000</td>
-</tr>
-<tr>
-<td>boot_v1.6.bin</td>
-<td style="text-align:left">0x00000</td>
-</tr>
-<tr>
-<td>user1.2048.new.5.bin</td>
-<td style="text-align:left">0x01000</td>
-</tr>
-</tbody>
-</table>
-<p>以下の箇所を選択してください</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oWAtWkNHt0pwV7YTljdkcHL53DCL3jijGQ" alt=""></p>
-<ul>
-<li>CrystalFreq: 26M</li>
-<li>SPI SPEED: 40Mhz</li>
-<li>SPI MODE: QIO</li>
-<li>FLASH SIZE: 32Mbit-C1</li>
-<li>COM: [各自変更]</li>
-<li>BAUD: 230400</li>
+</li>
 </ul>
-<p><strong>書き込みモードで起動</strong></p>
-<p>IO0がLOWの状態でリセットすれば、書き込みモードで起動します。</p>
-<p><a href="https://www.switch-science.com/catalog/2500/" target="_blank" rel="external">https://www.switch-science.com/catalog/2500/</a>を参考に</p>
-<blockquote>
-<p>IO0がHIGHの状態でリセットされるとファームウェアの実行モードで起動しますが、IO0がLOWの状態でリセットされるとファームウェアの書き込みモードで起動します。</p>
-</blockquote>
-<h2 id="書き込む"><a href="#書き込む" class="headerlink" title="書き込む"></a>書き込む</h2><p><code>START</code>を押します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1s9J3X3ea8E6aS8zjYjBfwDl0AxtqLAc4Ng" alt=""></p>
-<p>完了</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1flBnSZtUpe2S6EPbdi6ACNQYuL5xjnPWBg" alt=""></p>
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>以下のように変更<br><img src="https://drive.google.com/uc?export=view&amp;id=1gcWS3g67ANvGgXpXzktl2cQlTLSi9lJJwg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1dLpKi_stsNFa61lef56XOoW7YR4m2xCp_g" alt=""></p>
-<p><strong>実行モードで起動するために、IO0がHIGHの状態でリセットします</strong></p>
-<p><code>redy</code>と帰ってきたら<code>AT</code>と入力してEnterを押して下さい</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1FMurZk5iV7NsQhGXh4ivFK0sHRT4VOHsGQ" alt=""></p>
-<p><code>OK</code>が帰ればATコマンドが使えるようになります</p>
+<h3 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h3><p>Windows10 Home 64ビット</p>
+<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://www.arduino.cc/" target="_blank" rel="external">https://www.arduino.cc/</a></p>
+<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><h3 id="arduino-ide-ダウンロードページ"><a href="#Arduino-IDE-ダウンロードページ" class="headerlink" title="Arduino IDE ダウンロードページ"></a>Arduino IDE ダウンロードページ</h3><p><a href="https://www.arduino.cc/en/Main/Software" target="_blank" rel="external">https://www.arduino.cc/en/Main/Software</a><br>バージョン 1.8.1　(2017/02/07時点)</p>
+<p><code>Windows Installer</code> を選択<br>※ 環境に合わせて選択してください</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1HDeJmPbGo90hVrCSeWOf2OyJSdHb8l5L5g" alt=""></p>
+<p>今回は寄付しないでダウンロードを選択</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1KR--988onctRpv2x_-8EpdWa4uwZfQOeFQ" alt=""></p>
+<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p><code>arduino-1.8.1-windows.exe</code>を実行</p>
+<p>なにか聞かれるので<code>はい</code>を選択する</p>
+<p>以下の手順でインストール</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1j7nWpk3IcOaOUW7a0bc6W14fklIgcz-fEw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=18HmI-1JMUDL_Iow84NJ6D7VIZl1VQ1DAaQ" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1K3h_BwG-_d-6k0oDpd3TOgwYpGA68ATQ0g" alt=""></p>
+<p>途中で聞かれたらインストール<br><img src="https://drive.google.com/uc?export=view&amp;id=1QHPfJpxjYVD8GND2ZXZQ3txf-hfwGlpg4Q" alt=""></p>
+<p>同じくインストール<br><img src="https://drive.google.com/uc?export=view&amp;id=13lS80uJVfuvREdk9VVGPuQx8L3yCHd_D4w" alt=""></p>
+<p>終わったら<code>close</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1RgTJNangGRDYmK4JfrAbG3eY95jccUgt5A" alt=""></p>
+<p>起動画面</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1c8gzDNTiahKjRxr3JHWrhGPUxmiBW8XWow" alt=""></p>
+<p>インストール完了</p>
+<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><p>※以降は必須ではありません</p>
+<h3 id="環境設定"><a href="#環境設定" class="headerlink" title="環境設定"></a>環境設定</h3><p><code>ファイル</code> → <code>環境設定</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1XGo4JUeU5j3H_L8CaOuqhhbanVp_ATYBeA" alt=""></p>
+<ul>
+<li>フォントサイズ: 好みの大きさ</li>
+<li>行番号を表示する: ✅</li>
+<li>コードの折り返しを有効に: ✅</li>
+</ul>
+<p>最後に<code>OK</code>を押す</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1TQBEuEm83fWT7s8VYYvgTb8BpKECPDmXDA" alt=""></p>
+<h3 id="起動時のウィンドウサイズを変更"><a href="#起動時のウィンドウサイズを変更" class="headerlink" title="起動時のウィンドウサイズを変更"></a>起動時のウィンドウサイズを変更</h3><p><code>C:\Users\[ユーザー名]\AppData\Local\Arduino15</code>を押すとフォルダ<code>Arduino15</code>フォルダが開く</p>
+<p><img src="https://drive.google.com/ouc?export=view&amp;?id=1BZOJ3t49-u0zuaNOmgTAtD4P4IBc1fx45Q" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1cEhH4bMEwmMXpROMoekJKMdmF-2A4FnVqw" alt=""></p>
+<p>Arduino IDE を閉じる</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1CXAz08fDPgsBxWrwOW7W-6PjQsmWqFqOdQ" alt=""></p>
+<p><code>Arduino15</code>フォルダの<code>preferences.txt</code>を編集</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1PvdUsSTnucgV7jGBcjgjNBbFM4QJHBZxGQ" alt=""></p>
+<p>以下の箇所を変更</p>
+<ul>
+<li>editor.window.height.default=600</li>
+<li>editor.window.width.default=500<br>(初期値)</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1vPZ0qx-kThtILZYV9AbKtXJ_67paCbYtKw" alt=""></p>
+<ul>
+<li>editor.window.height.default=960</li>
+<li>editor.window.width.default=720<br>に変更<br><code>Ctrl + S</code> で保存<br>（好みに合わせて）</li>
+</ul>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1KsKtwaeSaqd0nYe9j4tdd5d5SVJSPwefKQ" alt=""></p>
+<p>起動時のウィンドウサイズを変更できました</p>
+<h3 id="フォント変更"><a href="#フォント変更" class="headerlink" title="フォント変更"></a>フォント変更</h3><p>フォントをRictyDiminishedに設定します</p>
+<p>RictyDiminishedをインストールします<br><a href="/blog/2017/02/07/RictyDiminished/" title="プログラミング用フォントRictyDiminishedをインストール">プログラミング用フォントRictyDiminishedをインストール</a>を参考に</p>
+<p><code>preferences.txt</code>を編集して</p>
+<p><code>editor.font=RictyDiminished,plain,18</code>に書き換えます</p>
+<p>初期設定</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1g5apo5F1Ka0DM05sSuuwgIKX87t6SQUMBQ" alt=""></p>
+<p>編集後</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1BLP1QuMhDdUBXAhjhz-mGuIWyI7XCijrAw" alt=""></p>
+<p>Arduino IDE を起動すると、以下のようにフォントが変わりました</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1uTWzu4jVKeM1_Dz0S4Z6T1zgp8_KDgemRA" alt=""></p>
 
         
         </div>
@@ -343,7 +376,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/06/esp8266-at-reset-170207/" data-id="ciz9sosou000bo9627uineapi" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/07/Arduino-install-step-070207/" data-id="ciz9ud0ns0000vl621tn07nka" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -411,7 +444,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/06/esp8266-at-reset-170207/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/06/esp8266-at-reset-170207/">コメント</a>
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/07/Arduino-install-step-070207/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/07/Arduino-install-step-070207/">コメント</a>
     
 
         </footer>
@@ -420,19 +453,19 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/blog/2017/02/07/Arduino-install-step-070207/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/blog/2017/02/07/RictyDiminished/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">新しい記事</strong>
             <div class="article-nav-title">
                 
-                    Arduino IDEのインストール
+                    プログラミング用フォントRictyDiminishedをインストール
                 
             </div>
         </a>
     
     
-        <a href="/blog/2017/02/04/markdown/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2017/02/06/esp8266-at-reset-170207/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">HEXOで使えるMarkDown記法</div>
+            <div class="article-nav-title">ArduinoのESP8266をATコマンドが使えるように戻す</div>
         </a>
     
 </nav>
@@ -616,9 +649,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/06/esp8266-at-reset-170207/';
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/07/Arduino-install-step-070207/';
         
-        this.page.identifier = 'esp8266-at-reset-170207';
+        this.page.identifier = 'Arduino-install-step-070207';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

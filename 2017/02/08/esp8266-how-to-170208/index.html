@@ -337,8 +337,8 @@ ga('send', 'pageview');
 </li>
 </ul>
 <h2 id="配線と起動モード"><a href="#配線と起動モード" class="headerlink" title="配線と起動モード"></a>配線と起動モード</h2><ul>
-<li><h4 id="実行モード-Flash-Boot-Mode"><a href="#実行モード-Flash-Boot-Mode" class="headerlink" title="実行モード(Flash Boot Mode)"></a>実行モード(Flash Boot Mode)</h4>  書き込んだプログラムで起動します</li>
-<li><h4 id="書き込みモード-UART-Download-Mode"><a href="#書き込みモード-UART-Download-Mode" class="headerlink" title="書き込みモード(UART Download Mode)"></a>書き込みモード(UART Download Mode)</h4>  プログラムが書き込めるようになります</li>
+<li><h4 id="実行モードflash-boot-mode"><a href="#実行モード-Flash-Boot-Mode" class="headerlink" title="実行モード(Flash Boot Mode)"></a>実行モード(Flash Boot Mode)</h4>  書き込んだプログラムで起動します</li>
+<li><h4 id="書き込みモードuart-download-mode"><a href="#書き込みモード-UART-Download-Mode" class="headerlink" title="書き込みモード(UART Download Mode)"></a>書き込みモード(UART Download Mode)</h4>  プログラムが書き込めるようになります</li>
 </ul>
 <p>IO0 pinを<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード<br>になります</p>
 <table>
@@ -371,7 +371,7 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
-<h1 id="機能解説"><a href="#機能解説" class="headerlink" title="機能解説"></a>機能解説</h1><h2 id="デジタル-IO"><a href="#デジタル-IO" class="headerlink" title="デジタル IO"></a>デジタル IO</h2><ul>
+<h1 id="機能解説"><a href="#機能解説" class="headerlink" title="機能解説"></a>機能解説</h1><h2 id="デジタル-io"><a href="#デジタル-IO" class="headerlink" title="デジタル IO"></a>デジタル IO</h2><ul>
 <li>GPIO 0〜15 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLUP</code><br>  ※ただし、GPIO 6〜11はGPIOとして使用不可(↓参照)</li>
 <li>GPIO 16 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLDOWN_16</code></li>
 <li>ピン割り込みの使用 → GPIO 0〜15 <code>attachInterrupt</code>、<code>detachInterrupt</code>関数</li>
@@ -457,7 +457,7 @@ ga('send', 'pageview');
 <blockquote>
 <p>シリアルはUART 0を使用し、GPIO 1（TX）ピンとGPIO 3（RX）ピンにマッピングされます。 Serial.beginの後にSerial.swap（）を呼び出すことで、SerialはGPIO 15（TX）とGPIO 13（RX）を再マッピングできます。スワップを再度呼び出すと、UART 0がGPIO 1とGPIO 3にマップされます。</p>
 </blockquote>
-<h1 id="GPIO-pin-まとめ"><a href="#GPIO-pin-まとめ" class="headerlink" title="GPIO pin まとめ"></a>GPIO pin まとめ</h1><table>
+<h1 id="gpio-pin-まとめ"><a href="#GPIO-pin-まとめ" class="headerlink" title="GPIO pin まとめ"></a>GPIO pin まとめ</h1><table>
 <thead>
 <tr>
 <th style="text-align:center">GPIO</th>
@@ -596,7 +596,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/" data-id="ciz7v1gb1000b3a62lzluqwee" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/" data-id="ciz984ceh000dzt62n1kk2fk5" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

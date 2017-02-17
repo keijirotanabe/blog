@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説
 目次
+
 環境
 公式サイト
 必要なもの
@@ -20,14 +21,16 @@ Raspberry Piを起動させる
 設定
 まずはWiFiに接続
 WindowsからSSHで接続
-パッケージの更新
-リモートデスクトップでPCから操作">
+SSHの設定をONに
+IPアドレスの確認
+Tera">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Raspberry Pi 3のはじめかた">
 <meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-3-starting-step-170210/index.html">
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説
 目次
+
 環境
 公式サイト
 必要なもの
@@ -41,8 +44,9 @@ Raspberry Piを起動させる
 設定
 まずはWiFiに接続
 WindowsからSSHで接続
-パッケージの更新
-リモートデスクトップでPCから操作">
+SSHの設定をONに
+IPアドレスの確認
+Tera">
 <meta property="og:image" content="https://lh3.googleusercontent.com/554I65kz28w02dLbSUP8__-2b4cTYGZXGd8uFV99AmNc7szk_BMqMBEGL8R6XC38r_oTbZLAc4smnxVkK5070xo3oT57UQe7YKUY7fwGWbHNaX5erejImdzduRCt3BWPmlG6ZrLO_HLlcZjfOoywg49XZKRxOWbSBb0yK1F7vHKvT1y2ycqr_-Uvi-uACUTXN2GizUg5e3YekJkdBM0AnlmTT2rkScraIT3iAyeUvuDH2n4JGDgcSvPBngxAd9dUxkz17WF_fL7sN79gLK4FFpTFOwHMQDB2a_ZXK27sVLuvjrOdv53KUsm9RjjJtZIVozZ78bok7Hkj0ZdDb7a1-UHencfaWYKh5RPDwyXA91hmDsopF00FvF9Aqce4XEGK8k9paLW8lAt3XgG4VEreXD6t03RJnueX48OFRcyRaxD-UlKsW4WDe6tPJ_VMnM9cqeXNywsAUiTqUjYIZQzXXrIrTNsEJYIGmqu3s6ilbSwhtgW5AJgE830BHR3xKg2kru7scdfhdBcV8fbozHPpUGmP3XLt4TKuLhjeFiR7AfdepRS7YV7tOAyQNbWbJ997wNgTHi-NLJz0wTWMmTJJE3_f9Jh-z4AjUNzU1UXhGfIhcTGTPVoR=w522-h394-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/5KCcWMxsU3R-hX5MfzhNIdODn-5j-YHlua6km6dwMhEDn6LyG17quejoyEFeDu9sYbjXErhHBxAIiM01wHDwgIq0QJUVMatspCHW790YC4C8WOlR3A-PDYm-3XoYQpIJb-w293vVXpwH6gVXXHKtwzKKWbYTqxiM9KheqBC8bNEHMiTfXhA7Kx1CKLDuWv7sHmXgIcG7FI2Ky3q5BWCfCw7nA3mvRqEjiCgciJgj8Mk2FpXBO0heo7Qp8R_8nh4TB8HInDZbbY1cx5Poy37mrIm_jxjhhhh9CPQHLiNkOKgWgbOIA-7wuNKogHQBT_7xCWjSF8rSLKX32TniUhKpBPaidYMRPZbimbmj_Nkiyu98bjlAG4ICQWyXESymY59HzTZCF10mMGhPrbvuT0QgbOYQ5I_2OOZ4F0So1dkTRDhoaRGhq0v0jR2KHbv7pPsXSfaZj9pQf5g3IXhZuyIGl0vSc5eJj1DLhp2i9DwjK95XgoptCSqrO7PtAOWdEb2wzRPtXqG_L7kDNfyEcdTfi-y-WBVjs-0H5E9PDAT3dcEoyNRbIw5hCmvlp5OCkVbUI1tZqneVm8obEb7sDvjkN7gDzlGsZXFA7i2ndOvrnX7YtK0nkuPd=w1537-h967-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/I2Ght4Vcr75kk7OB_g8wJDqdYWeHlNOnSbNVADB0QHnQUsg3c0fNDoHguETejC6BR-PfQ1Cl1tyJnkVoWMxUoErRQ0tBNBgHu1QX8vVuSHGCcWYPOF2DbED61Kw8CExWRnGn6_DGMRrILXjpgAmJny_nlsUhHLuOuHHHFb1VYpPW2SLeajBKBdDvkPXygvtODT8NDFQnxfyiOrJoRJc3dC0bkWV71wz2ybUOF-nBBT60OnT3DHvW3CPtR1-X9azyCDHqMuX__fJXDkg4uC7IrDnzM1in9ob85ioKI8bkVQfRnMxlx93FXOiGafO1DWQMFPupxIXnrK7KCNcE-U-Ok0vBvonOryeBFVbCULmNxi4j-W4frtvrZUx_WcdZeLE1eZVlqdW0rPWdE0kHZ44w684uIrYR_2ny90UbyLK142H8htShHwAYc7oOypHBk4mBZyszJSGDPUfzbO8t_XAJKuMnpGawDpCLCqBEAupjqRRaxMF8GbPSpX-O7tGOkY20QPnCAlXZCGS-A6CCE13P-c094oiej-jErSgg_L3XdGEfcQgEBXWSx8KcGp3Vv9Q7vhTTEPzFxKxWD-mpATH1EhTk1ynQeaT09Mp8BAOjkw1GylKiPv7q=w460-h214-no">
@@ -67,11 +71,12 @@ WindowsからSSHで接続
 <meta property="og:image" content="https://lh3.googleusercontent.com/tX-DgAN8CfcaAE8X4saNYVK3LzFlmSDtMxoOkXXFyMdFoYmpaZTMYhghWVaX5T3vFFcYxOj44kQj9SR6bHg9ghf8yq5RPp8DZ2wsLF9ThZJVfUcthkorVsngqd3TNksymnISH3BIFNs6hm9cbEhqMLZWsOcSqy3xRkdKIfqx8SWhk4yripNPx7vJ9AZHfaKPfbuT-JMlQ9-rbfFv54NmLLG00YDX4wHMGdaHjrGI6D_u9f90M5ngDerx7MFiFvl5OzIPwLBcYLR4heXRg0kHvjEF62g-rpvODQkXXALHa-rpRvoV9bKZJmR__tWHx3cxrINSg32g00pk_rPu7UJ9EKXKGOqTh9rTgoJ6hfJSbmWyEZWjUT-uZMiS2Wto3qNm8n_9mfmJa8Mp4P3w-9s3IxBApZ98SLphQvt-iv0If9eEs1jukLsjT5jxvsvU42o01tV1D8rlKY6CHHEmhQbUaxPZ2eQK2odphw2fVeo8rUlBjMfri-A0y_Km78jNgUW-cj7UGwc3gGI4Zg4RdldVcjoyEWuF91k3dEMWq06aNg5K5YoWeMPGA1bFZfr9xUAKxRwU7JojQdd8sIpCtx3hm4YpRONX8_-zNkgegwBeSyHX_JTl=w542-h389-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/gf5IETq70yrW61LB9sTws46jXh3oiRRyYpVrNWMFGvea_wDg6GJ_8fnGcxGsOBGAyQN6kStCm-dRi0scph1HukNFNTp5y3_hpCia0YaYWFR5NztK7MeYLKTuuDVJQrPwWCxbNhgKUq4T7clMedEB3w1qY7DaLphGOosda-uL6DI4K0YmkYRP3wFxrpr6h2CymX73u7UxJKwu5hDnajtPIZspulsU5n_7kr0fi95c1_mlbwuivaoUJHNf1rNh1PnqUGEXgE9F-PXR4yDIuOHJbDmh86EkTwhtywYe0Hr9Nbx3MLsaoAKotBHuPfoDtmKFu_J2Zguw50cwYKr-ygn3D1sv2Sqn7AtehAH5wvxmR350Zh60ltIJMnmzfwTTVtulBU_s-95iv_aNx3ustiFd4vefTogAFXfcznykoWcdAHWvVY3AKx9PeNJzO-BbJ1sQu-czOKrL0L9NJheoxL4cTifZ9AmRWN4mpaaNWgJiT7bggMZmkCOQrYStcnhODU24q4y3bUAbJBXSmLu-zypccZ252lSsB3WxaaRxLIkA5JVXGtLYenitL_QlfZDjJbEdpUU97f0Yi8rFVw7dnsrxIsOG33fEL3u0lx1rLULVFu0eMixOkPgf=w1520-h855-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/Huu_SueDAuox3JkMIsy6Y9-jraIn5_kMI6ZfA6iz-fQ0DaW6VsSy6rVHRP554HsIhtgJbs1NuifjIsSsqRRQuOD3EeFfMob1f1Y0PZ-TsV8KHo0G1nD5ZHKyN4QcrpmX32-0YHu1Rt9DaYyvN1Gzt9olEtkEQFaN55Jh4QphYGX33DF0m_d9Xizst8ShWSIeoMbrfozLpZq4i9zdUGiaxf7ATF3a5upGeS37rpS9XUpcQx_Hx5DxbJxHrTLFQ6B_49OjyehwlpP9A0e9-LgH7UdiYkEn64OcRd9z7nEbKdzK9977JTcuekxv7AjADlGJPGxLP1j5lQS4CYDOqPx-H9Jbzuxufa2tjAA08b7zcTZ9zLk9zYeEhjHISXToicK4xTGpHaxDPbMYi0HFMTtLOinH9Ey3zoS4P5Rq0ndwbsWqwIJDTiusN7gyT1qdc7YiWjBUc5kzaMla1Lzqi1fEulN30hHxyhIJh3nbs9AKaaSIKk1Z09kC8mviXAUt1Hng9or9GgidNOCII_RertzWQnQMyyxn8XL0QRzPdCLgDk0ohOXrzSUxhPvm66JPFyvY2v6ARrnVWgx5kc-OmcnMbNR4u6KCMlgUxozpy5RijcGyp9GBbuvC=w1520-h855-no">
-<meta property="og:updated_time" content="2017-02-16T02:26:39.588Z">
+<meta property="og:updated_time" content="2017-02-17T02:18:21.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 3のはじめかた">
 <meta name="twitter:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説
 目次
+
 環境
 公式サイト
 必要なもの
@@ -85,8 +90,9 @@ Raspberry Piを起動させる
 設定
 まずはWiFiに接続
 WindowsからSSHで接続
-パッケージの更新
-リモートデスクトップでPCから操作">
+SSHの設定をONに
+IPアドレスの確認
+Tera">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/554I65kz28w02dLbSUP8__-2b4cTYGZXGd8uFV99AmNc7szk_BMqMBEGL8R6XC38r_oTbZLAc4smnxVkK5070xo3oT57UQe7YKUY7fwGWbHNaX5erejImdzduRCt3BWPmlG6ZrLO_HLlcZjfOoywg49XZKRxOWbSBb0yK1F7vHKvT1y2ycqr_-Uvi-uACUTXN2GizUg5e3YekJkdBM0AnlmTT2rkScraIT3iAyeUvuDH2n4JGDgcSvPBngxAd9dUxkz17WF_fL7sN79gLK4FFpTFOwHMQDB2a_ZXK27sVLuvjrOdv53KUsm9RjjJtZIVozZ78bok7Hkj0ZdDb7a1-UHencfaWYKh5RPDwyXA91hmDsopF00FvF9Aqce4XEGK8k9paLW8lAt3XgG4VEreXD6t03RJnueX48OFRcyRaxD-UlKsW4WDe6tPJ_VMnM9cqeXNywsAUiTqUjYIZQzXXrIrTNsEJYIGmqu3s6ilbSwhtgW5AJgE830BHR3xKg2kru7scdfhdBcV8fbozHPpUGmP3XLt4TKuLhjeFiR7AfdepRS7YV7tOAyQNbWbJ997wNgTHi-NLJz0wTWMmTJJE3_f9Jh-z4AjUNzU1UXhGfIhcTGTPVoR=w522-h394-no">
 <link rel="publisher" href="u/0/106972576385014381494">
     
@@ -308,25 +314,45 @@ ga('send', 'pageview');
         
             
             <p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
+<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
+<ul>
 <li><a href="#環境">環境</a></li>
 <li><a href="#公式サイト">公式サイト</a></li>
 <li><a href="#必要なもの">必要なもの</a></li>
 <li><a href="#手順">手順</a><ul>
-<li><a href="#まずはSDをフォーマットする">まずはSDをフォーマットする</a></li>
-<li><a href="#「Raspbian」の用意">「Raspbian」の用意</a></li>
-<li><a href="#「Raspbian」をSDカードに書き込む">「Raspbian」をSDカードに書き込む</a></li>
-<li><a href="#Raspberry-Piを起動させる">Raspberry Piを起動させる</a></li>
+<li><a href="#まずはsdをフォーマットする">まずはSDをフォーマットする</a></li>
+<li><a href="#raspbianの用意">「Raspbian」の用意</a></li>
+<li><a href="#raspbianをsdカードに書き込む">「Raspbian」をSDカードに書き込む</a></li>
+<li><a href="#raspberry-piを起動させる">Raspberry Piを起動させる</a></li>
 </ul>
 </li>
 <li><a href="#設定">設定</a><ul>
-<li><a href="#まずはWiFiに接続">まずはWiFiに接続</a></li>
-<li><a href="#WindowsからSSHで接続">WindowsからSSHで接続</a></li>
+<li><a href="#まずはwifiに接続">まずはWiFiに接続</a></li>
+<li><a href="#windowsからsshで接続">WindowsからSSHで接続</a><ul>
+<li><a href="#sshの設定をonに">SSHの設定をONに</a></li>
+<li><a href="#ipアドレスの確認">IPアドレスの確認</a></li>
+<li><a href="#tera-termで接続">Tera Termで接続</a></li>
+</ul>
+</li>
 <li><a href="#パッケージの更新">パッケージの更新</a></li>
-<li><a href="#リモートデスクトップでPCから操作できるようにする">リモートデスクトップでPCから操作できるようにする</a></li>
+<li><a href="#リモートデスクトップでpcから操作できるようにする">リモートデスクトップでPCから操作できるようにする</a></li>
 </ul>
 </li>
 </ul>
+<!-- tocstop -->
+<!--- [環境](#環境)-->
+<!--- [公式サイト](#公式サイト)-->
+<!--- [必要なもの](#必要なもの)-->
+<!--- [手順](#手順)-->
+<!--    - [まずはSDをフォーマットする](#まずはSDをフォーマットする)-->
+<!--    - [「Raspbian」の用意](#「Raspbian」の用意)-->
+<!--    - [「Raspbian」をSDカードに書き込む](#「Raspbian」をSDカードに書き込む)-->
+<!--    - [Raspberry Piを起動させる](#Raspberry-Piを起動させる)-->
+<!--- [設定](#設定)-->
+<!--    - [まずはWiFiに接続](#まずはWiFiに接続)-->
+<!--    - [WindowsからSSHで接続](#WindowsからSSHで接続)-->
+<!--    - [パッケージの更新](#パッケージの更新)-->
+<!--    - [リモートデスクトップでPCから操作できるようにする](#リモートデスクトップでPCから操作できるようにする)-->
 <h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
 <li>Windows10 Home 64bit</li>
 <li>Raspberry Pi 3 Model B Element14版</li>
@@ -342,18 +368,18 @@ ga('send', 'pageview');
 <li><a href="http://amzn.to/2lCwSxS" target="_blank" rel="external">HDMIケーブル</a></li>
 <li>電源 MicroUSB経由 (2.5A推奨)<br>  ここでは2.4Aのを使っています<br>  こういうのもあるようです<br>  <a href="http://amzn.to/2kk0gYT" target="_blank" rel="external">Raspberry Pi 3 model B 専用電源</a></li>
 </ul>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはSDをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します</p>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します</p>
 <p>ダウンロード先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
 <p>詳しくは<a href="/blog/2017/02/10/sd-formatter-4-170210/" title="SDカードフォーマッターの使い方">SDカードフォーマッターの使い方</a></p>
 <p><img src="https://lh3.googleusercontent.com/554I65kz28w02dLbSUP8__-2b4cTYGZXGd8uFV99AmNc7szk_BMqMBEGL8R6XC38r_oTbZLAc4smnxVkK5070xo3oT57UQe7YKUY7fwGWbHNaX5erejImdzduRCt3BWPmlG6ZrLO_HLlcZjfOoywg49XZKRxOWbSBb0yK1F7vHKvT1y2ycqr_-Uvi-uACUTXN2GizUg5e3YekJkdBM0AnlmTT2rkScraIT3iAyeUvuDH2n4JGDgcSvPBngxAd9dUxkz17WF_fL7sN79gLK4FFpTFOwHMQDB2a_ZXK27sVLuvjrOdv53KUsm9RjjJtZIVozZ78bok7Hkj0ZdDb7a1-UHencfaWYKh5RPDwyXA91hmDsopF00FvF9Aqce4XEGK8k9paLW8lAt3XgG4VEreXD6t03RJnueX48OFRcyRaxD-UlKsW4WDe6tPJ_VMnM9cqeXNywsAUiTqUjYIZQzXXrIrTNsEJYIGmqu3s6ilbSwhtgW5AJgE830BHR3xKg2kru7scdfhdBcV8fbozHPpUGmP3XLt4TKuLhjeFiR7AfdepRS7YV7tOAyQNbWbJ997wNgTHi-NLJz0wTWMmTJJE3_f9Jh-z4AjUNzU1UXhGfIhcTGTPVoR=w522-h394-no" alt=""></p>
-<h2 id="「Raspbian」の用意"><a href="#「Raspbian」の用意" class="headerlink" title="「Raspbian」の用意"></a>「Raspbian」の用意</h2><p>ダウンロード先<br><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/raspbian/</a></p>
+<h2 id="raspbianの用意"><a href="#「Raspbian」の用意" class="headerlink" title="「Raspbian」の用意"></a>「Raspbian」の用意</h2><p>ダウンロード先<br><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/raspbian/</a></p>
 <p><a href="https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" target="_blank" rel="external">GUI</a>版と<a href="https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" target="_blank" rel="external">CUI</a>版がありますが、今回はGUI版をダウンロードします</p>
 <p><img src="https://lh3.googleusercontent.com/5KCcWMxsU3R-hX5MfzhNIdODn-5j-YHlua6km6dwMhEDn6LyG17quejoyEFeDu9sYbjXErhHBxAIiM01wHDwgIq0QJUVMatspCHW790YC4C8WOlR3A-PDYm-3XoYQpIJb-w293vVXpwH6gVXXHKtwzKKWbYTqxiM9KheqBC8bNEHMiTfXhA7Kx1CKLDuWv7sHmXgIcG7FI2Ky3q5BWCfCw7nA3mvRqEjiCgciJgj8Mk2FpXBO0heo7Qp8R_8nh4TB8HInDZbbY1cx5Poy37mrIm_jxjhhhh9CPQHLiNkOKgWgbOIA-7wuNKogHQBT_7xCWjSF8rSLKX32TniUhKpBPaidYMRPZbimbmj_Nkiyu98bjlAG4ICQWyXESymY59HzTZCF10mMGhPrbvuT0QgbOYQ5I_2OOZ4F0So1dkTRDhoaRGhq0v0jR2KHbv7pPsXSfaZj9pQf5g3IXhZuyIGl0vSc5eJj1DLhp2i9DwjK95XgoptCSqrO7PtAOWdEb2wzRPtXqG_L7kDNfyEcdTfi-y-WBVjs-0H5E9PDAT3dcEoyNRbIw5hCmvlp5OCkVbUI1tZqneVm8obEb7sDvjkN7gDzlGsZXFA7i2ndOvrnX7YtK0nkuPd=w1537-h967-no" alt=""></p>
-<h2 id="「Raspbian」をSDカードに書き込む"><a href="#「Raspbian」をSDカードに書き込む" class="headerlink" title="「Raspbian」をSDカードに書き込む"></a>「Raspbian」をSDカードに書き込む</h2><p>RaspbianをSDカードに書き込むには、「Win32DiskImager」を使います</p>
+<h2 id="raspbianをsdカードに書き込む"><a href="#「Raspbian」をSDカードに書き込む" class="headerlink" title="「Raspbian」をSDカードに書き込む"></a>「Raspbian」をSDカードに書き込む</h2><p>RaspbianをSDカードに書き込むには、「Win32DiskImager」を使います</p>
 <p>ダウンロード先<br><a href="https://ja.osdn.net/projects/sfnet_win32diskimager/" target="_blank" rel="external">https://ja.osdn.net/projects/sfnet_win32diskimager/</a></p>
 <p>詳しくは<a href="/blog/2017/02/10/win32-disk-imager-170211/" title="Win32DiskImagerの使い方">Win32DiskImagerの使い方</a></p>
 <p><img src="https://lh3.googleusercontent.com/I2Ght4Vcr75kk7OB_g8wJDqdYWeHlNOnSbNVADB0QHnQUsg3c0fNDoHguETejC6BR-PfQ1Cl1tyJnkVoWMxUoErRQ0tBNBgHu1QX8vVuSHGCcWYPOF2DbED61Kw8CExWRnGn6_DGMRrILXjpgAmJny_nlsUhHLuOuHHHFb1VYpPW2SLeajBKBdDvkPXygvtODT8NDFQnxfyiOrJoRJc3dC0bkWV71wz2ybUOF-nBBT60OnT3DHvW3CPtR1-X9azyCDHqMuX__fJXDkg4uC7IrDnzM1in9ob85ioKI8bkVQfRnMxlx93FXOiGafO1DWQMFPupxIXnrK7KCNcE-U-Ok0vBvonOryeBFVbCULmNxi4j-W4frtvrZUx_WcdZeLE1eZVlqdW0rPWdE0kHZ44w684uIrYR_2ny90UbyLK142H8htShHwAYc7oOypHBk4mBZyszJSGDPUfzbO8t_XAJKuMnpGawDpCLCqBEAupjqRRaxMF8GbPSpX-O7tGOkY20QPnCAlXZCGS-A6CCE13P-c094oiej-jErSgg_L3XdGEfcQgEBXWSx8KcGp3Vv9Q7vhTTEPzFxKxWD-mpATH1EhTk1ynQeaT09Mp8BAOjkw1GylKiPv7q=w460-h214-no" alt=""></p>
-<h2 id="Raspberry-Piを起動させる"><a href="#Raspberry-Piを起動させる" class="headerlink" title="Raspberry Piを起動させる"></a>Raspberry Piを起動させる</h2><p>SDカードを挿します</p>
+<h2 id="raspberry-piを起動させる"><a href="#Raspberry-Piを起動させる" class="headerlink" title="Raspberry Piを起動させる"></a>Raspberry Piを起動させる</h2><p>SDカードを挿します</p>
 <p><img src="https://lh3.googleusercontent.com/7K-DI0pVR79Qz5JY-jihFOMAL655UYXZuRIXJjc0ZVJxkEmyf3jrijmORYrLabb4DeCFUPZBGmVn9tPQErD2TKu0guDitwiSVZePN7kIyld79Q0-aYW8BuCvXUvRWbYbHkF_22FAWki5lklplaJe352GMRecqWYVRf7AAFS168LJodrpWVzLmvoAu0yyxjiG--IlwAHQuPVjGa1cJuYW5O18KLTe5BKSMMZC8ZOG8xTbdJgUccgZKHpmRQ6CYPlacHCttD-m3xIOlQ5hOBleZm9fyfECdPidSNi2ZMAZ0VOf-jXovSVozPpwYYJ09BoNWYd2-18T-ogYQMzrNVuPA692RB5iOyBFEP5qkeAr6YuF1u08vPlHd5eCljKSeL9R3v9Vp80akz9YmvDaVu1d17KoAgYR1HoG3D_7xvUvvYiN-MGsY1PrAs7qz5CHF4QUL7Hd600tBUHNtdbZCyXRnashYFwPC4ZyOMs-c_M812C5JXiIn-5TxHFgl9nuNRiGU_6uypcV1lwcgFZedNSI-S30f8euETQoJO1v-uPfn1Sn3gb96971RR1uFJ8_-P2_Z-civUOlCD_EnVI0kX79VXqzZ7F_lHLS_ZEOXbqlY9MmqUHFemLB=w1378-h920-no" alt=""></p>
 <p>周辺を接続</p>
 <p>電源は最後に挿します</p>
@@ -361,20 +387,20 @@ ga('send', 'pageview');
 <p>起動しました</p>
 <p><img src="https://lh3.googleusercontent.com/HlCljClEsBq-bKAlwNtb85mP-P69N_EU7XsVop0IL2g6B5Tww6BPL_rEZPurbRn2qa57ffPNiQDMYJSufkpKzFMM1yLMG-kocJ0VANHwvzRZwjgaajwfX1b0vx_1wCZ5R7w-RMt6_0qK-HxHOSy5mOZ1lDoOgrSV_lsF2sMpqKQ3CSCQ1i24otgS-axpOYxlt7pkySm6M9e8I0XOibKyhADnoaWcjZBuaxl0c1Pg7U4u_Hb_TJNmBQyixhcfNz-gD0wozb_keOnomk6DI2Q61Eh4qHfIKsIe0-xLF9j_vAQ1lfWqOnAwyEDhYrxe4R7T8iDD-MBg2_l-T2YJwh7rdqg8Syt63wCkyKhnX9xduZj65axxkJeN0H3Dn7GCxorbcdYTRxDRdrTFD2tTwtSUmylM7-NGfd5ZwTlwj7yoXnmJQkr_aYzdS3wrMri44CQUTbR1pqI0KxTT8eKN7BouFSf6JkhWXc9wHBDbFldJHV4dryWzXCLUHD72RIga-JEzLzSZyqYoHuNr6xcxeGfI9VxMvHCthmiQx5xEfARSSdm0f-m2W9zu29n0UcpZKlEA9Ylxrq3xw7Hcy_K6u6tgoHQyk87zDyHDjRCd-77yXf9hubLd=w497-h253-no" alt=""></p>
 <p><img src="https://lh3.googleusercontent.com/4SuysQZSxISIkshFbHuLls77KVpNOkHUzUvDtuiH_0yZbZOs_hFl5_iF-y3N9eAJYZQyLLvsN4Y4uoSsKmaO5QkGAoRSboLW3O3SzAy_BwjZ3cyaSEfqrr7mvoxw4ELsHFXLC6SeTjDSL846F1QS5MjZvR_C-lxxxe9IwaBVC2E91vOLCQdguhPPmiUm1rg_dNQtACd_yXBQZzvpC3bIR-Mqts4Ljrh0KUPOn13j6t7ZysSGweYlhh0iSS7NJgSWodWKeTYryZaDLF0S7ZsSWESX-Qtdbltq975Fp_x7LEDHrPmrI8jJbodOQkw49Tr8Qm-KXzHZgWFT6Pdo5V056e6ZfnBC-yBryiFaNmlZynsVzG8sq5yqsMaeeZ3OzX4NsQK27_0lyLPEz9Z20N6tOTALetL3IlgMWC4A5V516iDkfriL1JKdZ3jumbTkg3vxmHV1aYNb2zgPpvGOqFZyIpX8a-hTTNo5GHRrDCOoPFlAGwxTJ8jpSxcgCbQxd7FuOfw-MbVxMuUBfwTMtFaXW7uE4T4kKRsJh36aS-Fb2CpNk7EVtwx6Xi9tAVUXznO0AEhDETmEuZcQErCVPhKGubMxq-HnA9ss58s_ArLwOmhooXr8hBl6=w1354-h745-no" alt=""></p>
-<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><h2 id="まずはWiFiに接続"><a href="#まずはWiFiに接続" class="headerlink" title="まずはWiFiに接続"></a>まずはWiFiに接続</h2><p>Raspberry Pi 3には標準でWiFiがついています</p>
+<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><h2 id="まずはwifiに接続"><a href="#まずはWiFiに接続" class="headerlink" title="まずはWiFiに接続"></a>まずはWiFiに接続</h2><p>Raspberry Pi 3には標準でWiFiがついています</p>
 <p>接続方法</p>
 <p><img src="https://lh3.googleusercontent.com/WHnKIwjN0hIzeB7QcNSjmswIshmzqj3bgAABjTVMsKth6Kdyr6mbH2tGaOqQ14-4WlpmO-d1ep7zdge2JwCn4Ky8Qrc5o7bWjMLMqufFuWE_A-FlHrNrqxSnzC6ocoow_6mioWp0K_nzDGY4Mqy6BzBw5zSV4_kPqe3xr994njhqZWMlmb4fuy7zGUl0gMtRqjseUTvUvh4bgX685OkSF4JzugUqaksYoX895_VcoHrDHMrCWU-sYd3X7P3RntgQ5Dph7lwIh2Hzlgl6iH7pSlPqRmnokvEzxNVk7BLlCq9KE8Jc1lBy5kt5iSZdR6W4jqdupu8cykFf6-4p3iM1LHyJAgqSVSvmcx5oN7pPt9ug7a2vbeNR58dd4xQ9G2TVF9Whd54XHgYx70aRFmDGSavTPgozWW9SDWsI30L3o2OohcF_WS84I24gie6BvTQ04kfaS0rMPeA_KzRD1X24_L6-HOt2txD7ry1-pYsL-A1PM-6RQWFMmW1Y4uDiq5-zXEqSAm99eWZNOCsIRWesXnOfqYq11y4qWE8bhgAt_KAxvblbtllGvWi-KY_PDUDbsY9BNzedl9yFNN_QlmfDHa2GERfUiOM946GHatw_01DvqNWr8Z_i=w1282-h855-no" alt=""></p>
-<h2 id="WindowsからSSHで接続"><a href="#WindowsからSSHで接続" class="headerlink" title="WindowsからSSHで接続"></a>WindowsからSSHで接続</h2><h3 id="SSHの設定をONに"><a href="#SSHの設定をONに" class="headerlink" title="SSHの設定をONに"></a>SSHの設定をONに</h3><p><code>Preferences &gt; Raspberry Pi Configuration</code></p>
+<h2 id="windowsからsshで接続"><a href="#WindowsからSSHで接続" class="headerlink" title="WindowsからSSHで接続"></a>WindowsからSSHで接続</h2><h3 id="sshの設定をonに"><a href="#SSHの設定をONに" class="headerlink" title="SSHの設定をONに"></a>SSHの設定をONに</h3><p><code>Preferences &gt; Raspberry Pi Configuration</code></p>
 <p><img src="https://lh3.googleusercontent.com/kbzqbFohvuSQVZigEFYnlmcgKm-s3h8TyRJVPH-4Kett3v6FKssGFJ5F1jGGhR9aD_udwufBxhcQ5QBrLxecJVy_iGYFZD3k3yO9RYoGyunViYYLUYfIkE3vrmnMqswXer8daWJekCLBleE6GWWp2NinIS2gfaQUEAiVSB_AT2H-4mcZUqHEXzkBaZ9ygxFeKF5YWnWma6TFjgLFsu0PD7a3gEcRJcsIgZoSn7GUAscSW_qF92x18EMQVcqyag1Q5IAgxpp1ot7dmS-adObrC_BdxGdKQJnV6N550qm_AgEwk3UwRiW8GhPMPcxn8r3A47qow8mEwBhaC3q0WUgNawelH0q4t3t5xcwHbYiJJi1CRUhWuSm002H8tOMlcElz2j_bmrvMQf4vum7Z-zIIc4t-tf3JSpg5KBQnuTd41V98U9-bonFJdy04EGDbH-LkZ44tnzVBP76hL9diIWVz5YPl4xeBWo5mxlO0n7Qx7s3CIK_MOoOD65RmxSifJhhcVPNHW0Dstn_Nl7LKXVLL-14D8ddJUU80a9Z5vOSFGJdE_O2rlzsX1ieFdFnjqwy6chsUHM9gvh_huwgmkCnjnP9WfLIt4do-YlyhM8NDkvBWNpKB7zWY=w1282-h855-no" alt=""></p>
 <p><code>Interfaces &gt; SSH: Enabled &gt; OK</code></p>
 <p><img src="https://lh3.googleusercontent.com/OsN-HtDHB0il33mHU6WyuV-6zwe0obRAtxo97HC-t_KILqY809rZFqZcmNUsHkK9AgMwtooL-12v8hvEYiYyUWJukLaR5_7q66Wjgd4mZtElGrBKHXwh3VK4F4Yk90_5ZGVBtMCQKs_FzWTLICRbgDaHB4ELP0eZJehPfVz9RKC3kNFetyfS_3w3b2_O_9_8jc0i8d3KdtRCu4uyssJtePKRaBO2mZosdSGunGhBHShcEO0HTY8vlFzCBbiNzlrniSrTNUHdX5kRnjzdn7PIhSFU9xImXf_KZMn2jv1_-JXSq656-7_4gly6ZJ-qU2mhnVpChKg80goNi_3dd8lGPny-ODbbouhccsG-hejxvi3rwoTZnNJV6M68cfb5EmeaXOILPMHUyc10OmnE7uHAQNzUX3m8Ce8diUL5yVKVeHYg6hr0wD1sdR3F57C2ENwOrFstFcBbuVtffixOg59us6Ka6ooayWhDeSKR15RjU_TgjgxfrdfQEkxNo_fSGKSnh5u_NsQAkbpke1dO3poB-RUKVF8yO4RMnCDdrk9K6DtnfVKLNWsOuJQzvIAm49y0hWUuNlHakdo6ngUBI5PafY8M0sNAaAfNC1Wxjxut2tMdMVz3=w1282-h855-no" alt=""></p>
-<h3 id="IPアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h3><p>ターミナルを起動します</p>
+<h3 id="ipアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h3><p>ターミナルを起動します</p>
 <p><img src="https://lh3.googleusercontent.com/hFxIFnrBe2Q7dmvzvocnlIgArFUhhQSBUGJEr0j--v7w_88y-RXE-wCgHuHpIzQZQCIvcKBLPvBeWtt0r51G4yLvPRaUsFOH10l-D1U5kfQRaE_9QvDTApVtRFNBXbg-XXk3YtiFNsTcYtqzZath1NgDgvLSjcmPlaK0kC6UCep-EpTyv5iQ_wLKktqrrhtu-Gr2hnU6qFQMr1obNQZQXI6wLzZkUDKvpPtbwIsRQp122IfG7LeVfTUWbnKBkVelK-X7r0zNY0wSGOR9_OfzhhW5YgusIfuBtMcsO--3aaP8rPCmaaDLZbLjyerVRR_rwR44Oo8KCkwXN--mIfIUzNo1cAqkYAXgN7ODA3NM7gKY2GFsEiryOgyLK5Ud6tPibmnnUhNpPMTc2pzt8xEQYXjLiKEqifOXh_NL789R4dQvS0Ku0-KsNIk2kb01Q5Ktgh6eWV8upFVjaCVxqqnS1DjxNwNx1rZPZtntmUpUqkEZQy8YWPShu6y4dN9LQgDJ_8-Y9u14YoejwOITlOi1mLrehL4adWopnCycZ17_p8pIrwQQJGvlVrva8G6O5sNX1qnFvpwHkn1AbxMxIfuxzzkadBDj6U9YJK4wFNb6CFR5k_1VuQAi=w1282-h855-no" alt=""></p>
 <p>以下のコマンドを入力</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
 <p><img src="https://lh3.googleusercontent.com/Gax7tgxtqtVqPRh2GNktiD3VDE0SPNYAISEOfhQDjGlZ29vSZwDJRPsgLz2-Tr5-8tPOsaONwbl8GsTRhhSVWEBbT8bDYdpBHoQ7EM2TNSBhmzh81bNCimU5zWKgF12cQY1xUQiH-DETi7kVJvGOEZYEx_jf_1v-HZeBTOGW5ih5-kUyAC7tB6bL7HVe_h65FBmRTPLefVi287CQTZF4JsBMNA8MIlCxHmVA63omk0uRLb5ga4a1liwIN5kJ_vRQSlJMfcEal55_ByP2ejaA0JMIPZO63JJzRyOC-j-MEYE7j-K657I7RUFpEAT9trK6K4oFGvSgqAq4u_PjmwjMzbLTS63NMA-IisYRLfxkZOd07Rk8oHddpher829D1u8yl2Yv2F6olm8LmR2lw0umxkoJswn-jIcbR07WTsLFFvd-G-L-mfmSFUnpmsQDvnBAEaFloU3ZuQt_TyDhqfUW3cT3E0DAFiircj5AS1ClI8BTFj6qvHjTIfgEjLaREqAxMhaJcY7mleBjxmPu7yHYcmv8aaUjdECHOn5WWKidSQDxc834tzdww45Qs7VzXV7P-k46z8pnQH2xyPvo4ylvLeKYvOr9A2NvAWFKq-ez_VF9h6E3=w1282-h855-no" alt=""></p>
 <p>調べたIPアドレスはメモしておいてください</p>
-<h3 id="Tera-Termで接続"><a href="#Tera-Termで接続" class="headerlink" title="Tera Termで接続"></a>Tera Termで接続</h3><p>Tera Term をインストール</p>
+<h3 id="tera-termで接続"><a href="#Tera-Termで接続" class="headerlink" title="Tera Termで接続"></a>Tera Termで接続</h3><p>Tera Term をインストール</p>
 <p>ダウンロード先<br><a href="https://ja.osdn.net/projects/ttssh2/releases/66795" target="_blank" rel="external">https://ja.osdn.net/projects/ttssh2/releases/66795</a></p>
 <p>↑で調べたIPアドレスを入力して「OK」</p>
 <p><img src="https://lh3.googleusercontent.com/CPPIQWE9xhAc7kFkWxuBLVMz_r5knQnVCXWMsb5jG1W9BA-d7QWjDCZWvd98HGnsWsZmHGqz0QhKQ7rpTh1I41XgCeCeko52uRR2nhc_QhL324nBbq3qW4nLOATLbm_h_XvlSMiV6bm0DUBiEZ6QtfpPowaqxGkjnAkl77mSZHywyPjkG5iygYgrldTnMsYuSGOyPeBmI5QLEeFVJulUrXU63pk0SMMN6t0wFOt-CRKGAV5jZTDs55Vos6xYzxSZXWNgSGvLBC5XtZKPTBfwlj7dYEpj0Pe7cd3c_O3ZrnPHaNDx54PwEJ6s3KKI4Y02dPwVuA_NIdHdJedm0G27qM6If5B1QFFJFDYbK9S7FRjH8ggjCoK6A3vTe61wfNA_9nkiJCib5qgJgbprKb3WPlfIs7oK2u9OnegylHxnBYYTo8sW6nGNWvUAKpBX8KmMNq8N7C7en4lXM6QMLf65lqWWZVnXO7HRB4IAqOGbu-HA_61s1CH6bu5sO50OjQHrW9caARPcVfN41KPxS_VsqiBRh2AlFnxIFph077lCghgT33vdCIHAlDwe7nz6243N_QTFEyDNJBSPbmLeNbXAo4Ll8lE7UptTxt3erkV1UzYfacp8Sq89=w822-h607-no" alt=""></p>
@@ -411,7 +437,7 @@ ga('send', 'pageview');
 <p><img src="https://lh3.googleusercontent.com/teXyWixIttQli9K9Ap8nVO26PisxYiFeHc1_sty78-FZhScgZQDUqNVEG3AmdV-ceqnb0llOBmDuAFve6K-fmxQ48OPoGWYV6JlaBorLmLZkgiWHyXSC4y8Kh1orhQQov5FqnoKBFmPV_zjsDjkdot0V9weVEH97KS3Id-nn_DA6bLFGSJzaIJEoiReulav8XLfjUDchwInV2F06HYIXPWlEwCpzkGSiKM1on7fhuC55dOD701bZRmgs_OgbUVr-f2r0n7UEzI2S-fe1XxSV6-uCsgbvI3Tj4bd3VTnd99PTbDCwjJoLlAJvX9hh6ycIGHtm71pu79ifApMQRZyswVDtMerlD-ZlOAZ05rO5NJRM_mR5EsJcmQu8Py-6b8jaNR7nAZhJeJCK2dVGnM5dUbRgCw3sqhneacjjwB7hYAGPk-F8fjrY2JXOSpJY4AEkB44dQ2pRoPeRV3KE4ShvuCT5tqs6_Max1_YdHZqJOiNQ0HMkhQasMMXRL4Ct09GF1NfCpVom0a1pAgCLKZTAnDd3W6wHEnVsvlH6RFGZEcY86_tpJ6mMi1Yy4_APPw0qyV9dYOgQwzSfvLYA7KArNapcE9hgxDbq6zb4-qa48mzOmwvbR4w_=w792-h337-no" alt=""></p>
 <p>終了しました<br>1時間くらいかかりました</p>
 <p><img src="https://lh3.googleusercontent.com/ZE15EGmu8634UfO0Pr3j3-xenwHihGTgKZxChMfPEGPEf-cJKw1x09nxWJ7GB6aBToIEC1wVTgQI6dsdir-Dy4aS3r-HYDsEU7yGLjZ1Meq6MGrZzCYXx4CeyduUABCrSMxlbUQm4QkzP6aldAbVKwmVcCNrKafEzfIZ-gUCBhzzWQA9MMi9_2BMYtxXxDSgu3H3AH_16i7a9Mb2wk23q5qtABHOQhedVytVArQopu56h2m_Ibih8SCOTxNeMH3MNk67nAky81JV__VTxqhw7Uww_J69cmybK_wjAiJmrMr1nJMlw9cfuDERHeR1hjVAMgyA0jXd7gR-38jExlLjltdD5hFYbh7lJ-ijuu9EdR2y2T5e7Qssk6xX5ygBUFuP38dwrm3r03XTWXLqxbe9UMelNtDAAnbd2u0Zu2sXZizAcMLXJuYjMKE1l5HX6F8fp_V_gJrQiqznOkwCxSPmQtOtCO3JSbwROKOMMzsQ5Y7if68Fw2ZfzanMIKPa1zyDw28-WIMa_8V7x3sM5erOLqKEZ3evTisIqTglG6q_O9OmUYTDMwrFrYJfF_pvY9pgtZbJe3_8e7Ld06AA__4q4lq43wayUjdzhTjkW6tPIrtbtHrbO9wQ=w792-h337-no" alt=""></p>
-<h2 id="リモートデスクトップでPCから操作できるようにする"><a href="#リモートデスクトップでPCから操作できるようにする" class="headerlink" title="リモートデスクトップでPCから操作できるようにする"></a>リモートデスクトップでPCから操作できるようにする</h2><p>詳しくは<br><a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" title="Raspberry Pi 3をリモートデスクトップで操作">Raspberry Pi 3をリモートデスクトップで操作</a></p>
+<h2 id="リモートデスクトップでpcから操作できるようにする"><a href="#リモートデスクトップでPCから操作できるようにする" class="headerlink" title="リモートデスクトップでPCから操作できるようにする"></a>リモートデスクトップでPCから操作できるようにする</h2><p>詳しくは<br><a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" title="Raspberry Pi 3をリモートデスクトップで操作">Raspberry Pi 3をリモートデスクトップで操作</a></p>
 <p>以下をインストール</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
 <p>先ほど調べたIPアドレスへ接続します</p>
@@ -434,7 +460,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/" data-id="ciz7v1gbs00123a62odrkfavs" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/" data-id="ciz984cfc0012zt62yix0gkbi" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

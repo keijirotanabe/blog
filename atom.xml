@@ -117,11 +117,11 @@
   </entry>
   
   <entry>
-    <title>仮想COMポートで遠くのESP8266とTCP通信する</title>
+    <title>仮想COMポートから遠くのESP8266とTCP通信する</title>
     <link href="https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/</id>
     <published>2017-02-18T03:43:27.000Z</published>
-    <updated>2017-02-19T06:53:47.379Z</updated>
+    <updated>2017-02-19T06:54:15.215Z</updated>
     
     <content type="html"><![CDATA[<p>PCに仮想COMポートソフトをインストールし、従来のRS232C通信のようにやりとりします。<br>これにより、COMポートからWiFi経由で、遠くのESP8266と通信できるようなります。</p>
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>

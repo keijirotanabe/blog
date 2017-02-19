@@ -117,13 +117,21 @@
   </entry>
   
   <entry>
-    <title>esp8266-virtural-serial-port-170218</title>
+    <title>仮想COMポートで遠くのESP8266とTCP通信する</title>
     <link href="https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/</id>
     <published>2017-02-18T03:43:27.000Z</published>
-    <updated>2017-02-19T06:38:50.475Z</updated>
+    <updated>2017-02-19T06:53:47.379Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="esp8266の設定"><a href="#ESP8266の設定" class="headerlink" title="ESP8266の設定"></a>ESP8266の設定</h1><h2 id="ステーションモードに設定"><a href="#ステーションモードに設定" class="headerlink" title="ステーションモードに設定"></a>ステーションモードに設定</h2><p>最初にESP8266をステーションモードにしておきます。</p>
+    <content type="html"><![CDATA[<p>PCに仮想COMポートソフトをインストールし、従来のRS232C通信のようにやりとりします。<br>これにより、COMポートからWiFi経由で、遠くのESP8266と通信できるようなります。</p>
+<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
+<li><p><strong>Arduino IDE を使用するのでインストールしておきます</strong><br>  → <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考</p>
+</li>
+<li><p><strong>ATコマンドを使える状態にしておいてください</strong><br>  一度でもArduinoのスケッチを書き込むとATコマンドが使えなくなるので、再びATコマンドが使えるようにするにはファームウェアを書き直す必要があります<br>  → <a href="/blog/2017/02/06/esp8266-at-reset-170207/" title="ArduinoのESP8266をATコマンドが使えるように戻す">ArduinoのESP8266をATコマンドが使えるように戻す</a>を参考</p>
+</li>
+</ul>
+<hr>
+<h1 id="esp8266の設定"><a href="#ESP8266の設定" class="headerlink" title="ESP8266の設定"></a>ESP8266の設定</h1><h2 id="ステーションモードに設定"><a href="#ステーションモードに設定" class="headerlink" title="ステーションモードに設定"></a>ステーションモードに設定</h2><p>最初にESP8266をステーションモードにしておきます。</p>
 <p><strong>WiFiモードには３つあります。</strong></p>
 <ol>
 <li>ステーションモード<br> →周囲にあるアクセスポイント(AP)に接続します。</li>
@@ -217,10 +225,17 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;esp8266の設定&quot;&gt;&lt;a href=&quot;#ESP8266の設定&quot; class=&quot;headerlink&quot; title=&quot;ESP8266の設定&quot;&gt;&lt;/a&gt;ESP8266の設定&lt;/h1&gt;&lt;h2 id=&quot;ステーションモードに設定&quot;&gt;&lt;a href=&quot;#ステーションモード
+      &lt;p&gt;PCに仮想COMポートソフトをインストールし、従来のRS232C通信のようにやりとりします。&lt;br&gt;これにより、COMポートからWiFi経由で、遠くのESP8266と通信できるようなります。&lt;/p&gt;
+&lt;h1 id=&quot;はじめに&quot;&gt;&lt;a href=&quot;#はじめに&quot; class=&quot;
     
     </summary>
     
+      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/categories/ESP8266/"/>
+    
+    
+      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/tags/ESP8266/"/>
+    
+      <category term="ESP-WROOM-02" scheme="https://keijirotanabe.github.io/blog/tags/ESP-WROOM-02/"/>
     
   </entry>
   

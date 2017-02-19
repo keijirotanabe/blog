@@ -3,56 +3,44 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Node.jsでHTTPサーバーを立てるまでの解説 | blog</title>
+    <title>ESP8266でATコマンドを使ってみる | blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明
-環境
-Windows10 Home 64bit
-Node.js バージョン6.9.5  インストール手順はNode.jsのインストール方法を参照
-テキストエディタ → Sublime Text
-ウェブブラウザ → Google Chrome
+    <meta name="description" content="ESP8266でATコマンドを使ってみる
+はじめに使用する環境
+Arduino IDE を使用するのでインストールしておきます  → Arduino IDEのインストールを参考
 
-server.jsの用意今回はデスクトップ">
+ESPr Developer(ESP-WROOM-02開発ボード)を使用します  → ESPr Developer（ESP-WROOM-02開発ボード）
+
+ATコマンドを使える状態にしておいてください  一度でもArdu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.jsでHTTPサーバーを立てるまでの解説">
-<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/09/node-js-how-to-170210/index.html">
+<meta property="og:title" content="ESP8266でATコマンドを使ってみる">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/17/esp8266-at-command-170218/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明
-環境
-Windows10 Home 64bit
-Node.js バージョン6.9.5  インストール手順はNode.jsのインストール方法を参照
-テキストエディタ → Sublime Text
-ウェブブラウザ → Google Chrome
+<meta property="og:description" content="ESP8266でATコマンドを使ってみる
+はじめに使用する環境
+Arduino IDE を使用するのでインストールしておきます  → Arduino IDEのインストールを参考
 
-server.jsの用意今回はデスクトップ">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1PLamjRqWO1vPdrMig_KOYhywrpOfSOVefA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1YZRqdOR248eGKnQzenbofvePNXu5pjZClg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=16YDI0dvj7Qu48yO8BlF1_GqMy9zZo3dsMg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1HWIymM7vi0NAWakb57TvBCyf75tJ0wX5Rg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1KNLWJ44l2vJFmhRQKbL0C4wjAL3jTqhIHQ">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=12yz4qAB2gLJNCzc5rZyv7bJiPrP_jbmgJw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1i76HS-CtCS5UZsgqMPoruQfb995w4zZWwQ">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1ghwQukcbWC4-2pkwl7Hja-eO6A_OKyQDjA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1eCdgvA3BCrVLz3P8Ul9rDigwv1QU8DmaSw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1NAinBOdRmgXwmUAiSDFjeov_Xgr-t6NzDA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1pW0TfVm33pxvwpy_ePpR9DkQKjKhIL4jwA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1fl_Xsyvdwvga4xm8NtFi0X0HH063jhlFLw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1yLpkDUdE_GPDFFbnChH8YeiiVAszv8ED6w">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1AwyP-YdYBL8lO75-aLof6uA7GUDapoPnAA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1jPfSC-HSuONj9tSQ2Guz2avP2PA9BqEzng">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=18kTVHk736lG7GOgMyKWWsxDcVOKCJmcEww">
-<meta property="og:updated_time" content="2017-02-17T14:13:34.084Z">
+ESPr Developer(ESP-WROOM-02開発ボード)を使用します  → ESPr Developer（ESP-WROOM-02開発ボード）
+
+ATコマンドを使える状態にしておいてください  一度でもArdu">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1O1usSlNI3l5APYgjialov1GF0Dre8nt9TQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1R1aPEepygpjwDGv4Gl_4XJXNJunD22bimw">
+<meta property="og:image" content="https://drive.google.com/open?id=1PgXxzWedx44tpaIJB0D1bJhkYeHf7N6Xvg">
+<meta property="og:image" content="https://drive.google.com/open?id=1N2oQt25ceu1xSvk9zbFv6OAF4zA9wUBQ7Q">
+<meta property="og:image" content="https://drive.google.com/open?id=1svrHv2oWUiwG4Ii5urbM5Lmj5y_1f0qweg">
+<meta property="og:image" content="https://drive.google.com/open?id=1nBV-X1T0pgf2NTkjQnU2VUKbm991bEOxHA">
+<meta property="og:image" content="https://drive.google.com/open?id=1gjOaDdubtvRv5YR5vGQnWkhHidbu9nHiug">
+<meta property="og:updated_time" content="2017-02-18T12:42:40.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.jsでHTTPサーバーを立てるまでの解説">
-<meta name="twitter:description" content="Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明
-環境
-Windows10 Home 64bit
-Node.js バージョン6.9.5  インストール手順はNode.jsのインストール方法を参照
-テキストエディタ → Sublime Text
-ウェブブラウザ → Google Chrome
+<meta name="twitter:title" content="ESP8266でATコマンドを使ってみる">
+<meta name="twitter:description" content="ESP8266でATコマンドを使ってみる
+はじめに使用する環境
+Arduino IDE を使用するのでインストールしておきます  → Arduino IDEのインストールを参考
 
-server.jsの用意今回はデスクトップ">
-<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1PLamjRqWO1vPdrMig_KOYhywrpOfSOVefA">
+ESPr Developer(ESP-WROOM-02開発ボード)を使用します  → ESPr Developer（ESP-WROOM-02開発ボード）
+
+ATコマンドを使える状態にしておいてください  一度でもArdu">
+<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1O1usSlNI3l5APYgjialov1GF0Dre8nt9TQ">
 <link rel="publisher" href="u/0/106972576385014381494">
     
 
@@ -229,7 +217,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-node-js-how-to-170210" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-esp8266-at-command-170218" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -237,7 +225,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Node.jsでHTTPサーバーを立てるまでの解説
+            ESP8266でATコマンドを使ってみる
         </h1>
     
 
@@ -246,8 +234,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/02/09/node-js-how-to-170210/">
-            <time datetime="2017-02-09T19:56:47.000Z" itemprop="datePublished">2017-02-10</time>
+        <a href="/blog/2017/02/17/esp8266-at-command-170218/">
+            <time datetime="2017-02-17T22:02:23.000Z" itemprop="datePublished">2017-02-18</time>
         </a>
     </div>
 
@@ -255,13 +243,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/プログラミング/">プログラミング</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a>
+        <a class="article-category-link" href="/blog/categories/ESP8266/">ESP8266</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/Node-js/">Node.js</a>
+        <a class="tag-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a>, <a class="tag-link" href="/blog/tags/ESP8266/">ESP8266</a>
     </div>
 
                     </div>
@@ -274,68 +262,165 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">目次</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#環境"><span class="toc-number">1.</span> <span class="toc-text">環境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#serverjsの用意"><span class="toc-number">2.</span> <span class="toc-text">server.jsの用意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本的なhttpサーバー"><span class="toc-number">3.</span> <span class="toc-text">基本的なHTTPサーバー</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全体のコード"><span class="toc-number">3.1.</span> <span class="toc-text">全体のコード</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#コードの解説"><span class="toc-number">3.2.</span> <span class="toc-text">コードの解説</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#書いたコードを実行"><span class="toc-number">4.</span> <span class="toc-text">書いたコードを実行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ウェブブラウザから表示"><span class="toc-number">5.</span> <span class="toc-text">ウェブブラウザから表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#コードを加えます"><span class="toc-number">5.1.</span> <span class="toc-text">コードを加えます</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全体のコード"><span class="toc-number">5.2.</span> <span class="toc-text">全体のコード</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#はじめに"><span class="toc-number">1.</span> <span class="toc-text">はじめに</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用する環境"><span class="toc-number">1.1.</span> <span class="toc-text">使用する環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#esp8266の起動モードについて"><span class="toc-number">1.2.</span> <span class="toc-text">ESP8266の起動モードについて</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使い方"><span class="toc-number">2.</span> <span class="toc-text">使い方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本atコマンド"><span class="toc-number">2.1.</span> <span class="toc-text">基本ATコマンド</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本atコマンド一覧"><span class="toc-number">2.2.</span> <span class="toc-text">基本ATコマンド一覧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wifi-atコマンド一覧"><span class="toc-number">2.3.</span> <span class="toc-text">WiFi ATコマンド一覧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
-            <p>Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明</p>
-<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
-<li>Windows10 Home 64bit</li>
-<li>Node.js バージョン6.9.5<br>  インストール手順は<a href="/blog/2017/02/09/node-js-install-step-170210/" title="Node.jsのインストール方法">Node.jsのインストール方法</a>を参照</li>
-<li>テキストエディタ → Sublime Text</li>
-<li>ウェブブラウザ → Google Chrome</li>
-</ul>
-<h1 id="serverjsの用意"><a href="#server-jsの用意" class="headerlink" title="server.jsの用意"></a>server.jsの用意</h1><p>今回はデスクトップで作業してくので、デスクトップに<code>helloworld</code>というフォルダを用意します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1PLamjRqWO1vPdrMig_KOYhywrpOfSOVefA" alt=""></p>
-<p><code>helloworld</code>の中に<code>server.js</code>を作ります</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1YZRqdOR248eGKnQzenbofvePNXu5pjZClg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=16YDI0dvj7Qu48yO8BlF1_GqMy9zZo3dsMg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1HWIymM7vi0NAWakb57TvBCyf75tJ0wX5Rg" alt=""></p>
-<p>テキストエディタで開きます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1KNLWJ44l2vJFmhRQKbL0C4wjAL3jTqhIHQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=12yz4qAB2gLJNCzc5rZyv7bJiPrP_jbmgJw" alt=""></p>
-<h1 id="基本的なhttpサーバー"><a href="#基本的なHTTPサーバー" class="headerlink" title="基本的なHTTPサーバー"></a>基本的なHTTPサーバー</h1><h2 id="全体のコード"><a href="#全体のコード" class="headerlink" title="全体のコード"></a>全体のコード</h2><figure class="highlight javascript"><figcaption><span>server.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> port = <span class="number">3000</span>;</div><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.statusCode = <span class="number">200</span>;</div><div class="line">    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</div><div class="line">    res.end(<span class="string">'Hello World!\n'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(port, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Server running'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="コードの解説"><a href="#コードの解説" class="headerlink" title="コードの解説"></a>コードの解説</h2><ul>
-<li><p><code>var http = require(&#39;http&#39;);</code><br>  httpモジュールの読み込み</p>
+            <p>ESP8266でATコマンドを使ってみる</p>
+<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
+<li><p><strong>Arduino IDE を使用するのでインストールしておきます</strong><br>  → <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考</p>
 </li>
-<li><p><code>var port = 3000;</code><br>  3000番ポートを使う</p>
+<li><p>ESPr Developer(ESP-WROOM-02開発ボード)を使用します<br>  → <a href="http://amzn.to/2m7sk2X" target="_blank" rel="external">ESPr Developer（ESP-WROOM-02開発ボード）</a></p>
 </li>
-<li><p><code>var server = http.createServer(コールバック関数)</code><br>  httpサーバー作成し、<code>server</code>に代入<br>  serverにアクセスがくるとコールバック関数が呼ばれる</p>
-</li>
-<li><p><code>res.statusCode = 200;</code><br>  ステータスコード200は成功を意味する<br>  詳しくは<a href="http://e-words.jp/p/r-httpstatus.html" target="_blank" rel="external">HTTPのステータスコード</a></p>
-</li>
-<li><p><code>res.setHeader(&#39;Content-Type&#39;, &#39;text/plain&#39;);</code><br>  コンテンツタイプをテキストに<br>  参考: <a href="http://qiita.com/AkihiroTakamura/items/b93fbe511465f52bffaa" target="_blank" rel="external">Content-Typeの一覧</a></p>
-</li>
-<li><p><code>res.end(&#39;Hello World!\n&#39;);</code><br>  すべてのヘッダー情報と本文(「Hello World」)が送信されたことをサーバーに通知</p>
-</li>
-<li><p><code>server.listen(port, コールバック関数)</code><br>  httpサーバーを3000番ポートで待機させた後、コールバック関数を呼ぶ</p>
-</li>
-<li><p><code>console.log(&#39;Server running&#39;);</code><br>  コンソールに「Server running」と表示</p>
+<li><p><strong>ATコマンドを使える状態にしておいてください</strong><br>  一度でもArduinoのスケッチを書き込むとATコマンドが使えなくなるので、再びATコマンドが使えるようにするにはファームウェアを書き直す必要があります<br>  → <a href="/blog/2017/02/06/esp8266-at-reset-170207/" title="ArduinoのESP8266をATコマンドが使えるように戻す">ArduinoのESP8266をATコマンドが使えるように戻す</a>を参考</p>
 </li>
 </ul>
-<p><div id="code-img"></div><br><img src="https://drive.google.com/uc?export=view&amp;id=1i76HS-CtCS5UZsgqMPoruQfb995w4zZWwQ" alt=""></p>
-<p>より詳しくは<a href="https://nodejs.org/dist/latest-v6.x/docs/api/http.html" target="_blank" rel="external">HTTP | Node.js v6.9.5 Documentation</a></p>
-<h1 id="書いたコードを実行"><a href="#書いたコードを実行" class="headerlink" title="書いたコードを実行"></a>書いたコードを実行</h1><p>コマンドプロンプトを起動します<br>わからない人は<a href="/blog/2017/02/11/command-prompt-start-up-170211/" title="コマンドプロンプトの起動方法">コマンドプロンプトの起動方法</a>を参考に</p>
-<p>デスクトップに<code>helloworld</code>フォルダを作ったので、移動します<br><code>cd Disktop/helloworld</code>と入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ghwQukcbWC4-2pkwl7Hja-eO6A_OKyQDjA" alt=""></p>
-<p><code>server.js</code>を起動します<br>起動するには<code>node</code>コマンドを使います<br><code>node server</code>と入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1eCdgvA3BCrVLz3P8Ul9rDigwv1QU8DmaSw" alt=""></p>
-<p>うまくいけば「Server running」が表示されます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1NAinBOdRmgXwmUAiSDFjeov_Xgr-t6NzDA" alt=""></p>
-<h1 id="ウェブブラウザから表示"><a href="#ウェブブラウザから表示" class="headerlink" title="ウェブブラウザから表示"></a>ウェブブラウザから表示</h1><p>Google Chromeを立ち上げて<br><code>localhost:3000</code>と入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1pW0TfVm33pxvwpy_ePpR9DkQKjKhIL4jwA" alt=""></p>
-<p>「Hello World!」が表示されれば成功です</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1fl_Xsyvdwvga4xm8NtFi0X0HH063jhlFLw" alt=""></p>
-<h2 id="コードを加えます"><a href="#コードを加えます" class="headerlink" title="コードを加えます"></a>コードを加えます</h2><p><a href="#code-img">上の画像</a>で<code>「localhost:3000」アクセスがあったら呼ばれる</code>というのを見ていきます</p>
-<p><code>console.log(&#39;Connected&#39;);</code>を加えます</p>
-<h2 id="全体のコード"><a href="#全体のコード-1" class="headerlink" title="全体のコード"></a>全体のコード</h2><figure class="highlight javascript"><figcaption><span>server.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> port = <span class="number">3000</span>;</div><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connected'</span>); <span class="comment">// &lt;- 追加</span></div><div class="line">    res.statusCode = <span class="number">200</span>;</div><div class="line">    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</div><div class="line">    res.end(<span class="string">'Hello World!\n'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(port, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Server running'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>コードを書き替えたので、サーバーを再起動します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1yLpkDUdE_GPDFFbnChH8YeiiVAszv8ED6w" alt=""></p>
-<p>以前、入力したキーは「↑」、「↓」で選択可</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1AwyP-YdYBL8lO75-aLof6uA7GUDapoPnAA" alt=""></p>
-<p>↓の①を何回か押してみて下さい</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1jPfSC-HSuONj9tSQ2Guz2avP2PA9BqEzng" alt=""></p>
-<p><code>「localhost:3000」</code>にアクセスがくると、<code>http.createServer(引数)</code>の引数に渡した関数が呼ばれます<br>これでこのコードの意味が分かると思います</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=18kTVHk736lG7GOgMyKWWsxDcVOKCJmcEww" alt=""></p>
+<h2 id="esp8266の起動モードについて"><a href="#ESP8266の起動モードについて" class="headerlink" title="ESP8266の起動モードについて"></a>ESP8266の起動モードについて</h2><ul>
+<li><p><strong>実行モード(Flash Boot Mode)</strong><br>  書かれているプログラムを起動し、実行します</p>
+</li>
+<li><p><strong>書き込みモード(UART Download Mode)</strong><br>  プログラムを書き帰るときに使用します</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>GPIO</th>
+<th>pinの名前</th>
+<th>実行モード</th>
+<th>書き込みモード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPIO0</td>
+<td>IO0</td>
+<td>HIGH</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>GPIO2</td>
+<td>IO2</td>
+<td>HIGH</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>GPIO15</td>
+<td>IO15</td>
+<td>LOW</td>
+<td>LOW</td>
+</tr>
+</tbody>
+</table>
+<p>IO0 pinの違いで起動モードが変化します<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード</p>
+<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><p>シリアルモニタ起動画面</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1O1usSlNI3l5APYgjialov1GF0Dre8nt9TQ" alt=""></p>
+<h2 id="基本atコマンド"><a href="#基本ATコマンド" class="headerlink" title="基本ATコマンド"></a>基本ATコマンド</h2><p><strong>AT</strong></p>
+<p>起動時のテストに使用</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1R1aPEepygpjwDGv4Gl_4XJXNJunD22bimw" alt=""></p>
+<hr>
+<p><strong>AT+RST</strong></p>
+<p>モジュールを再起動するために使用</p>
+<p><img src="https://drive.google.com/open?id=1PgXxzWedx44tpaIJB0D1bJhkYeHf7N6Xvg" alt=""></p>
+<hr>
+<p><strong>AT+GMR</strong></p>
+<p>インストールされているATコマンドファームウェアのバージョンとそのSDKをチェックするために使用</p>
+<p><img src="https://drive.google.com/open?id=1N2oQt25ceu1xSvk9zbFv6OAF4zA9wUBQ7Q" alt=""></p>
+<hr>
+<p><strong>AT+GSLP</strong></p>
+<p>例: AT+GSLP=&lt;時間&gt;<br>&lt;時間&gt;の単位はmsです</p>
+<p>OKとでたあと「AT」と入力しても反応がなくなりました<br>1000ms以上たっても反応していないみたいなので、復帰のさせかたがよくわからない</p>
+<p><img src="https://drive.google.com/open?id=1svrHv2oWUiwG4Ii5urbM5Lmj5y_1f0qweg" alt=""></p>
+<hr>
+<p><strong>ATE</strong></p>
+<p>入力されたコマンドをエコーする<br>ATE0：エコーオフ<br>ATE1：エコーをオンにする </p>
+<p><img src="https://drive.google.com/open?id=1nBV-X1T0pgf2NTkjQnU2VUKbm991bEOxHA" alt=""></p>
+<hr>
+<p><strong>AT+RESTORE</strong></p>
+<p>工場出荷時の設定に戻します<br>フラッシュに保存されているすべてのパラメータはリセットされます</p>
+<p><img src="https://drive.google.com/open?id=1gjOaDdubtvRv5YR5vGQnWkhHidbu9nHiug" alt=""></p>
+<hr>
+<p><strong>AT+UART</strong></p>
+<p>AT+UART=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;</p>
+<blockquote>
+<p>このコマンドは非推奨です<br>代わりにAT+UART_CURまたはAT+UART_DEFを使用してください</p>
+</blockquote>
+<hr>
+<p><strong>AT+UART_CUR</strong></p>
+<p>UART構成を設定し、フラッシュに保存されません</p>
+<p>AT+UART_CUR=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;<br>例: AT+UART_CUR=115200,8,1,0,3</p>
+<hr>
+<p><strong>AT+UART_DEF</strong></p>
+<p>UART構成を設定し、フラッシュに保存されます<br>これ以降のデフォルトのボーレートとして使用されます</p>
+<p>AT+UART_DEF=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;<br>例: AT+UART_DEF=115200,8,1,0,3</p>
+<hr>
+<p><strong>AT+SLEEP</strong></p>
+<p>スリープモードを設定でき、ステーションモードでのみ使用できます<br>デフォルトはモデムスリープモードです</p>
+<hr>
+<h2 id="基本atコマンド一覧"><a href="#基本ATコマンド一覧" class="headerlink" title="基本ATコマンド一覧"></a>基本ATコマンド一覧</h2><table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AT</td>
+<td>起動時のテスト</td>
+</tr>
+<tr>
+<td>AT+RST</td>
+<td>再起動</td>
+</tr>
+<tr>
+<td>AT+GMR</td>
+<td>バージョン情報を表示</td>
+</tr>
+<tr>
+<td>AT+GSLP</td>
+<td>ディープスリープモードに入る</td>
+</tr>
+<tr>
+<td>ATE</td>
+<td>ATコマンドはエコーか?</td>
+</tr>
+<tr>
+<td>AT+RESTORE</td>
+<td>工場出荷時リセット</td>
+</tr>
+<tr>
+<td>AT+UART</td>
+<td>UART設定</td>
+</tr>
+<tr>
+<td>AT+UART_CUR</td>
+<td>UARTの現在の設定</td>
+</tr>
+<tr>
+<td>AT+UART_DEF</td>
+<td>UARTのデフォルト設定、フラッシュ保存</td>
+</tr>
+<tr>
+<td>AT+SLEEP</td>
+<td>スリープモード</td>
+</tr>
+<tr>
+<td>AT+WAKEUPGPIO</td>
+<td>ライトスリープモードからESP8266を起動させるGPIOを設定する</td>
+</tr>
+<tr>
+<td>AT+RFPOWER</td>
+<td>RF TX Powerの最大値を設定する</td>
+</tr>
+<tr>
+<td>AT+RFVDD</td>
+<td>RF TX電源をVDD33に従って設定してください</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wifi-atコマンド一覧"><a href="#WiFi-ATコマンド一覧" class="headerlink" title="WiFi ATコマンド一覧"></a>WiFi ATコマンド一覧</h2><p>追加予定</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li>登場するATコマンドはすべてデータシートに書いてあります<br>→ <a href="http://espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf" target="_blank" rel="external">ESP8266 AT Instruction Set Version 2.0.0</a></li>
+</ul>
 
         
         </div>
@@ -346,7 +431,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/" data-id="cizb8po3m0018gp620pip1u0a" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/" data-id="cizb8po2n000hgp62j2p78pwp" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -414,7 +499,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/">コメント</a>
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/">コメント</a>
     
 
         </footer>
@@ -423,19 +508,19 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/blog/2017/02/10/sd-formatter-4-170210/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">新しい記事</strong>
             <div class="article-nav-title">
                 
-                    SDカードフォーマッターの使い方
+                    esp8266-virtural-serial-port-170218
                 
             </div>
         </a>
     
     
-        <a href="/blog/2017/02/09/node-js-install-step-170210/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2017/02/17/google-photo-not-show-170217/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">Node.jsのインストール方法</div>
+            <div class="article-nav-title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</div>
         </a>
     
 </nav>
@@ -619,9 +704,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/';
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/';
         
-        this.page.identifier = 'node-js-how-to-170210';
+        this.page.identifier = 'esp8266-at-command-170218';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+    <meta charset="utf-8">
+    
+    <title>esp8266-virtural-serial-port-170218 | blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="ESP8266の設定ステーションモードに設定最初にESP8266をステーションモードにしておきます。
+WiFiモードには３つあります。
+
+ステーションモード →周囲にあるアクセスポイント(AP)に接続します。
+ソフトAPモード →本モジュールがアクセスポイント(AP)になります。
+ステーションモード＋APモード →上記の１と２の両方を実行します。
+
+↓ 現在のWiFiモードを確認できます。1AT+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="esp8266-virtural-serial-port-170218">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="ESP8266の設定ステーションモードに設定最初にESP8266をステーションモードにしておきます。
+WiFiモードには３つあります。
+
+ステーションモード →周囲にあるアクセスポイント(AP)に接続します。
+ソフトAPモード →本モジュールがアクセスポイント(AP)になります。
+ステーションモード＋APモード →上記の１と２の両方を実行します。
+
+↓ 現在のWiFiモードを確認できます。1AT+">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=14zxqGYUo9T_X-RrJuOBWC9WucwO4pdkxEQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1xvK-DspOBGh-qesbLHc_2uPa2HKwOWypdA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=120TcZ0AWCZik1mZDB9muv9DGlsx7c5et5g">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Og1b3ELC3YLovdk3D8ThK6sOiiBKoEzEBg">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1fB0rMhf_I-xT1YokK-LAw7QnN0ulMMxb1Q">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1rLg8aQ9iRJRtGi8dBusAGP457f1MTdUWYA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1sOa6iH55P7CpUCTrp91cGSwc5LX8d6n_rg">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1vEmNI2qH71D760sjD-H0cW9p-IGUbZi5mw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1JRHdX7G4ziQdKUF_ySSJnjoGPFL9rB-1Hw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=13p-uSc8idumA3wkkG00Hlz9Aetlx5h_Zfg">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1oTL_B0D2hOt8FsQt-qpCdPYlzJRpe31pPw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1xsH1rA6GGtpQ7L20AIQRNdWwL6cOVsw3Kw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1abbOxY0PvJHc69mwr7NHMLiDUt3u9k_Q6w">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1IIqxN_9T0vmmZ9MKsWoNU7zJy08udSE3PA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1n4Lye-FcMsHASuZM7JwQXIkj1jYw8iXj1Q">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1T7bUyJBZzJHlxNtbiUrYracLZtCNMuqzwg">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1oLeMjgVt4Ya5NfOJzfbvpNGewf97gOFlmg">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1SOOTL-FaikxIG5-cUib_ajiDUULuXJX-Yg">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=19RdbOdnzE-RP4sv-lnbo2vCZ-phhM64tiw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1YQEch7m2RF0NGhN4leROeZwvyMWeJDfcHA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1DQDqdqIV_qeGy0wOE4BeBze6bR1mLxDfmA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1wJTLgs0hbDYeQ-UJdalYVYebWUWsnqn8LQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1x5smFrjt5tbnP4XiQg7PkkEn7RoBF1EdbQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1fAxmJMy2f6S3RckhYfyMLmvC_2hAN9rIrA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=14eGQGgtgM6vlnHLz2zyOgcD4tPSlzisbdQ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1nWdET3w5EKSyJaO6OYgOCvp3Ser2Mh6MNA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1GjduqgZz_zaidAUWLGwnefdfPX0I-8Ahsw">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Uwle6glLxPsgGKSvmY1QlFhVqRxSH6w65A">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1fT6NVF_Ydm3nTpciqHS-hqY4X2fwAJLt0Q">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1TJKPLNOoUI2st7sT0NfVWTKgBgsEUlayRA">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1vTWx38y6v4OtF-I2DyR8oP_gSVp-yI5tfQ">
+<meta property="og:updated_time" content="2017-02-19T06:38:50.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="esp8266-virtural-serial-port-170218">
+<meta name="twitter:description" content="ESP8266の設定ステーションモードに設定最初にESP8266をステーションモードにしておきます。
+WiFiモードには３つあります。
+
+ステーションモード →周囲にあるアクセスポイント(AP)に接続します。
+ソフトAPモード →本モジュールがアクセスポイント(AP)になります。
+ステーションモード＋APモード →上記の１と２の両方を実行します。
+
+↓ 現在のWiFiモードを確認できます。1AT+">
+<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=14zxqGYUo9T_X-RrJuOBWC9WucwO4pdkxEQ">
+<link rel="publisher" href="u/0/106972576385014381494">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.ico" />
+    
+    
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91386689-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+    <!--google analytics-->
+    <script src="/blog/tracking.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/blog/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/blog/.">トップ</a>
+                
+                    <a class="main-nav-link" href="/blog/archives">記事一覧</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/blog/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '投稿',
+            PAGES: 'Pages',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/blog/.">トップ</a></td>
+                
+                    <td><a class="main-nav-link" href="/blog/archives">記事一覧</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/blog/css/images/avatar.jpg" />
+            <h2 id="name">田邊慶次朗</h2>
+            <h3 id="title">忘れないようにメモします</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Gifu, Japan</span>
+            <a id="follow" target="_blank" href="https://github.com/keijirotanabe">フォローする</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                24
+                <span>投稿</span>
+            </div>
+            <div class="article-info-block">
+                19
+                <span>タグ</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/keijirotanabe" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-esp8266-virtural-serial-port-170218" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            esp8266-virtural-serial-port-170218
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/">
+            <time datetime="2017-02-18T03:43:27.000Z" itemprop="datePublished">2017-02-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">目次</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#esp8266の設定"><span class="toc-number">1.</span> <span class="toc-text">ESP8266の設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ステーションモードに設定"><span class="toc-number">1.1.</span> <span class="toc-text">ステーションモードに設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#アクセスポイントに接続"><span class="toc-number">1.2.</span> <span class="toc-text">アクセスポイントに接続</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hw-vsp3-のインストール"><span class="toc-number">2.</span> <span class="toc-text">HW VSP3 のインストール</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ダウンロード"><span class="toc-number">2.1.</span> <span class="toc-text">ダウンロード</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#インストール"><span class="toc-number">2.2.</span> <span class="toc-text">インストール</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hw-vsp3でtcpサーバーを立てる"><span class="toc-number">3.</span> <span class="toc-text">HW VSP3でTCPサーバーを立てる</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pcのipアドレスを確認"><span class="toc-number">4.</span> <span class="toc-text">PCのIPアドレスを確認</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#esp8266で接続する"><span class="toc-number">5.</span> <span class="toc-text">ESP8266で接続する</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#アクセスポイントに接続"><span class="toc-number">5.1.</span> <span class="toc-text">アクセスポイントに接続</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tcpサーバーを開く"><span class="toc-number">5.2.</span> <span class="toc-text">TCPサーバーを開く</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#esp8266から送信"><span class="toc-number">5.3.</span> <span class="toc-text">ESP8266から送信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tcpサーバーから送信"><span class="toc-number">5.4.</span> <span class="toc-text">TCPサーバーから送信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相互に通信"><span class="toc-number">5.5.</span> <span class="toc-text">相互に通信</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#おわりに"><span class="toc-number">6.</span> <span class="toc-text">おわりに</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
+            <h1 id="esp8266の設定"><a href="#ESP8266の設定" class="headerlink" title="ESP8266の設定"></a>ESP8266の設定</h1><h2 id="ステーションモードに設定"><a href="#ステーションモードに設定" class="headerlink" title="ステーションモードに設定"></a>ステーションモードに設定</h2><p>最初にESP8266をステーションモードにしておきます。</p>
+<p><strong>WiFiモードには３つあります。</strong></p>
+<ol>
+<li>ステーションモード<br> →周囲にあるアクセスポイント(AP)に接続します。</li>
+<li>ソフトAPモード<br> →本モジュールがアクセスポイント(AP)になります。</li>
+<li>ステーションモード＋APモード<br> →上記の１と２の両方を実行します。</li>
+</ol>
+<p>↓ 現在のWiFiモードを確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWMODE?</div></pre></td></tr></table></figure></p>
+<p>ステーションモードにするには<code>AT+CWMODE=1</code>とします。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AT+CWMODE=1</div><div class="line"># 同様に</div><div class="line"># AT+CWMODE=2 ← ソフトAPモード</div><div class="line"># AT+CWMODE=3 ← ステーションモード＋APモード</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=14zxqGYUo9T_X-RrJuOBWC9WucwO4pdkxEQ" alt=""></p>
+<p>ステーションモードに設定できました。</p>
+<hr>
+<h2 id="アクセスポイントに接続"><a href="#アクセスポイントに接続" class="headerlink" title="アクセスポイントに接続"></a>アクセスポイントに接続</h2><p>続いて、アクセスポイントに接続します。<br>接続するコマンドは↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWJAP=&quot;SSID&quot;,&quot;パスワード&quot;</div></pre></td></tr></table></figure></p>
+<p>↓接続先を確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWJAP?</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1xvK-DspOBGh-qesbLHc_2uPa2HKwOWypdA" alt=""></p>
+<p>アクセスポイントに接続されました。<br>ちなみに、切断したい場合は↓のコマンドです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWQAP</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="hw-vsp3-のインストール"><a href="#HW-VSP3-のインストール" class="headerlink" title="HW VSP3 のインストール"></a>HW VSP3 のインストール</h1><h2 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h2><p>ダウンロード先<br><a href="http://www.hw-group.com/products/hw_vsp/index_en.html" target="_blank" rel="external">http://www.hw-group.com/products/hw_vsp/index_en.html</a></p>
+<p><a href="http://www.hw-group.com/products/hw_vsp/index_en.html" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=120TcZ0AWCZik1mZDB9muv9DGlsx7c5et5g" alt="ダウンロード場所"></a></p>
+<p>めんどくさい人は<a href="http://new.hwg.cz/files/download/sw/version/hw-vsp3-single_3-1-2.exe" target="_blank" rel="external">ここからダウンロード</a></p>
+<hr>
+<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>ダウンロードした<code>hw-vsp3-single_3-1-2.exe</code>を実行し、以下の流れでインストールします。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Og1b3ELC3YLovdk3D8ThK6sOiiBKoEzEBg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1fB0rMhf_I-xT1YokK-LAw7QnN0ulMMxb1Q" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1rLg8aQ9iRJRtGi8dBusAGP457f1MTdUWYA" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1sOa6iH55P7CpUCTrp91cGSwc5LX8d6n_rg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1vEmNI2qH71D760sjD-H0cW9p-IGUbZi5mw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1JRHdX7G4ziQdKUF_ySSJnjoGPFL9rB-1Hw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=13p-uSc8idumA3wkkG00Hlz9Aetlx5h_Zfg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1oTL_B0D2hOt8FsQt-qpCdPYlzJRpe31pPw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1xsH1rA6GGtpQ7L20AIQRNdWwL6cOVsw3Kw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1abbOxY0PvJHc69mwr7NHMLiDUt3u9k_Q6w" alt=""></p>
+<p>インストールが完了しました。</p>
+<hr>
+<h1 id="hw-vsp3でtcpサーバーを立てる"><a href="#HW-VSP3でTCPサーバーを立てる" class="headerlink" title="HW VSP3でTCPサーバーを立てる"></a>HW VSP3でTCPサーバーを立てる</h1><p>HW VSP3 を起動します。</p>
+<p>「Login」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1IIqxN_9T0vmmZ9MKsWoNU7zJy08udSE3PA" alt=""></p>
+<p>「OK」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1n4Lye-FcMsHASuZM7JwQXIkj1jYw8iXj1Q" alt=""></p>
+<p>「Settings」タブを選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1T7bUyJBZzJHlxNtbiUrYracLZtCNMuqzwg" alt=""></p>
+<p>チェックを「TCP Server Mode」だけにします。<br><img src="https://drive.google.com/uc?export=view&amp;id=1oLeMjgVt4Ya5NfOJzfbvpNGewf97gOFlmg" alt=""></p>
+<p>「Virtual Serial Port」タブを選択<br>「Port Name」を「COM10」に選択（使ってなければ何でもよい）<br>「IP Address」は「0.0.0.0」のまま<br>「Port」を「8089」に選択（<a href="http://e-words.jp/w/%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%8E%E3%82%A6%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88.html" target="_blank" rel="external"><em>ウェルノウンポート</em></a>でなければ何でもよい）<br><img src="https://drive.google.com/uc?export=view&amp;id=1SOOTL-FaikxIG5-cUib_ajiDUULuXJX-Yg" alt=""></p>
+<p>「Create COM」で仮想COMが作られます。</p>
+<p>「デバイスマネージャー」を確認すると、「Virtual Serial Port(Eltima Softwate)」ができ、展開すると「COM10」が作られていることが分かります。<br><img src="https://drive.google.com/uc?export=view&amp;id=19RdbOdnzE-RP4sv-lnbo2vCZ-phhM64tiw" alt=""></p>
+<hr>
+<h1 id="pcのipアドレスを確認"><a href="#PCのIPアドレスを確認" class="headerlink" title="PCのIPアドレスを確認"></a>PCのIPアドレスを確認</h1><p>HW VSP3を実行中のＰＣはTCPサーバーになったので、ESP8266から接続します。</p>
+<p>PCのIPアドレスを調べます。<br>１と２どちらの方法でも構いません。</p>
+<p><strong>1.コマンドプロンプトに「<code>ipconfig</code>」と打つ</strong><br><img src="https://drive.google.com/uc?export=view&amp;id=1YQEch7m2RF0NGhN4leROeZwvyMWeJDfcHA" alt=""></p>
+<p><strong>2.ネットワーク接続の詳細をみる</strong><br>コントロールパネル &gt; ネットワークとインターネット &gt; ネットワークと共有センターを開く<br><img src="https://drive.google.com/uc?export=view&amp;id=1DQDqdqIV_qeGy0wOE4BeBze6bR1mLxDfmA" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1wJTLgs0hbDYeQ-UJdalYVYebWUWsnqn8LQ" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1x5smFrjt5tbnP4XiQg7PkkEn7RoBF1EdbQ" alt=""></p>
+<p>PCのIPアドレスは<code>192.168.11.4</code>でした。</p>
+<hr>
+<h1 id="esp8266で接続する"><a href="#ESP8266で接続する" class="headerlink" title="ESP8266で接続する"></a>ESP8266で接続する</h1><h2 id="アクセスポイントに接続"><a href="#アクセスポイントに接続-1" class="headerlink" title="アクセスポイントに接続"></a>アクセスポイントに接続</h2><p>TCP/IPまたはUDPへの接続設定＆接続開始するコマンドは↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSTART=&quot;プロトコル&quot;,&quot;IPアドレス&quot;,ポート番号</div></pre></td></tr></table></figure></p>
+<p>プロトコル: TCP<br>IPアドレス: 192.168.11.4　（各自、違います）<br>ポート番号: 8089　（↑で設定したやつ）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSTART=&quot;TCP&quot;,&quot;192.168.11.4&quot;,8089</div></pre></td></tr></table></figure></p>
+<p>接続すると、CONNECT と OK が返ります。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1fAxmJMy2f6S3RckhYfyMLmvC_2hAN9rIrA" alt=""></p>
+<p>コネクションが確立しました。</p>
+<p>コネクションを切断するには↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPCLOSE</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="tcpサーバーを開く"><a href="#TCPサーバーを開く" class="headerlink" title="TCPサーバーを開く"></a>TCPサーバーを開く</h2><p>PCからCOM10を開くと通信が開始されます。</p>
+<p>Arduino IDE をもう一つ起動します。<br>「COM10」を選択して、シリアルモニタを起動してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=14eGQGgtgM6vlnHLz2zyOgcD4tPSlzisbdQ" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1nWdET3w5EKSyJaO6OYgOCvp3Ser2Mh6MNA" alt=""></p>
+<hr>
+<h2 id="esp8266から送信"><a href="#ESP8266から送信" class="headerlink" title="ESP8266から送信"></a>ESP8266から送信</h2><p>ESP8266から、TCPサーバーへ「Hello」と送ってみます。</p>
+<p>送信サイズを選択<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND=5      // 5バイト送信</div></pre></td></tr></table></figure></p>
+<p>「Hello」を送信<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1GjduqgZz_zaidAUWLGwnefdfPX0I-8Ahsw" alt=""></p>
+<hr>
+<h2 id="tcpサーバーから送信"><a href="#TCPサーバーから送信" class="headerlink" title="TCPサーバーから送信"></a>TCPサーバーから送信</h2><p>次はTCPサーバーから、「ESP8266」と送ってみます。</p>
+<p>送信画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1Uwle6glLxPsgGKSvmY1QlFhVqRxSH6w65A" alt=""></p>
+<p>受信画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1fT6NVF_Ydm3nTpciqHS-hqY4X2fwAJLt0Q" alt=""></p>
+<hr>
+<h2 id="相互に通信"><a href="#相互に通信" class="headerlink" title="相互に通信"></a>相互に通信</h2><p>ESP8266からシームレスな通信ができるように、「トランスペアレントモード」にします。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT+CIPMODE=1</div><div class="line"></div><div class="line"># AT+CIPMODE=0  // ATコマンドモード</div></pre></td></tr></table></figure>
+<p>つづいて↓を入力します。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND</div></pre></td></tr></table></figure></p>
+<p>「&gt;」が返るとトランスペアレントモードに移行します。</p>
+<p>両方のターミナルに適当な文字を打つと、相手側のウィンドウに表示されます。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1TJKPLNOoUI2st7sT0NfVWTKgBgsEUlayRA" alt=""></p>
+<hr>
+<p>トランスペアレントモードから抜けるには、「+++」を入力します。<br>ですが、制御コードがつくと「+++」を文字列として相手に送信してしまいます。</p>
+<p>↓のように「改行なし」にした状態で、「+++」を送信してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=1vTWx38y6v4OtF-I2DyR8oP_gSVp-yI5tfQ" alt=""></p>
+<p>「AT」と打って「OK」が返れば、トランスペアレントモードから抜けました。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT</div><div class="line"></div><div class="line">OK</div></pre></td></tr></table></figure></p>
+<p>再び、トランスペアレントモードに入るには↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h1><p>仮想COMポートとトランスペアレントモードを組み合わせることで、RS232C有線で接続しているかのようにUSRT通信を無線化できました。</p>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.microtechnica.tv/support/manual/espwroom02jp_man.pdf" target="_blank" rel="external">Wi-Fi-UARTシリアルモジュール - マイクロテクニカ</a></li>
+<li><a href="http://nonnoise.github.io/ESP-WROOM-02/ATcommand.html" target="_blank" rel="external">ATコマンド集</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/" data-id="cizb8po39000sgp62oufse49e" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/2017/02/18/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">新しい記事</strong>
+            <div class="article-nav-title">
+                
+                    Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順
+                
+            </div>
+        </a>
+    
+    
+        <a href="/blog/2017/02/17/esp8266-at-command-170218/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">古い記事</strong>
+            <div class="article-nav-title">ESP8266でATコマンドを使ってみる</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最近の記事</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/18/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/18/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-18T13:35:07.228Z" itemprop="datePublished">2017-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="title">esp8266-virtural-serial-port-170218</a></p>
+                            <p class="item-date"><time datetime="2017-02-18T03:43:27.000Z" itemprop="datePublished">2017-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/ESP8266/">ESP8266</a></p>
+                            <p class="item-title"><a href="/blog/2017/02/17/esp8266-at-command-170218/" class="title">ESP8266でATコマンドを使ってみる</a></p>
+                            <p class="item-date"><time datetime="2017-02-17T22:02:23.000Z" itemprop="datePublished">2017-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/17/google-photo-not-show-170217/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
+                            <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Arduino/">Arduino</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ESP8266/">ESP8266</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Font/">Font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Fritzing/">Fritzing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Hexo/">Hexo</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/">プログラミング</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/プログラミング/Node-js/">Node.js</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/補足/">補足</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグクラウド</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Arduino/" style="font-size: 16px;">Arduino</a> <a href="/blog/tags/Cloud9/" style="font-size: 10px;">Cloud9</a> <a href="/blog/tags/Disqus/" style="font-size: 10px;">Disqus</a> <a href="/blog/tags/ESP-WROOM-02/" style="font-size: 18px;">ESP-WROOM-02</a> <a href="/blog/tags/ESP8266/" style="font-size: 20px;">ESP8266</a> <a href="/blog/tags/Font/" style="font-size: 10px;">Font</a> <a href="/blog/tags/Fritzing/" style="font-size: 10px;">Fritzing</a> <a href="/blog/tags/GutHub/" style="font-size: 10px;">GutHub</a> <a href="/blog/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/blog/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/blog/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/blog/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/blog/tags/Raspberry-Pi-3/" style="font-size: 12px;">Raspberry Pi 3</a> <a href="/blog/tags/RictyDiminished/" style="font-size: 10px;">RictyDiminished</a> <a href="/blog/tags/SDカードフォーマッター/" style="font-size: 10px;">SDカードフォーマッター</a> <a href="/blog/tags/WiFi/" style="font-size: 10px;">WiFi</a> <a href="/blog/tags/Win32DiskImager/" style="font-size: 10px;">Win32DiskImager</a> <a href="/blog/tags/メモ/" style="font-size: 10px;">メモ</a> <a href="/blog/tags/補足/" style="font-size: 14px;">補足</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">タグ</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Arduino/">Arduino</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud9/">Cloud9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Disqus/">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP-WROOM-02/">ESP-WROOM-02</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ESP8266/">ESP8266</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Font/">Font</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Fritzing/">Fritzing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GutHub/">GutHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Hexo/">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Node-js/">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Raspberry-Pi-3/">Raspberry Pi 3</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RictyDiminished/">RictyDiminished</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/SDカードフォーマッター/">SDカードフォーマッター</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/WiFi/">WiFi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/メモ/">メモ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/補足/">補足</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">アーカイブ</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2017/02/">2月 2017</a><span class="archive-list-count">24</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 田邊 慶次朗<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/';
+        
+        this.page.identifier = 'esp8266-virtural-serial-port-170218';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'blog-8jwah39ddi' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

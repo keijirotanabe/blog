@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://keijirotanabe.github.io/blog/"/>
-  <updated>2017-02-17T15:27:38.469Z</updated>
+  <updated>2017-02-18T13:35:07.228Z</updated>
   <id>https://keijirotanabe.github.io/blog/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</title>
-    <link href="https://keijirotanabe.github.io/blog/2017/02/17/Cloud9%E3%81%A8HEXO%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6GutHub%20Pages%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B%E6%89%8B%E9%A0%86/"/>
-    <id>https://keijirotanabe.github.io/blog/2017/02/17/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/</id>
-    <published>2017-02-17T15:27:38.469Z</published>
-    <updated>2017-02-17T15:27:38.469Z</updated>
+    <link href="https://keijirotanabe.github.io/blog/2017/02/18/Cloud9%E3%81%A8HEXO%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6GutHub%20Pages%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B%E6%89%8B%E9%A0%86/"/>
+    <id>https://keijirotanabe.github.io/blog/2017/02/18/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/</id>
+    <published>2017-02-18T13:35:07.228Z</published>
+    <updated>2017-02-18T13:35:07.228Z</updated>
     
     <content type="html"><![CDATA[<p>Cloud9にHexoをインストールし作成したブログをGitHub Pagesに公開するやり方をメモ</p>
 <h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><ul>
@@ -31,9 +31,9 @@
 <li>GitHub Pages にデプロイする</li>
 </ul>
 <h2 id="clude9とgithubの登録"><a href="#Clude9とGitHubの登録" class="headerlink" title="Clude9とGitHubの登録"></a>Clude9とGitHubの登録</h2><p><strong>GitHub</strong><br><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1qI4Rq_0GTsfPTsOaXRfQJYA1XPRlmdhBbQ" alt=""></p>
+<p><a href="https://github.com/" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=1qI4Rq_0GTsfPTsOaXRfQJYA1XPRlmdhBbQ" alt=""></a></p>
 <p><strong>Cloud9</strong><br><a href="https://c9.io/" target="_blank" rel="external">https://c9.io/</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1C9nw64zvruq--nyFzx-JyYpA1YJuQBg6aQ" alt=""></p>
+<p><a href="https://c9.io/" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=1C9nw64zvruq--nyFzx-JyYpA1YJuQBg6aQ" alt=""></a></p>
 <h2 id="clude9でblogを作成"><a href="#Clude9でblogを作成" class="headerlink" title="Clude9でblogを作成"></a>Clude9でblogを作成</h2><h3 id="作業用プロジェクトの作成手順"><a href="#作業用プロジェクトの作成手順" class="headerlink" title="作業用プロジェクトの作成手順"></a>作業用プロジェクトの作成手順</h3><ol>
 <li>create a new workspace</li>
 <li>Workspace name: blog_work</li>
@@ -113,6 +113,295 @@
       <category term="Cloud9" scheme="https://keijirotanabe.github.io/blog/tags/Cloud9/"/>
     
       <category term="GutHub" scheme="https://keijirotanabe.github.io/blog/tags/GutHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>esp8266-virtural-serial-port-170218</title>
+    <link href="https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/"/>
+    <id>https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/</id>
+    <published>2017-02-18T03:43:27.000Z</published>
+    <updated>2017-02-19T06:38:50.475Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="esp8266の設定"><a href="#ESP8266の設定" class="headerlink" title="ESP8266の設定"></a>ESP8266の設定</h1><h2 id="ステーションモードに設定"><a href="#ステーションモードに設定" class="headerlink" title="ステーションモードに設定"></a>ステーションモードに設定</h2><p>最初にESP8266をステーションモードにしておきます。</p>
+<p><strong>WiFiモードには３つあります。</strong></p>
+<ol>
+<li>ステーションモード<br> →周囲にあるアクセスポイント(AP)に接続します。</li>
+<li>ソフトAPモード<br> →本モジュールがアクセスポイント(AP)になります。</li>
+<li>ステーションモード＋APモード<br> →上記の１と２の両方を実行します。</li>
+</ol>
+<p>↓ 現在のWiFiモードを確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWMODE?</div></pre></td></tr></table></figure></p>
+<p>ステーションモードにするには<code>AT+CWMODE=1</code>とします。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AT+CWMODE=1</div><div class="line"># 同様に</div><div class="line"># AT+CWMODE=2 ← ソフトAPモード</div><div class="line"># AT+CWMODE=3 ← ステーションモード＋APモード</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=14zxqGYUo9T_X-RrJuOBWC9WucwO4pdkxEQ" alt=""></p>
+<p>ステーションモードに設定できました。</p>
+<hr>
+<h2 id="アクセスポイントに接続"><a href="#アクセスポイントに接続" class="headerlink" title="アクセスポイントに接続"></a>アクセスポイントに接続</h2><p>続いて、アクセスポイントに接続します。<br>接続するコマンドは↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWJAP=&quot;SSID&quot;,&quot;パスワード&quot;</div></pre></td></tr></table></figure></p>
+<p>↓接続先を確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWJAP?</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1xvK-DspOBGh-qesbLHc_2uPa2HKwOWypdA" alt=""></p>
+<p>アクセスポイントに接続されました。<br>ちなみに、切断したい場合は↓のコマンドです。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWQAP</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="hw-vsp3-のインストール"><a href="#HW-VSP3-のインストール" class="headerlink" title="HW VSP3 のインストール"></a>HW VSP3 のインストール</h1><h2 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h2><p>ダウンロード先<br><a href="http://www.hw-group.com/products/hw_vsp/index_en.html" target="_blank" rel="external">http://www.hw-group.com/products/hw_vsp/index_en.html</a></p>
+<p><a href="http://www.hw-group.com/products/hw_vsp/index_en.html" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=120TcZ0AWCZik1mZDB9muv9DGlsx7c5et5g" alt="ダウンロード場所"></a></p>
+<p>めんどくさい人は<a href="http://new.hwg.cz/files/download/sw/version/hw-vsp3-single_3-1-2.exe" target="_blank" rel="external">ここからダウンロード</a></p>
+<hr>
+<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>ダウンロードした<code>hw-vsp3-single_3-1-2.exe</code>を実行し、以下の流れでインストールします。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Og1b3ELC3YLovdk3D8ThK6sOiiBKoEzEBg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1fB0rMhf_I-xT1YokK-LAw7QnN0ulMMxb1Q" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1rLg8aQ9iRJRtGi8dBusAGP457f1MTdUWYA" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1sOa6iH55P7CpUCTrp91cGSwc5LX8d6n_rg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1vEmNI2qH71D760sjD-H0cW9p-IGUbZi5mw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1JRHdX7G4ziQdKUF_ySSJnjoGPFL9rB-1Hw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=13p-uSc8idumA3wkkG00Hlz9Aetlx5h_Zfg" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1oTL_B0D2hOt8FsQt-qpCdPYlzJRpe31pPw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1xsH1rA6GGtpQ7L20AIQRNdWwL6cOVsw3Kw" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1abbOxY0PvJHc69mwr7NHMLiDUt3u9k_Q6w" alt=""></p>
+<p>インストールが完了しました。</p>
+<hr>
+<h1 id="hw-vsp3でtcpサーバーを立てる"><a href="#HW-VSP3でTCPサーバーを立てる" class="headerlink" title="HW VSP3でTCPサーバーを立てる"></a>HW VSP3でTCPサーバーを立てる</h1><p>HW VSP3 を起動します。</p>
+<p>「Login」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1IIqxN_9T0vmmZ9MKsWoNU7zJy08udSE3PA" alt=""></p>
+<p>「OK」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1n4Lye-FcMsHASuZM7JwQXIkj1jYw8iXj1Q" alt=""></p>
+<p>「Settings」タブを選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1T7bUyJBZzJHlxNtbiUrYracLZtCNMuqzwg" alt=""></p>
+<p>チェックを「TCP Server Mode」だけにします。<br><img src="https://drive.google.com/uc?export=view&amp;id=1oLeMjgVt4Ya5NfOJzfbvpNGewf97gOFlmg" alt=""></p>
+<p>「Virtual Serial Port」タブを選択<br>「Port Name」を「COM10」に選択（使ってなければ何でもよい）<br>「IP Address」は「0.0.0.0」のまま<br>「Port」を「8089」に選択（<a href="http://e-words.jp/w/%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%8E%E3%82%A6%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88.html" target="_blank" rel="external"><em>ウェルノウンポート</em></a>でなければ何でもよい）<br><img src="https://drive.google.com/uc?export=view&amp;id=1SOOTL-FaikxIG5-cUib_ajiDUULuXJX-Yg" alt=""></p>
+<p>「Create COM」で仮想COMが作られます。</p>
+<p>「デバイスマネージャー」を確認すると、「Virtual Serial Port(Eltima Softwate)」ができ、展開すると「COM10」が作られていることが分かります。<br><img src="https://drive.google.com/uc?export=view&amp;id=19RdbOdnzE-RP4sv-lnbo2vCZ-phhM64tiw" alt=""></p>
+<hr>
+<h1 id="pcのipアドレスを確認"><a href="#PCのIPアドレスを確認" class="headerlink" title="PCのIPアドレスを確認"></a>PCのIPアドレスを確認</h1><p>HW VSP3を実行中のＰＣはTCPサーバーになったので、ESP8266から接続します。</p>
+<p>PCのIPアドレスを調べます。<br>１と２どちらの方法でも構いません。</p>
+<p><strong>1.コマンドプロンプトに「<code>ipconfig</code>」と打つ</strong><br><img src="https://drive.google.com/uc?export=view&amp;id=1YQEch7m2RF0NGhN4leROeZwvyMWeJDfcHA" alt=""></p>
+<p><strong>2.ネットワーク接続の詳細をみる</strong><br>コントロールパネル &gt; ネットワークとインターネット &gt; ネットワークと共有センターを開く<br><img src="https://drive.google.com/uc?export=view&amp;id=1DQDqdqIV_qeGy0wOE4BeBze6bR1mLxDfmA" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1wJTLgs0hbDYeQ-UJdalYVYebWUWsnqn8LQ" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1x5smFrjt5tbnP4XiQg7PkkEn7RoBF1EdbQ" alt=""></p>
+<p>PCのIPアドレスは<code>192.168.11.4</code>でした。</p>
+<hr>
+<h1 id="esp8266で接続する"><a href="#ESP8266で接続する" class="headerlink" title="ESP8266で接続する"></a>ESP8266で接続する</h1><h2 id="アクセスポイントに接続"><a href="#アクセスポイントに接続-1" class="headerlink" title="アクセスポイントに接続"></a>アクセスポイントに接続</h2><p>TCP/IPまたはUDPへの接続設定＆接続開始するコマンドは↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSTART=&quot;プロトコル&quot;,&quot;IPアドレス&quot;,ポート番号</div></pre></td></tr></table></figure></p>
+<p>プロトコル: TCP<br>IPアドレス: 192.168.11.4　（各自、違います）<br>ポート番号: 8089　（↑で設定したやつ）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSTART=&quot;TCP&quot;,&quot;192.168.11.4&quot;,8089</div></pre></td></tr></table></figure></p>
+<p>接続すると、CONNECT と OK が返ります。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1fAxmJMy2f6S3RckhYfyMLmvC_2hAN9rIrA" alt=""></p>
+<p>コネクションが確立しました。</p>
+<p>コネクションを切断するには↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPCLOSE</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="tcpサーバーを開く"><a href="#TCPサーバーを開く" class="headerlink" title="TCPサーバーを開く"></a>TCPサーバーを開く</h2><p>PCからCOM10を開くと通信が開始されます。</p>
+<p>Arduino IDE をもう一つ起動します。<br>「COM10」を選択して、シリアルモニタを起動してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=14eGQGgtgM6vlnHLz2zyOgcD4tPSlzisbdQ" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1nWdET3w5EKSyJaO6OYgOCvp3Ser2Mh6MNA" alt=""></p>
+<hr>
+<h2 id="esp8266から送信"><a href="#ESP8266から送信" class="headerlink" title="ESP8266から送信"></a>ESP8266から送信</h2><p>ESP8266から、TCPサーバーへ「Hello」と送ってみます。</p>
+<p>送信サイズを選択<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND=5      // 5バイト送信</div></pre></td></tr></table></figure></p>
+<p>「Hello」を送信<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1GjduqgZz_zaidAUWLGwnefdfPX0I-8Ahsw" alt=""></p>
+<hr>
+<h2 id="tcpサーバーから送信"><a href="#TCPサーバーから送信" class="headerlink" title="TCPサーバーから送信"></a>TCPサーバーから送信</h2><p>次はTCPサーバーから、「ESP8266」と送ってみます。</p>
+<p>送信画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1Uwle6glLxPsgGKSvmY1QlFhVqRxSH6w65A" alt=""></p>
+<p>受信画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1fT6NVF_Ydm3nTpciqHS-hqY4X2fwAJLt0Q" alt=""></p>
+<hr>
+<h2 id="相互に通信"><a href="#相互に通信" class="headerlink" title="相互に通信"></a>相互に通信</h2><p>ESP8266からシームレスな通信ができるように、「トランスペアレントモード」にします。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT+CIPMODE=1</div><div class="line"></div><div class="line"># AT+CIPMODE=0  // ATコマンドモード</div></pre></td></tr></table></figure>
+<p>つづいて↓を入力します。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND</div></pre></td></tr></table></figure></p>
+<p>「&gt;」が返るとトランスペアレントモードに移行します。</p>
+<p>両方のターミナルに適当な文字を打つと、相手側のウィンドウに表示されます。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1TJKPLNOoUI2st7sT0NfVWTKgBgsEUlayRA" alt=""></p>
+<hr>
+<p>トランスペアレントモードから抜けるには、「+++」を入力します。<br>ですが、制御コードがつくと「+++」を文字列として相手に送信してしまいます。</p>
+<p>↓のように「改行なし」にした状態で、「+++」を送信してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=1vTWx38y6v4OtF-I2DyR8oP_gSVp-yI5tfQ" alt=""></p>
+<p>「AT」と打って「OK」が返れば、トランスペアレントモードから抜けました。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT</div><div class="line"></div><div class="line">OK</div></pre></td></tr></table></figure></p>
+<p>再び、トランスペアレントモードに入るには↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h1><p>仮想COMポートとトランスペアレントモードを組み合わせることで、RS232C有線で接続しているかのようにUSRT通信を無線化できました。</p>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.microtechnica.tv/support/manual/espwroom02jp_man.pdf" target="_blank" rel="external">Wi-Fi-UARTシリアルモジュール - マイクロテクニカ</a></li>
+<li><a href="http://nonnoise.github.io/ESP-WROOM-02/ATcommand.html" target="_blank" rel="external">ATコマンド集</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;esp8266の設定&quot;&gt;&lt;a href=&quot;#ESP8266の設定&quot; class=&quot;headerlink&quot; title=&quot;ESP8266の設定&quot;&gt;&lt;/a&gt;ESP8266の設定&lt;/h1&gt;&lt;h2 id=&quot;ステーションモードに設定&quot;&gt;&lt;a href=&quot;#ステーションモード
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ESP8266でATコマンドを使ってみる</title>
+    <link href="https://keijirotanabe.github.io/blog/2017/02/17/esp8266-at-command-170218/"/>
+    <id>https://keijirotanabe.github.io/blog/2017/02/17/esp8266-at-command-170218/</id>
+    <published>2017-02-17T22:02:23.000Z</published>
+    <updated>2017-02-18T12:42:40.263Z</updated>
+    
+    <content type="html"><![CDATA[<p>ESP8266でATコマンドを使ってみる</p>
+<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
+<li><p><strong>Arduino IDE を使用するのでインストールしておきます</strong><br>  → <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考</p>
+</li>
+<li><p>ESPr Developer(ESP-WROOM-02開発ボード)を使用します<br>  → <a href="http://amzn.to/2m7sk2X" target="_blank" rel="external">ESPr Developer（ESP-WROOM-02開発ボード）</a></p>
+</li>
+<li><p><strong>ATコマンドを使える状態にしておいてください</strong><br>  一度でもArduinoのスケッチを書き込むとATコマンドが使えなくなるので、再びATコマンドが使えるようにするにはファームウェアを書き直す必要があります<br>  → <a href="/blog/2017/02/06/esp8266-at-reset-170207/" title="ArduinoのESP8266をATコマンドが使えるように戻す">ArduinoのESP8266をATコマンドが使えるように戻す</a>を参考</p>
+</li>
+</ul>
+<h2 id="esp8266の起動モードについて"><a href="#ESP8266の起動モードについて" class="headerlink" title="ESP8266の起動モードについて"></a>ESP8266の起動モードについて</h2><ul>
+<li><p><strong>実行モード(Flash Boot Mode)</strong><br>  書かれているプログラムを起動し、実行します</p>
+</li>
+<li><p><strong>書き込みモード(UART Download Mode)</strong><br>  プログラムを書き帰るときに使用します</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>GPIO</th>
+<th>pinの名前</th>
+<th>実行モード</th>
+<th>書き込みモード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPIO0</td>
+<td>IO0</td>
+<td>HIGH</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>GPIO2</td>
+<td>IO2</td>
+<td>HIGH</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>GPIO15</td>
+<td>IO15</td>
+<td>LOW</td>
+<td>LOW</td>
+</tr>
+</tbody>
+</table>
+<p>IO0 pinの違いで起動モードが変化します<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード</p>
+<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><p>シリアルモニタ起動画面</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1O1usSlNI3l5APYgjialov1GF0Dre8nt9TQ" alt=""></p>
+<h2 id="基本atコマンド"><a href="#基本ATコマンド" class="headerlink" title="基本ATコマンド"></a>基本ATコマンド</h2><p><strong>AT</strong></p>
+<p>起動時のテストに使用</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1R1aPEepygpjwDGv4Gl_4XJXNJunD22bimw" alt=""></p>
+<hr>
+<p><strong>AT+RST</strong></p>
+<p>モジュールを再起動するために使用</p>
+<p><img src="https://drive.google.com/open?id=1PgXxzWedx44tpaIJB0D1bJhkYeHf7N6Xvg" alt=""></p>
+<hr>
+<p><strong>AT+GMR</strong></p>
+<p>インストールされているATコマンドファームウェアのバージョンとそのSDKをチェックするために使用</p>
+<p><img src="https://drive.google.com/open?id=1N2oQt25ceu1xSvk9zbFv6OAF4zA9wUBQ7Q" alt=""></p>
+<hr>
+<p><strong>AT+GSLP</strong></p>
+<p>例: AT+GSLP=&lt;時間&gt;<br>&lt;時間&gt;の単位はmsです</p>
+<p>OKとでたあと「AT」と入力しても反応がなくなりました<br>1000ms以上たっても反応していないみたいなので、復帰のさせかたがよくわからない</p>
+<p><img src="https://drive.google.com/open?id=1svrHv2oWUiwG4Ii5urbM5Lmj5y_1f0qweg" alt=""></p>
+<hr>
+<p><strong>ATE</strong></p>
+<p>入力されたコマンドをエコーする<br>ATE0：エコーオフ<br>ATE1：エコーをオンにする </p>
+<p><img src="https://drive.google.com/open?id=1nBV-X1T0pgf2NTkjQnU2VUKbm991bEOxHA" alt=""></p>
+<hr>
+<p><strong>AT+RESTORE</strong></p>
+<p>工場出荷時の設定に戻します<br>フラッシュに保存されているすべてのパラメータはリセットされます</p>
+<p><img src="https://drive.google.com/open?id=1gjOaDdubtvRv5YR5vGQnWkhHidbu9nHiug" alt=""></p>
+<hr>
+<p><strong>AT+UART</strong></p>
+<p>AT+UART=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;</p>
+<blockquote>
+<p>このコマンドは非推奨です<br>代わりにAT+UART_CURまたはAT+UART_DEFを使用してください</p>
+</blockquote>
+<hr>
+<p><strong>AT+UART_CUR</strong></p>
+<p>UART構成を設定し、フラッシュに保存されません</p>
+<p>AT+UART_CUR=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;<br>例: AT+UART_CUR=115200,8,1,0,3</p>
+<hr>
+<p><strong>AT+UART_DEF</strong></p>
+<p>UART構成を設定し、フラッシュに保存されます<br>これ以降のデフォルトのボーレートとして使用されます</p>
+<p>AT+UART_DEF=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;<br>例: AT+UART_DEF=115200,8,1,0,3</p>
+<hr>
+<p><strong>AT+SLEEP</strong></p>
+<p>スリープモードを設定でき、ステーションモードでのみ使用できます<br>デフォルトはモデムスリープモードです</p>
+<hr>
+<h2 id="基本atコマンド一覧"><a href="#基本ATコマンド一覧" class="headerlink" title="基本ATコマンド一覧"></a>基本ATコマンド一覧</h2><table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AT</td>
+<td>起動時のテスト</td>
+</tr>
+<tr>
+<td>AT+RST</td>
+<td>再起動</td>
+</tr>
+<tr>
+<td>AT+GMR</td>
+<td>バージョン情報を表示</td>
+</tr>
+<tr>
+<td>AT+GSLP</td>
+<td>ディープスリープモードに入る</td>
+</tr>
+<tr>
+<td>ATE</td>
+<td>ATコマンドはエコーか?</td>
+</tr>
+<tr>
+<td>AT+RESTORE</td>
+<td>工場出荷時リセット</td>
+</tr>
+<tr>
+<td>AT+UART</td>
+<td>UART設定</td>
+</tr>
+<tr>
+<td>AT+UART_CUR</td>
+<td>UARTの現在の設定</td>
+</tr>
+<tr>
+<td>AT+UART_DEF</td>
+<td>UARTのデフォルト設定、フラッシュ保存</td>
+</tr>
+<tr>
+<td>AT+SLEEP</td>
+<td>スリープモード</td>
+</tr>
+<tr>
+<td>AT+WAKEUPGPIO</td>
+<td>ライトスリープモードからESP8266を起動させるGPIOを設定する</td>
+</tr>
+<tr>
+<td>AT+RFPOWER</td>
+<td>RF TX Powerの最大値を設定する</td>
+</tr>
+<tr>
+<td>AT+RFVDD</td>
+<td>RF TX電源をVDD33に従って設定してください</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wifi-atコマンド一覧"><a href="#WiFi-ATコマンド一覧" class="headerlink" title="WiFi ATコマンド一覧"></a>WiFi ATコマンド一覧</h2><p>追加予定</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li>登場するATコマンドはすべてデータシートに書いてあります<br>→ <a href="http://espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf" target="_blank" rel="external">ESP8266 AT Instruction Set Version 2.0.0</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ESP8266でATコマンドを使ってみる&lt;/p&gt;
+&lt;h1 id=&quot;はじめに&quot;&gt;&lt;a href=&quot;#はじめに&quot; class=&quot;headerlink&quot; title=&quot;はじめに&quot;&gt;&lt;/a&gt;はじめに&lt;/h1&gt;&lt;h2 id=&quot;使用する環境&quot;&gt;&lt;a href=&quot;#使用する環境&quot; cla
+    
+    </summary>
+    
+      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/categories/ESP8266/"/>
+    
+    
+      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/tags/ESP8266/"/>
+    
+      <category term="ESP-WROOM-02" scheme="https://keijirotanabe.github.io/blog/tags/ESP-WROOM-02/"/>
     
   </entry>
   
@@ -1534,208 +1823,6 @@
       <category term="Font" scheme="https://keijirotanabe.github.io/blog/tags/Font/"/>
     
       <category term="RictyDiminished" scheme="https://keijirotanabe.github.io/blog/tags/RictyDiminished/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Arduino IDEのインストール</title>
-    <link href="https://keijirotanabe.github.io/blog/2017/02/07/Arduino-install-step-070207/"/>
-    <id>https://keijirotanabe.github.io/blog/2017/02/07/Arduino-install-step-070207/</id>
-    <published>2017-02-07T01:15:29.000Z</published>
-    <updated>2017-02-17T13:35:12.126Z</updated>
-    
-    <content type="html"><![CDATA[<p>Arduino IDEをインストールする手順</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
-<li><a href="#公式サイト">公式サイト</a></li>
-<li><a href="#ダウンロード">ダウンロード</a></li>
-<li><a href="#インストール">インストール</a></li>
-<li><a href="#設定">設定</a><ul>
-<li><a href="#環境設定">環境設定</a></li>
-<li><a href="#起動時のウィンドウサイズを変更">起動時のウィンドウサイズを変更</a></li>
-<li><a href="#フォント変更">フォント変更</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h3><p>Windows10 Home 64ビット</p>
-<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://www.arduino.cc/" target="_blank" rel="external">https://www.arduino.cc/</a></p>
-<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><h3 id="arduino-ide-ダウンロードページ"><a href="#Arduino-IDE-ダウンロードページ" class="headerlink" title="Arduino IDE ダウンロードページ"></a>Arduino IDE ダウンロードページ</h3><p><a href="https://www.arduino.cc/en/Main/Software" target="_blank" rel="external">https://www.arduino.cc/en/Main/Software</a><br>バージョン 1.8.1　(2017/02/07時点)</p>
-<p><code>Windows Installer</code> を選択<br>※ 環境に合わせて選択してください</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1HDeJmPbGo90hVrCSeWOf2OyJSdHb8l5L5g" alt=""></p>
-<p>今回は寄付しないでダウンロードを選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1KR--988onctRpv2x_-8EpdWa4uwZfQOeFQ" alt=""></p>
-<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p><code>arduino-1.8.1-windows.exe</code>を実行</p>
-<p>なにか聞かれるので<code>はい</code>を選択する</p>
-<p>以下の手順でインストール</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1j7nWpk3IcOaOUW7a0bc6W14fklIgcz-fEw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=18HmI-1JMUDL_Iow84NJ6D7VIZl1VQ1DAaQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1K3h_BwG-_d-6k0oDpd3TOgwYpGA68ATQ0g" alt=""></p>
-<p>途中で聞かれたらインストール<br><img src="https://drive.google.com/uc?export=view&amp;id=1QHPfJpxjYVD8GND2ZXZQ3txf-hfwGlpg4Q" alt=""></p>
-<p>同じくインストール<br><img src="https://drive.google.com/uc?export=view&amp;id=13lS80uJVfuvREdk9VVGPuQx8L3yCHd_D4w" alt=""></p>
-<p>終わったら<code>close</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1RgTJNangGRDYmK4JfrAbG3eY95jccUgt5A" alt=""></p>
-<p>起動画面</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1c8gzDNTiahKjRxr3JHWrhGPUxmiBW8XWow" alt=""></p>
-<p>インストール完了</p>
-<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><p>※以降は必須ではありません</p>
-<h3 id="環境設定"><a href="#環境設定" class="headerlink" title="環境設定"></a>環境設定</h3><p><code>ファイル</code> → <code>環境設定</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1XGo4JUeU5j3H_L8CaOuqhhbanVp_ATYBeA" alt=""></p>
-<ul>
-<li>フォントサイズ: 好みの大きさ</li>
-<li>行番号を表示する: ✅</li>
-<li>コードの折り返しを有効に: ✅</li>
-</ul>
-<p>最後に<code>OK</code>を押す</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1TQBEuEm83fWT7s8VYYvgTb8BpKECPDmXDA" alt=""></p>
-<h3 id="起動時のウィンドウサイズを変更"><a href="#起動時のウィンドウサイズを変更" class="headerlink" title="起動時のウィンドウサイズを変更"></a>起動時のウィンドウサイズを変更</h3><p><code>C:\Users\[ユーザー名]\AppData\Local\Arduino15</code>を押すとフォルダ<code>Arduino15</code>フォルダが開く</p>
-<p><img src="https://drive.google.com/ouc?export=view&amp;?id=1BZOJ3t49-u0zuaNOmgTAtD4P4IBc1fx45Q" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1cEhH4bMEwmMXpROMoekJKMdmF-2A4FnVqw" alt=""></p>
-<p>Arduino IDE を閉じる</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1CXAz08fDPgsBxWrwOW7W-6PjQsmWqFqOdQ" alt=""></p>
-<p><code>Arduino15</code>フォルダの<code>preferences.txt</code>を編集</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1PvdUsSTnucgV7jGBcjgjNBbFM4QJHBZxGQ" alt=""></p>
-<p>以下の箇所を変更</p>
-<ul>
-<li>editor.window.height.default=600</li>
-<li>editor.window.width.default=500<br>(初期値)</li>
-</ul>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1vPZ0qx-kThtILZYV9AbKtXJ_67paCbYtKw" alt=""></p>
-<ul>
-<li>editor.window.height.default=960</li>
-<li>editor.window.width.default=720<br>に変更<br><code>Ctrl + S</code> で保存<br>（好みに合わせて）</li>
-</ul>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1KsKtwaeSaqd0nYe9j4tdd5d5SVJSPwefKQ" alt=""></p>
-<p>起動時のウィンドウサイズを変更できました</p>
-<h3 id="フォント変更"><a href="#フォント変更" class="headerlink" title="フォント変更"></a>フォント変更</h3><p>フォントをRictyDiminishedに設定します</p>
-<p>RictyDiminishedをインストールします<br><a href="/blog/2017/02/07/RictyDiminished/" title="プログラミング用フォントRictyDiminishedをインストール">プログラミング用フォントRictyDiminishedをインストール</a>を参考に</p>
-<p><code>preferences.txt</code>を編集して</p>
-<p><code>editor.font=RictyDiminished,plain,18</code>に書き換えます</p>
-<p>初期設定</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1g5apo5F1Ka0DM05sSuuwgIKX87t6SQUMBQ" alt=""></p>
-<p>編集後</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1BLP1QuMhDdUBXAhjhz-mGuIWyI7XCijrAw" alt=""></p>
-<p>Arduino IDE を起動すると、以下のようにフォントが変わりました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1uTWzu4jVKeM1_Dz0S4Z6T1zgp8_KDgemRA" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Arduino IDEをインストールする手順&lt;/p&gt;
-&lt;h1 id=&quot;目次&quot;&gt;&lt;a href=&quot;#目次&quot; class=&quot;headerlink&quot; title=&quot;目次&quot;&gt;&lt;/a&gt;目次&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#公式サイト&quot;&gt;公式サイト&lt;/a&gt;&lt;/li&gt;
-&lt;l
-    
-    </summary>
-    
-      <category term="Arduino" scheme="https://keijirotanabe.github.io/blog/categories/Arduino/"/>
-    
-    
-      <category term="Arduino" scheme="https://keijirotanabe.github.io/blog/tags/Arduino/"/>
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/tags/ESP8266/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ArduinoのESP8266をATコマンドが使えるように戻す</title>
-    <link href="https://keijirotanabe.github.io/blog/2017/02/06/esp8266-at-reset-170207/"/>
-    <id>https://keijirotanabe.github.io/blog/2017/02/06/esp8266-at-reset-170207/</id>
-    <published>2017-02-06T17:28:52.000Z</published>
-    <updated>2017-02-17T13:15:08.111Z</updated>
-    
-    <content type="html"><![CDATA[<p>WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。<br>ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。</p>
-<h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><p><strong>書き込む中身</strong><br><a href="http://www.espressif.com/en/support/download/sdks-demos" target="_blank" rel="external">ファームウェア</a>から<br><a href="http://www.espressif.com/sites/default/files/sdks/esp8266_nonos_sdk_v2.0.0_16_08_10.zip" target="_blank" rel="external">ESP8266 NONOS SDK V2.0.0 20160810</a>をダウンロードします</p>
-<p><strong>書き込みに使うツール</strong><br><a href="http://www.espressif.com/en/support/download/other-tools" target="_blank" rel="external">Flash Download Tools</a>の中から<br>Windows環境は<br><a href="http://www.espressif.com/sites/default/files/tools/flash_download_tools_v3.4.4.zip" target="_blank" rel="external">Flash Download Tools V3.4.4 (ESP8266 &amp; ESP32)</a>をダウンロードします</p>
-<p><strong>書き込み先(ESP8266)</strong><br>この記事では<a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><p><code>ESP8266 NONOS SDK V2.0.0 20160810</code>を解凍し、以下のファイルを使用します</p>
-<ul>
-<li><code>blank.bin</code></li>
-<li><code>esp_init_data_default.bin</code></li>
-<li><code>boot_v1.6.bin</code></li>
-<li><code>user1.2048.new.5.bin</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">esp8266_nonos_sdk_v2.0.0_16_08_10</div><div class="line">    |</div><div class="line">    +-- ESP8266_NONOS_SDK</div><div class="line">          |</div><div class="line">          +-- bin</div><div class="line">               |</div><div class="line">               +-- blank.bin</div><div class="line">               |</div><div class="line">               +-- boot_v1.6.bin</div><div class="line">               |</div><div class="line">               +-- esp_init_data_default.bin</div><div class="line">               |</div><div class="line">               +-- at</div><div class="line">                    |</div><div class="line">                    +-- 1024+1024</div><div class="line">                          |</div><div class="line">                          +-- user1.2048.new.5.bin</div></pre></td></tr></table></figure>
-<p><strong>Flash Download Tools を起動します</strong></p>
-<p><code>ESPFlashDownloadTool_v3.4.4.exe</code>を起動</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">flash_download_tools_v3.4.4</div><div class="line">    |</div><div class="line">    +--- FLASH_DOWNLOAD_TOOLS_V3.4.4</div><div class="line">            |</div><div class="line">            +--- ESPFlashDownloadTool_v3.4.4.exe</div></pre></td></tr></table></figure>
-<p><code>ESP8266 DownloadTool</code>を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1ZR2YW45jrXRIZKzsZ5TMFvK7wpFjomxpKg" alt=""></p>
-<p>起動画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1o7CB7-pifJxs_ly8K7cShUFJ0mKxdBL6_A" alt=""></p>
-<p><a href="http://www.espressif.com/en/support/download/documents" target="_blank" rel="external">ドキュメント</a>の中から<br><a href="http://www.espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf" target="_blank" rel="external">ESP8266 AT Instruction Set</a>を参考にします</p>
-<p>前述したファイルを以下のアドレスに書き込みます</p>
-<table>
-<thead>
-<tr>
-<th>ファイル名</th>
-<th style="text-align:left">アドレス</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>blank.bin</td>
-<td style="text-align:left">0x3FB000</td>
-</tr>
-<tr>
-<td>esp_init_data_default.bin</td>
-<td style="text-align:left">0x3FC000</td>
-</tr>
-<tr>
-<td>blank.bin</td>
-<td style="text-align:left">0xFE000</td>
-</tr>
-<tr>
-<td>blank.bin</td>
-<td style="text-align:left">0x3FE000</td>
-</tr>
-<tr>
-<td>boot_v1.6.bin</td>
-<td style="text-align:left">0x00000</td>
-</tr>
-<tr>
-<td>user1.2048.new.5.bin</td>
-<td style="text-align:left">0x01000</td>
-</tr>
-</tbody>
-</table>
-<p>以下の箇所を選択してください</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oWAtWkNHt0pwV7YTljdkcHL53DCL3jijGQ" alt=""></p>
-<ul>
-<li>CrystalFreq: 26M</li>
-<li>SPI SPEED: 40Mhz</li>
-<li>SPI MODE: QIO</li>
-<li>FLASH SIZE: 32Mbit-C1</li>
-<li>COM: [各自変更]</li>
-<li>BAUD: 230400</li>
-</ul>
-<p><strong>書き込みモードで起動</strong></p>
-<p>IO0がLOWの状態でリセットすれば、書き込みモードで起動します。</p>
-<p><a href="https://www.switch-science.com/catalog/2500/" target="_blank" rel="external">https://www.switch-science.com/catalog/2500/</a>を参考に</p>
-<blockquote>
-<p>IO0がHIGHの状態でリセットされるとファームウェアの実行モードで起動しますが、IO0がLOWの状態でリセットされるとファームウェアの書き込みモードで起動します。</p>
-</blockquote>
-<h2 id="書き込む"><a href="#書き込む" class="headerlink" title="書き込む"></a>書き込む</h2><p><code>START</code>を押します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1s9J3X3ea8E6aS8zjYjBfwDl0AxtqLAc4Ng" alt=""></p>
-<p>完了</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1flBnSZtUpe2S6EPbdi6ACNQYuL5xjnPWBg" alt=""></p>
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>以下のように変更<br><img src="https://drive.google.com/uc?export=view&amp;id=1gcWS3g67ANvGgXpXzktl2cQlTLSi9lJJwg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1dLpKi_stsNFa61lef56XOoW7YR4m2xCp_g" alt=""></p>
-<p><strong>実行モードで起動するために、IO0がHIGHの状態でリセットします</strong></p>
-<p><code>redy</code>と帰ってきたら<code>AT</code>と入力してEnterを押して下さい</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1FMurZk5iV7NsQhGXh4ivFK0sHRT4VOHsGQ" alt=""></p>
-<p><code>OK</code>が帰ればATコマンドが使えるようになります</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;WifiモジュールESP-WROOM-02(ESP8266)は、一度Arduinoスケッチが書き込まれるとATコマンドが使えなくなります。&lt;br&gt;ですが、正規のファームウェア書き直すことで、再びATコマンドが使えるようになります。&lt;/p&gt;
-&lt;h1 id=&quot;必要なもの&quot;&gt;&lt;a
-    
-    </summary>
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/categories/ESP8266/"/>
-    
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/tags/ESP8266/"/>
-    
-      <category term="ESP-WROOM-02" scheme="https://keijirotanabe.github.io/blog/tags/ESP-WROOM-02/"/>
-    
-      <category term="WiFi" scheme="https://keijirotanabe.github.io/blog/tags/WiFi/"/>
     
   </entry>
   

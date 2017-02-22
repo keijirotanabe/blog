@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。">
 <meta property="og:image" content="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA">
-<meta property="og:updated_time" content="2017-02-20T01:49:17.000Z">
+<meta property="og:updated_time" content="2017-02-22T01:49:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 3のはじめかた">
 <meta name="twitter:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。">
@@ -248,12 +248,12 @@ ga('send', 'pageview');
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">目次</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#環境"><span class="toc-number">1.</span> <span class="toc-text">環境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#公式サイト"><span class="toc-number">2.</span> <span class="toc-text">公式サイト</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#必要なもの"><span class="toc-number">3.</span> <span class="toc-text">必要なもの</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#手順"><span class="toc-number">4.</span> <span class="toc-text">手順</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#まずはsdをフォーマットする"><span class="toc-number">4.1.</span> <span class="toc-text">まずはSDをフォーマットする</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raspbianの用意"><span class="toc-number">4.2.</span> <span class="toc-text">「Raspbian」の用意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raspbianをsdカードに書き込む"><span class="toc-number">4.3.</span> <span class="toc-text">「Raspbian」をSDカードに書き込む</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raspberry-piを起動させる"><span class="toc-number">4.4.</span> <span class="toc-text">Raspberry Piを起動させる</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#設定"><span class="toc-number">5.</span> <span class="toc-text">設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#まずはwifiに接続"><span class="toc-number">5.1.</span> <span class="toc-text">まずはWiFiに接続</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windowsからsshで接続"><span class="toc-number">5.2.</span> <span class="toc-text">WindowsからSSHで接続</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sshの設定をonに"><span class="toc-number">5.2.1.</span> <span class="toc-text">SSHの設定をONに</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ipアドレスの確認"><span class="toc-number">5.2.2.</span> <span class="toc-text">IPアドレスの確認</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tera-termで接続"><span class="toc-number">5.2.3.</span> <span class="toc-text">Tera Termで接続</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#パッケージの更新"><span class="toc-number">5.3.</span> <span class="toc-text">パッケージの更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#リモートデスクトップでpcから操作できるようにする"><span class="toc-number">5.4.</span> <span class="toc-text">リモートデスクトップでPCから操作できるようにする</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#avahiでホスト名でアクセスできるようにする"><span class="toc-number">5.5.</span> <span class="toc-text">Avahiでホスト名でアクセスできるようにする</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用する環境"><span class="toc-number">1.</span> <span class="toc-text">使用する環境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#公式サイト"><span class="toc-number">2.</span> <span class="toc-text">公式サイト</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#必要なもの"><span class="toc-number">3.</span> <span class="toc-text">必要なもの</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#手順"><span class="toc-number">4.</span> <span class="toc-text">手順</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#まずはsdをフォーマットする"><span class="toc-number">4.1.</span> <span class="toc-text">まずはSDをフォーマットする</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raspbianの用意"><span class="toc-number">4.2.</span> <span class="toc-text">「Raspbian」の用意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raspbianをsdカードに書き込む"><span class="toc-number">4.3.</span> <span class="toc-text">「Raspbian」をSDカードに書き込む</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raspberry-piを起動させる"><span class="toc-number">4.4.</span> <span class="toc-text">Raspberry Piを起動させる</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#設定"><span class="toc-number">5.</span> <span class="toc-text">設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#まずはwifiに接続"><span class="toc-number">5.1.</span> <span class="toc-text">まずはWiFiに接続</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windowsからsshで接続"><span class="toc-number">5.2.</span> <span class="toc-text">WindowsからSSHで接続</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sshの設定をonに"><span class="toc-number">5.2.1.</span> <span class="toc-text">SSHの設定をONに</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ipアドレスの確認"><span class="toc-number">5.2.2.</span> <span class="toc-text">IPアドレスの確認</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tera-termで接続"><span class="toc-number">5.2.3.</span> <span class="toc-text">Tera Termで接続</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#パッケージの更新"><span class="toc-number">5.3.</span> <span class="toc-text">パッケージの更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日本語化する"><span class="toc-number">5.4.</span> <span class="toc-text">日本語化する</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ロケールとタイムゾーンの変更"><span class="toc-number">5.4.1.</span> <span class="toc-text">ロケールとタイムゾーンの変更</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日本語入力できるようにする"><span class="toc-number">5.4.2.</span> <span class="toc-text">日本語入力できるようにする</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#リモートデスクトップでpcから操作できるようにする"><span class="toc-number">5.5.</span> <span class="toc-text">リモートデスクトップでPCから操作できるようにする</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#avahiでホスト名でアクセスできるようにする"><span class="toc-number">5.6.</span> <span class="toc-text">Avahiでホスト名でアクセスできるようにする</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#設定したデータのバックアップをとる"><span class="toc-number">6.</span> <span class="toc-text">設定したデータのバックアップをとる</span></a></li></ol>
                 </div>
             
             <p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。</p>
 <a id="more"></a>
-<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
+<h1 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h1><ul>
 <li>Windows10 Home 64bit</li>
 <li>Raspberry Pi 3 Model B Element14版</li>
 <li>Raspbian Jessie with PIXEL</li>
@@ -268,7 +268,10 @@ ga('send', 'pageview');
 <li><a href="http://amzn.to/2lCwSxS" target="_blank" rel="external">HDMIケーブル</a></li>
 <li>電源 MicroUSB経由 (2.5A推奨)<br>  ここでは2.4Aのを使っています<br>  こういうのもあるようです<br>  <a href="http://amzn.to/2kk0gYT" target="_blank" rel="external">Raspberry Pi 3 model B 専用電源</a></li>
 </ul>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します。</p>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><p>その前に、これは覚えておいてください。</p>
+<p>電源ON → 電源ケーブルを挿す<br>電源OFF → <code>sudo poweroff</code></p>
+<p>手順を説明します。</p>
+<h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します。</p>
 <p>ダウンロード先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
 <p>詳しくは<a href="/blog/2017/02/10/sd-formatter-4-170210/" title="SDカードフォーマッターの使い方">SDカードフォーマッターの使い方</a></p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1GgeB9NRR7ay_fPmgq7TCnyWVfRW7rj77vw" alt=""></p>
@@ -299,7 +302,7 @@ ga('send', 'pageview');
 <p><img src="https://drive.google.com/uc?export=view&amp;id=181_m267p5vAkcAPf9QmLvUMcwG0GwtQA4g" alt=""></p>
 <p>以下のコマンドを入力</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1PPKP2FqC7SzspYaisdq4irHV-kKmq6jXfA" alt=""></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1YNAYM2sDXEzVWJzuY_SnodE97B-Q_KkHWw" alt=""></p>
 <p>調べたIPアドレスはメモしておいてください</p>
 <h3 id="tera-termで接続"><a href="#Tera-Termで接続" class="headerlink" title="Tera Termで接続"></a>Tera Termで接続</h3><p>Tera Term をインストール</p>
 <p>ダウンロード先<br><a href="https://ja.osdn.net/projects/ttssh2/releases/66795" target="_blank" rel="external">https://ja.osdn.net/projects/ttssh2/releases/66795</a></p>
@@ -327,20 +330,29 @@ ga('send', 'pageview');
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1l5i3woXAm1ni7fILsodWZtioGnHHmu_4eQ" alt=""></p>
 <p>ログイン画面</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1nBtigO3cC7ZwggO2Wh1u_Z8ip_uM2IVWUA" alt=""></p>
-<h2 id="パッケージの更新"><a href="#パッケージの更新" class="headerlink" title="パッケージの更新"></a>パッケージの更新</h2><p>以下のコマンドでパッケージをアップデートしておきます</p>
+<h2 id="パッケージの更新"><a href="#パッケージの更新" class="headerlink" title="パッケージの更新"></a>パッケージの更新</h2><p>リポジトリのアップデート</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1zf53jRe9r8FMox7E5W1bh5FttMGOJ946Yw" alt=""></p>
-<p>つづいて ↓ も<br>※時間がかかるので注意してください</p>
+<p>つづいて ↓ のコマンドでパッケージのアップデート<br>※時間がかかるので注意してください</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get upgrade</div></pre></td></tr></table></figure>
 <p>途中で聞かれたら「y」を入力して「Enter」</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1G6YSp2wW9WDmDaPYBptNW9mj_46WdJ1wig" alt=""></p>
 <p>途中で聞かれたら「q」を入力</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1Mf2V-2lkgkJPsr1UlBZPf9RaxbhQSq4lwA" alt=""></p>
-<p>終了しました<br>1時間くらいかかりました</p>
+<p>終了するまで、1時間くらいかかりました</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1-8u-BdknqrpuJozNJ3EP50b0p7GhW0oNIQ" alt=""></p>
+<h2 id="日本語化する"><a href="#日本語化する" class="headerlink" title="日本語化する"></a>日本語化する</h2><h3 id="ロケールとタイムゾーンの変更"><a href="#ロケールとタイムゾーンの変更" class="headerlink" title="ロケールとタイムゾーンの変更"></a>ロケールとタイムゾーンの変更</h3><p><img src="https://drive.google.com/uc?export=view&amp;id=1QjGRf3S-rlQCqx5zmjOPgn14kqbNH4w1oQ" alt="Preferences &gt; Raspberry Pi Configuration"></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1JnGaTBueF_J6fkff5074YYAkCrnKXDm09w" alt="「Locale」の設定"></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1ri-uVzt2pwYg7VdVtzREJVnaYW2_kS5-nQ" alt="画像のように変更して「OK」"></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1daKXtEEBZ25cxhpt8Uc3fWW0mv15ul0uSw" alt="「Timezone」の設定"></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1EOjZ_TUIS0y6UURiiwJKulH9CHXS6Q3BHw" alt="画像のように変更して「OK」"></p>
+<p>「OK」を押して再起動してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=1f8vluuz_H33zYBzvAxyJV3UVuqayAGFfIg" alt="「OK」を押す"></p>
+<h3 id="日本語入力できるようにする"><a href="#日本語入力できるようにする" class="headerlink" title="日本語入力できるようにする"></a>日本語入力できるようにする</h3><p>日本語IMEをインストールします。<br>今回は、<code>ibus-mozc</code>を使います。</p>
+<p>↓ でインストール<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ibus-mozc</div></pre></td></tr></table></figure></p>
+<p>これで、日本語入力ができるようになりました。<br><img src="https://drive.google.com/uc?export=view&amp;id=138XyZD0k7j1xMBpCj2qfaNXRTgB7u9gCvA" alt=""></p>
 <h2 id="リモートデスクトップでpcから操作できるようにする"><a href="#リモートデスクトップでPCから操作できるようにする" class="headerlink" title="リモートデスクトップでPCから操作できるようにする"></a>リモートデスクトップでPCから操作できるようにする</h2><p>詳しくは<br><a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" title="Raspberry Pi 3をリモートデスクトップで操作できるようにする">Raspberry Pi 3をリモートデスクトップで操作できるようにする</a></p>
-<p>以下をインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
+<p>↓ をインストール<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure></p>
+<p>↓ キーボードの設定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd /etc/xrdp/</div><div class="line">sudo wget http://w.vmeta.jp/temp/km-0411.ini</div><div class="line">sudo ln -s km-0411.ini km-e0010411.ini</div><div class="line">sudo ln -s km-0411.ini km-e0200411.ini</div><div class="line">sudo ln -s km-0411.ini km-e0210411.ini</div><div class="line">sudo service xrdp restart</div></pre></td></tr></table></figure></p>
 <p>先ほど調べたIPアドレスへ接続します</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1JivpnB-rSjfyaR41wTZPEY3XY6Mf5NSizQ" alt=""></p>
 <p>ユーザー名とパスワードを入力して「OK」</p>
@@ -352,7 +364,7 @@ ga('send', 'pageview');
 <p>以下の画面が表示されます</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1MkjO2qzvWyDQW49oPPvA_08qupB-nz4FXg" alt=""></p>
 <h2 id="avahiでホスト名でアクセスできるようにする"><a href="#Avahiでホスト名でアクセスできるようにする" class="headerlink" title="Avahiでホスト名でアクセスできるようにする"></a>Avahiでホスト名でアクセスできるようにする</h2><p>Tera Termや、リモートデスクトップからログインするするには、IPアドレス分からないといけません。<br>ですが、IPアドレスは変わるので、変わる度に調べるのはめんどうです。<br>IPアドレスを固定するか、Avahiでホスト名でアクセスできると便利です。</p>
-<p>「Raspbian Jessie with PIXEL」には初めから、Avahiがインストールされていました。</p>
+<p>「Raspbian Jessie with PIXEL」には、初めからAvahiがインストールされていました。</p>
 <p>Avahiがインストールされているかは↓のコマンドで調べられます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dpkg -l avahi-daemon</div></pre></td></tr></table></figure></p>
 <p><code>0.6.31-5</code>がインストールされていました。</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1CxnQTL0Y9BqjeEvpEhYzhPqLFEF9vhFMAw" alt=""></p>
@@ -365,6 +377,16 @@ ga('send', 'pageview');
 <p><code>raspberrypi</code>がホスト名です。<br>接続するには、ホスト名のあとに、<code>.local</code>をつけます。</p>
 <p>ホスト名は↓のコマンドで確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/hostname</div></pre></td></tr></table></figure></p>
 <p>ホスト名を変更するには<code>hostname</code>ファイルをvimなどで変更してください。</p>
+<h1 id="設定したデータのバックアップをとる"><a href="#設定したデータのバックアップをとる" class="headerlink" title="設定したデータのバックアップをとる"></a>設定したデータのバックアップをとる</h1><p>まず、Raspberry Piの電源を切りますが、電源スイッチはついていません。<br>↓のコマンドで電源OFFします。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo poweroff</div></pre></td></tr></table></figure></p>
+<p>電源が切れたら、SDをPCに接続してください。</p>
+<p>管理者権限で、Win32DiskImagerを起動します。<br>ファイルマークを押してください。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1lXkAXkNax4dZgaXUAZ8UqSY4WkdBTfr1UA" alt=""></p>
+<p>今回は、デスクトップに「2017-02-22-raspbian-back.img」で保存します。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Tmh_Re7xTEDZJtCdsc7JnHB3Xe-ASjWbrQ" alt=""></p>
+<p>SDの「Device」を確認し、「Read」を選択</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1je3k2avHFfIhFNl-BBmIRIlCjhI0DvdBLg" alt=""></p>
+<p>完了しました。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1GMOavxhp151C0tKWbrMmtCIp_dGPtVSkqQ" alt=""></p>
 
         
         </div>

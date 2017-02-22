@@ -877,13 +877,13 @@
     <updated>2017-02-22T01:49:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。</p>
+<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://www.raspberrypi.org/" target="_blank" rel="external">https://www.raspberrypi.org/</a></p>
 <a id="more"></a>
 <h1 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h1><ul>
 <li>Windows10 Home 64bit</li>
 <li>Raspberry Pi 3 Model B Element14版</li>
 <li>Raspbian Jessie with PIXEL</li>
 </ul>
-<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://www.raspberrypi.org/" target="_blank" rel="external">https://www.raspberrypi.org/</a></p>
 <h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><ul>
 <li><a href="http://amzn.to/2lEbclX" target="_blank" rel="external">Raspberry Pi 3 本体</a></li>
 <li><a href="http://amzn.to/2lCQFgQ" target="_blank" rel="external">microSD (8G以上)</a><br>  ↓によると SD と Raspberry Pi には相性があるようです<br>  参考: <a href="http://elinux.org/RPi_SD_cards" target="_blank" rel="external">http://elinux.org/RPi_SD_cards</a></li>
@@ -1017,6 +1017,7 @@
     <summary type="html">
     
       &lt;p&gt;Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。&lt;/p&gt;
+&lt;h1 id=&quot;公式サイト&quot;&gt;&lt;a href=&quot;#公式サイト&quot; class=&quot;headerlink&quot; title=&quot;公式サイト&quot;&gt;&lt;/a&gt;公式サイト&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.raspberrypi.org/&quot;&gt;https://www.raspberrypi.org/&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     

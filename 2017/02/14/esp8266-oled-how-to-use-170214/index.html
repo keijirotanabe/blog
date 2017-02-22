@@ -7,34 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う
 これみたいに使うmikroC PRO for PIC &amp;gt; Lcd Library→ https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm
-目次
-
-使うもの">
+使うもの
+有機ＥＬ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)で使う">
 <meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/14/esp8266-oled-how-to-use-170214/index.html">
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う
 これみたいに使うmikroC PRO for PIC &amp;gt; Lcd Library→ https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm
-目次
-
-使うもの">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=17mySfVa9fu4iWWfJjy2Y0t-Yq-1GsIG-yw">
-<meta property="og:image" content="https://drive.google.com/open?iduc?export=view&=1vUmlVC0P72gGBLtSEBrOrjQobLDVjlYtdQ">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1i_D46L3-Rqy1uT1LLVhueqX3-ur-POc-Pw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1EZWVlAnKrQAnB3u3mXNwEUXm3MwVB58bDA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=156JIV4yJNkWwYwScXRt5pM2wvge5htzEOA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1swTveb7JfZN8F3bCw-0t9CPeckGKmo5cKg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=17cnWMq2aIrESh6n8SSmzezAosexl8XVgYA">
-<meta property="og:updated_time" content="2017-02-20T09:08:23.189Z">
+使うもの
+有機ＥＬ">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA">
+<meta property="og:updated_time" content="2017-02-22T05:51:53.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)で使う">
 <meta name="twitter:description" content="有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う
 これみたいに使うmikroC PRO for PIC &amp;gt; Lcd Library→ https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm
-目次
-
-使うもの">
-<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=17mySfVa9fu4iWWfJjy2Y0t-Yq-1GsIG-yw">
+使うもの
+有機ＥＬ">
+<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA">
 <link rel="publisher" href="u/0/106972576385014381494">
     
 
@@ -213,7 +204,7 @@ ga('send', 'pageview');
             
             <section id="main"><article id="post-esp8266-oled-how-to-use-170214" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -250,34 +241,37 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">目次</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使うもの"><span class="toc-number">1.</span> <span class="toc-text">使うもの</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配線"><span class="toc-number">2.</span> <span class="toc-text">配線</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自作ライブラリをインポート"><span class="toc-number">3.</span> <span class="toc-text">自作ライブラリをインポート</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使い方"><span class="toc-number">4.</span> <span class="toc-text">使い方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自作ライブラリのインクルード"><span class="toc-number">4.1.</span> <span class="toc-text">自作ライブラリのインクルード</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#関数一覧"><span class="toc-number">4.2.</span> <span class="toc-text">関数一覧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oled_cmd関数のコマンド一覧"><span class="toc-number">4.3.</span> <span class="toc-text">Oled_Cmd関数のコマンド一覧</span></a></li></ol></li></ol>
+                </div>
+            
             <p>有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う</p>
 <p>これみたいに使う<br>mikroC PRO for PIC &gt; Lcd Library<br>→ <a href="https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm" target="_blank" rel="external">https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm</a></p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
-<ul>
-<li><a href="#使うもの">使うもの</a></li>
-<li><a href="#配線">配線</a></li>
-<li><a href="#自作ライブラリをインポート">自作ライブラリをインポート</a></li>
-<li><a href="#使い方">使い方</a><ul>
-<li><a href="#自作ライブラリのインクルード">自作ライブラリのインクルード</a></li>
-<li><a href="#関数一覧">関数一覧</a></li>
-<li><a href="#oled_cmd関数のコマンド一覧">Oled_Cmd関数のコマンド一覧</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
 <h1 id="使うもの"><a href="#使うもの" class="headerlink" title="使うもの"></a>使うもの</h1><ul>
 <li><p>有機ＥＬキャラクタディスプレイモジュール　１６ｘ２行　白色<br>  → <a href="http://akizukidenshi.com/catalog/g/gP-08277/" target="_blank" rel="external">http://akizukidenshi.com/catalog/g/gP-08277/</a></p>
-<p>  １６文字×２行の有機ＥＬ（ＯＬＥＤ）ディスプレイです。<br>  マイコン等で制御することで内部に登録済みの任意の文字を表示させることが出来ます。<br>  液晶と違い、文字が光りますので暗い場所での視認性が良好です。また視野角が広いです。<br>  特長<br>  ・コントラストが高く視認性に優れます。<br>  ・視野角が広いです。<br>  ・３．３Ｖ単一電源動作です。<br>  ・Ｉ２Ｃインタフェースです。<br>  仕様<br>  ・電源：２．４Ｖ～３．６Ｖ（標準　３．３Ｖ）<br>  ・消費電流：最大８０ｍＡ（標準　５０ｍＡ）<br>  ・表示色：白色<br>  ・表示部：１６文字ｘ２行<br>  ・１文字（キャラクタ）のドット構成：縦７ドット×横５ドット<br>  ・明るさ：最小１２０ｃｄ／ｍ２（標準　１５０ｃｄ／ｍ２）<br>  ・コントローラ：ＵＳ２０６６または互換品<br>  ・寸法：８０．０ｘ３６．０ｘ８．５ｍｍ</p>
+<p>  １６文字×２行の有機ＥＬ（ＯＬＥＤ）ディスプレイです。<br>  マイコン等で制御することで内部に登録済みの任意の文字を表示させることが出来ます。<br>  液晶と違い、文字が光りますので暗い場所での視認性が良好です。また視野角が広いです。<br>  特長<br>  ・コントラストが高く視認性に優れます。<br>  ・視野角が広いです。<br>  ・３．３Ｖ単一電源動作です。<br>  ・Ｉ２Ｃインタフェースです。</p>
 </li>
 <li><p>自作したライブラリ<br>  → <a href="https://github.com/keijirotanabe/Arduino-Oled-like-mikroC" target="_blank" rel="external">https://github.com/keijirotanabe/Arduino-Oled-like-mikroC</a></p>
 </li>
 <li><p>ESP8266(ESP-WROOM-02)<br>  → <a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a></p>
 </li>
 </ul>
+<a id="more"></a>
 <h1 id="配線"><a href="#配線" class="headerlink" title="配線"></a>配線</h1><p>有機ＥＬキャラクタディスプレイモジュール１６ｘ２行のピン配列</p>
 <table>
 <thead>
@@ -464,7 +458,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -483,7 +477,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -520,7 +514,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/14/esp8266-oled-how-to-use-170214/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/14/esp8266-oled-how-to-use-170214/">コメント</a>
+        <a href="/blog/2017/02/14/esp8266-oled-how-to-use-170214/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/14/esp8266-oled-how-to-use-170214/">コメント</a>
     
 
         </footer>
@@ -575,7 +569,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+                            <a href="/blog/2017/02/22/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
     
     
         <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA)" alt="Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順" class="thumbnail-image"></span>
@@ -586,8 +599,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time></p>
                         </div>
                     </li>
                 
@@ -597,7 +610,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="仮想COMポートから遠くのESP8266とTCP通信する" class="thumbnail-image"></span>
     
 </a>
 
@@ -616,7 +629,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="ESP8266でATコマンドを使ってみる" class="thumbnail-image"></span>
     
 </a>
 
@@ -645,25 +658,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 
@@ -715,8 +709,9 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 田邊 慶次朗<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            &copy; 2017 田邊 慶次朗
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
         </div>
     </div>
 </footer>

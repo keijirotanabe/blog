@@ -191,25 +191,15 @@ ga('send', 'pageview');
 
             
             <section id="main">
-    <article id="post-Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" itemprop="url">
-            <img src="https://drive.google.com/uc?export=view&id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA" class="article-banner" />
-        </a>
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a>
+            <a class="article-title" href="/blog/2017/02/22/hello-world/">Hello World</a>
         </h1>
     
 
@@ -218,106 +208,27 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">
-            <time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time>
+        <a href="/blog/2017/02/22/hello-world/">
+            <time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time>
         </a>
     </div>
 
 
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a>
-    </div>
-
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/Cloud9/">Cloud9</a>, <a class="tag-link" href="/blog/tags/GutHub/">GutHub</a>, <a class="tag-link" href="/blog/tags/Hexo/">Hexo</a>
-    </div>
-
                     </div>
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Cloud9にHexoをインストールし作成したブログをGitHub Pagesに公開するやり方をメモ</p>
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><ul>
-<li>Clude9とGitHubの登録</li>
-<li>Clude9でblogを作成</li>
-<li>GitHubにリポジトリを作成</li>
-<li>SSHの設定</li>
-<li>GitHub Pages にデプロイする</li>
-</ul>
-<h2 id="clude9とgithubの登録"><a href="#Clude9とGitHubの登録" class="headerlink" title="Clude9とGitHubの登録"></a>Clude9とGitHubの登録</h2><p><strong>GitHub</strong><br><a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
-<p><a href="https://github.com/" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=1qI4Rq_0GTsfPTsOaXRfQJYA1XPRlmdhBbQ" alt=""></a></p>
-<p><strong>Cloud9</strong><br><a href="https://c9.io/" target="_blank" rel="external">https://c9.io/</a></p>
-<p><a href="https://c9.io/" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=1C9nw64zvruq--nyFzx-JyYpA1YJuQBg6aQ" alt=""></a></p>
-<h2 id="clude9でblogを作成"><a href="#Clude9でblogを作成" class="headerlink" title="Clude9でblogを作成"></a>Clude9でblogを作成</h2><h3 id="作業用プロジェクトの作成手順"><a href="#作業用プロジェクトの作成手順" class="headerlink" title="作業用プロジェクトの作成手順"></a>作業用プロジェクトの作成手順</h3><ol>
-<li>create a new workspace</li>
-<li>Workspace name: blog_work</li>
-<li>Choose a template -&gt; Node.js</li>
-<li>Create workspace</li>
-</ol>
-<p>blog_workという名前のプロジェクトができます。</p>
-<p>初めにあるファイルはすべて削除します。</p>
-<p>以下でnodeとnpmのバージョンを確認<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~/workspace $ node -v</div><div class="line">v4.6.1</div><div class="line">~/workspace $ npm -v</div><div class="line">2.15.9</div></pre></td></tr></table></figure></p>
-<h3 id="hexoのインストール"><a href="#Hexoのインストール" class="headerlink" title="Hexoのインストール"></a>Hexoのインストール</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo公式サイト</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace $ npm install hexo-cli -g</div><div class="line">~/workspace $ hexo init blog</div><div class="line">~/workspace $ cd blog</div><div class="line">~/workspace/blog $ npm install</div><div class="line">~/workspace/blog $ hexo server -p 8080</div></pre></td></tr></table></figure>
-<p>ターミナルから <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a>　-&gt; Open </p>
-<h3 id="sshの設定"><a href="#SSHの設定" class="headerlink" title="SSHの設定"></a>SSHの設定</h3><h5 id="clude9の場合"><a href="#Clude9の場合" class="headerlink" title="Clude9の場合"></a>Clude9の場合</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>で公開鍵が出力されるので、コピーする</p>
-<h5 id="clude9以外の場合"><a href="#Clude9以外の場合" class="headerlink" title="Clude9以外の場合"></a>Clude9以外の場合</h5><p>.sshディレクトリの作成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ mkdir ~/.ssh</div></pre></td></tr></table></figure>
-<p>鍵を生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ ssh-keygen -t rsa</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):</div><div class="line">Enter passphrase (empty for no passphrase):</div><div class="line">Enter same passphrase again:</div></pre></td></tr></table></figure></p>
-<p>何か聞かれるので3回エンター</p>
-<p>鍵の中身をクリップボードへコピー<br>xselのインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ sudo apt-get install xsel</div></pre></td></tr></table></figure>
-<p>クリップボードへコピーするコマンド</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ cat ./id_rsa.pub | xsel --clipboard --input</div><div class="line"></div><div class="line"># Mac or Windows</div><div class="line">$ pbcopy &lt; ~/.ssh/id_rsa.pub  (Mac)</div><div class="line">$ clip &lt; ~/.ssh/id_rsa.pub    (Windows)</div></pre></td></tr></table></figure>
-<h3 id="公開鍵をgithubに登録"><a href="#公開鍵をGitHubに登録" class="headerlink" title="公開鍵をGitHubに登録"></a>公開鍵をGitHubに登録</h3><p><a href="https://github.com/settings/ssh" target="_blank" rel="external">公開鍵をGitHubに登録</a>で公開鍵を設定。</p>
-<ol>
-<li>New SSH key</li>
-<li>Titlte : cloud9-ssh-rsa</li>
-<li>Key : 鍵の中身をコピペ (Ctrl + V)</li>
-<li>Add SSH key</li>
-</ol>
-<p>接続確認</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ ssh -T git@github.com</div><div class="line">Hi &lt;アカウント名&gt; You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
-<p>と返れば成功</p>
-<h2 id="githubにリポジトリを作成"><a href="#GitHubにリポジトリを作成" class="headerlink" title="GitHubにリポジトリを作成"></a>GitHubにリポジトリを作成</h2><h5 id="手順"><a href="#手順-1" class="headerlink" title="手順"></a>手順</h5><ol>
-<li>Start a project</li>
-<li>Repository name: blog</li>
-<li>Create repository</li>
-</ol>
-<p>SSH文字列をコピー</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:keijirotanabe/blog.git</div></pre></td></tr></table></figure>
-<p>こういうやつ</p>
-<h2 id="github-pages-にデプロイする"><a href="#GitHub-Pages-にデプロイする" class="headerlink" title="GitHub Pages にデプロイする"></a>GitHub Pages にデプロイする</h2><p> GitHub Pages へデプロイするには ‘hexo-deployer-git’ という Hexo のプラグインをインストールする必要があるので、</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>でインストール</p>
-<h3 id="gitの設定"><a href="#gitの設定" class="headerlink" title="gitの設定"></a>gitの設定</h3><p>バージョン確認</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --version</div><div class="line">git version 2.10.2</div></pre></td></tr></table></figure>
-<p>インストールされてなければ以下で、インストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git-core</div></pre></td></tr></table></figure>
-<p>名前とメールアドレスの設定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Keijiro Tanabe&quot;</div><div class="line">$ git config --global user.email &quot;ayt7gysnyx@gmail.com&quot;</div></pre></td></tr></table></figure>
-<p>設定できたか確認</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git config -l</div><div class="line">user.name=Keijiro Tanabe</div><div class="line">user.email=ayt7gysnyx@gmail.com</div><div class="line">core.editor=nano</div><div class="line">core.whitespace=off</div><div class="line">core.excludesfile=~/.gitignore</div><div class="line">advice.statusuoption=false</div><div class="line">color.ui=true</div><div class="line">push.default=current</div></pre></td></tr></table></figure>
-<h3 id="_configyml-の編集"><a href="#config-yml-の編集" class="headerlink" title="_config.yml の編集"></a>_config.yml の編集</h3><p><a href="https://hexo.io/docs/deployment.html#Git" target="_blank" rel="external">Deployment | Hexo</a>を参考に<code>_config.yml</code>ファイルを編集していく</p>
-<p>url: <a href="https://[アカウント名].github.io/blog/" target="_blank" rel="external">https://[アカウント名].github.io/blog/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">url: https://keijirotanabe.github.io/blog/</div><div class="line">root: /blog/</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:　git</div><div class="line">  repo: git@github.com:keijirotanabe/blog.git　(さっきコピーしたやつ)</div><div class="line">  branch: gh-pages</div></pre></td></tr></table></figure>
-<h3 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~/workspace/blog $ hexo deploy -g</div></pre></td></tr></table></figure>
-<p><a href="https://keijirotanabe.github.io/blog/">https://keijirotanabe.github.io/blog/</a><br><a href="https://[アカウント名].github.io/blog/" target="_blank" rel="external">https://[アカウント名].github.io/blog/</a></p>
-<p>といったurlにアクセス</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://am1tanaka.hatenablog.com/entry/2017/01/23/011105" target="_blank" rel="external">HexoのインストールとGitHub Pageへデプロイ</a><br><a href="http://qiita.com/shizuma/items/2b2f873a0034839e47ce" target="_blank" rel="external">gitHubでssh接続する手順~公開鍵・秘密鍵の生成から~</a></p>
-<h5 id="メモ"><a href="#メモ" class="headerlink" title="メモ"></a>メモ</h5><ul>
-<li>Cloud9背景黒<br>Preferences -&gt; THEMES -&gt; Classic Theme</li>
-</ul>
-
+            <p><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/22/hello-world/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -326,7 +237,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -345,7 +256,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -382,7 +293,146 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">コメント</a>
+        <a href="/blog/2017/02/22/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/22/hello-world/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        <!-- title -->
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">
+            <time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Cloud9/">Cloud9</a>, <a class="tag-link" href="/blog/tags/GutHub/">GutHub</a>, <a class="tag-link" href="/blog/tags/Hexo/">Hexo</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Cloud9にHexoをインストールし作成したブログをGitHub Pagesに公開するやり方をメモ</p>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><ul>
+<li>Clude9とGitHubの登録</li>
+<li>Clude9でblogを作成</li>
+<li>GitHubにリポジトリを作成</li>
+<li>SSHの設定</li>
+<li>GitHub Pages にデプロイする</li>
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/#more">続きを読む</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: "Mplus 1p";
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+        <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/">コメント</a>
     
 
         </footer>
@@ -394,7 +444,7 @@ ga('send', 'pageview');
 
     <article id="post-esp8266-virtural-serial-port-170218" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -431,111 +481,31 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>PCに仮想COMポートソフトをインストールし、従来のRS232C通信のようにやりとりします。<br>これにより、COMポートからWiFi経由で、遠くのESP8266と通信できるようなります。</p>
+            <p><p>PCに仮想COMポートソフトをインストールし、従来のRS232C通信のようにやりとりします。<br>これにより、COMポートからWiFi経由で、遠くのESP8266と通信できるようなります。</p>
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
 <li><p><strong>Arduino IDE を使用するのでインストールしておきます</strong><br>  → <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考</p>
 </li>
 <li><p><strong>ATコマンドを使える状態にしておいてください</strong><br>  一度でもArduinoのスケッチを書き込むとATコマンドが使えなくなるので、再びATコマンドが使えるようにするにはファームウェアを書き直す必要があります<br>  → <a href="/blog/2017/02/06/esp8266-at-reset-170207/" title="ArduinoのESP8266をATコマンドが使えるように戻す">ArduinoのESP8266をATコマンドが使えるように戻す</a>を参考</p>
 </li>
-</ul>
-<hr>
-<h1 id="esp8266の設定"><a href="#ESP8266の設定" class="headerlink" title="ESP8266の設定"></a>ESP8266の設定</h1><h2 id="ステーションモードに設定"><a href="#ステーションモードに設定" class="headerlink" title="ステーションモードに設定"></a>ステーションモードに設定</h2><p>最初にESP8266をステーションモードにしておきます。</p>
-<p><strong>WiFiモードには３つあります。</strong></p>
-<ol>
-<li>ステーションモード<br> →周囲にあるアクセスポイント(AP)に接続します。</li>
-<li>ソフトAPモード<br> →本モジュールがアクセスポイント(AP)になります。</li>
-<li>ステーションモード＋APモード<br> →上記の１と２の両方を実行します。</li>
-</ol>
-<p>↓ 現在のWiFiモードを確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWMODE?</div></pre></td></tr></table></figure></p>
-<p>ステーションモードにするには<code>AT+CWMODE=1</code>とします。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AT+CWMODE=1</div><div class="line"># 同様に</div><div class="line"># AT+CWMODE=2 ← ソフトAPモード</div><div class="line"># AT+CWMODE=3 ← ステーションモード＋APモード</div></pre></td></tr></table></figure></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=14zxqGYUo9T_X-RrJuOBWC9WucwO4pdkxEQ" alt=""></p>
-<p>ステーションモードに設定できました。</p>
-<hr>
-<h2 id="アクセスポイントに接続"><a href="#アクセスポイントに接続" class="headerlink" title="アクセスポイントに接続"></a>アクセスポイントに接続</h2><p>続いて、アクセスポイントに接続します。<br>接続するコマンドは↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWJAP=&quot;SSID&quot;,&quot;パスワード&quot;</div></pre></td></tr></table></figure></p>
-<p>↓接続先を確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWJAP?</div></pre></td></tr></table></figure></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1xvK-DspOBGh-qesbLHc_2uPa2HKwOWypdA" alt=""></p>
-<p>アクセスポイントに接続されました。<br>ちなみに、切断したい場合は↓のコマンドです。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CWQAP</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="hw-vsp3-のインストール"><a href="#HW-VSP3-のインストール" class="headerlink" title="HW VSP3 のインストール"></a>HW VSP3 のインストール</h1><h2 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h2><p>ダウンロード先<br><a href="http://www.hw-group.com/products/hw_vsp/index_en.html" target="_blank" rel="external">http://www.hw-group.com/products/hw_vsp/index_en.html</a></p>
-<p><a href="http://www.hw-group.com/products/hw_vsp/index_en.html" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=120TcZ0AWCZik1mZDB9muv9DGlsx7c5et5g" alt="ダウンロード場所"></a></p>
-<p>めんどくさい人は<a href="http://new.hwg.cz/files/download/sw/version/hw-vsp3-single_3-1-2.exe" target="_blank" rel="external">ここからダウンロード</a></p>
-<hr>
-<h2 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h2><p>ダウンロードした<code>hw-vsp3-single_3-1-2.exe</code>を実行し、以下の流れでインストールします。</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Og1b3ELC3YLovdk3D8ThK6sOiiBKoEzEBg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1fB0rMhf_I-xT1YokK-LAw7QnN0ulMMxb1Q" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1rLg8aQ9iRJRtGi8dBusAGP457f1MTdUWYA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1sOa6iH55P7CpUCTrp91cGSwc5LX8d6n_rg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1vEmNI2qH71D760sjD-H0cW9p-IGUbZi5mw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1JRHdX7G4ziQdKUF_ySSJnjoGPFL9rB-1Hw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=13p-uSc8idumA3wkkG00Hlz9Aetlx5h_Zfg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oTL_B0D2hOt8FsQt-qpCdPYlzJRpe31pPw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1xsH1rA6GGtpQ7L20AIQRNdWwL6cOVsw3Kw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1abbOxY0PvJHc69mwr7NHMLiDUt3u9k_Q6w" alt=""></p>
-<p>インストールが完了しました。</p>
-<hr>
-<h1 id="hw-vsp3でtcpサーバーを立てる"><a href="#HW-VSP3でTCPサーバーを立てる" class="headerlink" title="HW VSP3でTCPサーバーを立てる"></a>HW VSP3でTCPサーバーを立てる</h1><p>HW VSP3 を起動します。</p>
-<p>「Login」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1IIqxN_9T0vmmZ9MKsWoNU7zJy08udSE3PA" alt=""></p>
-<p>「OK」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1n4Lye-FcMsHASuZM7JwQXIkj1jYw8iXj1Q" alt=""></p>
-<p>「Settings」タブを選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1T7bUyJBZzJHlxNtbiUrYracLZtCNMuqzwg" alt=""></p>
-<p>チェックを「TCP Server Mode」だけにします。<br><img src="https://drive.google.com/uc?export=view&amp;id=1oLeMjgVt4Ya5NfOJzfbvpNGewf97gOFlmg" alt=""></p>
-<p>「Virtual Serial Port」タブを選択<br>「Port Name」を「COM10」に選択（使ってなければ何でもよい）<br>「IP Address」は「0.0.0.0」のまま<br>「Port」を「8089」に選択（<a href="http://e-words.jp/w/%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%8E%E3%82%A6%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88.html" target="_blank" rel="external"><em>ウェルノウンポート</em></a>でなければ何でもよい）<br><img src="https://drive.google.com/uc?export=view&amp;id=1SOOTL-FaikxIG5-cUib_ajiDUULuXJX-Yg" alt=""></p>
-<p>「Create COM」で仮想COMが作られます。</p>
-<p>「デバイスマネージャー」を確認すると、「Virtual Serial Port(Eltima Softwate)」ができ、展開すると「COM10」が作られていることが分かります。<br><img src="https://drive.google.com/uc?export=view&amp;id=19RdbOdnzE-RP4sv-lnbo2vCZ-phhM64tiw" alt=""></p>
-<hr>
-<h1 id="pcのipアドレスを確認"><a href="#PCのIPアドレスを確認" class="headerlink" title="PCのIPアドレスを確認"></a>PCのIPアドレスを確認</h1><p>HW VSP3を実行中のＰＣはTCPサーバーになったので、ESP8266から接続します。</p>
-<p>PCのIPアドレスを調べます。<br>１と２どちらの方法でも構いません。</p>
-<p><strong>1.コマンドプロンプトに「<code>ipconfig</code>」と打つ</strong><br><img src="https://drive.google.com/uc?export=view&amp;id=1YQEch7m2RF0NGhN4leROeZwvyMWeJDfcHA" alt=""></p>
-<p><strong>2.ネットワーク接続の詳細をみる</strong><br>コントロールパネル &gt; ネットワークとインターネット &gt; ネットワークと共有センターを開く<br><img src="https://drive.google.com/uc?export=view&amp;id=1DQDqdqIV_qeGy0wOE4BeBze6bR1mLxDfmA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1wJTLgs0hbDYeQ-UJdalYVYebWUWsnqn8LQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1x5smFrjt5tbnP4XiQg7PkkEn7RoBF1EdbQ" alt=""></p>
-<p>PCのIPアドレスは<code>192.168.11.4</code>でした。</p>
-<hr>
-<h1 id="esp8266で接続する"><a href="#ESP8266で接続する" class="headerlink" title="ESP8266で接続する"></a>ESP8266で接続する</h1><h2 id="アクセスポイントに接続"><a href="#アクセスポイントに接続-1" class="headerlink" title="アクセスポイントに接続"></a>アクセスポイントに接続</h2><p>TCP/IPまたはUDPへの接続設定＆接続開始するコマンドは↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSTART=&quot;プロトコル&quot;,&quot;IPアドレス&quot;,ポート番号</div></pre></td></tr></table></figure></p>
-<p>プロトコル: TCP<br>IPアドレス: 192.168.11.4　（各自、違います）<br>ポート番号: 8089　（↑で設定したやつ）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSTART=&quot;TCP&quot;,&quot;192.168.11.4&quot;,8089</div></pre></td></tr></table></figure></p>
-<p>接続すると、CONNECT と OK が返ります。</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1fAxmJMy2f6S3RckhYfyMLmvC_2hAN9rIrA" alt=""></p>
-<p>コネクションが確立しました。</p>
-<p>コネクションを切断するには↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPCLOSE</div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="tcpサーバーを開く"><a href="#TCPサーバーを開く" class="headerlink" title="TCPサーバーを開く"></a>TCPサーバーを開く</h2><p>PCからCOM10を開くと通信が開始されます。</p>
-<p>Arduino IDE をもう一つ起動します。<br>「COM10」を選択して、シリアルモニタを起動してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=14eGQGgtgM6vlnHLz2zyOgcD4tPSlzisbdQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1nWdET3w5EKSyJaO6OYgOCvp3Ser2Mh6MNA" alt=""></p>
-<hr>
-<h2 id="esp8266から送信"><a href="#ESP8266から送信" class="headerlink" title="ESP8266から送信"></a>ESP8266から送信</h2><p>ESP8266から、TCPサーバーへ「Hello」と送ってみます。</p>
-<p>送信サイズを選択<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND=5      // 5バイト送信</div></pre></td></tr></table></figure></p>
-<p>「Hello」を送信<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello</div></pre></td></tr></table></figure></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1GjduqgZz_zaidAUWLGwnefdfPX0I-8Ahsw" alt=""></p>
-<hr>
-<h2 id="tcpサーバーから送信"><a href="#TCPサーバーから送信" class="headerlink" title="TCPサーバーから送信"></a>TCPサーバーから送信</h2><p>次はTCPサーバーから、「ESP8266」と送ってみます。</p>
-<p>送信画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1Uwle6glLxPsgGKSvmY1QlFhVqRxSH6w65A" alt=""></p>
-<p>受信画面<br><img src="https://drive.google.com/uc?export=view&amp;id=1fT6NVF_Ydm3nTpciqHS-hqY4X2fwAJLt0Q" alt=""></p>
-<hr>
-<h2 id="相互に通信"><a href="#相互に通信" class="headerlink" title="相互に通信"></a>相互に通信</h2><p>ESP8266からシームレスな通信ができるように、「トランスペアレントモード」にします。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT+CIPMODE=1</div><div class="line"></div><div class="line"># AT+CIPMODE=0  // ATコマンドモード</div></pre></td></tr></table></figure>
-<p>つづいて↓を入力します。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND</div></pre></td></tr></table></figure></p>
-<p>「&gt;」が返るとトランスペアレントモードに移行します。</p>
-<p>両方のターミナルに適当な文字を打つと、相手側のウィンドウに表示されます。</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1TJKPLNOoUI2st7sT0NfVWTKgBgsEUlayRA" alt=""></p>
-<hr>
-<p>トランスペアレントモードから抜けるには、「+++」を入力します。<br>ですが、制御コードがつくと「+++」を文字列として相手に送信してしまいます。</p>
-<p>↓のように「改行なし」にした状態で、「+++」を送信してください。<br><img src="https://drive.google.com/uc?export=view&amp;id=1vTWx38y6v4OtF-I2DyR8oP_gSVp-yI5tfQ" alt=""></p>
-<p>「AT」と打って「OK」が返れば、トランスペアレントモードから抜けました。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT</div><div class="line"></div><div class="line">OK</div></pre></td></tr></table></figure></p>
-<p>再び、トランスペアレントモードに入るには↓です。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND</div></pre></td></tr></table></figure></p>
-<p>また、↓のように送信サイズを指定して送信するには、<code>AT+CIPMODE=0</code>に設定を戻してください。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AT+CIPSEND=5      // 5バイト送信</div><div class="line">&gt; Hello</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h1><p>仮想COMポートとトランスペアレントモードを組み合わせることで、RS232C有線で接続しているかのようにUSRT通信を無線化できました。</p>
-<hr>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://www.microtechnica.tv/support/manual/espwroom02jp_man.pdf" target="_blank" rel="external">Wi-Fi-UARTシリアルモジュール - マイクロテクニカ</a></li>
-<li><a href="http://nonnoise.github.io/ESP-WROOM-02/ATcommand.html" target="_blank" rel="external">ATコマンド集</a></li>
-</ul>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -544,7 +514,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -563,7 +533,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -600,7 +570,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/">コメント</a>
+        <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/18/esp8266-virtural-serial-port-170218/">コメント</a>
     
 
         </footer>
@@ -612,7 +582,7 @@ ga('send', 'pageview');
 
     <article id="post-esp8266-at-command-170218" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -649,162 +619,33 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/17/esp8266-at-command-170218/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>ESP8266でATコマンドを使ってみる</p>
+            <p><p>ESP8266でATコマンドを使ってみる</p>
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
 <li><p><strong>Arduino IDE を使用するのでインストールしておきます</strong><br>  → <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考</p>
 </li>
-<li><p>ESPr Developer(ESP-WROOM-02開発ボード)を使用します<br>  → <a href="http://amzn.to/2m7sk2X" target="_blank" rel="external">ESPr Developer（ESP-WROOM-02開発ボード）</a></p>
+<li><p>ESPr Developer(ESP-WROOM-02開発ボード)を使用します<br>  → <a href="http://amzn.to/2m7sk2X">ESPr Developer（ESP-WROOM-02開発ボード）</a></p>
 </li>
 <li><p><strong>ATコマンドを使える状態にしておいてください</strong><br>  一度でもArduinoのスケッチを書き込むとATコマンドが使えなくなるので、再びATコマンドが使えるようにするにはファームウェアを書き直す必要があります<br>  → <a href="/blog/2017/02/06/esp8266-at-reset-170207/" title="ArduinoのESP8266をATコマンドが使えるように戻す">ArduinoのESP8266をATコマンドが使えるように戻す</a>を参考</p>
 </li>
-</ul>
-<h2 id="esp8266の起動モードについて"><a href="#ESP8266の起動モードについて" class="headerlink" title="ESP8266の起動モードについて"></a>ESP8266の起動モードについて</h2><ul>
-<li><p><strong>実行モード(Flash Boot Mode)</strong><br>  書かれているプログラムを起動し、実行します</p>
-</li>
-<li><p><strong>書き込みモード(UART Download Mode)</strong><br>  プログラムを書き帰るときに使用します</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>GPIO</th>
-<th>pinの名前</th>
-<th>実行モード</th>
-<th>書き込みモード</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GPIO0</td>
-<td>IO0</td>
-<td>HIGH</td>
-<td>LOW</td>
-</tr>
-<tr>
-<td>GPIO2</td>
-<td>IO2</td>
-<td>HIGH</td>
-<td>HIGH</td>
-</tr>
-<tr>
-<td>GPIO15</td>
-<td>IO15</td>
-<td>LOW</td>
-<td>LOW</td>
-</tr>
-</tbody>
-</table>
-<p>IO0 pinの違いで起動モードが変化します<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード</p>
-<hr>
-<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><p>シリアルモニタ起動画面</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1O1usSlNI3l5APYgjialov1GF0Dre8nt9TQ" alt=""></p>
-<h2 id="基本atコマンド"><a href="#基本ATコマンド" class="headerlink" title="基本ATコマンド"></a>基本ATコマンド</h2><p><strong>AT</strong><br>起動時のテストに使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1R1aPEepygpjwDGv4Gl_4XJXNJunD22bimw" alt=""></p>
-<hr>
-<p><strong>AT+RST</strong><br>モジュールを再起動するために使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+RST</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1PgXxzWedx44tpaIJB0D1bJhkYeHf7N6Xvg" alt=""></p>
-<hr>
-<p><strong>AT+GMR</strong><br>インストールされているATコマンドファームウェアのバージョンとそのSDKをチェックするために使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+GMR</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1N2oQt25ceu1xSvk9zbFv6OAF4zA9wUBQ7Q" alt=""></p>
-<hr>
-<p><strong>AT+GSLP</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AT+GSLP=&lt;時間&gt;      // &lt;時間&gt;の単位はmsです</div><div class="line"></div><div class="line">例: AT+GSLP=1000</div></pre></td></tr></table></figure>
-<p>OKとでたあと「AT」と入力しても反応がなくなりました<br>1000ms以上たっても反応していないみたいなので、復帰のさせかたがよくわからない</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1svrHv2oWUiwG4Ii5urbM5Lmj5y_1f0qweg" alt=""></p>
-<hr>
-<p><strong>ATE</strong><br>入力されたコマンドをエコーする</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">例: ATE0    // エコーオフ</div><div class="line">    ATE1    // エコーをオンにする</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1nBV-X1T0pgf2NTkjQnU2VUKbm991bEOxHA" alt=""></p>
-<hr>
-<p><strong>AT+RESTORE</strong><br>工場出荷時の設定に戻します<br>フラッシュに保存されているすべてのパラメータはリセットされます</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AT+RESTORE</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1gjOaDdubtvRv5YR5vGQnWkhHidbu9nHiug" alt=""></p>
-<hr>
-<p><strong>AT+UART</strong><br>UART構成を設定し、フラッシュに保存されます。<br>※このコマンドは非推奨です。フラッシュへの保存あり、なしに応じて↓のコマンドを使用することが、推奨されています。</p>
-<ul>
-<li><strong>AT+UART_CUR</strong><br>  UART構成を設定し、フラッシュに保存されません。</li>
-<li><strong>AT+UART_DEF</strong><br>  UART構成を設定し、フラッシュに保存されます。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">AT+UART_CUR=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;</div><div class="line">AT+UART_DEF=&lt;ボーレート&gt;&lt;データビット&gt;&lt;ストップビット&gt;&lt;パリティ&gt;&lt;フロー制御&gt;</div><div class="line"></div><div class="line">例: AT+UART_CUR=9600,8,1,0,0</div><div class="line">    AT+UART_DEF=9600,8,1,0,0</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>AT+SLEEP</strong><br>スリープモードを設定でき、ステーションモードでのみ使用できます<br>デフォルトはモデムスリープモードです</p>
-<hr>
-<h2 id="基本atコマンド一覧"><a href="#基本ATコマンド一覧" class="headerlink" title="基本ATコマンド一覧"></a>基本ATコマンド一覧</h2><table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AT</td>
-<td>起動時のテスト</td>
-</tr>
-<tr>
-<td>AT+RST</td>
-<td>再起動</td>
-</tr>
-<tr>
-<td>AT+GMR</td>
-<td>バージョン情報を表示</td>
-</tr>
-<tr>
-<td>AT+GSLP</td>
-<td>ディープスリープモードに入る</td>
-</tr>
-<tr>
-<td>ATE</td>
-<td>ATコマンドはエコーか?</td>
-</tr>
-<tr>
-<td>AT+RESTORE</td>
-<td>工場出荷時リセット</td>
-</tr>
-<tr>
-<td>AT+UART</td>
-<td>UART設定</td>
-</tr>
-<tr>
-<td>AT+UART_CUR</td>
-<td>UARTの現在の設定</td>
-</tr>
-<tr>
-<td>AT+UART_DEF</td>
-<td>UARTのデフォルト設定、フラッシュ保存</td>
-</tr>
-<tr>
-<td>AT+SLEEP</td>
-<td>スリープモード</td>
-</tr>
-<tr>
-<td>AT+WAKEUPGPIO</td>
-<td>ライトスリープモードからESP8266を起動させるGPIOを設定する</td>
-</tr>
-<tr>
-<td>AT+RFPOWER</td>
-<td>RF TX Powerの最大値を設定する</td>
-</tr>
-<tr>
-<td>AT+RFVDD</td>
-<td>RF TX電源をVDD33に従って設定してください</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="wifi-atコマンド一覧"><a href="#WiFi-ATコマンド一覧" class="headerlink" title="WiFi ATコマンド一覧"></a>WiFi ATコマンド一覧</h2><p>追加予定</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf" target="_blank" rel="external">ESP8266 AT Instruction Set Version 2.0.0</a></li>
-<li><a href="http://nonnoise.github.io/ESP-WROOM-02/ATcommand.html" target="_blank" rel="external">ATコマンド集</a></li>
-</ul>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/17/esp8266-at-command-170218/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -813,7 +654,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -832,7 +673,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -869,7 +710,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/">コメント</a>
+        <a href="/blog/2017/02/17/esp8266-at-command-170218/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/esp8266-at-command-170218/">コメント</a>
     
 
         </footer>
@@ -881,7 +722,7 @@ ga('send', 'pageview');
 
     <article id="post-google-photo-not-show-170217" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -908,21 +749,15 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>ブログ用の画像をGoogleフォトから呼び出していたが、表示されなくなったので解決策をメモ</p>
-<h1 id="問題の状態"><a href="#問題の状態" class="headerlink" title="問題の状態"></a>問題の状態</h1><p><img src="http://drive.google.com/uc?export=view&id=1dK6nMPhUOt0FNuN-aItNhM-9SH9Ip17ERA"></p>
-<p><img src="http://drive.google.com/uc?export=view&id=1hhXQfcusUMsgiaeBLWdURkvHNtZHjcCuJg"></p>
-<h1 id="解決策"><a href="#解決策" class="headerlink" title="解決策"></a>解決策</h1><p>imgタグ<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&quot;http://drive.google.com/uc?export=view&amp;id=&lt;画像ID&gt;&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>Markdown<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](src=&quot;http://drive.google.com/uc?export=view&amp;id=&lt;画像ID&gt;&quot;)&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://www.weed.nagoya/entry/2016/06/08/191000" target="_blank" rel="external">Googleフォトの写真や動画をWebページに埋め込むには（追記あり）</a></li>
-<li><a href="http://tharadaa8.blogspot.jp/2016/03/google.html" target="_blank" rel="external">Google フォトの画像をホームページに貼る方法 </a></li>
-<li><a href="https://gist.github.com/mattsuDev/5ed37be6d659e05eadd1" target="_blank" rel="external">Googleドライブの画像をMarkdownの中に挿入する方法.md</a></li>
-</ul>
-
+            <p><p>ブログ用の画像をGoogleフォトから呼び出していたが、表示されなくなったので解決策をメモ</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/17/google-photo-not-show-170217/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -931,7 +766,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -950,7 +785,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -987,124 +822,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/17/google-photo-not-show-170217/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/google-photo-not-show-170217/">コメント</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/02/16/hello-world/">Hello World</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/02/16/hello-world/">
-            <time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="quick-start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-    <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
-    <span class="a2a_divider"></span>
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_twitter"></a>
-    <a class="a2a_button_google_plus"></a>
-    <a class="a2a_button_pinterest"></a>
-    <a class="a2a_button_tumblr"></a>
-</div>
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-<style>
-    .a2a_menu {
-        border-radius: 4px;
-    }
-    .a2a_menu a {
-        margin: 2px 0;
-        font-size: 14px;
-        line-height: 16px;
-        border-radius: 4px;
-        color: inherit !important;
-        font-family: 'Microsoft Yahei';
-    }
-    #a2apage_dropdown {
-        margin: 10px 0;
-    }
-    .a2a_mini_services {
-        padding: 10px;
-    }
-    a.a2a_i,
-    i.a2a_i {
-        width: 122px;
-        line-height: 16px;
-    }
-    a.a2a_i .a2a_svg,
-    a.a2a_more .a2a_svg {
-        width: 16px;
-        height: 16px;
-        line-height: 16px;
-        vertical-align: top;
-        background-size: 16px;
-    }
-    a.a2a_i {
-        border: none !important;
-    }
-    a.a2a_menu_show_more_less {
-        margin: 0;
-        padding: 10px 0;
-        line-height: 16px;
-    }
-    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-    .a2a_mini_services{*+height:1%;}
-</style>
-
-</div>
-
-            
-    
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/16/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/16/hello-world/">コメント</a>
+        <a href="/blog/2017/02/17/google-photo-not-show-170217/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/17/google-photo-not-show-170217/">コメント</a>
     
 
         </footer>
@@ -1116,17 +834,7 @@ ga('send', 'pageview');
 
     <article id="post-hexo-search-add-170216" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/02/15/hexo-search-add-170216/" itemprop="url">
-            <img src="https://drive.google.com/uc?export=view&id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA" class="article-banner" />
-        </a>
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1163,32 +871,25 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/15/hexo-search-add-170216/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1YH_mttOCgwKheERyWoikf4ftiKIk5NA6HA" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Hexoのテーマicarusでサイト内検索を追加するのにつまづいたのでメモ</p>
-<h1 id="_configymlの設定"><a href="#config-ymlの設定" class="headerlink" title="_config.ymlの設定"></a>_config.ymlの設定</h1><p>themes &gt; icarus &gt; _config.yml を編集</p>
-<figure class="highlight yml"><figcaption><span>config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">search:</span> </div><div class="line"><span class="attr">    insight:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
-<p>としたあと、</p>
-<p><code>hexo-generator-json-content</code>をインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-json-content --save</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1lc9S7cgsX1Ar8c3NM6qC7mDX-b_qDY_x-Q" alt=""></p>
-<p>これで、追加されるはず、、、</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s -p 8080 --draft</div></pre></td></tr></table></figure>
-<p>が、サーバーを起動したらエラーが発生</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1t6sPhfi5FS_1S4RRDqETvD_xZKLTaMToMA" alt=""></p>
-<h1 id="解決策"><a href="#解決策" class="headerlink" title="解決策"></a>解決策</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -S hexo-generator-json-content@1 --save</div></pre></td></tr></table></figure>
-<p>とし、サーバーを起動</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=19j1bRjuvcde1neN4nhaEWZL4DhL3ZxUukg" alt=""></p>
-<p>これで起動しました</p>
-<p>サイト内検索もうまく追加されました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1YH_mttOCgwKheERyWoikf4ftiKIk5NA6HA" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://blog.yangcvo.me/2014/06/16/Blog/Hexo/hexo%E6%89%93%E5%8C%85%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF%EF%BC%9AERROR%20Plugin%20load%20failed:hexo-generator-json-content/" target="_blank" rel="external">hexo打包提示错误:ERROR Plugin load failed:hexo-generator-json-content</a></li>
-<li><a href="https://github.com/hexojs/hexo/issues/1080" target="_blank" rel="external">Hexo插件无法运行/安装,hexo g提示ReferenceError: hexo is not defined</a></li>
-</ul>
-
+            <p><p>Hexoのテーマicarusでサイト内検索を追加するのにつまづいたのでメモ</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/15/hexo-search-add-170216/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1197,7 +898,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1216,7 +917,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1253,7 +954,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/15/hexo-search-add-170216/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/15/hexo-search-add-170216/">コメント</a>
+        <a href="/blog/2017/02/15/hexo-search-add-170216/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/15/hexo-search-add-170216/">コメント</a>
     
 
         </footer>
@@ -1265,17 +966,7 @@ ga('send', 'pageview');
 
     <article id="post-hexo-disqus-add-comment-170215" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" itemprop="url">
-            <img src="https://drive.google.com/uc?export=view&id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA" class="article-banner" />
-        </a>
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1312,40 +1003,26 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1Y7QiWYxkBFGNKcogw0FSJlL42tvG1J5DxQ" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>HexoにDisqusでコメント機能を追加する手順をまとめました</p>
-<h1 id="disqus-公式サイト"><a href="#Disqus-公式サイト" class="headerlink" title="Disqus 公式サイト"></a>Disqus 公式サイト</h1><p><a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a></p>
-<h1 id="disqusに登録"><a href="#Disqusに登録" class="headerlink" title="Disqusに登録"></a>Disqusに登録</h1><p>「GET STARTED」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1va5z1-WkTBBtmV8TAfJa9154qLIbFhe_aQ" alt=""></p>
-<p>今回はGoogleアカウントで登録します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=14LJWLsQ_k_Y8Go4AYFl0pPNb3SGyJ14kAw" alt=""></p>
-<p>別ウィンドウが開くので入力</p>
-<p><img src="https://drive.google.com/open?id=1m0Kd3lwAc9K9Wyyt0hQzGodn5z42Ehns1g" alt=""></p>
-<p>「I want to install Disqus on my site」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1hc9G0zxQtmK1GrrTQro7KZisEWJRy_bcWg" alt=""></p>
-<p>3ヶ所入力後、「Create Site」を選択</p>
-<p><img src="https://drive.google.com/open?id=1oVOJx03vQHQjSfEAqFdtid_W8eIFW17e8Q" alt=""></p>
-<p>「Got it. Let’s get started!」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=13p41WKHypFca6Y1wsX6RsT7C11R_ZZrrHw" alt=""></p>
-<p>Hexoはないので、次へ</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1chqNIi5VH8Ns4Z1yWxPsRVnf4NuSIVBdyg" alt=""></p>
-<p>使用しているテンプレートにコメントがない場合はscriptを追加してください<br>※このブログで使用している<code>icarus</code>にはコメントがあるので省略します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ZQCCgm1YBTP0GemokEWxVvo-yoGxnBnzew" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1pQkHj_0IWbOFyJW6USZgPTQq5TYWDVdWBg" alt=""></p>
-<p>サイトのURLを入力し、「Complete Setup」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1KRzRXoR5IJ32KGAsu3RBFB3G-qbO4gJXPg" alt=""></p>
-<p>Admin &gt; Settings &gt; blog &gt; General<br>「shortname」をコピー</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1WtOPXmbiel5bxqyndwx8DVqrMH3Q5boSvg" alt=""></p>
-<p>shortnameを_config.ymlに記述<br><code>themes &gt; icarus &gt; _config.yml</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">comment:</div><div class="line">    disqus: [shortname]</div><div class="line">    duoshuo: [shortname]</div></pre></td></tr></table></figure>
-<h1 id="関係のないコメントを消す"><a href="#関係のないコメントを消す" class="headerlink" title="関係のないコメントを消す"></a>関係のないコメントを消す</h1><p><img src="https://drive.google.com/uc?export=view&amp;id=1NTinMUraLb6IrSJJ4BumbhvPAAjY-qrxuQ" alt=""></p>
-<p>Admin &gt; Settings &gt; blog &gt; General<br>Discoveryのチェックを外す</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1StdFmpbskoAaxzu6x72FZa2Za8IYYc-rhg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1zIpit_OA8t7pFcEg1PS5mFkbPAWiKEATJg" alt=""></p>
-
+            <p><p>HexoにDisqusでコメント機能を追加する手順をまとめました</p>
+<h1 id="Disqus-公式サイト"><a href="#Disqus-公式サイト" class="headerlink" title="Disqus 公式サイト"></a>Disqus 公式サイト</h1><p><a href="https://disqus.com/">https://disqus.com/</a></p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1354,7 +1031,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1373,7 +1050,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1410,7 +1087,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/15/hexo-disqus-add-comment-170215/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/15/hexo-disqus-add-comment-170215/">コメント</a>
+        <a href="/blog/2017/02/15/hexo-disqus-add-comment-170215/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/15/hexo-disqus-add-comment-170215/">コメント</a>
     
 
         </footer>
@@ -1422,17 +1099,7 @@ ga('send', 'pageview');
 
     <article id="post-hexo-toc-install-170215" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/02/14/hexo-toc-install-170215/" itemprop="url">
-            <img src="https://drive.google.com/uc?export=view&id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA" class="article-banner" />
-        </a>
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1469,33 +1136,26 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/14/hexo-toc-install-170215/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Hexoで目次を自動で作成してくれる<code>hexo-toc</code>を使うための手順をまとめました</p>
-<p><img src="https://drive.google.com/uc?export=view&id=1x4xI-vlOBWh6eCNJcSQrq6G5tfo2zmy9Yg" style="width: 320px; height: 200px;"></p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
-<ul>
-<li><a href="#ブルーの目次">ブルーの目次</a><ul>
-<li><a href="#オプションの説明">オプションの説明</a></li>
-<li><a href="#記事から呼び出す">記事から呼び出す</a></li>
-</ul>
-</li>
-<li><a href="#オレンジの目次">オレンジの目次</a></li>
-</ul>
-<!-- tocstop -->
-<h1 id="ブルーの目次"><a href="#ブルーの目次" class="headerlink" title="ブルーの目次"></a>ブルーの目次</h1><p>hexo-toc GitHubページ<br><a href="https://github.com/bubkoo/hexo-toc" target="_blank" rel="external">https://github.com/bubkoo/hexo-toc</a></p>
-<p>インストールコマンド<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-toc --save</div></pre></td></tr></table></figure></p>
-<p><code>themes/icarus/_config.yml</code>に以下を追加</p>
-<p><code>icarus</code>は使用しているテンプレート名です</p>
-<figure class="highlight yml"><figcaption><span>config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attr">toc:</span></div><div class="line"><span class="attr">  maxdepth:</span> <span class="number">3</span></div><div class="line"><span class="attr">  class:</span> toc</div><div class="line"><span class="attr">  slugify:</span> transliteration</div><div class="line"><span class="attr">  anchor:</span></div><div class="line"><span class="attr">    position:</span> after</div><div class="line"><span class="attr">    symbol:</span> <span class="string">'#'</span></div><div class="line"><span class="attr">    style:</span> header-anchor</div></pre></td></tr></table></figure>
-<h2 id="オプションの説明"><a href="#オプションの説明" class="headerlink" title="オプションの説明"></a>オプションの説明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">maxdepth ：最大深度以下の見出しを使用します。</div><div class="line">class ：tocのCSSクラス。 （ デフォルトはfalse ）</div><div class="line">slugify ：使用したい機能を選択します。 現在、 uslug （ デフォルト ）と音訳をサポートしています。</div><div class="line">anchor ：各見出しにアンカーを付けるかどうか。 （ デフォルトはfalse ）</div><div class="line"></div><div class="line">    position ：アンカーは、タイトルのbefore 、タイトルのafter 、またはタイトルのafter before置く必要があります。 （ デフォルトはafter ）。</div><div class="line">    symbol ：あなたがアンカーにしたいシンボル。 （ デフォルトは# ）。</div><div class="line">    style ：アンカーのCSSクラスです（ デフォルトはheader-anchor ）。</div></pre></td></tr></table></figure>
-<h2 id="記事から呼び出す"><a href="#記事から呼び出す" class="headerlink" title="記事から呼び出す"></a>記事から呼び出す</h2><p>呼び出したい箇所で以下を追加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 目次</div><div class="line">&lt;!-- toc --&gt;</div></pre></td></tr></table></figure>
-<h1 id="オレンジの目次"><a href="#オレンジの目次" class="headerlink" title="オレンジの目次"></a>オレンジの目次</h1><p>呼び出したい記事で以下を追加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">toc: true</div></pre></td></tr></table></figure>
-
+            <p><p>Hexoで目次を自動で作成してくれる<code>hexo-toc</code>を使うための手順をまとめました</p>
+<p><img src="https://drive.google.com/uc?export=view&id=1x4xI-vlOBWh6eCNJcSQrq6G5tfo2zmy9Yg" style="width: 320px; height: 200px;"></p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/14/hexo-toc-install-170215/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1504,7 +1164,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1523,7 +1183,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1560,7 +1220,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/14/hexo-toc-install-170215/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/14/hexo-toc-install-170215/">コメント</a>
+        <a href="/blog/2017/02/14/hexo-toc-install-170215/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/14/hexo-toc-install-170215/">コメント</a>
     
 
         </footer>
@@ -1572,7 +1232,7 @@ ga('send', 'pageview');
 
     <article id="post-esp8266-oled-how-to-use-170214" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1609,212 +1269,35 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/14/esp8266-oled-how-to-use-170214/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う</p>
-<p>これみたいに使う<br>mikroC PRO for PIC &gt; Lcd Library<br>→ <a href="https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm" target="_blank" rel="external">https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm</a></p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
-<ul>
-<li><a href="#使うもの">使うもの</a></li>
-<li><a href="#配線">配線</a></li>
-<li><a href="#自作ライブラリをインポート">自作ライブラリをインポート</a></li>
-<li><a href="#使い方">使い方</a><ul>
-<li><a href="#自作ライブラリのインクルード">自作ライブラリのインクルード</a></li>
-<li><a href="#関数一覧">関数一覧</a></li>
-<li><a href="#oled_cmd関数のコマンド一覧">Oled_Cmd関数のコマンド一覧</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
+            <p><p>有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う</p>
+<p>これみたいに使う<br>mikroC PRO for PIC &gt; Lcd Library<br>→ <a href="https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm">https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm</a></p>
 <h1 id="使うもの"><a href="#使うもの" class="headerlink" title="使うもの"></a>使うもの</h1><ul>
-<li><p>有機ＥＬキャラクタディスプレイモジュール　１６ｘ２行　白色<br>  → <a href="http://akizukidenshi.com/catalog/g/gP-08277/" target="_blank" rel="external">http://akizukidenshi.com/catalog/g/gP-08277/</a></p>
-<p>  １６文字×２行の有機ＥＬ（ＯＬＥＤ）ディスプレイです。<br>  マイコン等で制御することで内部に登録済みの任意の文字を表示させることが出来ます。<br>  液晶と違い、文字が光りますので暗い場所での視認性が良好です。また視野角が広いです。<br>  特長<br>  ・コントラストが高く視認性に優れます。<br>  ・視野角が広いです。<br>  ・３．３Ｖ単一電源動作です。<br>  ・Ｉ２Ｃインタフェースです。<br>  仕様<br>  ・電源：２．４Ｖ～３．６Ｖ（標準　３．３Ｖ）<br>  ・消費電流：最大８０ｍＡ（標準　５０ｍＡ）<br>  ・表示色：白色<br>  ・表示部：１６文字ｘ２行<br>  ・１文字（キャラクタ）のドット構成：縦７ドット×横５ドット<br>  ・明るさ：最小１２０ｃｄ／ｍ２（標準　１５０ｃｄ／ｍ２）<br>  ・コントローラ：ＵＳ２０６６または互換品<br>  ・寸法：８０．０ｘ３６．０ｘ８．５ｍｍ</p>
+<li><p>有機ＥＬキャラクタディスプレイモジュール　１６ｘ２行　白色<br>  → <a href="http://akizukidenshi.com/catalog/g/gP-08277/">http://akizukidenshi.com/catalog/g/gP-08277/</a></p>
+<p>  １６文字×２行の有機ＥＬ（ＯＬＥＤ）ディスプレイです。<br>  マイコン等で制御することで内部に登録済みの任意の文字を表示させることが出来ます。<br>  液晶と違い、文字が光りますので暗い場所での視認性が良好です。また視野角が広いです。<br>  特長<br>  ・コントラストが高く視認性に優れます。<br>  ・視野角が広いです。<br>  ・３．３Ｖ単一電源動作です。<br>  ・Ｉ２Ｃインタフェースです。</p>
 </li>
-<li><p>自作したライブラリ<br>  → <a href="https://github.com/keijirotanabe/Arduino-Oled-like-mikroC" target="_blank" rel="external">https://github.com/keijirotanabe/Arduino-Oled-like-mikroC</a></p>
+<li><p>自作したライブラリ<br>  → <a href="https://github.com/keijirotanabe/Arduino-Oled-like-mikroC">https://github.com/keijirotanabe/Arduino-Oled-like-mikroC</a></p>
 </li>
-<li><p>ESP8266(ESP-WROOM-02)<br>  → <a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a></p>
+<li><p>ESP8266(ESP-WROOM-02)<br>  → <a href="http://amzn.to/2lEjWZf">ESPr Developer(ESP-WROOM-02開発ボード)</a></p>
 </li>
-</ul>
-<h1 id="配線"><a href="#配線" class="headerlink" title="配線"></a>配線</h1><p>有機ＥＬキャラクタディスプレイモジュール１６ｘ２行のピン配列</p>
-<table>
-<thead>
-<tr>
-<th>OLED(pin番号)</th>
-<th>ESP8266</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VSS(1)</td>
-<td>GND</td>
-<td>電源グランド</td>
-</tr>
-<tr>
-<td>VDD(2)</td>
-<td>3.3V</td>
-<td>電源＋</td>
-</tr>
-<tr>
-<td>/CS(3)</td>
-<td>GND</td>
-<td>必ずVSSに接続</td>
-</tr>
-<tr>
-<td>SA0(4)</td>
-<td>GND</td>
-<td>スレーブアドレス L→0x3C or H→0x3D</td>
-</tr>
-<tr>
-<td>SCL(7)</td>
-<td>IO5</td>
-<td>I2C クロック, 4.7kΩでプルアップ</td>
-</tr>
-<tr>
-<td>SDA in(8)</td>
-<td>IO4</td>
-<td>I2C データ入力, 4.7kΩでプルアップ</td>
-</tr>
-<tr>
-<td>SDA out(9)</td>
-<td>IO4</td>
-<td>I2C データ出力, 4.7kΩでプルアップ</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=17mySfVa9fu4iWWfJjy2Y0t-Yq-1GsIG-yw" alt=""></p>
-<h1 id="自作ライブラリをインポート"><a href="#自作ライブラリをインポート" class="headerlink" title="自作ライブラリをインポート"></a>自作ライブラリをインポート</h1><p>ダウンロード<br><a href="https://github.com/keijirotanabe/Arduino-Oled-like-mikroC" target="_blank" rel="external">https://github.com/keijirotanabe/Arduino-Oled-like-mikroC</a></p>
-<p><img src="https://drive.google.com/open?iduc?export=view&amp;=1vUmlVC0P72gGBLtSEBrOrjQobLDVjlYtdQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1i_D46L3-Rqy1uT1LLVhueqX3-ur-POc-Pw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1EZWVlAnKrQAnB3u3mXNwEUXm3MwVB58bDA" alt=""></p>
-<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><h2 id="自作ライブラリのインクルード"><a href="#自作ライブラリのインクルード" class="headerlink" title="自作ライブラリのインクルード"></a>自作ライブラリのインクルード</h2><p><img src="https://drive.google.com/uc?export=view&amp;id=156JIV4yJNkWwYwScXRt5pM2wvge5htzEOA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1swTveb7JfZN8F3bCw-0t9CPeckGKmo5cKg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#include &lt;Wire.h&gt;</div><div class="line">#include &lt;Arduino-Oled-like-mikroC.h&gt;</div></pre></td></tr></table></figure>
-<p>直接、記述してもかまいません</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=17cnWMq2aIrESh6n8SSmzezAosexl8XVgYA" alt=""></p>
-<h2 id="関数一覧"><a href="#関数一覧" class="headerlink" title="関数一覧"></a>関数一覧</h2><table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>目的</th>
-<th>サンプルコード</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Oled_Init</td>
-<td>初期化</td>
-<td>Oled_Init()</td>
-</tr>
-<tr>
-<td>Oled_Cmd</td>
-<td>コマンド書き込み(↓の表を引数にとる)</td>
-<td>Oled_Cmd(ClearDisplay)</td>
-</tr>
-<tr>
-<td>Oled_Out</td>
-<td>位置を指定して、文字列を表示</td>
-<td>Oled_Out(1, 1, “Hello World!”)</td>
-</tr>
-<tr>
-<td>Oled_Out_Cp</td>
-<td>カーソルのある位置に文字列を表示</td>
-<td>Oled_Out_Cp(“Hello World!”)</td>
-</tr>
-<tr>
-<td>Oled_Chr</td>
-<td>位置を指定して、１文字を表示</td>
-<td>Oled_Out(2, 1, ‘A’)</td>
-</tr>
-<tr>
-<td>Oled_Chr_Cp</td>
-<td>カーソルのある位置に１文字を表示</td>
-<td>Oled_Chr_Cp(‘A’)</td>
-</tr>
-<tr>
-<td>Oled_Set_Cursor</td>
-<td>カーソルの位置を変更</td>
-<td>Oled_Set_Cursor(2, 1)</td>
-</tr>
-<tr>
-<td>Oled_Set_Contrast</td>
-<td>コントラストを変更</td>
-<td>Oled_Set_Contrast(0x7F)</td>
-</tr>
-<tr>
-<td>Oled_Max_Contrast</td>
-<td>コントラスト最大</td>
-<td>Oled_Max_Contrast()</td>
-</tr>
-<tr>
-<td>Oled_Min_Contrast</td>
-<td>コントラスト最小</td>
-<td>Oled_Min_Contrast()</td>
-</tr>
-</tbody>
-</table>
-<h2 id="oled_cmd関数のコマンド一覧"><a href="#Oled-Cmd関数のコマンド一覧" class="headerlink" title="Oled_Cmd関数のコマンド一覧"></a>Oled_Cmd関数のコマンド一覧</h2><p><code>Oled_Cmd(コマンド)</code></p>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ClearDisplay</td>
-<td>表示をクリアする</td>
-</tr>
-<tr>
-<td>ReturnHome</td>
-<td>カーソルをホームポジションに戻し、シフト表示を元の位置に戻します</td>
-</tr>
-<tr>
-<td>DisplayON</td>
-<td>液晶ディスプレイをオンにする</td>
-</tr>
-<tr>
-<td>DisplayOFF</td>
-<td>液晶ディスプレイをオフにする</td>
-</tr>
-<tr>
-<td>CursorON</td>
-<td>カーソルをオフにする</td>
-</tr>
-<tr>
-<td>CursorOFF</td>
-<td>カーソルをオンにする</td>
-</tr>
-<tr>
-<td>BlinkON</td>
-<td>カーソルを点滅させる</td>
-</tr>
-<tr>
-<td>BlinkOFF</td>
-<td>カーソルを点滅さない</td>
-</tr>
-<tr>
-<td>ShiftLeft</td>
-<td>表示RAMデータを変更せずに表示を左にシフト</td>
-</tr>
-<tr>
-<td>ShiftRight</td>
-<td>表示RAMデータを変更せずに表示を右にシフト</td>
-</tr>
-<tr>
-<td>CursorLeft</td>
-<td>表示RAMデータを変更せずにカーソルを左に移動</td>
-</tr>
-<tr>
-<td>CursorRight</td>
-<td>表示RAMデータを変更せずにカーソルを右に移動</td>
-</tr>
-</tbody>
-</table>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/14/esp8266-oled-how-to-use-170214/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1823,7 +1306,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1842,7 +1325,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1879,7 +1362,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/14/esp8266-oled-how-to-use-170214/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/14/esp8266-oled-how-to-use-170214/">コメント</a>
+        <a href="/blog/2017/02/14/esp8266-oled-how-to-use-170214/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/14/esp8266-oled-how-to-use-170214/">コメント</a>
     
 
         </footer>
@@ -1891,17 +1374,7 @@ ga('send', 'pageview');
 
     <article id="post-raspberry-pi-3-starting-step-170210" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/02/11/raspberry-pi-3-starting-step-170210/" itemprop="url">
-            <img src="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA" class="article-banner" />
-        </a>
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1938,148 +1411,25 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/11/raspberry-pi-3-starting-step-170210/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1PPIUpij91ZB8XuWI8e4Avds4KamzANAGaQ" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
-<ul>
-<li><a href="#環境">環境</a></li>
-<li><a href="#公式サイト">公式サイト</a></li>
-<li><a href="#必要なもの">必要なもの</a></li>
-<li><a href="#手順">手順</a><ul>
-<li><a href="#まずはsdをフォーマットする">まずはSDをフォーマットする</a></li>
-<li><a href="#raspbianの用意">「Raspbian」の用意</a></li>
-<li><a href="#raspbianをsdカードに書き込む">「Raspbian」をSDカードに書き込む</a></li>
-<li><a href="#raspberry-piを起動させる">Raspberry Piを起動させる</a></li>
-</ul>
-</li>
-<li><a href="#設定">設定</a><ul>
-<li><a href="#まずはwifiに接続">まずはWiFiに接続</a></li>
-<li><a href="#windowsからsshで接続">WindowsからSSHで接続</a><ul>
-<li><a href="#sshの設定をonに">SSHの設定をONに</a></li>
-<li><a href="#ipアドレスの確認">IPアドレスの確認</a></li>
-<li><a href="#tera-termで接続">Tera Termで接続</a></li>
-</ul>
-</li>
-<li><a href="#パッケージの更新">パッケージの更新</a></li>
-<li><a href="#リモートデスクトップでpcから操作できるようにする">リモートデスクトップでPCから操作できるようにする</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<!--- [環境](#環境)-->
-<!--- [公式サイト](#公式サイト)-->
-<!--- [必要なもの](#必要なもの)-->
-<!--- [手順](#手順)-->
-<!--    - [まずはSDをフォーマットする](#まずはSDをフォーマットする)-->
-<!--    - [「Raspbian」の用意](#「Raspbian」の用意)-->
-<!--    - [「Raspbian」をSDカードに書き込む](#「Raspbian」をSDカードに書き込む)-->
-<!--    - [Raspberry Piを起動させる](#Raspberry-Piを起動させる)-->
-<!--- [設定](#設定)-->
-<!--    - [まずはWiFiに接続](#まずはWiFiに接続)-->
-<!--    - [WindowsからSSHで接続](#WindowsからSSHで接続)-->
-<!--    - [パッケージの更新](#パッケージの更新)-->
-<!--    - [リモートデスクトップでPCから操作できるようにする](#リモートデスクトップでPCから操作できるようにする)-->
-<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
-<li>Windows10 Home 64bit</li>
-<li>Raspberry Pi 3 Model B Element14版</li>
-<li>Raspbian Jessie with PIXEL</li>
-</ul>
-<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://www.raspberrypi.org/" target="_blank" rel="external">https://www.raspberrypi.org/</a></p>
-<h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><ul>
-<li><a href="http://amzn.to/2lEbclX" target="_blank" rel="external">Raspberry Pi 3 本体</a></li>
-<li><a href="http://amzn.to/2lCQFgQ" target="_blank" rel="external">microSD (8G以上)</a><br>  ↓によると SD と Raspberry Pi には相性があるようです<br>  参考: <a href="http://elinux.org/RPi_SD_cards" target="_blank" rel="external">http://elinux.org/RPi_SD_cards</a></li>
-<li>マウス</li>
-<li>キーボード</li>
-<li>モニター<br>  HDMI出力ができるもの</li>
-<li><a href="http://amzn.to/2lCwSxS" target="_blank" rel="external">HDMIケーブル</a></li>
-<li>電源 MicroUSB経由 (2.5A推奨)<br>  ここでは2.4Aのを使っています<br>  こういうのもあるようです<br>  <a href="http://amzn.to/2kk0gYT" target="_blank" rel="external">Raspberry Pi 3 model B 専用電源</a></li>
-</ul>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します</p>
-<p>ダウンロード先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
-<p>詳しくは<a href="/blog/2017/02/10/sd-formatter-4-170210/" title="SDカードフォーマッターの使い方">SDカードフォーマッターの使い方</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1GgeB9NRR7ay_fPmgq7TCnyWVfRW7rj77vw" alt=""></p>
-<h2 id="raspbianの用意"><a href="#「Raspbian」の用意" class="headerlink" title="「Raspbian」の用意"></a>「Raspbian」の用意</h2><p>ダウンロード先<br><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">https://www.raspberrypi.org/downloads/raspbian/</a></p>
-<p><a href="https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" target="_blank" rel="external">GUI</a>版と<a href="https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" target="_blank" rel="external">CUI</a>版がありますが、今回はGUI版をダウンロードします</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1QQFN6hUVbepusPA4KWaFNoxs98gJjvtuDg" alt=""></p>
-<h2 id="raspbianをsdカードに書き込む"><a href="#「Raspbian」をSDカードに書き込む" class="headerlink" title="「Raspbian」をSDカードに書き込む"></a>「Raspbian」をSDカードに書き込む</h2><p>RaspbianをSDカードに書き込むには、「Win32DiskImager」を使います</p>
-<p>ダウンロード先<br><a href="https://ja.osdn.net/projects/sfnet_win32diskimager/" target="_blank" rel="external">https://ja.osdn.net/projects/sfnet_win32diskimager/</a></p>
-<p>詳しくは<a href="/blog/2017/02/10/win32-disk-imager-170211/" title="Win32DiskImagerの使い方">Win32DiskImagerの使い方</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=13i_NbuaDH3Zm23eWO-Co4XUVrWFRYUginA" alt=""></p>
-<h2 id="raspberry-piを起動させる"><a href="#Raspberry-Piを起動させる" class="headerlink" title="Raspberry Piを起動させる"></a>Raspberry Piを起動させる</h2><p>SDカードを挿します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=11L3dyOtXZHnyF5xg0RCflTg1IAsSLyG9QQ" alt=""></p>
-<p>周辺を接続</p>
-<p>電源は最後に挿します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1W20IzqR0yYaeRf2yIjEFEQuuh6edsnFwPA" alt=""></p>
-<p>起動しました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=15ma3VA1HoxASlmKmTK5MwivQzPA0cgY4QA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1X41JEXx4yrqbLue40LipiQKNaDYFWtL9ig" alt=""></p>
-<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><h2 id="まずはwifiに接続"><a href="#まずはWiFiに接続" class="headerlink" title="まずはWiFiに接続"></a>まずはWiFiに接続</h2><p>Raspberry Pi 3には標準でWiFiがついています</p>
-<p>接続方法</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Vkfp61Tm3_FAKnSj4UFTJzI0258j0Cmjxw" alt=""></p>
-<h2 id="windowsからsshで接続"><a href="#WindowsからSSHで接続" class="headerlink" title="WindowsからSSHで接続"></a>WindowsからSSHで接続</h2><h3 id="sshの設定をonに"><a href="#SSHの設定をONに" class="headerlink" title="SSHの設定をONに"></a>SSHの設定をONに</h3><p><code>Preferences &gt; Raspberry Pi Configuration</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1CIRtA4GOYdc2PoxeLV9AOozEsHQfFN5hnw" alt=""></p>
-<p><code>Interfaces &gt; SSH: Enabled &gt; OK</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1l4UxAIftx905yjlwk6P_G8c8xn1los1dBA" alt=""></p>
-<h3 id="ipアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h3><p>ターミナルを起動します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=181_m267p5vAkcAPf9QmLvUMcwG0GwtQA4g" alt=""></p>
-<p>以下のコマンドを入力</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1PPKP2FqC7SzspYaisdq4irHV-kKmq6jXfA" alt=""></p>
-<p>調べたIPアドレスはメモしておいてください</p>
-<h3 id="tera-termで接続"><a href="#Tera-Termで接続" class="headerlink" title="Tera Termで接続"></a>Tera Termで接続</h3><p>Tera Term をインストール</p>
-<p>ダウンロード先<br><a href="https://ja.osdn.net/projects/ttssh2/releases/66795" target="_blank" rel="external">https://ja.osdn.net/projects/ttssh2/releases/66795</a></p>
-<p>↑で調べたIPアドレスを入力して「OK」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oe0UyaNKhDXEDopxGegU9MLL2Cvcdtvz0A" alt=""></p>
-<p>セキュリティ警告「続行」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1cEllQmrJ_wxH66clLhZACmKRRqTE2-5e1A" alt=""></p>
-<p>ユーザー名とパスワードを入力して「OK」</p>
-<p>なお、デフォルトの設定は</p>
-<table>
-<thead>
-<tr>
-<th>ユーザー名</th>
-<th>パスワード</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pi</code></td>
-<td><code>raspberry</code></td>
-</tr>
-</tbody>
-</table>
-<p>となっています</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1l5i3woXAm1ni7fILsodWZtioGnHHmu_4eQ" alt=""></p>
-<p>ログイン画面</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1nBtigO3cC7ZwggO2Wh1u_Z8ip_uM2IVWUA" alt=""></p>
-<h2 id="パッケージの更新"><a href="#パッケージの更新" class="headerlink" title="パッケージの更新"></a>パッケージの更新</h2><p>以下のコマンドでパッケージをアップデートしておきます</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1zf53jRe9r8FMox7E5W1bh5FttMGOJ946Yw" alt=""></p>
-<p>つづいて ↓ も<br>※時間がかかるので注意してください</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get upgrade</div></pre></td></tr></table></figure>
-<p>途中で聞かれたら「y」を入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1G6YSp2wW9WDmDaPYBptNW9mj_46WdJ1wig" alt=""></p>
-<p>途中で聞かれたら「q」を入力</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Mf2V-2lkgkJPsr1UlBZPf9RaxbhQSq4lwA" alt=""></p>
-<p>終了しました<br>1時間くらいかかりました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-8u-BdknqrpuJozNJ3EP50b0p7GhW0oNIQ" alt=""></p>
-<h2 id="リモートデスクトップでpcから操作できるようにする"><a href="#リモートデスクトップでPCから操作できるようにする" class="headerlink" title="リモートデスクトップでPCから操作できるようにする"></a>リモートデスクトップでPCから操作できるようにする</h2><p>詳しくは<br><a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" title="Raspberry Pi 3をリモートデスクトップで操作">Raspberry Pi 3をリモートデスクトップで操作</a></p>
-<p>以下をインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
-<p>先ほど調べたIPアドレスへ接続します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1JivpnB-rSjfyaR41wTZPEY3XY6Mf5NSizQ" alt=""></p>
-<p>ユーザー名とパスワードを入力して「OK」</p>
-<ul>
-<li>ユーザー名: <code>pi</code></li>
-<li>パスワード: <code>raspberry</code></li>
-</ul>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=15zzAlYBj_STR_9K3jF9FnV4bzs89SfiewA" alt=""></p>
-<p>以下の画面が表示されます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1MkjO2qzvWyDQW49oPPvA_08qupB-nz4FXg" alt=""></p>
-
+            <p><p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/11/raspberry-pi-3-starting-step-170210/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -2088,7 +1438,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -2107,7 +1457,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -2144,7 +1494,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/">コメント</a>
+        <a href="/blog/2017/02/11/raspberry-pi-3-starting-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/">コメント</a>
     
 
         </footer>
@@ -2170,7 +1520,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+                            <a href="/blog/2017/02/22/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
     
     
         <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA)" alt="Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順" class="thumbnail-image"></span>
@@ -2181,8 +1550,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time></p>
                         </div>
                     </li>
                 
@@ -2192,7 +1561,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="仮想COMポートから遠くのESP8266とTCP通信する" class="thumbnail-image"></span>
     
 </a>
 
@@ -2211,7 +1580,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="ESP8266でATコマンドを使ってみる" class="thumbnail-image"></span>
     
 </a>
 
@@ -2240,25 +1609,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 
@@ -2310,8 +1660,9 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 田邊 慶次朗<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            &copy; 2017 田邊 慶次朗
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
         </div>
     </div>
 </footer>

@@ -193,7 +193,7 @@ ga('send', 'pageview');
             <section id="main">
     <article id="post-command-prompt-start-up-170211" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -230,14 +230,15 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>コマンドプロンプトの起動方法をメモ</p>
-<h2 id="共通"><a href="#共通" class="headerlink" title="共通"></a>共通</h2><p><code>「Windowsキー」+「R」</code>→ 「ファイル名を指定して実行」<br><img src="https://drive.google.com/uc?export=view&amp;id=13HzI-FXlK_DjVfxrvsx0elkA6FCRku4r3Q" alt=""></p>
-<h2 id="windows10"><a href="#Windows10" class="headerlink" title="Windows10"></a>Windows10</h2><p><img src="https://drive.google.com/uc?export=view&amp;id=1lqIziTSacsemYDvQFlPPVFOt3DX70GkEvQ" alt=""><br><img src="https://drive.google.com/uc?export=view&amp;id=1Z13RVoI1iTPrjPikK4XWTJ4QKazEke7Ilg" alt=""></p>
-
+            <p><p>コマンドプロンプトの起動方法をメモ</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/11/command-prompt-start-up-170211/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -246,7 +247,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -265,7 +266,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -302,7 +303,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/11/command-prompt-start-up-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/command-prompt-start-up-170211/">コメント</a>
+        <a href="/blog/2017/02/11/command-prompt-start-up-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/command-prompt-start-up-170211/">コメント</a>
     
 
         </footer>
@@ -314,23 +315,13 @@ ga('send', 'pageview');
 
     <article id="post-raspberry-pi-remote-disktop-170211" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" itemprop="url">
-            <img src="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA" class="article-banner" />
-        </a>
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/">Raspberry Pi 3をリモートデスクトップで操作</a>
+            <a class="article-title" href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/">Raspberry Pi 3をリモートデスクトップで操作できるようにする</a>
         </h1>
     
 
@@ -361,61 +352,25 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1MkjO2qzvWyDQW49oPPvA_08qupB-nz4FXg" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Raspberry Piにxrdpをインストールして、Windowsのリモートデスクトップ機能から操作できるようにする</p>
-<h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
-<li>Windows10 Home 64bit</li>
-<li><a href="http://amzn.to/2kkapVB" target="_blank" rel="external">Raspberry Pi 3 Model B (Element14)</a></li>
-<li><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">Raspbian Jessie with PIXEL</a></li>
-<li><a href="https://ja.osdn.net/projects/ttssh2/" target="_blank" rel="external">Tera Term バージョン 4.9.2</a></li>
-</ul>
-<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><h2 id="tightvncserverのインストール"><a href="#tightvncserverのインストール" class="headerlink" title="tightvncserverのインストール"></a>tightvncserverのインストール</h2><p><code>xrdp</code>というパッケージをインストールしますが、先に<code>tightvncserver</code>をインストールする必要があります</p>
-<p>以下のコマンドでインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1OfVJs_YsNRNNqFWkc-Nn7OODLoRBwccj-g" alt=""></p>
-<p>途中で聞かれたら「y」を入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1IAx9J2isbGfqOnnirQRQBAQxgEXSm6hwGA" alt=""></p>
-<h2 id="xrdpのインストール"><a href="#xrdpのインストール" class="headerlink" title="xrdpのインストール"></a>xrdpのインストール</h2><p>以下のコマンドでインストール</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1mL9HCFhjcHJR1RULJOjo3-CyUVpGw1ucWg" alt=""></p>
-<p>途中で聞かれたら「y」を入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-poJb57CuLr99JmSxZwIe1ecD0aQqIcLuA" alt=""></p>
-<h1 id="ipアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
-<p>ここでは<code>192.168.11.15</code>を使用します<br>※各自、異なります</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1emvG8aYEIkQUshGsWwpjDKRCjmigAY1ZIw" alt=""></p>
-<h1 id="リモートデスクトップの起動"><a href="#リモートデスクトップの起動" class="headerlink" title="リモートデスクトップの起動"></a>リモートデスクトップの起動</h1><p>リモートデスクトップを起動させます</p>
-<p>「リモートデスクトップ」で検索して起動します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=11ow4JS4CPAtXGyzSfjx0C0X5Lcf6RZo_uQ" alt=""></p>
-<p>先ほど調べたIPアドレス(<code>192.168.11.15</code>)へ接続します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1JivpnB-rSjfyaR41wTZPEY3XY6Mf5NSizQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1tsWbpnp92i7HXapNFjNhD7Vy3JPym4sUew" alt=""></p>
-<p>ユーザー名とパスワードを入力して「OK」</p>
-<p>なお、デフォルトの設定は</p>
-<table>
-<thead>
-<tr>
-<th>ユーザー名</th>
-<th>パスワード</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pi</code></td>
-<td><code>raspberry</code></td>
-</tr>
-</tbody>
-</table>
-<p>になっています</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ArwATK2qxzO9DGWLrPRQwiQk1s7k_gUZAQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=15zzAlYBj_STR_9K3jF9FnV4bzs89SfiewA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ScEthT_0mpRbiWSGZ1Md4nyhCHBj4iCfSw" alt=""></p>
-<p>以下の画面が表示されます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1MkjO2qzvWyDQW49oPPvA_08qupB-nz4FXg" alt=""></p>
-<p>以上です</p>
-
+            <p><p>Raspberry Piにxrdpをインストールして、Windowsのリモートデスクトップ機能から操作できるようにする</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -424,7 +379,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -443,7 +398,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -480,7 +435,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/">コメント</a>
+        <a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-remote-disktop-170211/">コメント</a>
     
 
         </footer>
@@ -492,7 +447,7 @@ ga('send', 'pageview');
 
     <article id="post-win32-disk-imager-170211" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -529,48 +484,15 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します</p>
-<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><p>ダウンロード先<br><a href="https://ja.osdn.net/projects/sfnet_win32diskimager/" target="_blank" rel="external">https://ja.osdn.net/projects/sfnet_win32diskimager/</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=11ER1WD8myfqGQybhjdVZeqPoyPRo_DrzHQ" alt=""></p>
-<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p>ダウンロードした<code>Win32DiskImager-0.9.5-install.exe</code>を実行します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1RokPOlizLE7k-drsR47wBJg9pNUxDGXz7g" alt=""></p>
-<p>以下の流れでインストール</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1iIuEz6ycx1TQw9MJUIccr-QqDVr7CjahtQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1n4wSFMt4arIvzwPpXMsZQPswuTvlsHnVCw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1zE4ugaVtyFwtWJnJJPU0PFM7_PdtOLwUWw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1qUHuJwjLprV_yQR3SmgitWuOJypgpPxTPA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1iPjV-q3LRiC41AOqFKjmW5OA2lqIIktSYw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1hN0SdhwwcCqV5EFD61WP7rrPqBC-wfhwtA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=15v4ESCCZaq-9xbfsUUmONdCDM0nhoA8Gyg" alt=""></p>
-<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><h2 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h2><p>管理者として実行<br>何か聞かれたら「はい」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oWBxULK7z2R06EFJWHDAiH1F0hS_Y-IFUg" alt=""></p>
-<p>起動画面</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1AxiZABJ9EAfHE-s0TfFN3f39_C8TFOyOHg" alt=""></p>
-<h2 id="ファイルを選択"><a href="#ファイルを選択" class="headerlink" title="ファイルを選択"></a>ファイルを選択</h2><p>書き込みたいファイルを選択します<br>※ここでは<code>2017-01-11-raspbian-jessie.img</code>を選択</p>
-<p>ファイルのマークを選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1sECDXXLPVBp2efTf2JYu1TnW4k-U4ZXoJw" alt=""></p>
-<p>ファイルを開く</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1TPvVXcX5_6W-vLOgOQkRQ8NrD2u-FmpJzQ" alt=""></p>
-<p>選択できました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1sbOB49cVcWmCN1txwe38W5Bw6GpmUUOPSw" alt=""></p>
-<h2 id="書き込み先を選択"><a href="#書き込み先を選択" class="headerlink" title="書き込み先を選択"></a>書き込み先を選択</h2><p>書き込み先のSDカードまたは、USBメモリーを選択します</p>
-<p>(F:)に書き込みたいので、[F]を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1G8Mat1XZMi7r_Eft9mp-pAHBbZTRzivM-A" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Cd7TBKtbf5YRhiW-k_-lWkpeBfvF2hDfuw" alt=""></p>
-<p>※大抵、初めから選択されています</p>
-<h2 id="書き込み開始"><a href="#書き込み開始" class="headerlink" title="書き込み開始"></a>書き込み開始</h2><p>「Write」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=13i_NbuaDH3Zm23eWO-Co4XUVrWFRYUginA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-XKsBF6mmjNIrXtpRuGK1mkloymOmvkVNQ" alt=""></p>
-<p>書き込み中<br>終わるまで待ちます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1s0esPsazCSLHKCMNK8wGQ3kmOsDkSAH3yw" alt=""></p>
-<p>終わりました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=10vXPlSIFYAWabhB-O5fG7l8As0ghDRgcHA" alt=""></p>
-<p>使い方は以上です</p>
-
+            <p><p>SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/10/win32-disk-imager-170211/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -579,7 +501,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -598,7 +520,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -635,7 +557,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/">コメント</a>
+        <a href="/blog/2017/02/10/win32-disk-imager-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/">コメント</a>
     
 
         </footer>
@@ -647,7 +569,7 @@ ga('send', 'pageview');
 
     <article id="post-sd-formatter-4-170210" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -684,29 +606,15 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>SD / SDHC / SDXC カードのフォーマットに対応し、メモリーカードの性能が最適になるように設計されています</p>
-<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><p>SDフォーマッター4.0の入手先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1nOdvfmFpCLnGleJ6yw-sJf4CNXo4dg6hIg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ncxxD4-iVVr9lag8g8EPP9fz1vHbQ_F9pw" alt=""></p>
-<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p>ダウンロードしたファイルを解凍すると<code>setup.exe</code>があるので実行します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1F1jxffrB_OgmTHXgH-i4cNjHE6dtIOHYkw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1IaFW0asfFZFjTfK2Ts-KJoSo4Xo-23Lb9A" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1uAlPDzgcBkfdgwbvPkghI-KzMZMbXOGhcw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oVkfav_6it8Ervj1S_FhUpi2b-1qPuz6Pg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1pY4SvLi8eVL6i845CFFYBSHNub-fxM0MIg" alt=""></p>
-<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><p>インストールできたら起動します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ydfLMAVzh6B5ivC4oKG0tsQgs0Lselwlbg" alt=""></p>
-<p>SDカードを刺して「フォーマット」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1GgeB9NRR7ay_fPmgq7TCnyWVfRW7rj77vw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1EWL1yXI8krB_TdNuHW--VOqcinCzIhx28w" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Sfhx8x6_5o1lWbGTaCR4hcuACV8pgUJGag" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1j2suXpZ_JPMlYv5QOeV591Ax67URy1rKSg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1geRb4D0vNYeOSfeEt1vu-pwktZCnRWI0CQ" alt=""></p>
-
+            <p><p>SDカードフォーマッターの使い方を説明<br>SDカードフォーマッターは、SD / SDHC / SDXC カードのフォーマットに対応し、メモリーカードの性能が最適になるように設計されています。</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/10/sd-formatter-4-170210/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -715,7 +623,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -734,7 +642,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -771,7 +679,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/10/sd-formatter-4-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/sd-formatter-4-170210/">コメント</a>
+        <a href="/blog/2017/02/10/sd-formatter-4-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/sd-formatter-4-170210/">コメント</a>
     
 
         </footer>
@@ -783,7 +691,7 @@ ga('send', 'pageview');
 
     <article id="post-node-js-how-to-170210" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -820,70 +728,31 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/09/node-js-how-to-170210/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1kNpCGVn6C-4ivcN0ddm2I5-xFYrZRS1VsA" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明</p>
+            <p><p>Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明</p>
 <h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
 <li>Windows10 Home 64bit</li>
 <li>Node.js バージョン6.9.5<br>  インストール手順は<a href="/blog/2017/02/09/node-js-install-step-170210/" title="Node.jsのインストール方法">Node.jsのインストール方法</a>を参照</li>
 <li>テキストエディタ → Sublime Text</li>
 <li>ウェブブラウザ → Google Chrome</li>
-</ul>
-<h1 id="serverjsの用意"><a href="#server-jsの用意" class="headerlink" title="server.jsの用意"></a>server.jsの用意</h1><p>今回はデスクトップで作業してくので、デスクトップに<code>helloworld</code>というフォルダを用意します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1PLamjRqWO1vPdrMig_KOYhywrpOfSOVefA" alt=""></p>
-<p><code>helloworld</code>の中に<code>server.js</code>を作ります</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1YZRqdOR248eGKnQzenbofvePNXu5pjZClg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=16YDI0dvj7Qu48yO8BlF1_GqMy9zZo3dsMg" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1HWIymM7vi0NAWakb57TvBCyf75tJ0wX5Rg" alt=""></p>
-<p>テキストエディタで開きます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1KNLWJ44l2vJFmhRQKbL0C4wjAL3jTqhIHQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=12yz4qAB2gLJNCzc5rZyv7bJiPrP_jbmgJw" alt=""></p>
-<h1 id="基本的なhttpサーバー"><a href="#基本的なHTTPサーバー" class="headerlink" title="基本的なHTTPサーバー"></a>基本的なHTTPサーバー</h1><h2 id="全体のコード"><a href="#全体のコード" class="headerlink" title="全体のコード"></a>全体のコード</h2><figure class="highlight javascript"><figcaption><span>server.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> port = <span class="number">3000</span>;</div><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.statusCode = <span class="number">200</span>;</div><div class="line">    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</div><div class="line">    res.end(<span class="string">'Hello World!\n'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(port, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Server running'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="コードの解説"><a href="#コードの解説" class="headerlink" title="コードの解説"></a>コードの解説</h2><ul>
-<li><p><code>var http = require(&#39;http&#39;);</code><br>  httpモジュールの読み込み</p>
-</li>
-<li><p><code>var port = 3000;</code><br>  3000番ポートを使う</p>
-</li>
-<li><p><code>var server = http.createServer(コールバック関数)</code><br>  httpサーバー作成し、<code>server</code>に代入<br>  serverにアクセスがくるとコールバック関数が呼ばれる</p>
-</li>
-<li><p><code>res.statusCode = 200;</code><br>  ステータスコード200は成功を意味する<br>  詳しくは<a href="http://e-words.jp/p/r-httpstatus.html" target="_blank" rel="external">HTTPのステータスコード</a></p>
-</li>
-<li><p><code>res.setHeader(&#39;Content-Type&#39;, &#39;text/plain&#39;);</code><br>  コンテンツタイプをテキストに<br>  参考: <a href="http://qiita.com/AkihiroTakamura/items/b93fbe511465f52bffaa" target="_blank" rel="external">Content-Typeの一覧</a></p>
-</li>
-<li><p><code>res.end(&#39;Hello World!\n&#39;);</code><br>  すべてのヘッダー情報と本文(「Hello World」)が送信されたことをサーバーに通知</p>
-</li>
-<li><p><code>server.listen(port, コールバック関数)</code><br>  httpサーバーを3000番ポートで待機させた後、コールバック関数を呼ぶ</p>
-</li>
-<li><p><code>console.log(&#39;Server running&#39;);</code><br>  コンソールに「Server running」と表示</p>
-</li>
-</ul>
-<p><div id="code-img"></div><br><img src="https://drive.google.com/uc?export=view&amp;id=1i76HS-CtCS5UZsgqMPoruQfb995w4zZWwQ" alt=""></p>
-<p>より詳しくは<a href="https://nodejs.org/dist/latest-v6.x/docs/api/http.html" target="_blank" rel="external">HTTP | Node.js v6.9.5 Documentation</a></p>
-<h1 id="書いたコードを実行"><a href="#書いたコードを実行" class="headerlink" title="書いたコードを実行"></a>書いたコードを実行</h1><p>コマンドプロンプトを起動します<br>わからない人は<a href="/blog/2017/02/11/command-prompt-start-up-170211/" title="コマンドプロンプトの起動方法">コマンドプロンプトの起動方法</a>を参考に</p>
-<p>デスクトップに<code>helloworld</code>フォルダを作ったので、移動します<br><code>cd Disktop/helloworld</code>と入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ghwQukcbWC4-2pkwl7Hja-eO6A_OKyQDjA" alt=""></p>
-<p><code>server.js</code>を起動します<br>起動するには<code>node</code>コマンドを使います<br><code>node server</code>と入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1eCdgvA3BCrVLz3P8Ul9rDigwv1QU8DmaSw" alt=""></p>
-<p>うまくいけば「Server running」が表示されます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1NAinBOdRmgXwmUAiSDFjeov_Xgr-t6NzDA" alt=""></p>
-<h1 id="ウェブブラウザから表示"><a href="#ウェブブラウザから表示" class="headerlink" title="ウェブブラウザから表示"></a>ウェブブラウザから表示</h1><p>Google Chromeを立ち上げて<br><code>localhost:3000</code>と入力して「Enter」</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1pW0TfVm33pxvwpy_ePpR9DkQKjKhIL4jwA" alt=""></p>
-<p>「Hello World!」が表示されれば成功です</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1fl_Xsyvdwvga4xm8NtFi0X0HH063jhlFLw" alt=""></p>
-<h2 id="コードを加えます"><a href="#コードを加えます" class="headerlink" title="コードを加えます"></a>コードを加えます</h2><p><a href="#code-img">上の画像</a>で<code>「localhost:3000」アクセスがあったら呼ばれる</code>というのを見ていきます</p>
-<p><code>console.log(&#39;Connected&#39;);</code>を加えます</p>
-<h2 id="全体のコード"><a href="#全体のコード-1" class="headerlink" title="全体のコード"></a>全体のコード</h2><figure class="highlight javascript"><figcaption><span>server.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> port = <span class="number">3000</span>;</div><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connected'</span>); <span class="comment">// &lt;- 追加</span></div><div class="line">    res.statusCode = <span class="number">200</span>;</div><div class="line">    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/plain'</span>);</div><div class="line">    res.end(<span class="string">'Hello World!\n'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(port, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Server running'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>コードを書き替えたので、サーバーを再起動します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1yLpkDUdE_GPDFFbnChH8YeiiVAszv8ED6w" alt=""></p>
-<p>以前、入力したキーは「↑」、「↓」で選択可</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1AwyP-YdYBL8lO75-aLof6uA7GUDapoPnAA" alt=""></p>
-<p>↓の①を何回か押してみて下さい</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1jPfSC-HSuONj9tSQ2Guz2avP2PA9BqEzng" alt=""></p>
-<p><code>「localhost:3000」</code>にアクセスがくると、<code>http.createServer(引数)</code>の引数に渡した関数が呼ばれます<br>これでこのコードの意味が分かると思います</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=18kTVHk736lG7GOgMyKWWsxDcVOKCJmcEww" alt=""></p>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/09/node-js-how-to-170210/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -892,7 +761,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -911,7 +780,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -948,7 +817,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/">コメント</a>
+        <a href="/blog/2017/02/09/node-js-how-to-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-how-to-170210/">コメント</a>
     
 
         </footer>
@@ -960,7 +829,7 @@ ga('send', 'pageview');
 
     <article id="post-node-js-install-step-170210" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -997,57 +866,26 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/09/node-js-install-step-170210/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1kNpCGVn6C-4ivcN0ddm2I5-xFYrZRS1VsA" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>Node.jsのインストール方法</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
-<ul>
-<li><a href="#公式サイト">公式サイト</a></li>
-<li><a href="#nodejsとは">Node.jsとは</a><ul>
-<li><a href="#特徴">特徴</a></li>
-</ul>
-</li>
-<li><a href="#インストール手順">インストール手順</a><ul>
-<li><a href="#windows">Windows</a><ul>
-<li><a href="#ダウンロードページ">ダウンロードページ</a></li>
-<li><a href="#インストール手順-1">インストール手順</a></li>
-<li><a href="#インストールされたか確認">インストールされたか確認</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://nodejs.org/ja/" target="_blank" rel="external">https://nodejs.org/ja/</a></p>
-<h1 id="nodejsとは"><a href="#Node-jsとは" class="headerlink" title="Node.jsとは"></a>Node.jsとは</h1><h2 id="特徴"><a href="#特徴" class="headerlink" title="特徴"></a>特徴</h2><ul>
-<li><strong>サーバー側で動作するJavaScript</strong><br>  通常、JavaScriptはウェブブラウザの中で実行されるが、Node.jsはサーバサイドで動作するJavaScriptの一種</li>
-<li><strong><a href="http://e-words.jp/w/%E3%83%8E%E3%83%B3%E3%83%96%E3%83%AD%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E9%80%9A%E4%BF%A1.html" target="_blank" rel="external">ノンブロッキングI/O</a></strong><br>  送受信の完了を待たないで、他の処理を開始する通信方法</li>
-<li><strong><a href="http://e-words.jp/w/%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89.html" target="_blank" rel="external">シングルスレッド </a></strong><br>  並行処理などを行わずにすべての演算を逐次に処理していくこと</li>
-<li><strong><a href="http://e-words.jp/w/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%89%E3%83%AA%E3%83%96%E3%83%B3.html" target="_blank" rel="external">イベントドリブン </a></strong><br>  ユーザや他のプログラムが実行した操作（イベント）に対応して処理を行う、プログラムの実行形式<br>  ユーザが操作を行っていないときはプログラムは何もせず待機している</li>
-</ul>
-<p><strong>メリット</strong></p>
-<ul>
-<li>早くてリアルタイムに強い</li>
-<li>多数のアクセスに強い</li>
-</ul>
-<h1 id="インストール手順"><a href="#インストール手順" class="headerlink" title="インストール手順"></a>インストール手順</h1><h2 id="windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>推奨版の6.9.5をインストールしていきます</p>
-<h3 id="ダウンロードページ"><a href="#ダウンロードページ" class="headerlink" title="ダウンロードページ"></a>ダウンロードページ</h3><p>64bit版<br><a href="https://nodejs.org/ja/" target="_blank" rel="external">ダウンロード Windows (x64)</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1fD7DcYPdECz0zRVSvNQSYYr1fsItHP8PdQ" alt=""></p>
-<p>32bit版はこちら<br><a href="https://nodejs.org/ja/download/" target="_blank" rel="external">ダウンロード Windows (x32)</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1LJc8Aamh2ATM-eooitrPMaX-Wxbl9g5Cog" alt=""></p>
-<h3 id="インストール手順"><a href="#インストール手順-1" class="headerlink" title="インストール手順"></a>インストール手順</h3><p><img src="https://drive.google.com/uc?export=view&amp;id=1VBxv_EwQGnBi0U91w_qMjP7jCDt0UgVFkw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-B4P-Cjzab_d9oy9opfgLxr74X0XIMfu_A" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1xE9Pqh4s8WyqwBCOTC7sdOwtd4n9bKkcQQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Sp5vi4oyGg3l21u2Sgmc4scA7P8ANoeLlQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=173QG8VkxJULhLUPXtcXKMunUCXMNIqzS-A" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1SBoK6MpadjBYBbvoLtDt07hzV3Lml19YXQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1a3vV4T7ZCNqHoEVHy6lODx1ZpbrYyvAk6g" alt=""></p>
-<h3 id="インストールされたか確認"><a href="#インストールされたか確認" class="headerlink" title="インストールされたか確認"></a>インストールされたか確認</h3><p>コマンドプロンプトを起動します<br>わからない人は<a href="/blog/2017/02/11/command-prompt-start-up-170211/" title="コマンドプロンプトの起動方法">コマンドプロンプトの起動方法</a>を参考</p>
-<p><code>node -v</code>と<code>npm -v</code>でインストールされたバージョンを確認</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1R1HZ4kMlnVACzkNNenwDI8QBzxItrMgV_Q" alt=""></p>
-
+            <p><p>Node.jsのインストール方法の解説</p>
+<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://nodejs.org/ja/">https://nodejs.org/ja/</a></p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/09/node-js-install-step-170210/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1056,7 +894,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1075,7 +913,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1112,7 +950,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/">コメント</a>
+        <a href="/blog/2017/02/09/node-js-install-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/09/node-js-install-step-170210/">コメント</a>
     
 
         </footer>
@@ -1124,7 +962,7 @@ ga('send', 'pageview');
 
     <article id="post-fritzing-install-170208" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1161,23 +999,27 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/08/fritzing-install-170208/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1Lq4orlr5TwuUxvjDoSt9DwTxuNbJcblblA" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>回路図が書けるFritzingをインストールするまで</p>
-<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="http://fritzing.org/home/" target="_blank" rel="external">http://fritzing.org/home/</a></p>
-<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><p>ダウンロードページ<br><a href="http://fritzing.org/download/" target="_blank" rel="external">Fritzing Download</a><br>Version 0.9.3b (2017/02/08時点)</p>
-<p><code>No Donation</code>をチェックして<code>Download</code>を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1cBRKilGINkBUmXxNgnYKGK7Ek5aOSPX-VA" alt=""></p>
-<p><code>Windows 64bit</code>を選択<br>※環境に合わせてお選びください</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1xg5l_cbIlQeyl5JQ8QebVXvlXuPGGboYfQ" alt=""></p>
-<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p>ファイルを解凍すると<code>fritzing.0.9.3b.64.pc</code>ができるので、適当なフォルダにおいてください<br>今回は<code>C:\fritzing.0.9.3b.64.pc</code>におきました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1P6lUMK3uwqlGLbwC_CkDGDdaWwwAyPJNgw" alt=""></p>
-<p><code>Fritzing.exe</code>で起動します<br>右クリックからショートカットを作ってデスクトップに置いておくと便利かと思います</p>
-<p>初回起動画面</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1gxRZ4jqH0IvEO0Yeg7FAS__TMiFnnYZzpA" alt=""></p>
-
+            <p><p>回路図が書けるFritzingをインストールするまで</p>
+<h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="http://fritzing.org/home/">http://fritzing.org/home/</a></p>
+<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><p>ダウンロードページ<br><a href="http://fritzing.org/download/">Fritzing Download</a><br>Version 0.9.3b (2017/02/08時点)</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/08/fritzing-install-170208/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1186,7 +1028,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1205,7 +1047,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1242,7 +1084,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/08/fritzing-install-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/fritzing-install-170208/">コメント</a>
+        <a href="/blog/2017/02/08/fritzing-install-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/fritzing-install-170208/">コメント</a>
     
 
         </footer>
@@ -1254,7 +1096,7 @@ ga('send', 'pageview');
 
     <article id="post-esp8266-how-to-170208" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1291,288 +1133,44 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/08/esp8266-how-to-170208/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>ESP8266(ESP-WROOM-02)をArduinoとして使う方法<br>Arduino core for ESP8266 の基本的な使い方</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
-<li><a href="#はじめに">はじめに</a><ul>
-<li><a href="#配線と起動モード">配線と起動モード</a></li>
-</ul>
-</li>
-<li><a href="#機能解説">機能解説</a><ul>
-<li><a href="#デジタル-IO">デジタル IO</a><ul>
-<li><a href="#デジタル出力">デジタル出力</a></li>
-<li><a href="#デジタル入力">デジタル入力</a></li>
-</ul>
-</li>
-<li><a href="#アナログ出力">アナログ出力</a></li>
-<li><a href="#アナログ入力">アナログ入力</a></li>
-<li><a href="#タイミングと遅延">タイミングと遅延</a></li>
-<li><a href="#シリアル通信">シリアル通信</a></li>
-</ul>
-</li>
-<li><a href="#GPIO-pin-まとめ">GPIO pin まとめ</a></li>
-<li><a href="#参考">参考</a></li>
-</ul>
+            <p><p>ESP8266(ESP-WROOM-02)をArduinoとして使う方法<br>Arduino core for ESP8266 の基本的な使い方</p>
+<!--# 目次-->
+<!--- [はじめに](#はじめに)-->
+<!--  - [配線と起動モード](#配線と起動モード)-->
+<!--- [機能解説](#機能解説)-->
+<!--  - [デジタル IO](#デジタル-IO)-->
+<!--    - [デジタル出力](#デジタル出力)-->
+<!--    - [デジタル入力](#デジタル入力)-->
+<!--  - [アナログ出力](#アナログ出力)-->
+<!--  - [アナログ入力](#アナログ入力)-->
+<!--  - [タイミングと遅延](#タイミングと遅延)-->
+<!--  - [シリアル通信](#シリアル通信)-->
+<!--- [GPIO pin まとめ](#GPIO-pin-まとめ)-->
+<!--- [参考](#参考)-->
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><ul>
-<li><p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>を参照しています</p>
+<li><p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md">Arduino core for ESP8266 | reference</a>を参照しています</p>
 </li>
-<li><p><a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
+<li><p><a href="http://amzn.to/2lEjWZf">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
 </li>
-</ul>
-<h2 id="配線と起動モード"><a href="#配線と起動モード" class="headerlink" title="配線と起動モード"></a>配線と起動モード</h2><ul>
-<li><strong>実行モード(Flash Boot Mode)</strong><br>  書き込んだプログラムで起動します</li>
-<li><strong>書き込みモード(UART Download Mode)</strong><br>  プログラムが書き込めるようになります</li>
-</ul>
-<p>IO0 pinを<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード<br>になります</p>
-<table>
-<thead>
-<tr>
-<th>GPIO</th>
-<th>pinの名前</th>
-<th>実行モード</th>
-<th>書き込みモード</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GPIO0</td>
-<td>IO0</td>
-<td>HIGH</td>
-<td>LOW</td>
-</tr>
-<tr>
-<td>GPIO2</td>
-<td>IO2</td>
-<td>HIGH</td>
-<td>HIGH</td>
-</tr>
-<tr>
-<td>GPIO15</td>
-<td>IO15</td>
-<td>LOW</td>
-<td>LOW</td>
-</tr>
-</tbody>
-</table>
-<h1 id="機能解説"><a href="#機能解説" class="headerlink" title="機能解説"></a>機能解説</h1><h2 id="デジタル-io"><a href="#デジタル-IO" class="headerlink" title="デジタル IO"></a>デジタル IO</h2><ul>
-<li>GPIO 0〜15 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLUP</code><br>  ※ただし、GPIO 6〜11はGPIOとして使用不可(↓参照)</li>
-<li>GPIO 16 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLDOWN_16</code></li>
-<li>ピン割り込みの使用 → GPIO 0〜15 <code>attachInterrupt</code>、<code>detachInterrupt</code>関数</li>
-</ul>
-<blockquote>
-<p>デジタルピン0〜15は、INPUT、OUTPUT、INPUT_PULLUPのいずれかです。ピン16はINPUT、OUTPUT、INPUT_PULLDOWN_16のいずれかです。起動時に、ピンはINPUTとして設定されます。</p>
-<p>デジタルピン6-11は、ほとんどのモジュール上のフラッシュメモリチップを接続するために使用されているため、この図には示されていません。 IOとしてこれらのピンを使用しようとすると、プログラムがクラッシュする可能性があります。</p>
-<p>ピン割り込みは、attachInterrupt、detachInterrupt関数でサポートされています。割り込みは、GPIO16を除く任意のGPIOピンに接続できます。</p>
-</blockquote>
-<h3 id="デジタル出力"><a href="#デジタル出力" class="headerlink" title="デジタル出力"></a>デジタル出力</h3><p>IO13のLEDを点滅</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  digitalWrite(LED, HIGH);</div><div class="line">  delay(<span class="number">1000</span>);</div><div class="line">  digitalWrite(LED, LOW);</div><div class="line">  delay(<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Y0x4Z-bRbGAJpTvv3jTW5rOk8YlKO3TjOA" alt=""></p>
-<h3 id="デジタル入力"><a href="#デジタル入力" class="headerlink" title="デジタル入力"></a>デジタル入力</h3><p>IO2のスイッチを押している間、IO13のLEDが点灯</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SWITCH 2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">  pinMode(SWITCH, INPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (digitalRead(SWITCH) == LOW) &#123;</div><div class="line">    digitalWrite(LED, HIGH);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    digitalWrite(LED, LOW);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=172h7FxufZfRwncPaOKtZCJ5zmTPgzyUiZw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1nMXCtPlT8RvrcnJltpb9-gxVlUfqe4D4cw" alt=""></p>
-<h2 id="アナログ出力"><a href="#アナログ出力" class="headerlink" title="アナログ出力"></a>アナログ出力</h2><ul>
-<li>GPIO 0〜16で使用可 (※GPIO 6〜11を除く)</li>
-<li><code>analogWrite(pin, value)</code>でON<br>  value → <code>0～1023</code></li>
-<li><code>analogWrite(pin, 0)</code>でOFF</li>
-</ul>
-<blockquote>
-<p>analogWrite（pin、value）指定されたピンでソフトウェアPWMをイネーブルにします。 PWMはピン0〜16で使用できます。ピンのPWMをディセーブルにするには、analogWrite（pin、0）を呼び出します。 値は0からPWMRANGEまでの範囲で指定できます。デフォルトは1023です。</p>
-</blockquote>
-<p>IO13のLEDが徐々に明るくなるサンプルコード</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;  i &lt; <span class="number">1023</span>;  i++)  &#123;</div><div class="line">    analogWrite(LED, i);</div><div class="line">    delay(<span class="number">3</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1bgkwn-lf43CNOeIShD_07Ie1bV0BK8IjIg" alt=""></p>
-<h2 id="アナログ入力"><a href="#アナログ入力" class="headerlink" title="アナログ入力"></a>アナログ入力</h2><p><code>analogRead(A0)</code>で読み取り</p>
-<p>※<code>ADC_MODE(ADC_VCC);</code>を関数の外に定義で、電源電圧の読み取り</p>
-<ul>
-<li>入力電圧範囲は0〜1.0V</li>
-</ul>
-<blockquote>
-<p>　ADCピンに印加される外部電圧を読み取るには、analogRead（A0）を使用します。 入力電圧範囲は0〜1.0Vです。</p>
-</blockquote>
-<p>TOUT(A0)のAD変換値を読み取る</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> value;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  Serial.begin(<span class="number">115200</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  value = analogRead(A0);</div><div class="line">  Serial.println(value);</div><div class="line">  delay(<span class="number">100</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>0～1023が得られるはずですが、<br>以下のようにつなげて読み取った所、<code>6～1024</code>という値が得られました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1M6AGBwaMPKY0BM0WSEYWT2xoXCkKPPbiEQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1miNvToHkI67tG4Dzjz4kVIqUOfo2N4edHw" alt=""></p>
-<h2 id="タイミングと遅延"><a href="#タイミングと遅延" class="headerlink" title="タイミングと遅延"></a>タイミングと遅延</h2><ul>
-<li><h4 id="リセット後の経過時間取得"><a href="#リセット後の経過時間取得" class="headerlink" title="リセット後の経過時間取得"></a>リセット後の経過時間取得</h4><ul>
-<li>ミリ秒 → <code>millis()</code></li>
-<li>マイクロ秒 → <code>micros()</code></li>
-</ul>
-</li>
-<li><h4 id="遅延"><a href="#遅延" class="headerlink" title="遅延"></a>遅延</h4><ul>
-<li>ミリ秒 → <code>delay()</code></li>
-<li>マイクロ秒 → <code>delayMicroseconds()</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>millis()およびmicros()は、それぞれリセット後に経過したミリ秒数およびマイクロ秒数を返します。</p>
-<p>delay(ms)は、指定したミリ秒間スケッチを一時停止し、WiFiおよびTCP / IPタスクを実行できるようにします。 delayMicroseconds(us)は、指定されたマイクロ秒数で一時停止します。</p>
-</blockquote>
-<h2 id="シリアル通信"><a href="#シリアル通信" class="headerlink" title="シリアル通信"></a>シリアル通信</h2><ul>
-<li><code>Serial.begin()</code>をsetup関数に定義</li>
-<li><code>Serial.swap()</code>で使用するピンの組み合わせを変更<br>  GPIO1(TX) &amp; GPIO3(RX) ↔ GPIO15(TX) &amp; GPIO13(RX)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">選択</th>
-<th style="text-align:left">TX</th>
-<th style="text-align:left">RX</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">default</td>
-<td style="text-align:left">GPIO1(TXD)</td>
-<td style="text-align:left">GPIO3(RXD)</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Serial.swap()</code>で変更</td>
-<td style="text-align:left">GPIO15(IO15)</td>
-<td style="text-align:left">GPIO13(IO13)</td>
-</tr>
-</tbody>
-</table>
-<p>※GPIO(pin Name)</p>
-<blockquote>
-<p>シリアルはUART 0を使用し、GPIO 1（TX）ピンとGPIO 3（RX）ピンにマッピングされます。 Serial.beginの後にSerial.swap（）を呼び出すことで、SerialはGPIO 15（TX）とGPIO 13（RX）を再マッピングできます。スワップを再度呼び出すと、UART 0がGPIO 1とGPIO 3にマップされます。</p>
-</blockquote>
-<h1 id="gpio-pin-まとめ"><a href="#GPIO-pin-まとめ" class="headerlink" title="GPIO pin まとめ"></a>GPIO pin まとめ</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">GPIO</th>
-<th style="text-align:center">pinの名前</th>
-<th style="text-align:center">デジタル出力</th>
-<th style="text-align:center">デジタル入力</th>
-<th style="text-align:center">アナログ出力</th>
-<th style="text-align:center">アナログ入力</th>
-<th style="text-align:center">備考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">GPIO0</td>
-<td style="text-align:center">IO0</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">起動時に使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO1</td>
-<td style="text-align:center">TXD</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">書き込みに使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO2</td>
-<td style="text-align:center">IO2</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">起動時に使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO3</td>
-<td style="text-align:center">RXD</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">書き込みに使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO4</td>
-<td style="text-align:center">IO4</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO5</td>
-<td style="text-align:center">IO5</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO12</td>
-<td style="text-align:center">IO12</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO13</td>
-<td style="text-align:center">IO13</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO14</td>
-<td style="text-align:center">IO14</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO15</td>
-<td style="text-align:center">IO15</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">起動時に使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO16</td>
-<td style="text-align:center">IO16</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇　※1</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">A0</td>
-<td style="text-align:center">TOUT</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-</tr>
-</tbody>
-</table>
-<p>※1 割り込みは不可</p>
-<p><a href="http://espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf" target="_blank" rel="external">ESP-WROOM-02 | データシート</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1tykDSLkOUx1Kgq_c4WM1rTm5EgQhXxeptg" alt=""></p>
-<p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>の図</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-KxudMe01oMkKl6-T2R4UOabkNKCkReGJQ" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf" target="_blank" rel="external">ESP-WROOM-02 | データシート</a><br><a href="https://github.com/esp8266/Arduino#documentation" target="_blank" rel="external">Arduino core for ESP8266 | Documentation</a><br><a href="http://qiita.com/umi_kappa/items/ac3d37db44a2dcfe71fd" target="_blank" rel="external">ESP-WROOM-02 Arduino互換ボードのGPIOはこうやって使う</a></p>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/08/esp8266-how-to-170208/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1581,7 +1179,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1600,7 +1198,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1637,7 +1235,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/">コメント</a>
+        <a href="/blog/2017/02/08/esp8266-how-to-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/">コメント</a>
     
 
         </footer>
@@ -1649,7 +1247,7 @@ ga('send', 'pageview');
 
     <article id="post-esp8266-Arduino-170207" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1686,75 +1284,40 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<a href="/blog/2017/02/07/esp8266-Arduino-170207/" itemprop="url">
+            <img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+        </a>
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>ESP8266(ESP-WROOM-02)にArduinoのスケッチを書き込み、<br>シリアルモニタに「Hello World」と表示させるまで</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
-<li><a href="#必要なもの">必要なもの</a></li>
-<li><a href="#手順">手順</a><ul>
-<li><a href="#ESP8266-core-for-Arduino-のインストール">ESP8266 core for Arduino のインストール</a></li>
-<li><a href="#ボードの設定">ボードの設定</a></li>
-<li><a href="#スケッチを書き込む">スケッチを書き込む</a></li>
-</ul>
-</li>
-<li><a href="#参考">参考</a></li>
-</ul>
+            <p><p>ESP8266(ESP-WROOM-02)にArduinoのスケッチを書き込み、<br>シリアルモニタに「Hello World」と表示させるまで</p>
+<!--# 目次-->
+<!--- [必要なもの](#必要なもの)-->
+<!--- [手順](#手順)-->
+<!--    - [ESP8266 core for Arduino のインストール](#ESP8266-core-for-Arduino-のインストール)-->
+<!--    - [ボードの設定](#ボードの設定)-->
+<!--    - [スケッチを書き込む](#スケッチを書き込む)-->
+<!--- [参考](#参考)-->
 <h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><ul>
-<li><p>Arduino IDE<br>  ダウンロードページ<br>  <a href="https://www.arduino.cc/en/Main/Software" target="_blank" rel="external">https://www.arduino.cc/en/Main/Software</a><br>  バージョン 1.8.1　(2017/02/07時点)<br>  <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考<br>  推奨版は<code>バージョン 1.6.8</code>ですが<code>最新版バージョン 1.8.1</code>(2017/02/07時点)でも動作しました</p>
+<li><p>Arduino IDE<br>  ダウンロードページ<br>  <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a><br>  バージョン 1.8.1　(2017/02/07時点)<br>  <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考<br>  推奨版は<code>バージョン 1.6.8</code>ですが<code>最新版バージョン 1.8.1</code>(2017/02/07時点)でも動作しました</p>
 </li>
-<li><p>ESP8266 core for Arduino<br>  <a href="https://github.com/esp8266/Arduino" target="_blank" rel="external">https://github.com/esp8266/Arduino</a><br>  <code>Stable version 2.3.0</code> 使用</p>
+<li><p>ESP8266 core for Arduino<br>  <a href="https://github.com/esp8266/Arduino">https://github.com/esp8266/Arduino</a><br>  <code>Stable version 2.3.0</code> 使用</p>
 </li>
-<li><p>ESP8266(ESP-WROOM-02)<br>  ここでは<a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています<br>  MicroUSBを挿すだけで使えるので便利です</p>
+<li><p>ESP8266(ESP-WROOM-02)<br>  ここでは<a href="http://amzn.to/2lEjWZf">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています<br>  MicroUSBを挿すだけで使えるので便利です</p>
 </li>
-</ul>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="esp8266-core-for-arduino-のインストール"><a href="#ESP8266-core-for-Arduino-のインストール" class="headerlink" title="ESP8266 core for Arduino のインストール"></a>ESP8266 core for Arduino のインストール</h2><p>ESP8266 core for Arduino には</p>
-<ul>
-<li>「Stable version」</li>
-<li>「Staging version」<br>がありますが、今回は「Stable version」（安定版）をインストールします</li>
-</ul>
-<p><a href="https://github.com/esp8266/Arduino" target="_blank" rel="external">https://github.com/esp8266/Arduino</a> から画像の範囲をコピーします</p>
-<p>めんどくさい人は<br><code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code>をコピー</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Pzwit37rYstlEuRi63gFlt3IkYphx_qNAg" alt=""></p>
-<p><code>ファイル &gt; 環境設定</code>を開いて<br>画像の範囲に<code>貼り付け（Ctrl + V）</code> → <code>OK</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1OiDN092PnLLiIQOrnGH_uTlR7RoxjLfEgQ" alt=""></p>
-<p><code>ツール &gt; ボード &gt; ボードマネージャ</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1TGuZOE6YlLgvC9cBZwXVe4VSVi6uwk-EOw" alt=""></p>
-<p><code>esp8266</code>で検索 → <code>インストール</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1w79HPaa3pTVgSRrFk_iT6ML3jJ8zTgmKzA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=11z7iZ_UBx9sfgVLRCYnz1hc3_4QkT3LOmg" alt=""></p>
-<p>完了したので<code>閉じる</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1QqcPLRXzBT_SjKb43hQ6n-psnt0KHEEFBw" alt=""></p>
-<p><code>Stable version 2.3.0</code>がインストールされました</p>
-<h2 id="ボードの設定"><a href="#ボードの設定" class="headerlink" title="ボードの設定"></a>ボードの設定</h2><p><code>ツール &gt; ボード &gt; Generic ESP8266 Module</code>を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Nzxgj59uGrEqPmqMkxoMfT8c8bOI6lEk_A" alt=""></p>
-<p>初期設定</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1HqQzfIkniPNEEdh1BgzFm-BSdhpnd6O-Yg" alt=""></p>
-<p>画像の範囲を変更<br>※ シリアルポートは各自選択してください</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1mcOR3MI2NuO2qMk2IssfkCpUOrzvkI37dA" alt=""></p>
-<h2 id="スケッチを書き込む"><a href="#スケッチを書き込む" class="headerlink" title="スケッチを書き込む"></a>スケッチを書き込む</h2><p><strong>書き込みモードで起動します</strong></p>
-<p>IO0がLOWの状態でリセットすれば、書き込みモードで起動します。</p>
-<p>※ 　↑の画像で<code>Reset Method: nodemcu</code>を選択すれば、次回から書き込みモードで起動する必要はありません</p>
-<p><a href="https://www.switch-science.com/catalog/2500/" target="_blank" rel="external">https://www.switch-science.com/catalog/2500/</a>を参考に</p>
-<blockquote>
-<p>IO0がHIGHの状態でリセットされるとファームウェアの実行モードで起動しますが、IO0がLOWの状態でリセットされるとファームウェアの書き込みモードで起動します。</p>
-</blockquote>
-<p>以下のプログラムを書いて書き込みます</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">void setup() &#123;</div><div class="line">  Serial.begin(115200);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void loop() &#123;</div><div class="line">  Serial.println(&quot;Hello World&quot;);</div><div class="line">  delay(1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>書き込みボタンを押す</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1V8b5Ga0KeWhjIyQTElQMuOR6mNtQ-fuG_A" alt=""></p>
-<p>ファイルを保存するか聞かれたので<br><code>helloworld</code>にして<code>保存</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1MoMGqABdLmlRS48nvYaUZuqqh2fdVlakmA" alt=""></p>
-<p>書き込み完了</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=19CCSdLZcLryG7xjKnRlJtcDFDieH_97arg" alt=""></p>
-<p>右上のアイコンを押す → シリアルモニタ起動<br><code>CRおよびLF</code>、<code>115200 bps</code>に設定</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ne5ZzScrpjsBzlgzXcsMSxznUeQoB2WctQ" alt=""></p>
-<p>「Hello World」と表示されれば上手くいきました</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://trac.switch-science.com/wiki/esp_dev_arduino_ide" target="_blank" rel="external">ESP-WROOM-02開発ボードをArduino IDEで開発する方法</a></li>
-<li><a href="https://www.mgo-tec.com/blog-entry-ss-wroom-howto01.html" target="_blank" rel="external">ESPr Developer ( ESP-WROOM-02 開発ボード )の使い方をザッと紹介</a></li>
-</ul>
-
+</ul></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/07/esp8266-Arduino-170207/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1763,7 +1326,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1782,7 +1345,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1819,7 +1382,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/07/esp8266-Arduino-170207/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/07/esp8266-Arduino-170207/">コメント</a>
+        <a href="/blog/2017/02/07/esp8266-Arduino-170207/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/07/esp8266-Arduino-170207/">コメント</a>
     
 
         </footer>
@@ -1831,7 +1394,7 @@ ga('send', 'pageview');
 
     <article id="post-RictyDiminished" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -1868,22 +1431,15 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <p>見やすいプログラミング用フォントのRictyDiminishedをWindowsにインストール</p>
-<h1 id="rictydiminished"><a href="#RictyDiminished" class="headerlink" title="RictyDiminished"></a>RictyDiminished</h1><p>ダウンロードページ<br><a href="https://github.com/edihbrandon/RictyDiminished" target="_blank" rel="external">https://github.com/edihbrandon/RictyDiminished</a></p>
-<p><code>Download ZIP</code>を押す</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1lg0WWYAXiPPDQezkaVEDiKUziaSRPeDD1Q" alt=""></p>
-<p>ダウンロードしたファイルを展開します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1on-cdzUQMApUZunBZLfu93oBnxjcavy6GA" alt=""></p>
-<p>新しくエクスプローラーを立ち上げて<br><code>C:\Windows\Fonts</code>を開きます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1DHvQ3zfMobnd_ks9NOsplOE6IBBqn0omKA" alt=""></p>
-<p>fontファイルをfontフォルダへ、以下のようにコピーします</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=19KcYLx2A7OGyTRmz0fTnuixeePPI8mF33w" alt=""></p>
-<p>以上で<code>RictyDiminished</code>のインストールは完了です</p>
-
+            <p><p>見やすいプログラミング用フォントのRictyDiminishedをWindowsにインストール</p></p>
+            <p class="article-more-link">
+                <a href="/blog/2017/02/07/RictyDiminished/#more">続きを読む</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -1892,7 +1448,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -1911,7 +1467,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -1948,7 +1504,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/07/RictyDiminished/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/07/RictyDiminished/">コメント</a>
+        <a href="/blog/2017/02/07/RictyDiminished/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/07/RictyDiminished/">コメント</a>
     
 
         </footer>
@@ -1974,7 +1530,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+                            <a href="/blog/2017/02/22/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
     
     
         <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA)" alt="Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順" class="thumbnail-image"></span>
@@ -1985,8 +1560,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time></p>
                         </div>
                     </li>
                 
@@ -1996,7 +1571,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="仮想COMポートから遠くのESP8266とTCP通信する" class="thumbnail-image"></span>
     
 </a>
 
@@ -2015,7 +1590,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="ESP8266でATコマンドを使ってみる" class="thumbnail-image"></span>
     
 </a>
 
@@ -2044,25 +1619,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 
@@ -2114,8 +1670,9 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 田邊 慶次朗<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            &copy; 2017 田邊 慶次朗
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
         </div>
     </div>
 </footer>

@@ -5,71 +5,17 @@
     
     <title>Raspberry Pi 3のはじめかた | blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説
-目次
-
-環境
-公式サイト
-必要なもの
-手順
-まずはSDをフォーマットする
-「Raspbian」の用意
-「Raspbian」をSDカードに書き込む
-Raspberry Piを起動させる
-
-
-設定
-まずはWiFiに接続
-WindowsからSSHで接続
-SSHの設定をONに
-IPアドレスの確認
-Tera">
+    <meta name="description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Raspberry Pi 3のはじめかた">
 <meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/11/raspberry-pi-3-starting-step-170210/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説
-目次
-
-環境
-公式サイト
-必要なもの
-手順
-まずはSDをフォーマットする
-「Raspbian」の用意
-「Raspbian」をSDカードに書き込む
-Raspberry Piを起動させる
-
-
-設定
-まずはWiFiに接続
-WindowsからSSHで接続
-SSHの設定をONに
-IPアドレスの確認
-Tera">
+<meta property="og:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。">
 <meta property="og:image" content="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA">
 <meta property="og:updated_time" content="2017-02-20T01:49:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 3のはじめかた">
-<meta name="twitter:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説
-目次
-
-環境
-公式サイト
-必要なもの
-手順
-まずはSDをフォーマットする
-「Raspbian」の用意
-「Raspbian」をSDカードに書き込む
-Raspberry Piを起動させる
-
-
-設定
-まずはWiFiに接続
-WindowsからSSHで接続
-SSHの設定をONに
-IPアドレスの確認
-Tera">
+<meta name="twitter:description" content="Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。">
 <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA">
 <link rel="publisher" href="u/0/106972576385014381494">
     
@@ -249,15 +195,7 @@ ga('send', 'pageview');
             
             <section id="main"><article id="post-raspberry-pi-3-starting-step-170210" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<img src="https://drive.google.com/uc?export=view&id=180Og7aNAgN-BbXYwoDm5GvPKlWYdWKyiqA" class="article-banner" />
-	
-
-
-
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -294,50 +232,22 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<img src="https://drive.google.com/uc?export=view&id=1PPIUpij91ZB8XuWI8e4Avds4KamzANAGaQ" class="article-banner" />
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方、解説</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><!-- toc -->
-<ul>
-<li><a href="#環境">環境</a></li>
-<li><a href="#公式サイト">公式サイト</a></li>
-<li><a href="#必要なもの">必要なもの</a></li>
-<li><a href="#手順">手順</a><ul>
-<li><a href="#まずはsdをフォーマットする">まずはSDをフォーマットする</a></li>
-<li><a href="#raspbianの用意">「Raspbian」の用意</a></li>
-<li><a href="#raspbianをsdカードに書き込む">「Raspbian」をSDカードに書き込む</a></li>
-<li><a href="#raspberry-piを起動させる">Raspberry Piを起動させる</a></li>
-</ul>
-</li>
-<li><a href="#設定">設定</a><ul>
-<li><a href="#まずはwifiに接続">まずはWiFiに接続</a></li>
-<li><a href="#windowsからsshで接続">WindowsからSSHで接続</a><ul>
-<li><a href="#sshの設定をonに">SSHの設定をONに</a></li>
-<li><a href="#ipアドレスの確認">IPアドレスの確認</a></li>
-<li><a href="#tera-termで接続">Tera Termで接続</a></li>
-</ul>
-</li>
-<li><a href="#パッケージの更新">パッケージの更新</a></li>
-<li><a href="#リモートデスクトップでpcから操作できるようにする">リモートデスクトップでPCから操作できるようにする</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<!--- [環境](#環境)-->
-<!--- [公式サイト](#公式サイト)-->
-<!--- [必要なもの](#必要なもの)-->
-<!--- [手順](#手順)-->
-<!--    - [まずはSDをフォーマットする](#まずはSDをフォーマットする)-->
-<!--    - [「Raspbian」の用意](#「Raspbian」の用意)-->
-<!--    - [「Raspbian」をSDカードに書き込む](#「Raspbian」をSDカードに書き込む)-->
-<!--    - [Raspberry Piを起動させる](#Raspberry-Piを起動させる)-->
-<!--- [設定](#設定)-->
-<!--    - [まずはWiFiに接続](#まずはWiFiに接続)-->
-<!--    - [WindowsからSSHで接続](#WindowsからSSHで接続)-->
-<!--    - [パッケージの更新](#パッケージの更新)-->
-<!--    - [リモートデスクトップでPCから操作できるようにする](#リモートデスクトップでPCから操作できるようにする)-->
+            <p>Raspberry Pi 3 にRaspbianをインストールして使えるようにするまでのやり方を解説します。</p>
+<a id="more"></a>
 <h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
 <li>Windows10 Home 64bit</li>
 <li>Raspberry Pi 3 Model B Element14版</li>
@@ -422,7 +332,7 @@ ga('send', 'pageview');
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1Mf2V-2lkgkJPsr1UlBZPf9RaxbhQSq4lwA" alt=""></p>
 <p>終了しました<br>1時間くらいかかりました</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1-8u-BdknqrpuJozNJ3EP50b0p7GhW0oNIQ" alt=""></p>
-<h2 id="リモートデスクトップでpcから操作できるようにする"><a href="#リモートデスクトップでPCから操作できるようにする" class="headerlink" title="リモートデスクトップでPCから操作できるようにする"></a>リモートデスクトップでPCから操作できるようにする</h2><p>詳しくは<br><a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" title="Raspberry Pi 3をリモートデスクトップで操作">Raspberry Pi 3をリモートデスクトップで操作</a></p>
+<h2 id="リモートデスクトップでpcから操作できるようにする"><a href="#リモートデスクトップでPCから操作できるようにする" class="headerlink" title="リモートデスクトップでPCから操作できるようにする"></a>リモートデスクトップでPCから操作できるようにする</h2><p>詳しくは<br><a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" title="Raspberry Pi 3をリモートデスクトップで操作できるようにする">Raspberry Pi 3をリモートデスクトップで操作できるようにする</a></p>
 <p>以下をインストール</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tightvncserver</div><div class="line">sudo apt-get install xrdp</div></pre></td></tr></table></figure>
 <p>先ほど調べたIPアドレスへ接続します</p>
@@ -444,7 +354,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -463,7 +373,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -500,7 +410,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/">コメント</a>
+        <a href="/blog/2017/02/11/raspberry-pi-3-starting-step-170210/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/11/raspberry-pi-3-starting-step-170210/">コメント</a>
     
 
         </footer>
@@ -555,7 +465,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+                            <a href="/blog/2017/02/22/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
     
     
         <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA)" alt="Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順" class="thumbnail-image"></span>
@@ -566,8 +495,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time></p>
                         </div>
                     </li>
                 
@@ -577,7 +506,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="仮想COMポートから遠くのESP8266とTCP通信する" class="thumbnail-image"></span>
     
 </a>
 
@@ -596,7 +525,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="ESP8266でATコマンドを使ってみる" class="thumbnail-image"></span>
     
 </a>
 
@@ -625,25 +554,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 
@@ -695,8 +605,9 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 田邊 慶次朗<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            &copy; 2017 田邊 慶次朗
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
         </div>
     </div>
 </footer>

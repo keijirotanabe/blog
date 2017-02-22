@@ -6,90 +6,68 @@
     <title>ESP8266をArduinoとして使う | blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="ESP8266(ESP-WROOM-02)をArduinoとして使う方法Arduino core for ESP8266 の基本的な使い方
-目次
-はじめに
-配線と起動モード
 
 
-機能解説
-デジタル IO
-デジタル出力
-デジタル入力
 
 
-アナログ出力
-アナログ入力
-タイミングと遅延
-シリアル通信
 
 
-GPIO pin まとめ
-参考
+
+
+
+
+
+
 
 はじめに
-Arduino core for ESP8266 | r">
+Arduino core for ESP8266 | referenceを参照しています
+
+ESPr Developer(ESP-WROOM-02開発ボード)を使用しています">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESP8266をArduinoとして使う">
 <meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/08/esp8266-how-to-170208/index.html">
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="ESP8266(ESP-WROOM-02)をArduinoとして使う方法Arduino core for ESP8266 の基本的な使い方
-目次
-はじめに
-配線と起動モード
 
 
-機能解説
-デジタル IO
-デジタル出力
-デジタル入力
 
 
-アナログ出力
-アナログ入力
-タイミングと遅延
-シリアル通信
 
 
-GPIO pin まとめ
-参考
+
+
+
+
+
+
 
 はじめに
-Arduino core for ESP8266 | r">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1Y0x4Z-bRbGAJpTvv3jTW5rOk8YlKO3TjOA">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=172h7FxufZfRwncPaOKtZCJ5zmTPgzyUiZw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1nMXCtPlT8RvrcnJltpb9-gxVlUfqe4D4cw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1bgkwn-lf43CNOeIShD_07Ie1bV0BK8IjIg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1M6AGBwaMPKY0BM0WSEYWT2xoXCkKPPbiEQ">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1miNvToHkI67tG4Dzjz4kVIqUOfo2N4edHw">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1tykDSLkOUx1Kgq_c4WM1rTm5EgQhXxeptg">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1-KxudMe01oMkKl6-T2R4UOabkNKCkReGJQ">
-<meta property="og:updated_time" content="2017-02-20T06:08:02.817Z">
+Arduino core for ESP8266 | referenceを参照しています
+
+ESPr Developer(ESP-WROOM-02開発ボード)を使用しています">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w">
+<meta property="og:updated_time" content="2017-02-22T05:52:40.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESP8266をArduinoとして使う">
 <meta name="twitter:description" content="ESP8266(ESP-WROOM-02)をArduinoとして使う方法Arduino core for ESP8266 の基本的な使い方
-目次
-はじめに
-配線と起動モード
 
 
-機能解説
-デジタル IO
-デジタル出力
-デジタル入力
 
 
-アナログ出力
-アナログ入力
-タイミングと遅延
-シリアル通信
 
 
-GPIO pin まとめ
-参考
+
+
+
+
+
+
 
 はじめに
-Arduino core for ESP8266 | r">
-<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1Y0x4Z-bRbGAJpTvv3jTW5rOk8YlKO3TjOA">
+Arduino core for ESP8266 | referenceを参照しています
+
+ESPr Developer(ESP-WROOM-02開発ボード)を使用しています">
+<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w">
 <link rel="publisher" href="u/0/106972576385014381494">
     
 
@@ -268,7 +246,7 @@ ga('send', 'pageview');
             
             <section id="main"><article id="post-esp8266-how-to-170208" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -305,37 +283,46 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
+            
+	
+		<img src="https://drive.google.com/uc?export=view&id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w" class="article-banner" />
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">目次</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#はじめに"><span class="toc-number">1.</span> <span class="toc-text">はじめに</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配線と起動モード"><span class="toc-number">1.1.</span> <span class="toc-text">配線と起動モード</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#機能解説"><span class="toc-number">2.</span> <span class="toc-text">機能解説</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#デジタル-io"><span class="toc-number">2.1.</span> <span class="toc-text">デジタル IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#デジタル出力"><span class="toc-number">2.1.1.</span> <span class="toc-text">デジタル出力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#デジタル入力"><span class="toc-number">2.1.2.</span> <span class="toc-text">デジタル入力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#アナログ出力"><span class="toc-number">2.2.</span> <span class="toc-text">アナログ出力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#アナログ入力"><span class="toc-number">2.3.</span> <span class="toc-text">アナログ入力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#タイミングと遅延"><span class="toc-number">2.4.</span> <span class="toc-text">タイミングと遅延</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#リセット後の経過時間取得"><span class="toc-number">2.4.0.1.</span> <span class="toc-text">リセット後の経過時間取得</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遅延"><span class="toc-number">2.4.0.2.</span> <span class="toc-text">遅延</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#シリアル通信"><span class="toc-number">2.5.</span> <span class="toc-text">シリアル通信</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gpio-pin-まとめ"><span class="toc-number">3.</span> <span class="toc-text">GPIO pin まとめ</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
             <p>ESP8266(ESP-WROOM-02)をArduinoとして使う方法<br>Arduino core for ESP8266 の基本的な使い方</p>
-<h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
-<li><a href="#はじめに">はじめに</a><ul>
-<li><a href="#配線と起動モード">配線と起動モード</a></li>
-</ul>
-</li>
-<li><a href="#機能解説">機能解説</a><ul>
-<li><a href="#デジタル-IO">デジタル IO</a><ul>
-<li><a href="#デジタル出力">デジタル出力</a></li>
-<li><a href="#デジタル入力">デジタル入力</a></li>
-</ul>
-</li>
-<li><a href="#アナログ出力">アナログ出力</a></li>
-<li><a href="#アナログ入力">アナログ入力</a></li>
-<li><a href="#タイミングと遅延">タイミングと遅延</a></li>
-<li><a href="#シリアル通信">シリアル通信</a></li>
-</ul>
-</li>
-<li><a href="#GPIO-pin-まとめ">GPIO pin まとめ</a></li>
-<li><a href="#参考">参考</a></li>
-</ul>
+<!--# 目次-->
+<!--- [はじめに](#はじめに)-->
+<!--  - [配線と起動モード](#配線と起動モード)-->
+<!--- [機能解説](#機能解説)-->
+<!--  - [デジタル IO](#デジタル-IO)-->
+<!--    - [デジタル出力](#デジタル出力)-->
+<!--    - [デジタル入力](#デジタル入力)-->
+<!--  - [アナログ出力](#アナログ出力)-->
+<!--  - [アナログ入力](#アナログ入力)-->
+<!--  - [タイミングと遅延](#タイミングと遅延)-->
+<!--  - [シリアル通信](#シリアル通信)-->
+<!--- [GPIO pin まとめ](#GPIO-pin-まとめ)-->
+<!--- [参考](#参考)-->
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><ul>
 <li><p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>を参照しています</p>
 </li>
 <li><p><a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
 </li>
 </ul>
+<a id="more"></a>
 <h2 id="配線と起動モード"><a href="#配線と起動モード" class="headerlink" title="配線と起動モード"></a>配線と起動モード</h2><ul>
 <li><strong>実行モード(Flash Boot Mode)</strong><br>  書き込んだプログラムで起動します</li>
 <li><strong>書き込みモード(UART Download Mode)</strong><br>  プログラムが書き込めるようになります</li>
@@ -595,7 +582,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -614,7 +601,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -651,7 +638,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/">コメント</a>
+        <a href="/blog/2017/02/08/esp8266-how-to-170208/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/08/esp8266-how-to-170208/">コメント</a>
     
 
         </footer>
@@ -706,7 +693,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+                            <a href="/blog/2017/02/22/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
     
     
         <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA)" alt="Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順" class="thumbnail-image"></span>
@@ -717,8 +723,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time></p>
                         </div>
                     </li>
                 
@@ -728,7 +734,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="仮想COMポートから遠くのESP8266とTCP通信する" class="thumbnail-image"></span>
     
 </a>
 
@@ -747,7 +753,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="ESP8266でATコマンドを使ってみる" class="thumbnail-image"></span>
     
 </a>
 
@@ -776,25 +782,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 
@@ -846,8 +833,9 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 田邊 慶次朗<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            &copy; 2017 田邊 慶次朗
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
         </div>
     </div>
 </footer>

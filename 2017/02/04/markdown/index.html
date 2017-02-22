@@ -5,59 +5,17 @@
     
     <title>HEXOで使えるMarkDown記法 | blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Hexoで記事を書くときの記法まとめ
-目次
-見出し
-リンク
-斜体、強調
-リスト
-テーブル
-画像
-コード・ブロック
-インライン・コード
-Block Quote
-参考
-
-見出しh1の見出しh2の見出しh3の見出しh4の見出しh5の見出しh6の見出し123456# h1の見出し## h2の見出し### h3の見出し#### h4の見出し##### h5の見出し###### h6の見出し
-h1 と h2">
+    <meta name="description" content="Hexoで記事を書くときの記法まとめ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HEXOで使えるMarkDown記法">
 <meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/04/markdown/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="Hexoで記事を書くときの記法まとめ
-目次
-見出し
-リンク
-斜体、強調
-リスト
-テーブル
-画像
-コード・ブロック
-インライン・コード
-Block Quote
-参考
-
-見出しh1の見出しh2の見出しh3の見出しh4の見出しh5の見出しh6の見出し123456# h1の見出し## h2の見出し### h3の見出し#### h4の見出し##### h5の見出し###### h6の見出し
-h1 と h2">
+<meta property="og:description" content="Hexoで記事を書くときの記法まとめ">
 <meta property="og:image" content="https://lh3.googleusercontent.com/NsPlEvxk5K-6PfJE4Odmen4a03JF3r5fojuA1VjMdRY7dXc81230-Yzbx9ao1MEvHynJyoQEtxDvnnlPGsxPBo0l4D5CMoDMvhIwx60dEHo_vKaTuhyAfWeb72KXZpLcLkVf7GuZwyiKyWcAhjnqWQW-rijD_A5QNP30WdjqnppUrw5yJeNmlZzDqrEAtnFTi4imD48XvbBWam2D9HrX2HGJyCEoHBbPZHigzBVyKu3pT_PHrOpcCXOE_KdJtr03URuNcz3Qk-E1AO7g2ImdZX3s4qJ_aDz5xhZek3lPvJOSTBH0bMkXGunn1sVx346MkbKo61pRAMoTa9nx80LQwYZUWkqjDUH0UAxPGbC8BHwcFNr2aSZGLrb5kJqLcPC_dKxZSTka41mtY5CZ7fbhxnS03k1Rbkqeh7d_iLYhJUJWW9LT6JSWcorEMpxqYAvDfHwV7rjhaXhgn6tk--BLFYt-x2uMnEioQBHq2lJG-kTbFHP8nREsPjG5aIzuK6ENYwZkAgIeNIKd34gy6rj6kcULZEVRlv2PJ2wfSqF2yPzlu-svuFc5x8Dr0wIBPLG-35Pn5shYBHvX9Djj5BjsAtOFGyFNBMPpGVhJ76Of4ENZl9mPPBFtWtJEEU1fZzXJX0FFbU7yjDR8XhVnnXAb65WC9oD8dlxBV1x3tIjm9A=w260-h193-no">
-<meta property="og:updated_time" content="2017-02-17T11:53:31.291Z">
+<meta property="og:updated_time" content="2017-02-22T06:01:58.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXOで使えるMarkDown記法">
-<meta name="twitter:description" content="Hexoで記事を書くときの記法まとめ
-目次
-見出し
-リンク
-斜体、強調
-リスト
-テーブル
-画像
-コード・ブロック
-インライン・コード
-Block Quote
-参考
-
-見出しh1の見出しh2の見出しh3の見出しh4の見出しh5の見出しh6の見出し123456# h1の見出し## h2の見出し### h3の見出し#### h4の見出し##### h5の見出し###### h6の見出し
-h1 と h2">
+<meta name="twitter:description" content="Hexoで記事を書くときの記法まとめ">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/NsPlEvxk5K-6PfJE4Odmen4a03JF3r5fojuA1VjMdRY7dXc81230-Yzbx9ao1MEvHynJyoQEtxDvnnlPGsxPBo0l4D5CMoDMvhIwx60dEHo_vKaTuhyAfWeb72KXZpLcLkVf7GuZwyiKyWcAhjnqWQW-rijD_A5QNP30WdjqnppUrw5yJeNmlZzDqrEAtnFTi4imD48XvbBWam2D9HrX2HGJyCEoHBbPZHigzBVyKu3pT_PHrOpcCXOE_KdJtr03URuNcz3Qk-E1AO7g2ImdZX3s4qJ_aDz5xhZek3lPvJOSTBH0bMkXGunn1sVx346MkbKo61pRAMoTa9nx80LQwYZUWkqjDUH0UAxPGbC8BHwcFNr2aSZGLrb5kJqLcPC_dKxZSTka41mtY5CZ7fbhxnS03k1Rbkqeh7d_iLYhJUJWW9LT6JSWcorEMpxqYAvDfHwV7rjhaXhgn6tk--BLFYt-x2uMnEioQBHq2lJG-kTbFHP8nREsPjG5aIzuK6ENYwZkAgIeNIKd34gy6rj6kcULZEVRlv2PJ2wfSqF2yPzlu-svuFc5x8Dr0wIBPLG-35Pn5shYBHvX9Djj5BjsAtOFGyFNBMPpGVhJ76Of4ENZl9mPPBFtWtJEEU1fZzXJX0FFbU7yjDR8XhVnnXAb65WC9oD8dlxBV1x3tIjm9A=w260-h193-no">
 <link rel="publisher" href="u/0/106972576385014381494">
     
@@ -237,7 +195,7 @@ ga('send', 'pageview');
             
             <section id="main"><article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
+        <!-- title -->
         
             <header class="article-header">
                 
@@ -274,11 +232,14 @@ ga('send', 'pageview');
                 
             </header>
         
+        <!-- banner -->
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
             <p>Hexoで記事を書くときの記法まとめ</p>
+<a id="more"></a>
 <h1 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h1><ul>
 <li><a href="#見出し">見出し</a></li>
 <li><a href="#リンク">リンク</a></li>
@@ -294,7 +255,7 @@ ga('send', 'pageview');
 <h1 id="見出し"><a href="#見出し" class="headerlink" title="見出し"></a>見出し</h1><h1 id="h1の見出し"><a href="#h1の見出し" class="headerlink" title="h1の見出し"></a>h1の見出し</h1><h2 id="h2の見出し"><a href="#h2の見出し" class="headerlink" title="h2の見出し"></a>h2の見出し</h2><h3 id="h3の見出し"><a href="#h3の見出し" class="headerlink" title="h3の見出し"></a>h3の見出し</h3><h4 id="h4の見出し"><a href="#h4の見出し" class="headerlink" title="h4の見出し"></a>h4の見出し</h4><h5 id="h5の見出し"><a href="#h5の見出し" class="headerlink" title="h5の見出し"></a>h5の見出し</h5><h6 id="h6の見出し"><a href="#h6の見出し" class="headerlink" title="h6の見出し"></a>h6の見出し</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1の見出し</div><div class="line">## h2の見出し</div><div class="line">### h3の見出し</div><div class="line">#### h4の見出し</div><div class="line">##### h5の見出し</div><div class="line">###### h6の見出し</div></pre></td></tr></table></figure>
 <p>h1 と h2 は以下のやり方も使える</p>
 <h1 id="h1の見出し"><a href="#h1の見出し-1" class="headerlink" title="h1の見出し"></a>h1の見出し</h1><h2 id="h2の見出し"><a href="#h2の見出し-1" class="headerlink" title="h2の見出し"></a>h2の見出し</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">h1の見出し</div><div class="line">=========</div><div class="line">h2の見出し</div><div class="line">---------</div></pre></td></tr></table></figure>
-<h1 id="リンク"><a href="#リンク" class="headerlink" title="リンク"></a>リンク</h1><p><a href="http://google.com" target="_blank" rel="external">Google</a><br><a href="/blog/tags/HEXO/">サイト内リンク</a><br><a href="/blog/2017/02/16/hello-world/" title="Hello World">Hello World</a></p>
+<h1 id="リンク"><a href="#リンク" class="headerlink" title="リンク"></a>リンク</h1><p><a href="http://google.com" target="_blank" rel="external">Google</a><br><a href="/blog/tags/HEXO/">サイト内リンク</a><br><a href="/blog/2017/02/22/hello-world/" title="Hello World">Hello World</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[Google](http://google.com)</div><div class="line">[サイト内リンク](/blog/tags/HEXO/)</div><div class="line">&#123;% post_link hello-world %&#125;</div></pre></td></tr></table></figure>
 <h1 id="斜体-強調"><a href="#斜体、強調" class="headerlink" title="斜体、強調"></a>斜体、強調</h1><p><em>斜体</em><br><strong>強調</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*斜体*</div><div class="line">**強調**</div></pre></td></tr></table></figure>
@@ -368,7 +329,7 @@ ga('send', 'pageview');
 
 
     <div class="a2a_kit a2a_default_style">
-    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share">共有</a>
     <span class="a2a_divider"></span>
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
@@ -387,7 +348,7 @@ ga('send', 'pageview');
         line-height: 16px;
         border-radius: 4px;
         color: inherit !important;
-        font-family: 'Microsoft Yahei';
+        font-family: "Mplus 1p";
     }
     #a2apage_dropdown {
         margin: 10px 0;
@@ -424,7 +385,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/">コメント</a>
+        <a href="/blog/2017/02/04/markdown/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/04/markdown/">コメント</a>
     
 
         </footer>
@@ -479,7 +440,26 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
+                            <a href="/blog/2017/02/22/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T06:03:07.935Z" itemprop="datePublished">2017-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="thumbnail">
     
     
         <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1WgQIU7uz1O49EbQ0UA7Ov8n-R8VODTPiAA)" alt="Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順" class="thumbnail-image"></span>
@@ -490,8 +470,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Hexo/">Hexo</a></p>
-                            <p class="item-title"><a href="/blog/2017/02/20/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
-                            <p class="item-date"><time datetime="2017-02-20T09:27:18.428Z" itemprop="datePublished">2017-02-20</time></p>
+                            <p class="item-title"><a href="/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/" class="title">Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</a></p>
+                            <p class="item-date"><time datetime="2017-02-22T04:47:46.766Z" itemprop="datePublished">2017-02-22</time></p>
                         </div>
                     </li>
                 
@@ -501,7 +481,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/18/esp8266-virtural-serial-port-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="仮想COMポートから遠くのESP8266とTCP通信する" class="thumbnail-image"></span>
     
 </a>
 
@@ -520,7 +500,7 @@ ga('send', 'pageview');
                             <a href="/blog/2017/02/17/esp8266-at-command-170218/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://drive.google.com/uc?export=view&amp;id=1gtaN9dY4twWXT1fHPgChCIqcBlTuAw1b8w)" alt="ESP8266でATコマンドを使ってみる" class="thumbnail-image"></span>
     
 </a>
 
@@ -549,25 +529,6 @@ ga('send', 'pageview');
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/blog/2017/02/17/google-photo-not-show-170217/" class="title">Googleフォトに置いてあるブログ用の画像が表示されなくなった</a></p>
                             <p class="item-date"><time datetime="2017-02-17T03:27:09.000Z" itemprop="datePublished">2017-02-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/2017/02/16/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2017/02/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2017-02-16T02:26:38.644Z" itemprop="datePublished">2017-02-16</time></p>
                         </div>
                     </li>
                 
@@ -619,8 +580,9 @@ ga('send', 'pageview');
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 田邊 慶次朗<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            &copy; 2017 田邊 慶次朗
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            <!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
         </div>
     </div>
 </footer>

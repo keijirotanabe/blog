@@ -893,7 +893,7 @@
 <li><a href="http://amzn.to/2lCwSxS" target="_blank" rel="external">HDMIケーブル</a></li>
 <li>電源 MicroUSB経由 (2.5A推奨)<br>  ここでは2.4Aのを使っています<br>  こういうのもあるようです<br>  <a href="http://amzn.to/2kk0gYT" target="_blank" rel="external">Raspberry Pi 3 model B 専用電源</a></li>
 </ul>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します</p>
+<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="まずはsdをフォーマットする"><a href="#まずはSDをフォーマットする" class="headerlink" title="まずはSDをフォーマットする"></a>まずはSDをフォーマットする</h2><p>「SDカードフォーマッター」でSDカードをフォーマット(初期化)します。</p>
 <p>ダウンロード先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
 <p>詳しくは<a href="/blog/2017/02/10/sd-formatter-4-170210/" title="SDカードフォーマッターの使い方">SDカードフォーマッターの使い方</a></p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1GgeB9NRR7ay_fPmgq7TCnyWVfRW7rj77vw" alt=""></p>
@@ -912,12 +912,13 @@
 <p>起動しました</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=15ma3VA1HoxASlmKmTK5MwivQzPA0cgY4QA" alt=""></p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1X41JEXx4yrqbLue40LipiQKNaDYFWtL9ig" alt=""></p>
-<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><h2 id="まずはwifiに接続"><a href="#まずはWiFiに接続" class="headerlink" title="まずはWiFiに接続"></a>まずはWiFiに接続</h2><p>Raspberry Pi 3には標準でWiFiがついています</p>
+<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><h2 id="まずはwifiに接続"><a href="#まずはWiFiに接続" class="headerlink" title="まずはWiFiに接続"></a>まずはWiFiに接続</h2><p>Raspberry Pi 3には標準でWiFiがついています。</p>
+<p>また、Raspberry Pi 2以前では、WiFi機能がないのでWiFiドングルが必要です。</p>
 <p>接続方法</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1Vkfp61Tm3_FAKnSj4UFTJzI0258j0Cmjxw" alt=""></p>
-<h2 id="windowsからsshで接続"><a href="#WindowsからSSHで接続" class="headerlink" title="WindowsからSSHで接続"></a>WindowsからSSHで接続</h2><h3 id="sshの設定をonに"><a href="#SSHの設定をONに" class="headerlink" title="SSHの設定をONに"></a>SSHの設定をONに</h3><p><code>Preferences &gt; Raspberry Pi Configuration</code></p>
+<h2 id="windowsからsshで接続"><a href="#WindowsからSSHで接続" class="headerlink" title="WindowsからSSHで接続"></a>WindowsからSSHで接続</h2><h3 id="sshの設定をonに"><a href="#SSHの設定をONに" class="headerlink" title="SSHの設定をONに"></a>SSHの設定をONに</h3><p>Preferences &gt; Raspberry Pi Configuration</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1CIRtA4GOYdc2PoxeLV9AOozEsHQfFN5hnw" alt=""></p>
-<p><code>Interfaces &gt; SSH: Enabled &gt; OK</code></p>
+<p>Interfaces &gt; SSH: Enabled &gt; OK</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1l4UxAIftx905yjlwk6P_G8c8xn1los1dBA" alt=""></p>
 <h3 id="ipアドレスの確認"><a href="#IPアドレスの確認" class="headerlink" title="IPアドレスの確認"></a>IPアドレスの確認</h3><p>ターミナルを起動します</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=181_m267p5vAkcAPf9QmLvUMcwG0GwtQA4g" alt=""></p>
@@ -975,6 +976,20 @@
 <p><img src="https://drive.google.com/uc?export=view&amp;id=15zzAlYBj_STR_9K3jF9FnV4bzs89SfiewA" alt=""></p>
 <p>以下の画面が表示されます</p>
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1MkjO2qzvWyDQW49oPPvA_08qupB-nz4FXg" alt=""></p>
+<h2 id="avahiでホスト名でアクセスできるようにする"><a href="#Avahiでホスト名でアクセスできるようにする" class="headerlink" title="Avahiでホスト名でアクセスできるようにする"></a>Avahiでホスト名でアクセスできるようにする</h2><p>Tera Termや、リモートデスクトップからログインするするには、IPアドレス分からないといけません。<br>ですが、IPアドレスは変わるので、変わる度に調べるのはめんどうです。<br>IPアドレスを固定するか、Avahiでホスト名でアクセスできると便利です。</p>
+<p>「Raspbian Jessie with PIXEL」には初めから、Avahiがインストールされていました。</p>
+<p>Avahiがインストールされているかは↓のコマンドで調べられます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dpkg -l avahi-daemon</div></pre></td></tr></table></figure></p>
+<p><code>0.6.31-5</code>がインストールされていました。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1CxnQTL0Y9BqjeEvpEhYzhPqLFEF9vhFMAw" alt=""></p>
+<p>入ってなければ、↓のコマンドでインストールできます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install avahi-daemon</div></pre></td></tr></table></figure></p>
+<p>接続するPCには、Bonjourをインストールします。</p>
+<p>BonjourはiTunesにも使われてますので、iTunesをインストールされているなら、このステップは飛ばしてください。</p>
+<p>ダウンロード<br><a href="https://support.apple.com/kb/DL999?locale=ja_JP" target="_blank" rel="external">https://support.apple.com/kb/DL999?locale=ja_JP</a></p>
+<p>必要なのはBonjourですので、プリンタウィザードはあとでアンインストールして構いません。</p>
+<p>あとは、<code>raspberrypi.local</code>で接続します。<br><img src="https://drive.google.com/uc?export=view&amp;id=182GdDVhM64v-IFmTVUVR_QNl-shxxq7B0A" alt=""></p>
+<p><code>raspberrypi</code>がホスト名です。<br>接続するには、ホスト名のあとに、<code>.local</code>をつけます。</p>
+<p>ホスト名は↓のコマンドで確認できます。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/hostname</div></pre></td></tr></table></figure></p>
+<p>ホスト名を変更するには<code>hostname</code>ファイルをvimなどで変更してください。</p>
 ]]></content>
     
     <summary type="html">

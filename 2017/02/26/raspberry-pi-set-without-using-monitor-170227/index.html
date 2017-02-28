@@ -3,20 +3,29 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Win32DiskImagerの使い方 | blog</title>
+    <title>Raspberry Piでモニターなど周辺を使用せずセットアップする方法 | blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します">
+    <meta name="description" content="Raspberry Piでモニターなど周辺を使用せずセットアップする方法を解説します。
+
+Raspberry Pi 3、または2でも手順は同じです。
+CUI版の「RASPBIAN JESSIE LITE」で進めていきますが、GUI環境のある「Raspbian Jessie with PIXEL」でも、同じやり方でできます。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Win32DiskImagerの使い方">
-<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/10/win32-disk-imager-170211/index.html">
+<meta property="og:title" content="Raspberry Piでモニターなど周辺を使用せずセットアップする方法">
+<meta property="og:url" content="https://keijirotanabe.github.io/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します">
-<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1s0esPsazCSLHKCMNK8wGQ3kmOsDkSAH3yw">
-<meta property="og:updated_time" content="2017-02-22T05:53:50.667Z">
+<meta property="og:description" content="Raspberry Piでモニターなど周辺を使用せずセットアップする方法を解説します。
+
+Raspberry Pi 3、または2でも手順は同じです。
+CUI版の「RASPBIAN JESSIE LITE」で進めていきますが、GUI環境のある「Raspbian Jessie with PIXEL」でも、同じやり方でできます。">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&id=1PPIUpij91ZB8XuWI8e4Avds4KamzANAGaQ">
+<meta property="og:updated_time" content="2017-02-28T09:07:08.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Win32DiskImagerの使い方">
-<meta name="twitter:description" content="SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します">
-<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1s0esPsazCSLHKCMNK8wGQ3kmOsDkSAH3yw">
+<meta name="twitter:title" content="Raspberry Piでモニターなど周辺を使用せずセットアップする方法">
+<meta name="twitter:description" content="Raspberry Piでモニターなど周辺を使用せずセットアップする方法を解説します。
+
+Raspberry Pi 3、または2でも手順は同じです。
+CUI版の「RASPBIAN JESSIE LITE」で進めていきますが、GUI環境のある「Raspbian Jessie with PIXEL」でも、同じやり方でできます。">
+<meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1PPIUpij91ZB8XuWI8e4Avds4KamzANAGaQ">
 <link rel="publisher" href="u/0/106972576385014381494">
     
 
@@ -193,7 +202,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-win32-disk-imager-170211" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-raspberry-pi-set-without-using-monitor-170227" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         <!-- title -->
         
@@ -201,7 +210,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Win32DiskImagerの使い方
+            Raspberry Piでモニターなど周辺を使用せずセットアップする方法
         </h1>
     
 
@@ -210,8 +219,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/blog/2017/02/10/win32-disk-imager-170211/">
-            <time datetime="2017-02-10T19:56:35.000Z" itemprop="datePublished">2017-02-11</time>
+        <a href="/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/">
+            <time datetime="2017-02-26T21:48:22.000Z" itemprop="datePublished">2017-02-27</time>
         </a>
     </div>
 
@@ -219,13 +228,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/blog/categories/補足/">補足</a>
+        <a class="article-category-link" href="/blog/categories/Raspberry-Pi/">Raspberry Pi</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/Win32DiskImager/">Win32DiskImager</a>, <a class="tag-link" href="/blog/tags/補足/">補足</a>
+        <a class="tag-link" href="/blog/tags/Raspberry-Pi/">Raspberry Pi</a>
     </div>
 
                     </div>
@@ -234,53 +243,111 @@ ga('send', 'pageview');
         
         <!-- banner -->
         
+            
+	
+		<img src="https://drive.google.com/uc?export=view&id=1PPIUpij91ZB8XuWI8e4Avds4KamzANAGaQ" class="article-banner" />
+	
+
+
+
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">目次</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ダウンロード"><span class="toc-number">1.</span> <span class="toc-text">ダウンロード</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#インストール"><span class="toc-number">2.</span> <span class="toc-text">インストール</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使い方"><span class="toc-number">3.</span> <span class="toc-text">使い方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#起動"><span class="toc-number">3.1.</span> <span class="toc-text">起動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ファイルを選択"><span class="toc-number">3.2.</span> <span class="toc-text">ファイルを選択</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#書き込み先を選択"><span class="toc-number">3.3.</span> <span class="toc-text">書き込み先を選択</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#書き込み開始"><span class="toc-number">3.4.</span> <span class="toc-text">書き込み開始</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用する環境"><span class="toc-number">1.</span> <span class="toc-text">使用する環境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#必要なもの"><span class="toc-number">2.</span> <span class="toc-text">必要なもの</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#raspbianの入手"><span class="toc-number">3.</span> <span class="toc-text">Raspbianの入手</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sdカードのフォーマット"><span class="toc-number">4.</span> <span class="toc-text">SDカードのフォーマット</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sdカードへ書き込み"><span class="toc-number">5.</span> <span class="toc-text">SDカードへ書き込み</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sshをonにする"><span class="toc-number">6.</span> <span class="toc-text">SSHをONにする</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#wifiの設定"><span class="toc-number">7.</span> <span class="toc-text">WiFiの設定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sshクライアントから接続"><span class="toc-number">8.</span> <span class="toc-text">SSHクライアントから接続</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bonjourをインストール"><span class="toc-number">8.1.</span> <span class="toc-text">Bonjourをインストール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tera-termから接続"><span class="toc-number">8.2.</span> <span class="toc-text">Tera Termから接続</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#設定"><span class="toc-number">9.</span> <span class="toc-text">設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#パスワードの変更"><span class="toc-number">9.1.</span> <span class="toc-text">パスワードの変更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ロケールとタイムゾーンの変更"><span class="toc-number">9.2.</span> <span class="toc-text">ロケールとタイムゾーンの変更</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#パッケージのアップデート"><span class="toc-number">10.</span> <span class="toc-text">パッケージのアップデート</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#イメージのバックアップ"><span class="toc-number">11.</span> <span class="toc-text">イメージのバックアップ</span></a></li></ol>
                 </div>
             
-            <p>SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します</p>
+            <p>Raspberry Piでモニターなど周辺を使用せずセットアップする方法を解説します。</p>
+<ul>
+<li>Raspberry Pi 3、または2でも手順は同じです。</li>
+<li>CUI版の「RASPBIAN JESSIE LITE」で進めていきますが、GUI環境のある「Raspbian Jessie with PIXEL」でも、同じやり方でできます。</li>
+</ul>
 <a id="more"></a>
-<h1 id="ダウンロード"><a href="#ダウンロード" class="headerlink" title="ダウンロード"></a>ダウンロード</h1><p>ダウンロード先<br><a href="https://ja.osdn.net/projects/sfnet_win32diskimager/" target="_blank" rel="external">https://ja.osdn.net/projects/sfnet_win32diskimager/</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=11ER1WD8myfqGQybhjdVZeqPoyPRo_DrzHQ" alt=""></p>
-<h1 id="インストール"><a href="#インストール" class="headerlink" title="インストール"></a>インストール</h1><p>ダウンロードした<code>Win32DiskImager-0.9.5-install.exe</code>を実行します</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1RokPOlizLE7k-drsR47wBJg9pNUxDGXz7g" alt=""></p>
-<p>以下の流れでインストール</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1iIuEz6ycx1TQw9MJUIccr-QqDVr7CjahtQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1n4wSFMt4arIvzwPpXMsZQPswuTvlsHnVCw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1zE4ugaVtyFwtWJnJJPU0PFM7_PdtOLwUWw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1qUHuJwjLprV_yQR3SmgitWuOJypgpPxTPA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1iPjV-q3LRiC41AOqFKjmW5OA2lqIIktSYw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1hN0SdhwwcCqV5EFD61WP7rrPqBC-wfhwtA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=15v4ESCCZaq-9xbfsUUmONdCDM0nhoA8Gyg" alt=""></p>
-<h1 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h1><h2 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h2><p>管理者として実行<br>何か聞かれたら「はい」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1oWBxULK7z2R06EFJWHDAiH1F0hS_Y-IFUg" alt=""></p>
-<p>起動画面</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1AxiZABJ9EAfHE-s0TfFN3f39_C8TFOyOHg" alt=""></p>
-<h2 id="ファイルを選択"><a href="#ファイルを選択" class="headerlink" title="ファイルを選択"></a>ファイルを選択</h2><p>書き込みたいファイルを選択します<br>※ここでは<code>2017-01-11-raspbian-jessie.img</code>を選択</p>
-<p>ファイルのマークを選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1sECDXXLPVBp2efTf2JYu1TnW4k-U4ZXoJw" alt=""></p>
-<p>ファイルを開く</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1TPvVXcX5_6W-vLOgOQkRQ8NrD2u-FmpJzQ" alt=""></p>
-<p>選択できました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1sbOB49cVcWmCN1txwe38W5Bw6GpmUUOPSw" alt=""></p>
-<h2 id="書き込み先を選択"><a href="#書き込み先を選択" class="headerlink" title="書き込み先を選択"></a>書き込み先を選択</h2><p>書き込み先のSDカードまたは、USBメモリーを選択します</p>
-<p>(F:)に書き込みたいので、[F]を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1G8Mat1XZMi7r_Eft9mp-pAHBbZTRzivM-A" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Cd7TBKtbf5YRhiW-k_-lWkpeBfvF2hDfuw" alt=""></p>
-<p>※大抵、初めから選択されています</p>
-<h2 id="書き込み開始"><a href="#書き込み開始" class="headerlink" title="書き込み開始"></a>書き込み開始</h2><p>「Write」を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=13i_NbuaDH3Zm23eWO-Co4XUVrWFRYUginA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-XKsBF6mmjNIrXtpRuGK1mkloymOmvkVNQ" alt=""></p>
-<p>書き込み中<br>終わるまで待ちます</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1s0esPsazCSLHKCMNK8wGQ3kmOsDkSAH3yw" alt=""></p>
-<p>終わりました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=10vXPlSIFYAWabhB-O5fG7l8As0ghDRgcHA" alt=""></p>
-<p>使い方は以上です</p>
+<h1 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h1><ul>
+<li>Windows10 Home 64bit</li>
+<li>Raspberry Pi 3 Model B Element14版</li>
+<li>Raspbian Jessie LITE</li>
+</ul>
+<h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><ul>
+<li><strong>Raspberry Pi 3 本体</strong><br>  → <a href="http://amzn.to/2lEbclX" target="_blank" rel="external">Raspberry Pi 3 Model B Element14版</a></li>
+<li><strong>microSD (8G以上)</strong><br>  SD と Raspberry Pi には相性があるようです<br>  → <a href="http://elinux.org/RPi_SD_cards" target="_blank" rel="external">RPi SD cards</a></li>
+<li><strong>電源 MicroUSB経由 (2.5A推奨)</strong><br>  ここでは2.4Aのを使っています</li>
+</ul>
+<h1 id="raspbianの入手"><a href="#Raspbianの入手" class="headerlink" title="Raspbianの入手"></a>Raspbianの入手</h1><p>GUI環境は使わないため、「RASPBIAN JESSIE LITE」をダウンロードします。</p>
+<p>ダウンロード先<br><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">Download Raspbian for Raspberry Pi</a></p>
+<p>「RASPBIAN JESSIE LITE」の「Download ZIP」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=12QKm6EmUlM152SUq2OhNo8X_c5cA1ZE1hw" alt=""></p>
+<h1 id="sdカードのフォーマット"><a href="#SDカードのフォーマット" class="headerlink" title="SDカードのフォーマット"></a>SDカードのフォーマット</h1><p>「SDカードフォーマッター」でSDカードをフォーマットします。</p>
+<p>詳しくは<a href="/blog/2017/02/10/sd-formatter-4-170210/" title="SDカードフォーマッターの使い方">SDカードフォーマッターの使い方</a>を参考</p>
+<p>ダウンロード先<br><a href="https://www.sdcard.org/jp/downloads/formatter_4/index.html" target="_blank" rel="external">https://www.sdcard.org/jp/downloads/formatter_4/index.html</a></p>
+<p>「論理サイズ調整」を「ON」にします。<br><img src="https://drive.google.com/uc?export=view&amp;id=1Qo8Qb7h8JOr056CytZClhIDN0lA4hOg1lQ" alt=""></p>
+<p>「フォーマット」 → 「OK」 でフォーマット開始<br><img src="https://drive.google.com/uc?export=view&amp;id=109XqbqoQFWxxNzt85Pe46zqaIp1cR4RlkQ" alt=""></p>
+<hr>
+<h1 id="sdカードへ書き込み"><a href="#SDカードへ書き込み" class="headerlink" title="SDカードへ書き込み"></a>SDカードへ書き込み</h1><p>RaspbianをSDカードに書き込むには、「Win32DiskImager」を使います。</p>
+<p>詳しくは<a href="/blog/2017/02/10/win32-disk-imager-170211/" title="Win32DiskImagerの使い方">Win32DiskImagerの使い方</a></p>
+<p>ダウンロード先<br><a href="https://ja.osdn.net/projects/sfnet_win32diskimager/" target="_blank" rel="external">https://ja.osdn.net/projects/sfnet_win32diskimager/</a></p>
+<p>手順は</p>
+<ol>
+<li>先ほどダウンロードした、「<code>2017-01-11-raspbian-jessie-lite.img</code>」の読み込み</li>
+<li>書き込み先のSDを選択 [F]</li>
+<li>「Write」を押す</li>
+<li>「Confirm overwrite」のウィンドウが開くので「Yes」を押す</li>
+</ol>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=17b86e3koiJTc5V_I4VsUbs2ulpttDf6ZVw" alt=""></p>
+<p>終了したら「OK」を選択</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1uZtWrf7larpH5v0lKEqN8N1tGF60v9TrFQ" alt=""></p>
+<h1 id="sshをonにする"><a href="#SSHをONにする" class="headerlink" title="SSHをONにする"></a>SSHをONにする</h1><p>SSHをONにするには、イメージを書き込んだSDのフォルダ内に「<code>ssh</code>」という空のファイルを作ります。<br>拡張子は何もつけてはいけません。</p>
+<p>右クリック → 新規作成 → テキストドキュメント　→　「ssh」</p>
+<p><code>boot(F:) &gt; ssh</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1bQglvuTIjQMDHc7anktV6MjVy3fQ1nPRAA" alt=""></p>
+<h1 id="wifiの設定"><a href="#WiFiの設定" class="headerlink" title="WiFiの設定"></a>WiFiの設定</h1><p>WiFiの設定をします。<br>※　ＬＡＮケーブルでつなぐ場合は読み飛ばしてください。</p>
+<p>SDのフォルダ内に「<code>wpa_supplicant.conf</code>」というファイルを作ります。<br>その中に ↓ のように設定してください。</p>
+<p><code>boot(F:) &gt; wpa_supplicant.conf</code></p>
+<figure class="highlight bash"><figcaption><span>wpa_supplicant.conf</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">network=&#123;</div><div class="line">	ssid=<span class="string">"SSID"</span></div><div class="line">	psk=<span class="string">"PASSWORD"</span></div><div class="line">	key_mgmt=WPA-PSK</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>wpa_supplicant.conf</code>ファイルを作成<br><img src="https://drive.google.com/uc?export=view&amp;id=1Tssd55tWDEwdkY5MEfhcDlD0QYxugB5nrg" alt=""></p>
+<p>↑ のコードを貼り付ける。<br><img src="https://drive.google.com/uc?export=view&amp;id=1uq8EoVjXjSltLj9nQspp98KSGRbQ3O0BDQ" alt=""></p>
+<p>SSIDとパスワードを設定して保存します。</p>
+<hr>
+<h1 id="sshクライアントから接続"><a href="#SSHクライアントから接続" class="headerlink" title="SSHクライアントから接続"></a>SSHクライアントから接続</h1><h2 id="bonjourをインストール"><a href="#Bonjourをインストール" class="headerlink" title="Bonjourをインストール"></a>Bonjourをインストール</h2><p>IPアドレスがわからなので、ホスト名でアクセスできる「Avahi」を使用します。<br>「Raspbian Jessie LITE」には、初めからAvahiがインストールされてるので、Raspberry Pi では特に作業は必要ありません。</p>
+<p>接続するPCには、Bonjourをインストールします。</p>
+<p>BonjourはiTunesにも使われてますので、iTunesをインストールされているなら、この作業は飛ばしてください。</p>
+<p>ダウンロード<br><a href="https://support.apple.com/kb/DL999?locale=ja_JP" target="_blank" rel="external">ダウンロード - Bonjour Print Services (Windows)</a></p>
+<p>インストールすると3つアプリケーションが追加される。<br><img src="https://drive.google.com/uc?export=view&amp;id=19l0aviJX9iDnPyLcmuxYNd8z350BYS0g6Q" alt=""></p>
+<h2 id="tera-termから接続"><a href="#Tera-Termから接続" class="headerlink" title="Tera Termから接続"></a>Tera Termから接続</h2><p>SSHクライアントは、Tera Term を使用します。</p>
+<p>ダウンロード先<br><a href="https://ja.osdn.net/projects/ttssh2/releases/66795" target="_blank" rel="external">https://ja.osdn.net/projects/ttssh2/releases/66795</a></p>
+<p>ホスト名は<code>raspberrypi.local</code>です。<br><img src="https://drive.google.com/uc?export=view&amp;id=1vnin7_jQr0325kENXNRU6mYTpRiv2z8UzA" alt=""></p>
+<p>ユーザー名とパスワードは初期設定では以下のようになっています。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ユーザー名: pi</div><div class="line">パスワード: raspberry</div></pre></td></tr></table></figure>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1dDUfOa0YLKFStvXDKF2CeNmk0Rp89PY-5Q" alt=""></p>
+<p>ログインできました。<br><img src="https://drive.google.com/uc?export=view&amp;id=1-zH2AkIbWZslKvWIcFixRJdhx_v7X7TvZw" alt=""></p>
+<hr>
+<h1 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h1><p>設定メニューを表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo raspi-config</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1l7A53QUjgPoi1xzyS9Q0a9Q2sqychedGBA" alt=""></p>
+<p>キーボードの　↑、↓、←、→、Enter で操作します。</p>
+<h2 id="パスワードの変更"><a href="#パスワードの変更" class="headerlink" title="パスワードの変更"></a>パスワードの変更</h2><p>「Change User Password」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1E0tQ-X_Q3xAOXo5D6nH0ixG1gDuXJL3QaQ" alt=""></p>
+<p>2回、変更したいパスワードを入力します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1-1phcV0SpzCs4IAqPb0eQtCkvKqd1gNvLw" alt=""></p>
+<h2 id="ロケールとタイムゾーンの変更"><a href="#ロケールとタイムゾーンの変更" class="headerlink" title="ロケールとタイムゾーンの変更"></a>ロケールとタイムゾーンの変更</h2><p>まずは、ロケールを変更します。</p>
+<p>「Localisation Options」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1FP1l4j8Y2erG4COI0SHyjrK9afg17IzwDA" alt=""></p>
+<p>「Change Locale」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1hAKOcSP3suUmx0XYuAkbJTR8_BPdsxm3XQ" alt=""></p>
+<p>「ja_JP.EUC-JP EUC-JP」と「ja_JP.UTF-8 UTF-8」の所で、「スペースキー」でチェックし、「Enter」で選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1lZ8JN187BOGaROqsF3sW7_DK7mX7XNIspw" alt=""></p>
+<p>「ja_JP.UTF-8」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1zIHpMJ-lJLta7uqoxyTKnTLa47KqLcXRtQ" alt=""></p>
+<p>次に、タイムゾーンを変更します。</p>
+<p>「Change Timezone」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=10vh4dmph_FkMGyJjj_3GsoK3DQ8clQH0nA" alt=""></p>
+<p>「Asia」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1hZ8HoT6U4CQNb3w4j0URgcMZN9DBCsohFA" alt=""></p>
+<p>「Tokyo」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1U0trc3VZHmUu2ZkMda3qvAHBllG2fCtODw" alt=""></p>
+<hr>
+<h1 id="パッケージのアップデート"><a href="#パッケージのアップデート" class="headerlink" title="パッケージのアップデート"></a>パッケージのアップデート</h1><p>パッケージリストの更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
+<p>インストールされたパッケージを最新バージョンにアップグレード<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dist-upgrade</div></pre></td></tr></table></figure></p>
+<h1 id="イメージのバックアップ"><a href="#イメージのバックアップ" class="headerlink" title="イメージのバックアップ"></a>イメージのバックアップ</h1><p>電源をOFFします。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo poweroff</div></pre></td></tr></table></figure></p>
+<p>電源が切れたら、SDをPCに挿し、「Win32DiskImager」を起動します。</p>
+<p>今回は、デスクトップに「2017-02-28-raspbian-jessie-lite-backup.img」で保存します。<br>ファイルアイコンから保存先と保存名を選択後、「Read」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1CXzNa1QLnyHp2ty3r3ylDTQt6E5KmC-mLw" alt=""></p>
+<p>完了しました。<br><img src="https://drive.google.com/uc?export=view&amp;id=1WLiFIPEO7xyDHfuymrZTtmcJ9es3RJI9Rg" alt=""></p>
+<p>これで、不具合がでた時などに、バックアップしたファイルを書き直せば、同じ環境を再現できるようになります。</p>
+<p>なお、このやり方の場合、コピー先のSDの容量がコピー元の容量以上<br>16GB → 16GB<br>16GB → 32GB　など<br>でないと書き込めません。</p>
+<p>また、同じ容量表記でも微妙に異なることがあり、書き込めないことがあります。</p>
+<p>16GB → 16GB<br>16GB → 8GB<br>のようにしたい場合、パーティションソフトでバックアップのサイズを小さくしなければなりません。<br>それについては、後に紹介します。</p>
 
         
         </div>
@@ -346,7 +413,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/blog/2017/02/10/win32-disk-imager-170211/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/">コメント</a>
+        <a href="/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://keijirotanabe.github.io/blog/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/">コメント</a>
     
 
         </footer>
@@ -355,19 +422,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/blog/2017/02/11/raspberry-pi-remote-disktop-170211/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">新しい記事</strong>
-            <div class="article-nav-title">
-                
-                    Raspberry Pi 3をリモートデスクトップで操作できるようにする
-                
-            </div>
-        </a>
     
-    
-        <a href="/blog/2017/02/10/sd-formatter-4-170210/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2017/02/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">古い記事</strong>
-            <div class="article-nav-title">SDカードフォーマッターの使い方</div>
+            <div class="article-nav-title">Hello World</div>
         </a>
     
 </nav>
@@ -552,9 +610,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/10/win32-disk-imager-170211/';
+            this.page.url = 'https://keijirotanabe.github.io/blog/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/';
         
-        this.page.identifier = 'win32-disk-imager-170211';
+        this.page.identifier = 'raspberry-pi-set-without-using-monitor-170227';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

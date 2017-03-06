@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://keijirotanabe.github.io/blog/"/>
-  <updated>2017-02-28T09:07:08.524Z</updated>
+  <updated>2017-03-06T08:21:20.370Z</updated>
   <id>https://keijirotanabe.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,152 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OneBitLoaderでソフトウェアシリアルを使用した書き込みの際に使うピンを変更 - 補足</title>
+    <link href="https://keijirotanabe.github.io/blog/2017/03/05/one-bit-loader-change-pin-170306/"/>
+    <id>https://keijirotanabe.github.io/blog/2017/03/05/one-bit-loader-change-pin-170306/</id>
+    <published>2017-03-05T23:21:20.000Z</published>
+    <updated>2017-03-06T08:21:20.370Z</updated>
+    
+    <content type="html"><![CDATA[<p>skyriverさん制作の「OneBitLoader」で、ソフトウェア通信を使用した書き込みの際、使用するピンを変更する手順をまとめました。<br>使用するPICは「PIC16F88」で、デフォルトでは「RA7」が使用されています。<br>この記事では、仮に「RB5」に変更したい、という前提で説明して行きます。</p>
+<a id="more"></a>
+<h1 id="cc5xとmplab-ide-v892のインストール"><a href="#「CC5X」と「MPLAB-IDE-v8-92」のインストール" class="headerlink" title="「CC5X」と「MPLAB IDE v8.92」のインストール"></a>「CC5X」と「MPLAB IDE v8.92」のインストール</h1><p>詳しくは以下を参照してください。<br>→ <a href="/blog/2017/03/05/cc5x-mplab-8-install-170306/" title="無料のCコンパイラCC5XをMPLAB IDE v8.92で使用する為の手順">無料のCコンパイラCC5XをMPLAB IDE v8.92で使用する為の手順</a></p>
+<h2 id="cc5xのインストール"><a href="#CC5Xのインストール" class="headerlink" title="CC5Xのインストール"></a>CC5Xのインストール</h2><p>ダウウンロードした「cc5xfree」を「C:\Program Files」に置くだけです。</p>
+<p><strong>CC5X のダウウンロード</strong><br>→ <a href="http://www.bknd.com/cc5x/downl-prof.html" target="_blank" rel="external">CC5X Free Edition</a></p>
+<p>「cc5xfree.zip」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=14g0XNF4N4fOkY7StKtxXZJvMqJJRC6hvBg" alt=""></p>
+<h2 id="mplab-ide-v892-のインストール"><a href="#MPLAB-IDE-v8-92-のインストール" class="headerlink" title="MPLAB IDE v8.92 のインストール"></a>MPLAB IDE v8.92 のインストール</h2><p><strong>MPLAB IDE v8.92 のダウンロード</strong><br>→ <a href="http://www.microchip.com/development-tools/downloads-archive" target="_blank" rel="external">MPLAB IDE Archives</a></p>
+<p>「MPLAB IDE v8.92」を選択します。<br><img src="https://drive.google.com//uc?export=view&amp;id=1ODUsaq6E_a9QzP-URShnULsvZk_tyxQcuQ" alt=""></p>
+<h1 id="onebitloaderのダウンロード"><a href="#「OneBitLoader」のダウンロード" class="headerlink" title="「OneBitLoader」のダウンロード"></a>「OneBitLoader」のダウンロード</h1><p>2008/12/07    Ver0.05b を使用します。</p>
+<p><a href="http://www.netlaputa.ne.jp/~T-Satoh/pic/picOneBitLoader.html" target="_blank" rel="external">ブートローダ（OneBitLoader）の製作</a><br><a href="http://www.netlaputa.ne.jp/~T-Satoh/pic/picOneBitLoader.html" target="_blank" rel="external"><img src="https://drive.google.com/uc?export=view&amp;id=1g_wf0lCD1aNtb0tOZiPsK-1H2GPQ_RQ53w" alt=""></a></p>
+<p>ダウンロードしたファイルを展開します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1uAkJcNL8YPkyLAnWg_PfPF48LpJUOhdP8A" alt=""></p>
+<p>展開したファイルにある「<code>OneBitLoader20081207XP</code>」をデスクトップに移動します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1hjhaan2U-vB7tFzt3VrkEeEnOg06IGnH_w" alt=""></p>
+<h1 id="mplab-ide-の設定"><a href="#MPLAB-IDE-の設定" class="headerlink" title="MPLAB IDE の設定"></a>MPLAB IDE の設定</h1><p>「Project &gt; Project Wizard…」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1oBbzqiAJ_1JIBYT1P49WlPx72uK4-_bY3Q" alt=""></p>
+<p>「次へ」をを押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1a1dAI-TsI6Qu79xh2Ywz3n2C52zrQyL_xA" alt=""></p>
+<p>「PIC16F88」を選択し、「次へ」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1cgDQx20m-yXKzHZadX9xHNJZm9bdxJ5_Jg" alt=""></p>
+<p>「B Knudsen Data CC5X」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1MNm1L12V8Wi9XZaH-3a-6GWJIJ-wZ1k9yQ" alt=""></p>
+<p>「CC5X C Compiler」 を選択した状態で　「Browse…」 から、<br>「<code>C:\Program Files\cc5xfree\CC5X.EXE</code>」　を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1LlFKFKOYcMeYbiGIV91bSluqvp6lLRtepg" alt=""></p>
+<p>「MPASM」 を選択した状態で　「Browse…」 から、<br>「<code>C:\Program Files (x86)\Microchip\MPASM Suite\MPASMWIN.exe</code>」　を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1eTsYH97wFzuA_SbcKoeT24FnJVqtWWIvkA" alt=""></p>
+<p>「MPLINK」 を選択した状態で　「Browse…」 から、<br>「<code>C:\Program Files (x86)\Microchip\MPASM Suite\mplink.exe</code>」　を選択し、「次へ」 を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1noVo4ldcrta4ZLvHhN4T4p-9mES3skHVRQ" alt=""></p>
+<p>「Browse…」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1NpTL4A8LYrcLiCnA9AB7wKl9Sno_fPeNQw" alt=""></p>
+<p>「<code>C:\Users\User\Desktop\OneBitLoader20081207XP\src</code>」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=15Pfr3rJzVTNF1_j_G0x8utieSm3JaccNrQ" alt=""></p>
+<p>ファイル名を決めます。<br>ここでは、「project」とし、「保存」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1GdbP7P3XfbeC2UREVMGzXaVDuOGFtQXsmQ" alt=""></p>
+<p>「次へ」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=18UhEfCd0fHGoqHLgxm_987Rhzf6nHRcSLg" alt=""></p>
+<p>プロジェクトで使用するファイルを選択しますが、「OneBitLoader.c」と「Serial.h」を使用します。<br>まずは、「OneBitLoader.c」を選択し、「Add &gt;&gt;」を押します。<br>すると、プロジェクトに「OneBitLoader.c」が追加されます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1pCponxNZWJksLQ4O7pyo09CrO4lU_X4JeA" alt=""></p>
+<p>同様の手順で、「Serial.h」も追加します。<br>追加できたら、「次へ」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1KTVkhfGe-1ow_SLZ0uF-B6NPp1OrMuivDQ" alt=""></p>
+<p>「完了」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1SE-yXUTTI8vgoR2YN97lt6l50GEBEdujFA" alt=""></p>
+<p>「project.mcp」というプロジェクト内に「OneBitLoader.c」と「Serial.h」が追加されているのが確認できます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1C7T6UQNg-qrNOS5uWZOCAjYvlirn9yQOUA" alt=""></p>
+<h1 id="ソースファイルを変更する"><a href="#ソースファイルを変更する" class="headerlink" title="ソースファイルを変更する"></a>ソースファイルを変更する</h1><h2 id="serialhの編集"><a href="#「Serial-h」の編集" class="headerlink" title="「Serial.h」の編集"></a>「Serial.h」の編集</h2><p>「Serial.h」を開き、赤枠の部分を編集します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1FIpXgvwuACJGBYaet_wns0CkyYU_H8mIdg" alt=""></p>
+<p>この例では、「RA7」を「RB5」にしたいので、以下のように5ヶ所に変更してください。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bit RS232_OUTBIT @ PORTA.7;</div><div class="line">bit RS232_INPBIT  @ PORTA.7;</div><div class="line">#define SERIAL_SND_POLARITY	1</div><div class="line"></div><div class="line">#define RS232C_SET_INP TRISA.7=1;</div><div class="line">#define RS232C_SET_OUT TRISA.7=0;</div></pre></td></tr></table></figure></p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1yTw1SSIb1ouooT2Ql63ec4QRyDm6HowHIA" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bit RS232_OUTBIT @ PORTB.5;</div><div class="line">bit RS232_INPBIT  @ PORTB.5;</div><div class="line">#define SERIAL_SND_POLARITY	0</div><div class="line"></div><div class="line">#define RS232C_SET_INP TRISB.5=1;</div><div class="line">#define RS232C_SET_OUT TRISB.5=0;</div></pre></td></tr></table></figure>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1n7RuseKTg8r9Ct33g0lyDeXXO0D0RoAf_w" alt=""></p>
+<p>変更後、「Ctrl」+「S」で保存します。</p>
+<h2 id="build-する"><a href="#Build-する" class="headerlink" title="Build する"></a>Build する</h2><p>「Build」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1NyihaBcP-kR-KPTM_3n-HLwylTUQrg8mwQ" alt=""></p>
+<p>すると、プロジェクトのフォルダ内に「<code>OneBitLoader.hex</code>」ができました。<br><img src="https://drive.google.com/uc?export=view&amp;id=1eXzY6n-1od9Ffa-m73-LuD5ChtAkRxep_w" alt=""></p>
+<p>あとで、分かるように名前を変更します。<br>「<code>OneBitLoader.hex</code>」→「<code>PIC16F88_RB5_19200.hex</code>」<br><img src="https://drive.google.com/uc?export=view&amp;id=1ZxYCD3nqeLTH7EAU-IEez7MASK7gOOdQ6g" alt=""></p>
+<h1 id="pic16f88_rb5_19200hexを書き込む"><a href="#「PIC16F88-RB5-19200-hex」を書き込む" class="headerlink" title="「PIC16F88_RB5_19200.hex」を書き込む"></a>「PIC16F88_RB5_19200.hex」を書き込む</h1><p>作成した「<code>PIC16F88_RB5_19200.hex</code>」をPICに書き込みます。</p>
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1zUjrjAS2LXh5D98FKASK7J6t59XlH4oNdQ" alt=""></p>
+<p>「PIC Kit3」と「MPLAB IPE」を使用していますが、なんでもかまいません。</p>
+<p>割愛します。</p>
+<h1 id="onebitloaderでプログラムの書き込み"><a href="#「OneBitLoader」でプログラムの書き込み" class="headerlink" title="「OneBitLoader」でプログラムの書き込み"></a>「OneBitLoader」でプログラムの書き込み</h1><p>「<code>OneBitLoader20081207XP</code>」内の「<code>OneBitLoader(PC).zip</code>」を展開します。<br><img src="https://drive.google.com/uc?export=view&amp;id=19YAtIS-Ktio4sj9fqr0Mcq7tUNg7IVJDbg" alt=""></p>
+<p>展開したファイルの中にある「<code>OneBitLoader.exe</code>」を実行します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1L43N-ayNomCxbv0HDHdl1nWhSxh4_MTE3A" alt=""></p>
+<p>「詳細情報」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=13qokdAn7HHo1PmU6tMsUmxyZB5vTlSRW4g" alt=""></p>
+<p>「実行」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1q5UP7tvz0CExMTBD1tEEbeOc21rvSxMPEg" alt=""></p>
+<p>「HexLoad」から書き込みたいファイルを選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1TILrI6nf9t_JCcwpmk1XYnGfV5DMbuRkiQ" alt=""></p>
+<p>「Device」は「16F88A7」を選択<br><img src="https://drive.google.com/uc?export=view&amp;id=1hkmNkjHbUI-iKwYjA69sOscrtQfulZHeUA" alt=""></p>
+<p>使用するCOMポートを選択し、「Write」で書き込みます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1T4GsujI9WhBTglVmX1qd_0CVnyuc_f29OA" alt=""></p>
+<p>うまくいくと「complete!!」と表示されます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1Q85LrLC4EzNMhFzWZBCbXh4TmmZG96wEPQ" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;skyriverさん制作の「OneBitLoader」で、ソフトウェア通信を使用した書き込みの際、使用するピンを変更する手順をまとめました。&lt;br&gt;使用するPICは「PIC16F88」で、デフォルトでは「RA7」が使用されています。&lt;br&gt;この記事では、仮に「RB5」に変更したい、という前提で説明して行きます。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>無料のCコンパイラCC5XをMPLAB IDE v8.92で使用する為の手順</title>
+    <link href="https://keijirotanabe.github.io/blog/2017/03/05/cc5x-mplab-8-install-170306/"/>
+    <id>https://keijirotanabe.github.io/blog/2017/03/05/cc5x-mplab-8-install-170306/</id>
+    <published>2017-03-05T20:48:07.000Z</published>
+    <updated>2017-03-06T06:39:59.492Z</updated>
+    
+    <content type="html"><![CDATA[<p>無料で使えるC言語コンパイラのCC5XをMPLAB IDE v8.92から開発できるようにするまでの手順を紹介します。</p>
+<a id="more"></a>
+<h1 id="cc5x-のインストール"><a href="#CC5X-のインストール" class="headerlink" title="CC5X のインストール"></a>CC5X のインストール</h1><p>ダウウンロードした「cc5xfree」を「C:\Program Files」に置くだけです。<br>以下、手順を説明します。</p>
+<p><strong>CC5Xのダウウンロード</strong><br>→ <a href="http://www.bknd.com/cc5x/downl-prof.html" target="_blank" rel="external">CC5X Free Edition</a></p>
+<p>「cc5xfree.zip」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=14g0XNF4N4fOkY7StKtxXZJvMqJJRC6hvBg" alt=""></p>
+<p>ダウウンロードした「cc5xfree.zip」を解凍すると「cc5xfree」ができます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1TIlQa913yhalhYuUuFHqCJxmkfWtLH5dBA" alt=""></p>
+<p>「cc5xfree」を「C:\Program Files」に移動します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1V5G6DY_8lMz_iXsf4nlvr2P_CESfpppuuA" alt=""></p>
+<p>「続行」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1BkMYINKKD66QD3nCRAYlnzSB0XeJE3Tjbw" alt=""></p>
+<p>以上で、CC5X のインストールは完了です。</p>
+<h1 id="mplab-ide-v892-のインストール"><a href="#MPLAB-IDE-v8-92-のインストール" class="headerlink" title="MPLAB IDE v8.92 のインストール"></a>MPLAB IDE v8.92 のインストール</h1><p><strong>MPLAB IDE v8.92 のダウンロード</strong><br>→ <a href="http://www.microchip.com/development-tools/downloads-archive" target="_blank" rel="external">MPLAB IDE Archives</a></p>
+<p>「MPLAB IDE v8.92」を選択します。<br><img src="https://drive.google.com//uc?export=view&amp;id=1ODUsaq6E_a9QzP-URShnULsvZk_tyxQcuQ" alt=""></p>
+<p>ダウンロードしたファイルを展開します。<br><img src="https://drive.google.com//uc?export=view&amp;id=1X1w0RZ4yMVT7IP0bM_u5FA9b7mw-KoVjWw" alt=""></p>
+<p>展開した中にある「setup.exe」を実行します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1PISACJskF8atYe9OARHRVTsJQcUhK_en1w" alt=""></p>
+<p>あとは、以下の流れで「Next」を押して行けばインストールできます。<br><img src="https://drive.google.com/uc?export=view&amp;id=153tla0quOpUFabLwNExMMl44E9YSlr7XlA" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1up2QkWUzfl9YsoLA-4ErTjglaMHbU3hx3Q" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1RZ_vRI3X7lSit-RxRyOLEZSSxOGMjAgMbA" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1HdTA1K4qOts_sl6DZj-ykQup2l8jgN3ttA" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1RtXYRTHoJ1N_5GQ56KRfjSB-bPDlz0vTmg" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=15mnd_DcTGXggy-183mQg9QI6onsrD7Lxsg" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1qwZvK3BJKJM-1_qKQQbuwslUJuga-aBoKg" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1qoJBhvpG1bA_3dyli_AvnoEOODGr94OW7g" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1nniwcFXRlGeQE00Pi6EOkT8w-Vo56y7i8A" alt=""></p>
+<div style="text-align: center;">↓</div>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1-9F3eRyY90rQaumAyX4kC-IBfLCeLv1cjA" alt=""></p>
+<p>以上で、MPLAB IDE v8.92 のインストールは完了です。</p>
+<p>完了後、ウインドウが開くので閉じます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1hoaQd5Di5qj5L8M97GjnOT-czKmrHEeixg" alt=""></p>
+<h1 id="mplab-ide-の設定"><a href="#MPLAB-IDE-の設定" class="headerlink" title="MPLAB IDE の設定"></a>MPLAB IDE の設定</h1><p>「Project &gt; Project Wizard…」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1oBbzqiAJ_1JIBYT1P49WlPx72uK4-_bY3Q" alt=""></p>
+<p>「次へ」をを押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1a1dAI-TsI6Qu79xh2Ywz3n2C52zrQyL_xA" alt=""></p>
+<p>デバイスを選択します。<br>ここでは、「PIC16F88」を選択しています。<br>「次へ」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1cgDQx20m-yXKzHZadX9xHNJZm9bdxJ5_Jg" alt=""></p>
+<p>「B Knudsen Data CC5X」を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1MNm1L12V8Wi9XZaH-3a-6GWJIJ-wZ1k9yQ" alt=""></p>
+<p>「CC5X C Compiler」 を選択した状態で　「Browse…」 から、<br>「<code>C:\Program Files\cc5xfree\CC5X.EXE</code>」　を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1LlFKFKOYcMeYbiGIV91bSluqvp6lLRtepg" alt=""></p>
+<p>「MPASM」 を選択した状態で　「Browse…」 から、<br>「<code>C:\Program Files (x86)\Microchip\MPASM Suite\MPASMWIN.exe</code>」　を選択します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1eTsYH97wFzuA_SbcKoeT24FnJVqtWWIvkA" alt=""></p>
+<p>「MPLINK」 を選択した状態で　「Browse…」 から、<br>「<code>C:\Program Files (x86)\Microchip\MPASM Suite\mplink.exe</code>」　を選択し、「次へ」 を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1noVo4ldcrta4ZLvHhN4T4p-9mES3skHVRQ" alt=""></p>
+<p>「Browse…」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1NpTL4A8LYrcLiCnA9AB7wKl9Sno_fPeNQw" alt=""></p>
+<p>プロジェクト名と保存先を指定します。<br>「<code>C:\Users\User\Desktop\project\project</code>」としました。<br>「次へ」 を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1lnXMV9E7Updo42LSHsAH2FznzhiJLebsOQ" alt=""></p>
+<p>プロジェクトに追加するファイルを選択できます。<br>空のプロジェクトを作るので何も追加せず、「次へ」 を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1JQXU-ZtNGmCSDg-d-kwThqLwsjNwpI-VWg" alt=""></p>
+<p>「完了」を押します。<br><img src="https://drive.google.com/uc?export=view&amp;id=1NVINiD59tYqYtjbdkUYMHPTXJygjSIMoHQ" alt=""></p>
+<p>空のプロジェクトができます。<br><img src="https://drive.google.com/uc?export=view&amp;id=1HaL72qznUpAmQRyXeGwPvSnTAmlaQpLBAg" alt=""></p>
+<p>あとは、ソースファイルを追加し、自由にプログラムを書いてください。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;無料で使えるC言語コンパイラのCC5XをMPLAB IDE v8.92から開発できるようにするまでの手順を紹介します。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="補足" scheme="https://keijirotanabe.github.io/blog/categories/%E8%A3%9C%E8%B6%B3/"/>
+    
+    
+      <category term="補足" scheme="https://keijirotanabe.github.io/blog/tags/%E8%A3%9C%E8%B6%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>Raspberry Piでモニターなど周辺を使用せずセットアップする方法</title>
@@ -1531,425 +1677,6 @@
     
     
       <category term="Fritzing" scheme="https://keijirotanabe.github.io/blog/tags/Fritzing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ESP8266をArduinoとして使う</title>
-    <link href="https://keijirotanabe.github.io/blog/2017/02/08/esp8266-how-to-170208/"/>
-    <id>https://keijirotanabe.github.io/blog/2017/02/08/esp8266-how-to-170208/</id>
-    <published>2017-02-08T03:42:39.000Z</published>
-    <updated>2017-02-22T05:52:40.795Z</updated>
-    
-    <content type="html"><![CDATA[<p>ESP8266(ESP-WROOM-02)をArduinoとして使う方法<br>Arduino core for ESP8266 の基本的な使い方</p>
-<!--# 目次-->
-<!--- [はじめに](#はじめに)-->
-<!--  - [配線と起動モード](#配線と起動モード)-->
-<!--- [機能解説](#機能解説)-->
-<!--  - [デジタル IO](#デジタル-IO)-->
-<!--    - [デジタル出力](#デジタル出力)-->
-<!--    - [デジタル入力](#デジタル入力)-->
-<!--  - [アナログ出力](#アナログ出力)-->
-<!--  - [アナログ入力](#アナログ入力)-->
-<!--  - [タイミングと遅延](#タイミングと遅延)-->
-<!--  - [シリアル通信](#シリアル通信)-->
-<!--- [GPIO pin まとめ](#GPIO-pin-まとめ)-->
-<!--- [参考](#参考)-->
-<h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><ul>
-<li><p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>を参照しています</p>
-</li>
-<li><p><a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています</p>
-</li>
-</ul>
-<a id="more"></a>
-<h2 id="配線と起動モード"><a href="#配線と起動モード" class="headerlink" title="配線と起動モード"></a>配線と起動モード</h2><ul>
-<li><strong>実行モード(Flash Boot Mode)</strong><br>  書き込んだプログラムで起動します</li>
-<li><strong>書き込みモード(UART Download Mode)</strong><br>  プログラムが書き込めるようになります</li>
-</ul>
-<p>IO0 pinを<br>HIGH でリセット → 実行モード<br>LOW でリセット → 書き込みモード<br>になります</p>
-<table>
-<thead>
-<tr>
-<th>GPIO</th>
-<th>pinの名前</th>
-<th>実行モード</th>
-<th>書き込みモード</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GPIO0</td>
-<td>IO0</td>
-<td>HIGH</td>
-<td>LOW</td>
-</tr>
-<tr>
-<td>GPIO2</td>
-<td>IO2</td>
-<td>HIGH</td>
-<td>HIGH</td>
-</tr>
-<tr>
-<td>GPIO15</td>
-<td>IO15</td>
-<td>LOW</td>
-<td>LOW</td>
-</tr>
-</tbody>
-</table>
-<h1 id="機能解説"><a href="#機能解説" class="headerlink" title="機能解説"></a>機能解説</h1><h2 id="デジタル-io"><a href="#デジタル-IO" class="headerlink" title="デジタル IO"></a>デジタル IO</h2><ul>
-<li>GPIO 0〜15 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLUP</code><br>  ※ただし、GPIO 6〜11はGPIOとして使用不可(↓参照)</li>
-<li>GPIO 16 → <code>INPUT</code>、<code>OUTPUT</code>、<code>INPUT_PULLDOWN_16</code></li>
-<li>ピン割り込みの使用 → GPIO 0〜15 <code>attachInterrupt</code>、<code>detachInterrupt</code>関数</li>
-</ul>
-<blockquote>
-<p>デジタルピン0〜15は、INPUT、OUTPUT、INPUT_PULLUPのいずれかです。ピン16はINPUT、OUTPUT、INPUT_PULLDOWN_16のいずれかです。起動時に、ピンはINPUTとして設定されます。</p>
-<p>デジタルピン6-11は、ほとんどのモジュール上のフラッシュメモリチップを接続するために使用されているため、この図には示されていません。 IOとしてこれらのピンを使用しようとすると、プログラムがクラッシュする可能性があります。</p>
-<p>ピン割り込みは、attachInterrupt、detachInterrupt関数でサポートされています。割り込みは、GPIO16を除く任意のGPIOピンに接続できます。</p>
-</blockquote>
-<h3 id="デジタル出力"><a href="#デジタル出力" class="headerlink" title="デジタル出力"></a>デジタル出力</h3><p>IO13のLEDを点滅</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  digitalWrite(LED, HIGH);</div><div class="line">  delay(<span class="number">1000</span>);</div><div class="line">  digitalWrite(LED, LOW);</div><div class="line">  delay(<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Y0x4Z-bRbGAJpTvv3jTW5rOk8YlKO3TjOA" alt=""></p>
-<h3 id="デジタル入力"><a href="#デジタル入力" class="headerlink" title="デジタル入力"></a>デジタル入力</h3><p>IO2のスイッチを押している間、IO13のLEDが点灯</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SWITCH 2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">  pinMode(SWITCH, INPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (digitalRead(SWITCH) == LOW) &#123;</div><div class="line">    digitalWrite(LED, HIGH);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    digitalWrite(LED, LOW);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=172h7FxufZfRwncPaOKtZCJ5zmTPgzyUiZw" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1nMXCtPlT8RvrcnJltpb9-gxVlUfqe4D4cw" alt=""></p>
-<h2 id="アナログ出力"><a href="#アナログ出力" class="headerlink" title="アナログ出力"></a>アナログ出力</h2><ul>
-<li>GPIO 0〜16で使用可 (※GPIO 6〜11を除く)</li>
-<li><code>analogWrite(pin, value)</code>でON<br>  value → <code>0～1023</code></li>
-<li><code>analogWrite(pin, 0)</code>でOFF</li>
-</ul>
-<blockquote>
-<p>analogWrite（pin、value）指定されたピンでソフトウェアPWMをイネーブルにします。 PWMはピン0〜16で使用できます。ピンのPWMをディセーブルにするには、analogWrite（pin、0）を呼び出します。 値は0からPWMRANGEまでの範囲で指定できます。デフォルトは1023です。</p>
-</blockquote>
-<p>IO13のLEDが徐々に明るくなるサンプルコード</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LED 13</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  pinMode(LED, OUTPUT);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;  i &lt; <span class="number">1023</span>;  i++)  &#123;</div><div class="line">    analogWrite(LED, i);</div><div class="line">    delay(<span class="number">3</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1bgkwn-lf43CNOeIShD_07Ie1bV0BK8IjIg" alt=""></p>
-<h2 id="アナログ入力"><a href="#アナログ入力" class="headerlink" title="アナログ入力"></a>アナログ入力</h2><p><code>analogRead(A0)</code>で読み取り</p>
-<p>※<code>ADC_MODE(ADC_VCC);</code>を関数の外に定義で、電源電圧の読み取り</p>
-<ul>
-<li>入力電圧範囲は0〜1.0V</li>
-</ul>
-<blockquote>
-<p>　ADCピンに印加される外部電圧を読み取るには、analogRead（A0）を使用します。 入力電圧範囲は0〜1.0Vです。</p>
-</blockquote>
-<p>TOUT(A0)のAD変換値を読み取る</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> value;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</div><div class="line">  Serial.begin(<span class="number">115200</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">  value = analogRead(A0);</div><div class="line">  Serial.println(value);</div><div class="line">  delay(<span class="number">100</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>0～1023が得られるはずですが、<br>以下のようにつなげて読み取った所、<code>6～1024</code>という値が得られました</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1M6AGBwaMPKY0BM0WSEYWT2xoXCkKPPbiEQ" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1miNvToHkI67tG4Dzjz4kVIqUOfo2N4edHw" alt=""></p>
-<h2 id="タイミングと遅延"><a href="#タイミングと遅延" class="headerlink" title="タイミングと遅延"></a>タイミングと遅延</h2><ul>
-<li><h4 id="リセット後の経過時間取得"><a href="#リセット後の経過時間取得" class="headerlink" title="リセット後の経過時間取得"></a>リセット後の経過時間取得</h4><ul>
-<li>ミリ秒 → <code>millis()</code></li>
-<li>マイクロ秒 → <code>micros()</code></li>
-</ul>
-</li>
-<li><h4 id="遅延"><a href="#遅延" class="headerlink" title="遅延"></a>遅延</h4><ul>
-<li>ミリ秒 → <code>delay()</code></li>
-<li>マイクロ秒 → <code>delayMicroseconds()</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>millis()およびmicros()は、それぞれリセット後に経過したミリ秒数およびマイクロ秒数を返します。</p>
-<p>delay(ms)は、指定したミリ秒間スケッチを一時停止し、WiFiおよびTCP / IPタスクを実行できるようにします。 delayMicroseconds(us)は、指定されたマイクロ秒数で一時停止します。</p>
-</blockquote>
-<h2 id="シリアル通信"><a href="#シリアル通信" class="headerlink" title="シリアル通信"></a>シリアル通信</h2><ul>
-<li><code>Serial.begin()</code>をsetup関数に定義</li>
-<li><code>Serial.swap()</code>で使用するピンの組み合わせを変更<br>  GPIO1(TX) &amp; GPIO3(RX) ↔ GPIO15(TX) &amp; GPIO13(RX)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">選択</th>
-<th style="text-align:left">TX</th>
-<th style="text-align:left">RX</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">default</td>
-<td style="text-align:left">GPIO1(TXD)</td>
-<td style="text-align:left">GPIO3(RXD)</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Serial.swap()</code>で変更</td>
-<td style="text-align:left">GPIO15(IO15)</td>
-<td style="text-align:left">GPIO13(IO13)</td>
-</tr>
-</tbody>
-</table>
-<p>※GPIO(pin Name)</p>
-<blockquote>
-<p>シリアルはUART 0を使用し、GPIO 1（TX）ピンとGPIO 3（RX）ピンにマッピングされます。 Serial.beginの後にSerial.swap（）を呼び出すことで、SerialはGPIO 15（TX）とGPIO 13（RX）を再マッピングできます。スワップを再度呼び出すと、UART 0がGPIO 1とGPIO 3にマップされます。</p>
-</blockquote>
-<h1 id="gpio-pin-まとめ"><a href="#GPIO-pin-まとめ" class="headerlink" title="GPIO pin まとめ"></a>GPIO pin まとめ</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">GPIO</th>
-<th style="text-align:center">pinの名前</th>
-<th style="text-align:center">デジタル出力</th>
-<th style="text-align:center">デジタル入力</th>
-<th style="text-align:center">アナログ出力</th>
-<th style="text-align:center">アナログ入力</th>
-<th style="text-align:center">備考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">GPIO0</td>
-<td style="text-align:center">IO0</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">起動時に使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO1</td>
-<td style="text-align:center">TXD</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">書き込みに使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO2</td>
-<td style="text-align:center">IO2</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">起動時に使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO3</td>
-<td style="text-align:center">RXD</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">書き込みに使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO4</td>
-<td style="text-align:center">IO4</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO5</td>
-<td style="text-align:center">IO5</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO12</td>
-<td style="text-align:center">IO12</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO13</td>
-<td style="text-align:center">IO13</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO14</td>
-<td style="text-align:center">IO14</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO15</td>
-<td style="text-align:center">IO15</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">起動時に使用</td>
-</tr>
-<tr>
-<td style="text-align:center">GPIO16</td>
-<td style="text-align:center">IO16</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">〇　※1</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">A0</td>
-<td style="text-align:center">TOUT</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">〇</td>
-<td style="text-align:center">-</td>
-</tr>
-</tbody>
-</table>
-<p>※1 割り込みは不可</p>
-<p><a href="http://espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf" target="_blank" rel="external">ESP-WROOM-02 | データシート</a></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1tykDSLkOUx1Kgq_c4WM1rTm5EgQhXxeptg" alt=""></p>
-<p><a href="https://github.com/esp8266/Arduino/blob/master/doc/reference.md" target="_blank" rel="external">Arduino core for ESP8266 | reference</a>の図</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1-KxudMe01oMkKl6-T2R4UOabkNKCkReGJQ" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://espressif.com/sites/default/files/documentation/0c-esp-wroom-02_datasheet_en.pdf" target="_blank" rel="external">ESP-WROOM-02 | データシート</a><br><a href="https://github.com/esp8266/Arduino#documentation" target="_blank" rel="external">Arduino core for ESP8266 | Documentation</a><br><a href="http://qiita.com/umi_kappa/items/ac3d37db44a2dcfe71fd" target="_blank" rel="external">ESP-WROOM-02 Arduino互換ボードのGPIOはこうやって使う</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ESP8266(ESP-WROOM-02)をArduinoとして使う方法&lt;br&gt;Arduino core for ESP8266 の基本的な使い方&lt;/p&gt;
-&lt;!--# 目次--&gt;
-&lt;!--- [はじめに](#はじめに)--&gt;
-&lt;!--  - [配線と起動モード](#配線と起動モード)--&gt;
-&lt;!--- [機能解説](#機能解説)--&gt;
-&lt;!--  - [デジタル IO](#デジタル-IO)--&gt;
-&lt;!--    - [デジタル出力](#デジタル出力)--&gt;
-&lt;!--    - [デジタル入力](#デジタル入力)--&gt;
-&lt;!--  - [アナログ出力](#アナログ出力)--&gt;
-&lt;!--  - [アナログ入力](#アナログ入力)--&gt;
-&lt;!--  - [タイミングと遅延](#タイミングと遅延)--&gt;
-&lt;!--  - [シリアル通信](#シリアル通信)--&gt;
-&lt;!--- [GPIO pin まとめ](#GPIO-pin-まとめ)--&gt;
-&lt;!--- [参考](#参考)--&gt;
-&lt;h1 id=&quot;はじめに&quot;&gt;&lt;a href=&quot;#はじめに&quot; class=&quot;headerlink&quot; title=&quot;はじめに&quot;&gt;&lt;/a&gt;はじめに&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/esp8266/Arduino/blob/master/doc/reference.md&quot;&gt;Arduino core for ESP8266 | reference&lt;/a&gt;を参照しています&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://amzn.to/2lEjWZf&quot;&gt;ESPr Developer(ESP-WROOM-02開発ボード)&lt;/a&gt;を使用しています&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/categories/ESP8266/"/>
-    
-    
-      <category term="Arduino" scheme="https://keijirotanabe.github.io/blog/tags/Arduino/"/>
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/tags/ESP8266/"/>
-    
-      <category term="ESP-WROOM-02" scheme="https://keijirotanabe.github.io/blog/tags/ESP-WROOM-02/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ESP8266にArduinoスケッチを書き込む</title>
-    <link href="https://keijirotanabe.github.io/blog/2017/02/07/esp8266-Arduino-170207/"/>
-    <id>https://keijirotanabe.github.io/blog/2017/02/07/esp8266-Arduino-170207/</id>
-    <published>2017-02-07T06:45:56.000Z</published>
-    <updated>2017-02-22T05:53:17.319Z</updated>
-    
-    <content type="html"><![CDATA[<p>ESP8266(ESP-WROOM-02)にArduinoのスケッチを書き込み、<br>シリアルモニタに「Hello World」と表示させるまで</p>
-<!--# 目次-->
-<!--- [必要なもの](#必要なもの)-->
-<!--- [手順](#手順)-->
-<!--    - [ESP8266 core for Arduino のインストール](#ESP8266-core-for-Arduino-のインストール)-->
-<!--    - [ボードの設定](#ボードの設定)-->
-<!--    - [スケッチを書き込む](#スケッチを書き込む)-->
-<!--- [参考](#参考)-->
-<h1 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h1><ul>
-<li><p>Arduino IDE<br>  ダウンロードページ<br>  <a href="https://www.arduino.cc/en/Main/Software" target="_blank" rel="external">https://www.arduino.cc/en/Main/Software</a><br>  バージョン 1.8.1　(2017/02/07時点)<br>  <a href="/blog/2017/02/07/Arduino-install-step-070207/" title="Arduino IDEのインストール">Arduino IDEのインストール</a>を参考<br>  推奨版は<code>バージョン 1.6.8</code>ですが<code>最新版バージョン 1.8.1</code>(2017/02/07時点)でも動作しました</p>
-</li>
-<li><p>ESP8266 core for Arduino<br>  <a href="https://github.com/esp8266/Arduino" target="_blank" rel="external">https://github.com/esp8266/Arduino</a><br>  <code>Stable version 2.3.0</code> 使用</p>
-</li>
-<li><p>ESP8266(ESP-WROOM-02)<br>  ここでは<a href="http://amzn.to/2lEjWZf" target="_blank" rel="external">ESPr Developer(ESP-WROOM-02開発ボード)</a>を使用しています<br>  MicroUSBを挿すだけで使えるので便利です</p>
-</li>
-</ul>
-<a id="more"></a>
-<h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><h2 id="esp8266-core-for-arduino-のインストール"><a href="#ESP8266-core-for-Arduino-のインストール" class="headerlink" title="ESP8266 core for Arduino のインストール"></a>ESP8266 core for Arduino のインストール</h2><p>ESP8266 core for Arduino には</p>
-<ul>
-<li>「Stable version」</li>
-<li>「Staging version」<br>がありますが、今回は「Stable version」（安定版）をインストールします</li>
-</ul>
-<p><a href="https://github.com/esp8266/Arduino" target="_blank" rel="external">https://github.com/esp8266/Arduino</a> から画像の範囲をコピーします</p>
-<p>めんどくさい人は<br><code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code>をコピー</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Pzwit37rYstlEuRi63gFlt3IkYphx_qNAg" alt=""></p>
-<p><code>ファイル &gt; 環境設定</code>を開いて<br>画像の範囲に<code>貼り付け（Ctrl + V）</code> → <code>OK</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1OiDN092PnLLiIQOrnGH_uTlR7RoxjLfEgQ" alt=""></p>
-<p><code>ツール &gt; ボード &gt; ボードマネージャ</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1TGuZOE6YlLgvC9cBZwXVe4VSVi6uwk-EOw" alt=""></p>
-<p><code>esp8266</code>で検索 → <code>インストール</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1w79HPaa3pTVgSRrFk_iT6ML3jJ8zTgmKzA" alt=""></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=11z7iZ_UBx9sfgVLRCYnz1hc3_4QkT3LOmg" alt=""></p>
-<p>完了したので<code>閉じる</code><br><img src="https://drive.google.com/uc?export=view&amp;id=1QqcPLRXzBT_SjKb43hQ6n-psnt0KHEEFBw" alt=""></p>
-<p><code>Stable version 2.3.0</code>がインストールされました</p>
-<h2 id="ボードの設定"><a href="#ボードの設定" class="headerlink" title="ボードの設定"></a>ボードの設定</h2><p><code>ツール &gt; ボード &gt; Generic ESP8266 Module</code>を選択</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1Nzxgj59uGrEqPmqMkxoMfT8c8bOI6lEk_A" alt=""></p>
-<p>初期設定</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1HqQzfIkniPNEEdh1BgzFm-BSdhpnd6O-Yg" alt=""></p>
-<p>画像の範囲を変更<br>※ シリアルポートは各自選択してください</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1mcOR3MI2NuO2qMk2IssfkCpUOrzvkI37dA" alt=""></p>
-<h2 id="スケッチを書き込む"><a href="#スケッチを書き込む" class="headerlink" title="スケッチを書き込む"></a>スケッチを書き込む</h2><p><strong>書き込みモードで起動します</strong></p>
-<p>IO0がLOWの状態でリセットすれば、書き込みモードで起動します。</p>
-<p>※ 　↑の画像で<code>Reset Method: nodemcu</code>を選択すれば、次回から書き込みモードで起動する必要はありません</p>
-<p><a href="https://www.switch-science.com/catalog/2500/" target="_blank" rel="external">https://www.switch-science.com/catalog/2500/</a>を参考に</p>
-<blockquote>
-<p>IO0がHIGHの状態でリセットされるとファームウェアの実行モードで起動しますが、IO0がLOWの状態でリセットされるとファームウェアの書き込みモードで起動します。</p>
-</blockquote>
-<p>以下のプログラムを書いて書き込みます</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">void setup() &#123;</div><div class="line">  Serial.begin(115200);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void loop() &#123;</div><div class="line">  Serial.println(&quot;Hello World&quot;);</div><div class="line">  delay(1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>書き込みボタンを押す</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1V8b5Ga0KeWhjIyQTElQMuOR6mNtQ-fuG_A" alt=""></p>
-<p>ファイルを保存するか聞かれたので<br><code>helloworld</code>にして<code>保存</code></p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1MoMGqABdLmlRS48nvYaUZuqqh2fdVlakmA" alt=""></p>
-<p>書き込み完了</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=19CCSdLZcLryG7xjKnRlJtcDFDieH_97arg" alt=""></p>
-<p>右上のアイコンを押す → シリアルモニタ起動<br><code>CRおよびLF</code>、<code>115200 bps</code>に設定</p>
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1ne5ZzScrpjsBzlgzXcsMSxznUeQoB2WctQ" alt=""></p>
-<p>「Hello World」と表示されれば上手くいきました</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://trac.switch-science.com/wiki/esp_dev_arduino_ide" target="_blank" rel="external">ESP-WROOM-02開発ボードをArduino IDEで開発する方法</a></li>
-<li><a href="https://www.mgo-tec.com/blog-entry-ss-wroom-howto01.html" target="_blank" rel="external">ESPr Developer ( ESP-WROOM-02 開発ボード )の使い方をザッと紹介</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ESP8266(ESP-WROOM-02)にArduinoのスケッチを書き込み、&lt;br&gt;シリアルモニタに「Hello World」と表示させるまで&lt;/p&gt;
-&lt;!--# 目次--&gt;
-&lt;!--- [必要なもの](#必要なもの)--&gt;
-&lt;!--- [手順](#手順)--&gt;
-&lt;!--    - [ESP8266 core for Arduino のインストール](#ESP8266-core-for-Arduino-のインストール)--&gt;
-&lt;!--    - [ボードの設定](#ボードの設定)--&gt;
-&lt;!--    - [スケッチを書き込む](#スケッチを書き込む)--&gt;
-&lt;!--- [参考](#参考)--&gt;
-&lt;h1 id=&quot;必要なもの&quot;&gt;&lt;a href=&quot;#必要なもの&quot; class=&quot;headerlink&quot; title=&quot;必要なもの&quot;&gt;&lt;/a&gt;必要なもの&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Arduino IDE&lt;br&gt;  ダウンロードページ&lt;br&gt;  &lt;a href=&quot;https://www.arduino.cc/en/Main/Software&quot;&gt;https://www.arduino.cc/en/Main/Software&lt;/a&gt;&lt;br&gt;  バージョン 1.8.1　(2017/02/07時点)&lt;br&gt;  &lt;a href=&quot;/blog/2017/02/07/Arduino-install-step-070207/&quot; title=&quot;Arduino IDEのインストール&quot;&gt;Arduino IDEのインストール&lt;/a&gt;を参考&lt;br&gt;  推奨版は&lt;code&gt;バージョン 1.6.8&lt;/code&gt;ですが&lt;code&gt;最新版バージョン 1.8.1&lt;/code&gt;(2017/02/07時点)でも動作しました&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ESP8266 core for Arduino&lt;br&gt;  &lt;a href=&quot;https://github.com/esp8266/Arduino&quot;&gt;https://github.com/esp8266/Arduino&lt;/a&gt;&lt;br&gt;  &lt;code&gt;Stable version 2.3.0&lt;/code&gt; 使用&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ESP8266(ESP-WROOM-02)&lt;br&gt;  ここでは&lt;a href=&quot;http://amzn.to/2lEjWZf&quot;&gt;ESPr Developer(ESP-WROOM-02開発ボード)&lt;/a&gt;を使用しています&lt;br&gt;  MicroUSBを挿すだけで使えるので便利です&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/categories/ESP8266/"/>
-    
-    
-      <category term="Arduino" scheme="https://keijirotanabe.github.io/blog/tags/Arduino/"/>
-    
-      <category term="ESP8266" scheme="https://keijirotanabe.github.io/blog/tags/ESP8266/"/>
-    
-      <category term="ESP-WROOM-02" scheme="https://keijirotanabe.github.io/blog/tags/ESP-WROOM-02/"/>
     
   </entry>
   

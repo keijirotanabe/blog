@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://keijirotanabe.github.io/blog/"/>
-  <updated>2017-03-06T08:21:20.370Z</updated>
+  <updated>2017-03-06T08:23:08.302Z</updated>
   <id>https://keijirotanabe.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>OneBitLoaderでソフトウェアシリアルを使用した書き込みの際に使うピンを変更 - 補足</title>
+    <title>OneBitLoaderでソフトウェアシリアルを使用した書き込みの際に使うピンを変更</title>
     <link href="https://keijirotanabe.github.io/blog/2017/03/05/one-bit-loader-change-pin-170306/"/>
     <id>https://keijirotanabe.github.io/blog/2017/03/05/one-bit-loader-change-pin-170306/</id>
     <published>2017-03-05T23:21:20.000Z</published>
-    <updated>2017-03-06T08:21:20.370Z</updated>
+    <updated>2017-03-06T08:23:08.302Z</updated>
     
     <content type="html"><![CDATA[<p>skyriverさん制作の「OneBitLoader」で、ソフトウェア通信を使用した書き込みの際、使用するピンを変更する手順をまとめました。<br>使用するPICは「PIC16F88」で、デフォルトでは「RA7」が使用されています。<br>この記事では、仮に「RB5」に変更したい、という前提で説明して行きます。</p>
 <a id="more"></a>
@@ -80,6 +80,10 @@
     
     </summary>
     
+      <category term="補足" scheme="https://keijirotanabe.github.io/blog/categories/%E8%A3%9C%E8%B6%B3/"/>
+    
+    
+      <category term="補足" scheme="https://keijirotanabe.github.io/blog/tags/%E8%A3%9C%E8%B6%B3/"/>
     
   </entry>
   

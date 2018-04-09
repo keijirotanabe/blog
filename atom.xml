@@ -5,22 +5,53 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://keijirotanabe.github.io/blog/"/>
-  <updated>2017-03-06T08:27:50.626Z</updated>
+  <updated>2018-04-09T11:45:30.921Z</updated>
   <id>https://keijirotanabe.github.io/blog/</id>
   
   <author>
-    <name>田邊 慶次朗</name>
+    <name>Keijiro Tanabe</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexoで新しい記事を作成する方法</title>
+    <link href="https://keijirotanabe.github.io/blog/2018/04/09/create-the-article-with-hexo-180409/"/>
+    <id>https://keijirotanabe.github.io/blog/2018/04/09/create-the-article-with-hexo-180409/</id>
+    <published>2018-04-09T02:23:00.000Z</published>
+    <updated>2018-04-09T11:45:30.921Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexoで新しい記事を作成する手順を忘れたのでメモ</p>
+<h1 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo new &#123;記事のタイトル&#125;</div><div class="line">hexo server hexo s -p $PORT</div><div class="line">hexo deploy -g</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="1新しい記事の作成"><a href="#1-新しい記事の作成" class="headerlink" title="1.新しい記事の作成"></a>1.新しい記事の作成</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &#123;記事のタイトル&#125;</div></pre></td></tr></table></figure>
+<p><code>blog/sourc/_posts</code>に<code>{記事のタイトル}.md</code>が作成される</p>
+<h1 id="2ローカルサーバを立ててサイトを確認する"><a href="#2-ローカルサーバを立ててサイトを確認する" class="headerlink" title="2.ローカルサーバを立ててサイトを確認する"></a>2.ローカルサーバを立ててサイトを確認する</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server hexo s -p $PORT</div></pre></td></tr></table></figure>
+<h1 id="3記事を書いたら公開"><a href="#3-記事を書いたら公開" class="headerlink" title="3.記事を書いたら公開"></a>3.記事を書いたら公開</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy -g</div></pre></td></tr></table></figure>
+<p><code>deploy</code>が公開するコマンド<br><code>-g</code>オプションでマークダウンで書かれたファイルからhtmlが生成される</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexoで新しい記事を作成する手順を忘れたのでメモ&lt;/p&gt;
+&lt;h1 id=&quot;まとめ&quot;&gt;&lt;a href=&quot;#まとめ&quot; class=&quot;headerlink&quot; title=&quot;まとめ&quot;&gt;&lt;/a&gt;まとめ&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo new &amp;#123;記事のタイトル&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo server hexo s -p $PORT&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo deploy -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://keijirotanabe.github.io/blog/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://keijirotanabe.github.io/blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>OneBitLoaderでソフトウェアシリアルを使用した書き込みの際に使うピンを変更</title>
     <link href="https://keijirotanabe.github.io/blog/2017/03/05/one-bit-loader-change-pin-170306/"/>
     <id>https://keijirotanabe.github.io/blog/2017/03/05/one-bit-loader-change-pin-170306/</id>
     <published>2017-03-05T23:21:20.000Z</published>
-    <updated>2017-03-06T08:27:50.626Z</updated>
+    <updated>2017-03-06T08:27:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>skyriverさん制作の「OneBitLoader」で、ソフトウェア通信を使用した書き込みの際、使用するピンを変更する手順をまとめました。<br>使用するPICは「PIC16F88」で、デフォルトでは「RA7」が使用されています。<br>この記事では、仮に「RB5」に変更したい、という前提で説明して行きます。</p>
 <a id="more"></a>
@@ -92,7 +123,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/03/05/cc5x-mplab-8-install-170306/"/>
     <id>https://keijirotanabe.github.io/blog/2017/03/05/cc5x-mplab-8-install-170306/</id>
     <published>2017-03-05T20:48:07.000Z</published>
-    <updated>2017-03-06T06:39:59.492Z</updated>
+    <updated>2017-03-06T06:39:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>無料で使えるC言語コンパイラのCC5XをMPLAB IDE v8.92から開発できるようにするまでの手順を紹介します。</p>
 <a id="more"></a>
@@ -170,7 +201,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/26/raspberry-pi-set-without-using-monitor-170227/</id>
     <published>2017-02-26T21:48:22.000Z</published>
-    <updated>2017-02-28T09:07:08.524Z</updated>
+    <updated>2017-02-28T09:07:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>Raspberry Piでモニターなど周辺を使用せずセットアップする方法を解説します。</p>
 <ul>
@@ -280,39 +311,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://keijirotanabe.github.io/blog/2017/02/22/hello-world/"/>
-    <id>https://keijirotanabe.github.io/blog/2017/02/22/hello-world/</id>
-    <published>2017-02-22T06:03:07.935Z</published>
-    <updated>2017-02-22T06:03:07.935Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="quick-start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Cloud9からHexoを使ってGutHub Pagesにブログを公開する手順</title>
     <link href="https://keijirotanabe.github.io/blog/2017/02/22/Cloud9%E3%81%A8HEXO%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6GutHub%20Pages%E3%81%AB%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B%E6%89%8B%E9%A0%86/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/22/Cloud9とHEXOを使ってGutHub Pagesにブログを公開する手順/</id>
-    <published>2017-02-22T04:47:46.766Z</published>
-    <updated>2017-02-22T04:47:46.766Z</updated>
+    <published>2017-02-22T02:23:00.000Z</published>
+    <updated>2018-04-09T11:27:31.873Z</updated>
     
     <content type="html"><![CDATA[<p>Cloud9にHexoをインストールし作成したブログをGitHub Pagesに公開するやり方をメモ</p>
 <h1 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h1><ul>
@@ -424,7 +427,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/18/esp8266-virtural-serial-port-170218/</id>
     <published>2017-02-18T03:43:27.000Z</published>
-    <updated>2017-02-22T06:02:38.459Z</updated>
+    <updated>2017-02-22T06:02:38.000Z</updated>
     
     <content type="html"><![CDATA[<p>PCに仮想COMポートソフトをインストールし、従来のRS232C通信のようにやりとりします。<br>これにより、COMポートからWiFi経由で、遠くのESP8266と通信できるようなります。</p>
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
@@ -555,7 +558,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/17/esp8266-at-command-170218/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/17/esp8266-at-command-170218/</id>
     <published>2017-02-17T22:02:23.000Z</published>
-    <updated>2017-02-22T05:53:07.983Z</updated>
+    <updated>2017-02-22T05:53:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>ESP8266でATコマンドを使ってみる</p>
 <h1 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h1><h2 id="使用する環境"><a href="#使用する環境" class="headerlink" title="使用する環境"></a>使用する環境</h2><ul>
@@ -739,7 +742,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/17/google-photo-not-show-170217/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/17/google-photo-not-show-170217/</id>
     <published>2017-02-17T03:27:09.000Z</published>
-    <updated>2017-02-22T05:36:39.992Z</updated>
+    <updated>2017-02-22T05:36:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>ブログ用の画像をGoogleフォトから呼び出していたが、表示されなくなったので解決策をメモ</p>
 <a id="more"></a>
@@ -768,7 +771,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/15/hexo-search-add-170216/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/15/hexo-search-add-170216/</id>
     <published>2017-02-15T19:01:51.000Z</published>
-    <updated>2017-02-22T06:04:14.451Z</updated>
+    <updated>2017-02-22T06:04:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>Hexoのテーマicarusでサイト内検索を追加するのにつまづいたのでメモ</p>
 <a id="more"></a>
@@ -812,7 +815,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/15/hexo-disqus-add-comment-170215/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/15/hexo-disqus-add-comment-170215/</id>
     <published>2017-02-15T13:03:55.000Z</published>
-    <updated>2017-02-22T07:26:06.527Z</updated>
+    <updated>2017-02-22T07:26:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>HexoにDisqusでコメント機能を追加する手順をまとめました</p>
 <h1 id="disqus-公式サイト"><a href="#Disqus-公式サイト" class="headerlink" title="Disqus 公式サイト"></a>Disqus 公式サイト</h1><p><a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a></p>
@@ -867,7 +870,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/14/hexo-toc-install-170215/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/14/hexo-toc-install-170215/</id>
     <published>2017-02-14T18:59:49.000Z</published>
-    <updated>2017-02-22T07:13:53.440Z</updated>
+    <updated>2017-02-22T07:13:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>Hexoで目次を自動で作成してくれる<code>hexo-toc</code>を使うための手順をまとめました</p>
 <p><img src="https://drive.google.com/uc?export=view&id=1x4xI-vlOBWh6eCNJcSQrq6G5tfo2zmy9Yg" style="width: 320px; height: 200px;"></p>
@@ -913,7 +916,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/14/esp8266-oled-how-to-use-170214/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/14/esp8266-oled-how-to-use-170214/</id>
     <published>2017-02-14T02:20:26.000Z</published>
-    <updated>2017-02-22T05:51:53.035Z</updated>
+    <updated>2017-02-22T05:51:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>有機ＥＬキャラクタディスプレイモジュールをESP8266(ESP-WROOM-02)でmikroCのLcd Library風に使う</p>
 <p>これみたいに使う<br>mikroC PRO for PIC &gt; Lcd Library<br>→ <a href="https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm" target="_blank" rel="external">https://download.mikroe.com/documents/compilers/mikroc/pic/help/lcd_library.htm</a></p>
@@ -1299,7 +1302,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/11/command-prompt-start-up-170211/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/11/command-prompt-start-up-170211/</id>
     <published>2017-02-11T01:41:44.000Z</published>
-    <updated>2017-02-22T04:57:43.853Z</updated>
+    <updated>2017-02-22T04:57:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>コマンドプロンプトの起動方法をメモ</p>
 <a id="more"></a>
@@ -1403,7 +1406,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/10/win32-disk-imager-170211/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/10/win32-disk-imager-170211/</id>
     <published>2017-02-10T19:56:35.000Z</published>
-    <updated>2017-02-22T05:53:50.667Z</updated>
+    <updated>2017-02-22T05:53:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>SDカードやUSBメモリーにイメージファイルを書き出せるソフトWin32DiskImagerを説明します</p>
 <a id="more"></a>
@@ -1465,7 +1468,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/10/sd-formatter-4-170210/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/10/sd-formatter-4-170210/</id>
     <published>2017-02-10T06:13:41.000Z</published>
-    <updated>2017-02-22T05:53:44.079Z</updated>
+    <updated>2017-02-22T05:53:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>SDカードフォーマッターの使い方を説明<br>SDカードフォーマッターは、SD / SDHC / SDXC カードのフォーマットに対応し、メモリーカードの性能が最適になるように設計されています。</p>
 <a id="more"></a>
@@ -1508,7 +1511,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/09/node-js-how-to-170210/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/09/node-js-how-to-170210/</id>
     <published>2017-02-09T19:56:47.000Z</published>
-    <updated>2017-02-22T05:47:16.967Z</updated>
+    <updated>2017-02-22T05:47:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>Node.jsでHTTPサーバー起動を起動して、「Hello World!」をブラウザで表示するまでを丁寧に説明</p>
 <h1 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h1><ul>
@@ -1598,7 +1601,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/09/node-js-install-step-170210/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/09/node-js-install-step-170210/</id>
     <published>2017-02-09T19:54:23.000Z</published>
-    <updated>2017-02-22T05:47:17.871Z</updated>
+    <updated>2017-02-22T05:47:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>Node.jsのインストール方法の解説</p>
 <h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="https://nodejs.org/ja/" target="_blank" rel="external">https://nodejs.org/ja/</a></p>
@@ -1652,7 +1655,7 @@
     <link href="https://keijirotanabe.github.io/blog/2017/02/08/fritzing-install-170208/"/>
     <id>https://keijirotanabe.github.io/blog/2017/02/08/fritzing-install-170208/</id>
     <published>2017-02-08T03:42:50.000Z</published>
-    <updated>2017-02-22T05:53:21.027Z</updated>
+    <updated>2017-02-22T05:53:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>回路図が書けるFritzingをインストールするまで</p>
 <h1 id="公式サイト"><a href="#公式サイト" class="headerlink" title="公式サイト"></a>公式サイト</h1><p><a href="http://fritzing.org/home/" target="_blank" rel="external">http://fritzing.org/home/</a></p>

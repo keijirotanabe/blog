@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://keijirotanabe.github.io/blog/"/>
-  <updated>2018-04-09T11:45:30.921Z</updated>
+  <updated>2018-04-09T11:46:42.124Z</updated>
   <id>https://keijirotanabe.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://keijirotanabe.github.io/blog/2018/04/09/create-the-article-with-hexo-180409/"/>
     <id>https://keijirotanabe.github.io/blog/2018/04/09/create-the-article-with-hexo-180409/</id>
     <published>2018-04-09T02:23:00.000Z</published>
-    <updated>2018-04-09T11:45:30.921Z</updated>
+    <updated>2018-04-09T11:46:42.124Z</updated>
     
     <content type="html"><![CDATA[<p>Hexoで新しい記事を作成する手順を忘れたのでメモ</p>
 <h1 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo new &#123;記事のタイトル&#125;</div><div class="line">hexo server hexo s -p $PORT</div><div class="line">hexo deploy -g</div></pre></td></tr></table></figure>
